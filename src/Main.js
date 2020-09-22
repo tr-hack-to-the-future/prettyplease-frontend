@@ -1,11 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar';
-
+import MyNavbar from './MyNavbar';
 
 function Main() {
   return (
     <div className="Main">
-      <Navbar />
+      <MyNavbar />
 
       <h2>Main</h2>
 

@@ -1,13 +1,15 @@
 import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
-function Navbar() {
+function MyNavbar() {
   return (
-    <div className="Navbar">
+    <div className="MyNavbar">
 
 
-      <h1>Navbar</h1>
-      {/* { <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg">
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -22,15 +24,15 @@ function Navbar() {
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form inline>
+          {/* <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
-      </Navbar> } */}
+      </Navbar>
 
     </div>
   );
 }
 
-export default Navbar;
+export default MyNavbar;
