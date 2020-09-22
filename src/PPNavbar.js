@@ -4,9 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
-function MyNavbar() {
+function PPNavbar() {
   return (
-    <div className="MyNavbar">
+    <div className="PPNavbar">
 
 
       <Navbar bg="light" expand="lg">
@@ -35,4 +35,4 @@ function MyNavbar() {
   );
 }
 
-export default MyNavbar;
+export default PPNavbar;

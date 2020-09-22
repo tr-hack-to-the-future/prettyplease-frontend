@@ -1,10 +1,10 @@
 import React from 'react';
-import MyNavbar from './MyNavbar';
+import PPNavbar from './PPNavbar';
 
 function Main() {
   return (
     <div className="Main">
-      <MyNavbar />
+      <PPNavbar />
 
       <h2>Main</h2>
 
