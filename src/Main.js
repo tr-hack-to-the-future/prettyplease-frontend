@@ -1,5 +1,5 @@
 import React from 'react';
-import PPNavbar from './PPNavbar';
+import PPNavbar from './components/PPNavbar';
 
 function Main() {
   return (
