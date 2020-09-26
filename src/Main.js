@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { Component, useState } from 'react';
 import PPNavbar from './components/PPNavbar';
 import Sponsorlist from './components/Sponsorlist';
 
 function Main({SponsorData}) {
+  const [navitems, setitems] = useState([
+    { itemName: "For Charities", activePage: true },
+    { itemName: "For Sponsor", activePage: false }
+    
+  ]);
+  
   return (
     <div className="Main">
-      <PPNavbar />
+      <PPNavbar NavItems={navitems}/>
 
       <h2>Main</h2>
       <Sponsorlist SponsorData={SponsorData}/>

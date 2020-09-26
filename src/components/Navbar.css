@@ -1,0 +1,9 @@
+.navpurple {
+    background-color: #5e35b1;
+  }
+  
+@media screen and (max-width: 1000px) {
+    div.hideonmobile {
+      display: none;
+    }
+  }
