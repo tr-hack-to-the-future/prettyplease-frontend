@@ -4,16 +4,17 @@ import PPNavbar from './PPNavbar';
 
 
 function CharityPage() {
-    const [navitems, setitems] = useState([
+    const [navitems, setnavitems] = useState([
         { itemName: "Review and Accept", activePage: true },
         { itemName: "New Request", activePage: false }
         
       ]);
+    const [showProfile,setshowProfile] = useState(true);
 
 
     return (
         <div className="ReviewAccept">
-        <PPNavbar NavItems={navitems}/>
+        <PPNavbar NavItems={navitems} showProfile={showProfile}/>
         <h1>Charity Page</h1>
         </div>
 

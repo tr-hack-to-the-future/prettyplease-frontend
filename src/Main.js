@@ -8,10 +8,11 @@ function Main({SponsorData}) {
     { itemName: "For Sponsor", activePage: false }
     
   ]);
+  const [showProfile,setshowProfile] = useState(false);
   
   return (
     <div className="Main">
-      <PPNavbar NavItems={navitems}/>
+      <PPNavbar NavItems={navitems}  showProfile={showProfile}/>
 
       <h2>Main</h2>
       <Sponsorlist SponsorData={SponsorData}/>
