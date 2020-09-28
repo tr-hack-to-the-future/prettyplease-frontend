@@ -3,7 +3,7 @@ import './Navbar.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import NewRequest from './NewRequest';
+import FundRequest from './FundRequest';
 
 import CharityPage from './CharityPage';
 import SponsorPage from './SponsorPage';

@@ -11,8 +11,8 @@ import Button from 'react-bootstrap/Button';
 
 function FundRequest() {
     const [navitems, setnavitems] = useState([
-        { itemName: "Review and Accept", activePage: false },
-        { itemName: "Raise Funds", activePage: true }
+        { itemName: "Review and Accept",itemLink:"CharityPage",itemAddr: "CharityPage",  activePage: false },
+        { itemName: "Raise Funds",itemLink:"",itemAddr: "",  activePage: true }
 
     ]);
     const [showProfile, setshowProfile] = useState(true);

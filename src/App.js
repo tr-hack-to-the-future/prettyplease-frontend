@@ -3,7 +3,7 @@ import './App.css';
 import Main from './Main.js';
 import SponsorPage from './components/SponsorPage';
 import CharityPage from './components/CharityPage';
-import NewRequest from './components/FundRequest';
+import FundRequest from './components/FundRequest';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
@@ -52,7 +52,7 @@ export default function App() {
             <CharityPage />
           </Route>
           <Route path="/FundRequest">
-            <NewRequest />
+            <FundRequest />
           </Route>
           <Route path="/">
           <Main SponsorData={sponsor} />
