@@ -7,7 +7,8 @@ import NewRequest from './NewRequest';
 
 import CharityPage from './CharityPage';
 import SponsorPage from './SponsorPage';
-import Main from './Main.js';
+import Main from '../Main.js';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -47,7 +48,8 @@ function PPNavbar({ NavItems, showProfile }) {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ">
               {NavItems.map(item =>
-                <li className={item.activePage ? navItemActive : navItemInactive}><a class="nav-link" href={item.itemAddr}>{item.itemName}</a>
+                <li className={item.activePage ? navItemActive : navItemInactive}>
+                  <a class="nav-link" href={item.itemAddr}>{item.itemName}</a>
                 </li>)}
             </ul>
             <ul className="navbar-nav ml-auto mt-2 mt-lg-0">

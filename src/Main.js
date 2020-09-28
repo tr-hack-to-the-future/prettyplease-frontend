@@ -1,8 +1,8 @@
 import React, { Component, useState } from 'react';
-import PPNavbar from './PPNavbar';
-import Sponsorlist from './Sponsorlist';
-import CharityPage from './CharityPage';
-import SponsorPage from './SponsorPage';
+import PPNavbar from './components/PPNavbar';
+import Sponsorlist from './components/Sponsorlist';
+import CharityPage from './components/CharityPage';
+import SponsorPage from './components/SponsorPage';
 
 function Main({SponsorData}) {
   const [navitems, setitems] = useState([

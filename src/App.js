@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import './App.css';
-import Main from './components/Main.js';
+import Main from './Main.js';
 import SponsorPage from './components/SponsorPage';
 import CharityPage from './components/CharityPage';
 import NewRequest from './components/NewRequest';
