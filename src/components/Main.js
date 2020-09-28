@@ -1,11 +1,13 @@
 import React, { Component, useState } from 'react';
-import PPNavbar from './components/PPNavbar';
-import Sponsorlist from './components/Sponsorlist';
+import PPNavbar from './PPNavbar';
+import Sponsorlist from './Sponsorlist';
+import CharityPage from './CharityPage';
+import SponsorPage from './SponsorPage';
 
 function Main({SponsorData}) {
   const [navitems, setitems] = useState([
-    { itemName: "For Charities", activePage: true },
-    { itemName: "For Sponsor", activePage: false }
+    { itemName: "For Charities", itemLink:"/CharityPage", itemAddr: "CharityPage",activePage: false },
+    { itemName: "For Sponsor", itemLink:"/SponsorPage", itemAddr: "SponsorPage",activePage: false}
     
   ]);
   const [showProfile,setshowProfile] = useState(false);
