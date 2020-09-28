@@ -101,7 +101,7 @@ function FundRequest() {
             {/* Button register*/}
                 <Row>
 
-                    <Col md={{ span: 2, offset: 5}}>
+                    <Col md={{ span: 2, offset: 6}}>
                         <Button variant="outline-primary">Register</Button>{' '}
                     </Col>
                 </Row>
