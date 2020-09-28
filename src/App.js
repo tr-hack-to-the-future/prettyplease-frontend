@@ -3,7 +3,7 @@ import './App.css';
 import Main from './Main.js';
 import SponsorPage from './components/SponsorPage';
 import CharityPage from './components/CharityPage';
-import NewRequest from './components/NewRequest';
+import NewRequest from './components/FundRequest';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
@@ -37,7 +37,7 @@ export default function App() {
               <Link to="/ForCharities">For Charities</Link>
             </li>
             <li>
-              <Link to="/NewRequest">New Request</Link>
+              <Link to="/FundRequest">Fund Request</Link>
             </li>
           </ul>
         </nav>
@@ -51,7 +51,7 @@ export default function App() {
           <Route path="/ForCharities">
             <CharityPage />
           </Route>
-          <Route path="/NewRequest">
+          <Route path="/FundRequest">
             <NewRequest />
           </Route>
           <Route path="/">
