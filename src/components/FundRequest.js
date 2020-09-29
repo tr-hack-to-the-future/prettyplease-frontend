@@ -17,45 +17,64 @@ function FundRequest() {
     ]);
     const [showProfile, setshowProfile] = useState(true);
 
-    const [amount, setAmount]= useState("");
-    const [description, setDescription]= useState("");
-    const [duration, setDuration]= useState("");
-    const [incentive, setIncentive]= useState("");
+    const [amount, setAmount] = useState("");
+    const [description, setDescription] = useState("");
+    let [duration, setDuration] = useState("");
+    const [durationText, setDurationText] = useState("");
+    const [incentive, setIncentive] = useState("");
 
 
     const handlerAmount = (event) => {
-       setAmount(event.target.value);
-       console.log (amount);
-        
+        setAmount(event.target.value);
+        if (!Number.isInteger(amount)) throw new Error("n should be an integer");
+        console.log(amount);
+
     }
     const handlerDescription = (event) => {
         setDescription(event.target.value);
 
-     }
-     const handlerIncentive = (event) => {
+    }
+    const handlerIncentive = (event) => {
         setIncentive(event.target.value);
-     }
+    }
 
-     const handlerDurationOneOff = (event) => {
-       setDuration(event.target.value);
-       console.log ("The duration has been changed");
-       console.log (duration.toString());
-     }
+    const handlerDurationText = (event) => {
+        setDurationText(event.target.value);
+
+    }
+
+    const handlerDuration = (event) => {
+
+        setDuration(event.target.value);
+
+    }
+
+
 
     const handlerRegister = (event) => {
 
-        const charityRequest= {
-            amount: amount ,
+        if (duration !== "0") {
+            duration = durationText;
+
+        }
+
+        const charityRequest = {
+            amount: amount,
             description: description,
             incentive: incentive,
             duration: duration
         }
-        console.log (charityRequest);
-        // const newcharityRequest = [...charityRequest];
+        console.log(charityRequest);
         setAmount("");
         setDescription("");
         setIncentive("");
-        handlerDurationOneOff("");
+        setDuration("off");
+        setDurationText("");
+    }
+
+    const handleronSubmit= (event) =>{
+        event.preventDefault();
+        console.log(this.state);
     }
 
 
@@ -76,23 +95,23 @@ function FundRequest() {
                 {/* Fund Request form */}
                 <Row>
                     <Col md={{ span: 6, offset: 3 }}>
-                        <Form>
+                        <Form onSubmit={handleronSubmit}>
                             {/* Amount Fund request field*/}
                             <Form.Group controlId="amountRequest">
                                 <Form.Label>Amount:</Form.Label>
-                                <Form.Control 
-                                type="amountRequest" 
-                                placeholder="£1,000"
-                                onChange={ handlerAmount } 
-                                value= {amount} />
+                                <Form.Control
+                                    type="amountRequest"
+                                    placeholder="£1,000"
+                                    onChange={handlerAmount}
+                                    value={amount} />
                             </Form.Group>
 
                             {/* Description Fund request field*/}
                             <Form.Group controlId="descriptionRequest">
                                 <Form.Label>Description:</Form.Label>
-                                <Form.Control as="textarea" rows="3" 
-                                onChange={ handlerDescription } 
-                                value= {description} 
+                                <Form.Control as="textarea" rows="3"
+                                    onChange={handlerDescription}
+                                    value={description}
                                 />
                             </Form.Group>
 
@@ -109,17 +128,21 @@ function FundRequest() {
                                             label="One-Off"
                                             name="radioDurationOneOff"
                                             id="radioDurationOneOff"
-                                            onChange={ handlerDurationOneOff}
+                                            value="0"
                                             // checked={true}
+                                            onChange={handlerDuration}
+
                                         />
 
-                                         {/* Duration x months*/}
+                                        {/* Duration x months*/}
                                         <Form inline className="radioDurationMonths">
                                             <Form.Check
                                                 type="radio"
                                                 label=""
                                                 name="radioDurationMonths"
                                                 id="radioDurationMonths"
+                                                value="12"
+                                                onChange={handlerDuration}
                                             />
 
                                             <Form.Label className="radioDurationMonths" htmlFor="durationMonths" srOnly>
@@ -128,7 +151,9 @@ function FundRequest() {
                                             <Form.Control size="sm"
                                                 className="mb-2 mr-sm-2"
                                                 id="durationMonths"
-                                                placeholder="18 months"
+                                                placeholder="12 months"
+                                                onChange={handlerDurationText}
+                                                value={durationText}
                                             />
                                         </Form>
 
@@ -136,12 +161,12 @@ function FundRequest() {
                                 </Form.Group>
                             </fieldset>
 
-                         {/* Incentive Fund request field*/}
+                            {/* Incentive Fund request field*/}
                             <Form.Group controlId="incentiveRequest">
                                 <Form.Label>Incentive:</Form.Label>
-                                <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)" 
-                                onChange={ handlerIncentive} 
-                                value= {incentive} 
+                                <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)"
+                                    onChange={handlerIncentive}
+                                    value={incentive}
                                 />
                             </Form.Group>
 
@@ -151,11 +176,11 @@ function FundRequest() {
                     </Col>
                 </Row>
 
-            {/* Button register*/}
+                {/* Button register*/}
                 <Row>
 
-                    <Col md={{ span: 2, offset: 6}}>
-                        <Button onClick= { handlerRegister} variant="outline-primary">Register</Button>
+                    <Col md={{ span: 2, offset: 8 }}>
+                        <Button onClick={handlerRegister} variant="outline-primary" type="submit">Submit</Button>
                     </Col>
                 </Row>
 
