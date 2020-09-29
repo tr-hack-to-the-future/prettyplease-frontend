@@ -17,6 +17,47 @@ function FundRequest() {
     ]);
     const [showProfile, setshowProfile] = useState(true);
 
+    const [amount, setAmount]= useState("");
+    const [description, setDescription]= useState("");
+    const [duration, setDuration]= useState("");
+    const [incentive, setIncentive]= useState("");
+
+
+    const handlerAmount = (event) => {
+       setAmount(event.target.value);
+       console.log (amount);
+        
+    }
+    const handlerDescription = (event) => {
+        setDescription(event.target.value);
+
+     }
+     const handlerIncentive = (event) => {
+        setIncentive(event.target.value);
+     }
+
+     const handlerDurationOneOff = (event) => {
+       setDuration(event.target.value);
+       console.log ("The duration has been changed");
+       console.log (duration.toString());
+     }
+
+    const handlerRegister = (event) => {
+
+        const charityRequest= {
+            amount: amount ,
+            description: description,
+            incentive: incentive,
+            duration: duration
+        }
+        console.log (charityRequest);
+        // const newcharityRequest = [...charityRequest];
+        setAmount("");
+        setDescription("");
+        setIncentive("");
+        handlerDurationOneOff("");
+    }
+
 
     return (
         <div className="FundRequest">
@@ -39,13 +80,20 @@ function FundRequest() {
                             {/* Amount Fund request field*/}
                             <Form.Group controlId="amountRequest">
                                 <Form.Label>Amount:</Form.Label>
-                                <Form.Control type="amountRequest" placeholder="£1,000" />
+                                <Form.Control 
+                                type="amountRequest" 
+                                placeholder="£1,000"
+                                onChange={ handlerAmount } 
+                                value= {amount} />
                             </Form.Group>
 
                             {/* Description Fund request field*/}
                             <Form.Group controlId="descriptionRequest">
                                 <Form.Label>Description:</Form.Label>
-                                <Form.Control as="textarea" rows="3" />
+                                <Form.Control as="textarea" rows="3" 
+                                onChange={ handlerDescription } 
+                                value= {description} 
+                                />
                             </Form.Group>
 
                             {/* Select duration agreement field*/}
@@ -61,6 +109,8 @@ function FundRequest() {
                                             label="One-Off"
                                             name="radioDurationOneOff"
                                             id="radioDurationOneOff"
+                                            onChange={ handlerDurationOneOff}
+                                            // checked={true}
                                         />
 
                                          {/* Duration x months*/}
@@ -89,7 +139,10 @@ function FundRequest() {
                          {/* Incentive Fund request field*/}
                             <Form.Group controlId="incentiveRequest">
                                 <Form.Label>Incentive:</Form.Label>
-                                <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)" />
+                                <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)" 
+                                onChange={ handlerIncentive} 
+                                value= {incentive} 
+                                />
                             </Form.Group>
 
                         </Form>
@@ -102,7 +155,7 @@ function FundRequest() {
                 <Row>
 
                     <Col md={{ span: 2, offset: 6}}>
-                        <Button variant="outline-primary">Register</Button>{' '}
+                        <Button onClick= { handlerRegister} variant="outline-primary">Register</Button>
                     </Col>
                 </Row>
 
