@@ -22,16 +22,12 @@ function FundRequest() {
     const [duration, setDuration] = useState("");
     const [durationText, setDurationText] = useState("");
     const [incentive, setIncentive] = useState("");
-    let [error, setError] = useState("");
+    const [validated, setValidated] = useState(false);
+    
 
 
     const handlerAmount = (event) => {
 
-        if (!Number(event.target.value)) {
-            console.log("Inside error number");
-            //   err = <strong>Your age must be a number</strong>;
-            }
-        // setError (err);
         setAmount(Number(event.target.value));
 
     }
@@ -45,11 +41,6 @@ function FundRequest() {
 
     const handlerDurationText = (event) => {
    
-        if (!Number(event.target.value)) {
-            console.log("Inside error number");
-            //   err = <strong>Your age must be a number</strong>;
-        }
-
         setDuration(Number(event.target.value));
 
     }
@@ -60,26 +51,56 @@ function FundRequest() {
 
     }
 
+   
+      
     const handlerRegister = (event) => {
 
-        const charityRequest = {
-            amount: amount,
-            description: description,
-            incentive: incentive,
-            duration: duration
-        }
-        console.log(charityRequest);
-        setAmount("");
-        setDescription("");
-        setIncentive("");
-        setDuration("off");
-        setDurationText("");
-    }
-
-    const handleronSubmit= (event) =>{
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+          console.log("Entro en error de validacion");
         event.preventDefault();
-        console.log(this.state);
-    }
+        event.stopPropagation();
+      }else{
+  
+        console.log("Validacion OK");
+            setValidated(true);
+            const charityRequest = {
+                amount: amount,
+                description: description,
+                incentive: incentive,
+                duration: duration
+                    }
+            console.log(charityRequest);
+            // setAmount("");
+            // setDescription("");
+            // setIncentive("");
+            // setDuration("off");
+            // setDurationText("");
+
+        }
+    };
+
+
+    // const handlerRegister = (event) => {
+
+    //     const charityRequest = {
+    //         amount: amount,
+    //         description: description,
+    //         incentive: incentive,
+    //         duration: duration
+    //     }
+    //     console.log(charityRequest);
+    //     setAmount("");
+    //     setDescription("");
+    //     setIncentive("");
+    //     setDuration("off");
+    //     setDurationText("");
+    // }
+
+    // const handleronSubmit= (event) =>{
+    //     event.preventDefault();
+    //     console.log(this.state);
+    // }
 
 
     return (
@@ -88,10 +109,8 @@ function FundRequest() {
 
             <Container className="container-FundRequest">
                 {/* Title */}
-
-          
-
-                <Row className="page-heading">
+        
+               <Row className="page-heading">
                     <Col xs={12} md={{ span: 4, offset: 4 }}>
                         <h3>Let's get started!</h3>
                         <h6>Tell us what you're raising money for</h6>
@@ -102,25 +121,35 @@ function FundRequest() {
                 {/* Fund Request form */}
                 <Row>
                     <Col md={{ span: 6, offset: 3 }}>
-                        <Form onSubmit={handleronSubmit}>
+                    <Form noValidate validated={validated} onSubmit={handlerRegister}>
+                        {/* <Form onSubmit={handleronSubmit}> */}
                             {/* Amount Fund request field*/}
+                            
                             <Form.Group controlId="amountRequest">
                                 <Form.Label>Amount:</Form.Label>
                                 <Form.Control
-                                    type="amountRequest"
+                                    required
+                                    type="number"
                                     placeholder="£1,000"
                                     onChange={handlerAmount}
                                     value={amount} />
                             </Form.Group>
+                            <Form.Control.Feedback type="invalid">
+                                Please introduce an amount.
+                            </Form.Control.Feedback>
 
                             {/* Description Fund request field*/}
                             <Form.Group controlId="descriptionRequest">
                                 <Form.Label>Description:</Form.Label>
                                 <Form.Control as="textarea" rows="3"
+                                    required
                                     onChange={handlerDescription}
                                     value={description}
                                 />
                             </Form.Group>
+                            <Form.Control.Feedback type="invalid">
+                                Please introduce a description of the request.
+                            </Form.Control.Feedback>
 
                             {/* Select duration agreement field*/}
                             <fieldset>
@@ -155,9 +184,11 @@ function FundRequest() {
                                             />
 
                                             <Form.Label className="radioDurationMonths" htmlFor="durationMonths" srOnly>
-                                                Name
+
                                             </Form.Label>
+                                            
                                             <Form.Control size="sm"
+                                                type="number"
                                                 className="mb-2 mr-sm-2"
                                                 id="durationMonths"
                                                 placeholder="12"
@@ -179,10 +210,14 @@ function FundRequest() {
                             <Form.Group controlId="incentiveRequest">
                                 <Form.Label>Incentive:</Form.Label>
                                 <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)"
+                                    required
                                     onChange={handlerIncentive}
                                     value={incentive}
                                 />
                             </Form.Group>
+                            <Form.Control.Feedback type="invalid">
+                                Please introduce an incentive of the request.
+                            </Form.Control.Feedback>
 
                         </Form>
 
