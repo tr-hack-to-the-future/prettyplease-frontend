@@ -19,15 +19,20 @@ function FundRequest() {
 
     const [amount, setAmount] = useState("");
     const [description, setDescription] = useState("");
-    let [duration, setDuration] = useState("");
+    const [duration, setDuration] = useState("");
     const [durationText, setDurationText] = useState("");
     const [incentive, setIncentive] = useState("");
+    let [error, setError] = useState("");
 
 
     const handlerAmount = (event) => {
-        setAmount(event.target.value);
-        if (!Number.isInteger(amount)) throw new Error("n should be an integer");
-        console.log(amount);
+
+        if (!Number(event.target.value)) {
+            console.log("Inside error number");
+            //   err = <strong>Your age must be a number</strong>;
+            }
+        // setError (err);
+        setAmount(Number(event.target.value));
 
     }
     const handlerDescription = (event) => {
@@ -39,24 +44,23 @@ function FundRequest() {
     }
 
     const handlerDurationText = (event) => {
-        setDurationText(event.target.value);
+   
+        if (!Number(event.target.value)) {
+            console.log("Inside error number");
+            //   err = <strong>Your age must be a number</strong>;
+        }
+
+        setDuration(Number(event.target.value));
 
     }
 
     const handlerDuration = (event) => {
 
-        setDuration(event.target.value);
+        setDuration(Number(event.target.value));
 
     }
 
-
-
     const handlerRegister = (event) => {
-
-        if (duration !== "0") {
-            duration = durationText;
-
-        }
 
         const charityRequest = {
             amount: amount,
@@ -84,6 +88,9 @@ function FundRequest() {
 
             <Container className="container-FundRequest">
                 {/* Title */}
+
+          
+
                 <Row className="page-heading">
                     <Col xs={12} md={{ span: 4, offset: 4 }}>
                         <h3>Let's get started!</h3>
@@ -118,17 +125,19 @@ function FundRequest() {
                             {/* Select duration agreement field*/}
                             <fieldset>
                                 <Form.Group as={Row}>
+                                
                                     <Form.Label as="legend" column sm={2}>
                                         Duration:
                                     </Form.Label>
-                                    <Col sm={10}>
+                               
+                                    <Col sm={6}>
                                         {/* Duration one-off*/}
                                         <Form.Check
                                             type="radio"
                                             label="One-Off"
                                             name="radioDurationOneOff"
                                             id="radioDurationOneOff"
-                                            value="0"
+                                            value= "0"
                                             // checked={true}
                                             onChange={handlerDuration}
 
@@ -151,13 +160,18 @@ function FundRequest() {
                                             <Form.Control size="sm"
                                                 className="mb-2 mr-sm-2"
                                                 id="durationMonths"
-                                                placeholder="12 months"
+                                                placeholder="12"
                                                 onChange={handlerDurationText}
                                                 value={durationText}
                                             />
+
+                                            <Form.Label as="legend" column sm={2}>
+                                                months
+                                            </Form.Label>
                                         </Form>
 
                                     </Col>
+
                                 </Form.Group>
                             </fieldset>
 
