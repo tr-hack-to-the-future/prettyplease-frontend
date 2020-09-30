@@ -39,7 +39,7 @@ function PPNavbar({ NavItems, showProfile }) {
     <Router>
       <div className="PPNavbar">
         <nav className="navbar navbar-expand-lg navbar-dark navpurple">
-          <a className="navbar-brand" href={homepg}>Pretty Please</a>
+          <a className="navbar-brand" href={homepg}>Pretty <span class="icon" role="img" aria-label="Please">🙏</span></a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
