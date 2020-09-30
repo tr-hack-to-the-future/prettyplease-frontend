@@ -1,53 +1,59 @@
 import React, { Component, useState } from 'react';
 import PPNavbar from './PPNavbar';
-import { Container, CardGroup, Card, Row, Col } from 'react-bootstrap';
-// import Card from 'react-bootstrap/Card';
-// import Container from 'react-bootstrap/Container';
-// import Button from 'react-bootstrap/Button'
-// import Image from 'react-bootstrap'
+import { Container, Card, Row, Col } from 'react-bootstrap';
 
 function SponsorCard() {
-    const [navitems, setnavitems] = useState([
-        { itemName: "Choose a Sponsorship Opportunity", activePage: true }
-
-    ]);
-    const [showProfile, setshowProfile] = useState(true);
+    // const [navitems, setnavitems] = useState([
+    //     { itemName: "Choose a Sponsorship Opportunity", activePage: true }
+    // ]);
+    // const [showProfile, setshowProfile] = useState(true);
 
     const styles = {
         card: {
-            width: "18rem"
+            padding: 'p-3',
+             width: "40rem",
+
         },
         cardImage: {
-            height: "20",
-            width: "20"
-        } 
+            // padding: "5%"
+        }
 
     }
+    // TODO - props
+    const amount = "£1500";
+    const duration = "1 year";
+    // TODO - create logo as component?
+
 
     return (
         <Container>
-            <div className="card-deck mt-4">
-                <div className="col sm-12 md-6 lg-6">
-                    <Card className="m-2 border-1 shadow" style={ styles.card }>
-                        <Card.Img variant="top" src={require("./foodbank-logo.png")} style={styles.cardImage } />
-                        {/* <Card.Img src={require("../assets/images/findingsPage/EnglishesOfTheWorld.jpg")} style={styles.cardImage} /> */}
+            <Card className="m-2 border-1 shadow" style={styles.card}>
+                <Row>
+                    <Col>
+                        <Card.Img variant="top" src={require("./foodbank-logo.png")} style={styles.cardImage} alt="Charity image" />
+                    </Col>
+                    <Col>
                         <Card.Body>
                             <Card.Title>Foodbank</Card.Title>
                             <a href="Charity1.html" class="stretched-link">
-                            <Card.Text>
-                                Help underwrite some of our operating costs by becoming a ‘Friend’ of our Foodbank.
-                            </Card.Text>
+                                <Card.Text>
+                                    Help underwrite some of our operating costs by becoming a ‘Friend’ of our Foodbank.
+                                </Card.Text>
                             </a>
                             {/* <Button variant="primary">Go somewhere</Button> */}
                             <div>
-                                <span className="card-text inline col-sm-12 col-md-6 pl-0 pr-1 small">Amount: £1500</span>
-                                <span className="card-text inline col-sm-12 col-md-6 p-0 small">Duration: 1 year</span>
+                                <span className="card-text inline col-sm-12 col-md-6 pl-0 pr-1 small">Amount: {amount}</span>
+                                <span className="card-text inline col-sm-12 col-md-6 p-0 small">Duration: {duration}</span>
                             </div>
                         </Card.Body>
-                    </Card>
+
+                    </Col>
+
+                </Row>
+            </Card>
 
 
-                    {/* <div className="card-deck mt-4">
+            {/* <div className="card-deck mt-4">
                     <div className="row">
                         <div className="col sm-12 md-6 lg-6">
                             <div
@@ -92,8 +98,6 @@ function SponsorCard() {
 
                 </div>
                  */}
-                </div>
-            </div>
         </Container>
     );
 }

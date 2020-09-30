@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, CardDeck, Row, Col } from 'react-bootstrap';
 import PPNavbar from './PPNavbar';
 import SponsorCard from './SponsorCard';
 
@@ -12,13 +12,15 @@ function SponsorPage() {
 
 
     return (
-        <div className="container">
-            <div className="SponsorPage">
-                <PPNavbar NavItems={navitems} showProfile={showProfile} />
-                <h1>Sponsorship Requests</h1>
-                <SponsorCard />
-            </div>
-        </div>
+        <Container  sm-12 md-6>
+            <PPNavbar NavItems={navitems} showProfile={showProfile} />
+            <h1>Sponsorship Requests</h1>
+            <Row>
+                <CardDeck className="mt-4">
+                    <SponsorCard />
+                </CardDeck>
+            </Row>
+        </Container>
     );
 }
 
