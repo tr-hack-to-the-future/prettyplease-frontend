@@ -5,13 +5,10 @@ import SponsorPage from './components/SponsorPage';
 import CharityPage from './components/CharityPage';
 import FundRequest from './components/FundRequest';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Switch, Link} from 'react-router-dom';
+import { Route } from 'react-router-dom'
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 
 export default function App() {
   const [sponsor, setSponsor] = useState([
