@@ -5,9 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import FormCheck from 'react-bootstrap/FormCheck';
 import Button from 'react-bootstrap/Button';
-
 
 function FundRequest() {
     const [navitems, setnavitems] = useState([
@@ -22,95 +21,51 @@ function FundRequest() {
     const [duration, setDuration] = useState("");
     const [durationText, setDurationText] = useState("");
     const [incentive, setIncentive] = useState("");
-    const [validated, setValidated] = useState(false);
-    
-
 
     const handlerAmount = (event) => {
-
         setAmount(Number(event.target.value));
-
     }
+
     const handlerDescription = (event) => {
         setDescription(event.target.value);
-
     }
+
     const handlerIncentive = (event) => {
         setIncentive(event.target.value);
     }
 
     const handlerDurationText = (event) => {
-   
         setDuration(Number(event.target.value));
-
     }
 
     const handlerDuration = (event) => {
-
         setDuration(Number(event.target.value));
-
     }
 
-   
-      
     const handlerRegister = (event) => {
-
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
-          console.log("Entro en error de validacion");
-        event.preventDefault();
-        event.stopPropagation();
-      }else{
-  
-        console.log("Validacion OK");
-            setValidated(true);
-            const charityRequest = {
-                amount: amount,
-                description: description,
-                incentive: incentive,
-                duration: duration
-                    }
-            console.log(charityRequest);
-            // setAmount("");
-            // setDescription("");
-            // setIncentive("");
-            // setDuration("off");
-            // setDurationText("");
-
+        const charityRequest = {
+            amount: amount,
+            description: description,
+            incentive: incentive,
+            duration: duration
         }
+
+        console.log(charityRequest);
+        setAmount("");
+        setDescription("");
+        setIncentive("");
+        setDuration("off");
+        setDurationText("");
     };
-
-
-    // const handlerRegister = (event) => {
-
-    //     const charityRequest = {
-    //         amount: amount,
-    //         description: description,
-    //         incentive: incentive,
-    //         duration: duration
-    //     }
-    //     console.log(charityRequest);
-    //     setAmount("");
-    //     setDescription("");
-    //     setIncentive("");
-    //     setDuration("off");
-    //     setDurationText("");
-    // }
-
-    // const handleronSubmit= (event) =>{
-    //     event.preventDefault();
-    //     console.log(this.state);
-    // }
-
 
     return (
         <div className="FundRequest">
             <PPNavbar NavItems={navitems} showProfile={showProfile} />
 
             <Container className="container-FundRequest">
+                
                 {/* Title */}
-        
-               <Row className="page-heading">
+                <Row className="page-heading">
                     <Col xs={12} md={{ span: 4, offset: 4 }}>
                         <h3>Let's get started!</h3>
                         <h6>Tell us what you're raising money for</h6>
@@ -118,14 +73,14 @@ function FundRequest() {
                     </Col>
                 </Row>
 
-                {/* Fund Request form */}
-                <Row>
+                {/* Fund Request form */}       
+                <Form.Row >
                     <Col md={{ span: 6, offset: 3 }}>
-                    <Form noValidate validated={validated} onSubmit={handlerRegister}>
-                        {/* <Form onSubmit={handleronSubmit}> */}
-                            {/* Amount Fund request field*/}
+                    
+                        <Form onSubmit={handlerRegister}>
                             
-                            <Form.Group controlId="amountRequest">
+                            {/* Amount Fund request field*/}
+                            <Form.Group controlId="exampleForm.ControlInput1">
                                 <Form.Label>Amount:</Form.Label>
                                 <Form.Control
                                     required
@@ -134,12 +89,9 @@ function FundRequest() {
                                     onChange={handlerAmount}
                                     value={amount} />
                             </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                Please introduce an amount.
-                            </Form.Control.Feedback>
 
                             {/* Description Fund request field*/}
-                            <Form.Group controlId="descriptionRequest">
+                            <Form.Group controlId="exampleForm.ControlTextarea1">
                                 <Form.Label>Description:</Form.Label>
                                 <Form.Control as="textarea" rows="3"
                                     required
@@ -147,67 +99,74 @@ function FundRequest() {
                                     value={description}
                                 />
                             </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                Please introduce a description of the request.
-                            </Form.Control.Feedback>
 
-                            {/* Select duration agreement field*/}
+                          
+                            {/* Duration radio buttons */}
                             <fieldset>
                                 <Form.Group as={Row}>
-                                
                                     <Form.Label as="legend" column sm={2}>
                                         Duration:
-                                    </Form.Label>
-                               
-                                    <Col sm={6}>
-                                        {/* Duration one-off*/}
-                                        <Form.Check
-                                            type="radio"
-                                            label="One-Off"
-                                            name="radioDurationOneOff"
-                                            id="radioDurationOneOff"
-                                            value= "0"
-                                            // checked={true}
-                                            onChange={handlerDuration}
+                                        </Form.Label>
+                                    <Col sm={10}>
 
-                                        />
-
-                                        {/* Duration x months*/}
-                                        <Form inline className="radioDurationMonths">
+                                        {/* Radio button Duration One-Off */}  
+                                        <Row>
                                             <Form.Check
                                                 type="radio"
-                                                label=""
-                                                name="radioDurationMonths"
-                                                id="radioDurationMonths"
-                                                value="12"
+                                                label="One-Off"
+                                                name="formHorizontalRadios"
+                                                id="radioDurationOneOff"
+                                                value="0"
+                                                onChange={handlerDuration}
+                                            />
+                                        </Row>
+
+                                        {/* Radio button Customise Duration. If the user press this option, the duration field is taken*/}  
+                                        <Row>
+                                            <Form.Check
+                                                type="radio"
+                                                aria-label="Customise Duration"
+                                                name="formHorizontalRadios"
+                                                id="radioDurationCustomiseDuration"
+                                                value="1"
                                                 onChange={handlerDuration}
                                             />
 
-                                            <Form.Label className="radioDurationMonths" htmlFor="durationMonths" srOnly>
-
-                                            </Form.Label>
                                             
-                                            <Form.Control size="sm"
-                                                type="number"
-                                                className="mb-2 mr-sm-2"
-                                                id="durationMonths"
-                                                placeholder="12"
-                                                onChange={handlerDurationText}
-                                                value={durationText}
-                                            />
+                                            {/* Form inline to show the radio button, textbox and label in the same line */}
+                                            <Form inline> 
 
-                                            <Form.Label as="legend" column sm={2}>
-                                                months
-                                            </Form.Label>
-                                        </Form>
+                                                {/* Customize duration textbox */}
+                                                <Form.Label htmlFor="inlineFormInputName2" srOnly>
+                                                    CustomiseDuration
+                                                </Form.Label>
+                                                <Form.Control
+                                                    size="sm"
+                                                    type="number"
+                                                    className="mb-2 mr-sm-2"
+                                                    id="inlineFormInputName2"
+                                                    placeholder="1"
+                                                    onChange={handlerDurationText}
+                                                />
+
+                                                {/* Label years */}
+                                                <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                                                    years
+                                                </Form.Label>
+
+                                            {/* End of the Form inline */}
+                                            </Form>
+
+                                        </Row>
 
                                     </Col>
 
+                                {/* End of the radio button section */}
                                 </Form.Group>
                             </fieldset>
 
                             {/* Incentive Fund request field*/}
-                            <Form.Group controlId="incentiveRequest">
+                            <Form.Group controlId="exampleForm.ControlTextarea1">
                                 <Form.Label>Incentive:</Form.Label>
                                 <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)"
                                     required
@@ -215,28 +174,24 @@ function FundRequest() {
                                     value={incentive}
                                 />
                             </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                Please introduce an incentive of the request.
-                            </Form.Control.Feedback>
 
+
+                        {/* End of the form */}
                         </Form>
 
 
                     </Col>
-                </Row>
-
+                </Form.Row>
+ 
                 {/* Button register*/}
                 <Row>
-
                     <Col md={{ span: 2, offset: 8 }}>
                         <Button onClick={handlerRegister} variant="outline-primary" type="submit">Submit</Button>
                     </Col>
                 </Row>
 
-
             </Container>
         </div>
-
     );
 }
 
