@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import PPNavbar from './PPNavbar';
+
 import './Styles.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,13 +8,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 function FundRequest() {
-    const [navitems, setnavitems] = useState([
-        { itemName: "Review and Accept",itemLink:"CharityPage",itemAddr: "CharityPage",  activePage: false },
-        { itemName: "Raise Funds",itemLink:"",itemAddr: "",  activePage: true }
-
-    ]);
-    const [showProfile, setshowProfile] = useState(true);
-
     const [amount, setAmount] = useState("");
     const [description, setDescription] = useState("");
     const [duration, setDuration] = useState("");
@@ -59,8 +52,7 @@ function FundRequest() {
 
     return (
         <div className="FundRequest">
-            <PPNavbar NavItems={navitems} showProfile={showProfile} />
-
+            
             <Container className="container-FundRequest">
                 
                 {/* Title */}

@@ -3,10 +3,6 @@ import PPNavbar from './PPNavbar';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 
 function SponsorCard() {
-    // const [navitems, setnavitems] = useState([
-    //     { itemName: "Choose a Sponsorship Opportunity", activePage: true }
-    // ]);
-    // const [showProfile, setshowProfile] = useState(true);
 
     const styles = {
         card: {
