@@ -1,7 +1,7 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, CardDeck, Row, Col } from 'react-bootstrap';
 import PPNavbar from './PPNavbar';
-import SponsorshipRequestList from './SponsorshipRequestList';
+import SponsorshipRequestList from './sponsorshiprequestlist/SponsorshipRequestList';
 import RequestCounter from './RequestCounter';
 
 function SponsorPage() {
@@ -11,6 +11,7 @@ function SponsorPage() {
     ]);
     const [showProfile, setshowProfile] = useState(true);
 
+    // TODO Move test data out of here
     const [requests, setCharity] = useState([
         {
             charityName: "Food Bank",

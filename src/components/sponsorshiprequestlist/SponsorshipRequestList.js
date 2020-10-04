@@ -1,14 +1,15 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import DisplayCardRequest from './DisplayCardRequest';
+import DisplayCardRequest from '../displaycardrequest/DisplayCardRequest';
 
 function SponsorshipRequestList({ requestData }) {
 
     return (
         <Card>
-            <DisplayCardRequest charity={requestData} />
+            {requestData.map((request) =>
+                <DisplayCardRequest cardData={request} />
+            )}
         </Card>
-
     );
 }
 
