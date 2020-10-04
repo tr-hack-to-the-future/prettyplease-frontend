@@ -4,11 +4,6 @@ import SponsorshipRequestList from './sponsorshiprequestlist/SponsorshipRequestL
 import RequestCounter from './RequestCounter';
 
 function SponsorPage() {
-    const [navitems, setnavitems] = useState([
-        { itemName: "Choose a Sponsorship Request", activePage: true }
-
-    ]);
-    const [showProfile, setshowProfile] = useState(true);
 
     // TODO Move test data out of here
     const [requests, setCharity] = useState([
