@@ -15,7 +15,7 @@ function SponsorPage() {
         {
             // require("./assets/images/abstract-logo.jpg"),
             charityName: "Food Bank",
-            image: require("./charity-logo-blue.png"),
+            image: require("../assets/images/charity-logo-blue.png"),
             // sponsorship request description (TODO do we need an id value?)
             requestId: "1",
             description: "Help underwrite some of our operating costs by becoming a ‘Friend’ of our Foodbank.",
@@ -25,7 +25,7 @@ function SponsorPage() {
         },
         {
             charityName: "Historical Typesetting Society",
-            image: require("./charity-logo-green.png"),
+            image: require("../assets/images/charity-logo-green.png"),
             // sponsorship request description (TODO do we need an id value?)
             requestId: "2",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
