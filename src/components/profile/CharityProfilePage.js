@@ -2,13 +2,12 @@ import React, { Component, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import ProfileTextDescription from './ProfileTextDescription';
 
 
-function CharityPage({detailsCharity}) {
+function CharityProfilePage({charityData}) {
 
-const test =()=>{ console.log ({detailsCharity});}
+const test =()=>{ console.log ();}
 
     // const [detailsCharity, setdetailsCharity] = useState([{
     //     name: "Food Bank",
@@ -26,10 +25,10 @@ const test =()=>{ console.log ({detailsCharity});}
                         <h1>Profile</h1>
                     </Col>
                 </Row>
-            <ProfileTextDescription detailsProfile={detailsCharity}/>
+            <ProfileTextDescription detailsProfile={charityData}/>
         </div>
 
     );
 }
 
-export default CharityPage; 
+export default CharityProfilePage; 
