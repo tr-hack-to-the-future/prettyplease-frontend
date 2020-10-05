@@ -1,19 +1,8 @@
 import React, { Component, useState } from 'react';
-
-
-
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
 
-import { render } from '@testing-library/react';
 import DisplayCard from './DisplayCard';
-
-
-
-
-
 
 function CharityPage({ charity }) {
  
