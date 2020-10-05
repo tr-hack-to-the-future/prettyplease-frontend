@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, CardDeck, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import SponsorshipRequestList from './sponsorshiprequestlist/SponsorshipRequestList';
 import RequestCounter from './RequestCounter';
 

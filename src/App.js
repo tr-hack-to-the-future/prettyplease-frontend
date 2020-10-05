@@ -5,6 +5,8 @@ import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
 import FundRequest from "./components/FundRequest";
 import PPNavbar from "./components/PPNavbar";
+import DisplayRequest from "./components/displayrequest/DisplayRequest";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -48,24 +50,26 @@ export default function App() {
     },
   ]);
 
-  const [isAuth,setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(true);
   return (
-  
-       <Router>
-         <PPNavbar isAuth={isAuth}/>
-          <Switch>
-            <Route exact path="/">
-              {/* {" "} */}
-              <Main SponsorData={sponsor} />
-            </Route>
-            <Route path="/ForSponsors" component={SponsorPage}></Route>
-            <Route path="/ForCharities">
-              
-              <CharityPage charity={charity} />
-            </Route>
-            <Route path="/NewFund" component={FundRequest}></Route>
-          </Switch>
-          </Router>
-     
+
+    <Router>
+      <PPNavbar isAuth={isAuth} />
+      <Switch>
+        <Route exact path="/">
+          {/* {" "} */}
+          <Main SponsorData={sponsor} />
+        </Route>
+        <Route path="/ForSponsors" component={SponsorPage}></Route>
+        <Route path="/ForCharities">
+
+          <CharityPage charity={charity} />
+        </Route>
+        <Route path="/NewFund" component={FundRequest}></Route>
+        <Route path="/DisplayRequest">
+          <DisplayRequest />
+        </Route>
+      </Switch>
+    </Router>
   );
 }

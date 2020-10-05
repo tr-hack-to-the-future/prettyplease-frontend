@@ -1,5 +1,9 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 function DisplayCardRequest({ cardData }) {
 
@@ -15,11 +19,14 @@ function DisplayCardRequest({ cardData }) {
                 />
             </Col>
             <Col className="col p-4 d-flex flex-column position-static">
+
+
                 <Card.Body>
-                    <a href="Charity1.html" className="stretched-link">
-                        <Card.Title>{cardData.charityName}</Card.Title>
-                        <Card.Text >{cardData.description}</Card.Text>
-                    </a>
+
+                    {/* <a className="stretched-link"> */}
+                    <Card.Title>{cardData.charityName}</Card.Title>
+                    <Card.Text >{cardData.description}</Card.Text>
+                    {/* </a> */}
                     <Row className="pt-2 pb-2">
                         <Col>
                             <Card.Text>
@@ -33,6 +40,9 @@ function DisplayCardRequest({ cardData }) {
 
                         </Col>
                     </Row>
+                        <Link to="/DisplayRequest">
+                            <Button>Show Request</Button>
+                        </Link>
                 </Card.Body>
             </Col>
         </Row>
