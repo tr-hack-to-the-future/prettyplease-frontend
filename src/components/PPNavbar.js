@@ -52,42 +52,6 @@ function PPNavbar({ isAuth }) {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
-      {/* <div className="PPNavbar">
-        <nav className="navbar navbar-expand-lg navbar-dark navpurple">
-          <a className="navbar-brand" href={homepg}>Pretty <span class="icon" role="img" aria-label="Please">🙏</span></a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ">
-              {NavItems.map(item =>
-                <li className={item.activePage ? navItemActive : navItemInactive}>
-                  <a class="nav-link" href={item.itemAddr}>{item.itemName}</a>
-                </li>)}
-            </ul>
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-              <div className="hideonmobile">
-                {svgPerson}
-              </div>
-              <li className="nav-item">
-                {profileItem}
-              </li>
-            </ul> */}
-
-      {/* 
-          </div>
-
-        </nav >
-    <Switch>
-      {/* {NavItems.map(item => <Route path={item.itemLink} component={item.itemAddr} />)} */}
-
-      {/*  {NavItems.map(item => <Route path={item.itemLink} component={item.itemAddr}></Route>)}
-    </Switch>
-
-      </div > */}
     </Router>
   );
 }
