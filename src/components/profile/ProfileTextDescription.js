@@ -6,9 +6,13 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import TextareaAutosize from 'react-textarea-autosize';
+import Modal from 'react-bootstrap/Modal'
 
 function ProfileTextDescription({ detailsProfile, changeProfile }) {
-    {/* Set the default values to the values receive from the App.js*/}
+    // Variable to control the modal
+    const [smShow, setSmShow] = useState(false);
+
+    // Set the default values to the values receive from the App.js
     const [image, setImage] = useState(
         detailsProfile.map((data) => data.image)
     );
@@ -25,8 +29,9 @@ function ProfileTextDescription({ detailsProfile, changeProfile }) {
         setDescription(event.target.value);
     }
     const handlerEdit = (event) => {
-     {/* Update the state of the variable in App.js */}
+    //  Update the state of the variable in App.js
         changeProfile(name, description);
+        setSmShow(true)
     }
 
     return (
@@ -67,7 +72,21 @@ function ProfileTextDescription({ detailsProfile, changeProfile }) {
                         </Form.Group>
                         <Row>
                             <Col md={{ span: 3, offset: 4 }}>
+                                {/* Press the button, set the values of the profile and the show a modal to the user */}
                                 <Button onClick={handlerEdit} variant="outline-primary" type="submit">Save changes</Button>
+                                <Modal
+                                    size="sm"
+                                    show={smShow}
+                                    onHide={() => setSmShow(false)}
+                                    aria-labelledby="example-modal-sizes-title-sm"
+                                >
+                                    <Modal.Header closeButton>
+                                    <Modal.Title id="example-modal-sizes-title-sm">
+                                        Congratulations!
+                                    </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>Your changes have been saved</Modal.Body>
+                                </Modal>
                             </Col>
                         </Row>
                     </Col>
