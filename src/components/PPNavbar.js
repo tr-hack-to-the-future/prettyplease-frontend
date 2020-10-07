@@ -3,10 +3,9 @@ import "./Navbar.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
-import { BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function PPNavbar({ isAuth }) {
- 
   return (
     <Router>
       <Navbar collapseOnSelect expand="lg">

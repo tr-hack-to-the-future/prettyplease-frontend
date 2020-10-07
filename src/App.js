@@ -5,17 +5,12 @@ import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
 import FundRequest from "./components/FundRequest";
 import PPNavbar from "./components/PPNavbar";
+import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
 import DisplayRequest from "./components/displayrequest/DisplayRequest";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
   const [sponsor, setSponsor] = useState([
@@ -26,7 +21,7 @@ export default function App() {
     { sponsorName: "Sponsor4", completed: true },
     { sponsorName: "Eigen", completed: false },
   ]);
-  const [charity, setcharity] = useState([
+  const [charitysp, setcharity] = useState([
     {
       sponsorName: "Financing",
       sponsorDesc: "This is description about Financing sponsor",
@@ -61,14 +56,17 @@ export default function App() {
           <Main SponsorData={sponsor} />
         </Route>
         <Route path="/ForSponsors" component={SponsorPage}></Route>
-        <Route path="/ForCharities">
-
-          <CharityPage charity={charity} />
-        </Route>
-        <Route path="/NewFund" component={FundRequest}></Route>
         <Route path="/DisplayRequest">
           <DisplayRequest />
         </Route>
+        <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
+          <SponsorDetailsAccept sponsor={charitysp} />
+        </Route>
+        <Route exact path="/ForCharities">
+          <CharityPage sponsor={charitysp} />
+        </Route>
+
+        <Route path="/NewFund" component={FundRequest}></Route>
       </Switch>
     </Router>
   );
