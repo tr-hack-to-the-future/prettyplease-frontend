@@ -11,10 +11,6 @@ function RequestDetailsAccept({ request }) {
     let { id } = useParams();
     let dispRequest = request[id - 1];
 
-    function handleClick() {
-        history.push("/ForSponsors");
-    }
-
     return (
         <Container>
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
