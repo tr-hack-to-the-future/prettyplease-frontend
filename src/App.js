@@ -6,15 +6,10 @@ import CharityPage from "./components/CharityPage";
 import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
 import PPNavbar from "./components/PPNavbar";
+import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
   const [sponsor, setSponsor] = useState([
@@ -25,7 +20,7 @@ export default function App() {
     { sponsorName: "Sponsor4", completed: true },
     { sponsorName: "Eigen", completed: false },
   ]);
-  const [charity, setcharity] = useState([
+  const [charitysp, setcharity] = useState([
     {
       sponsorName: "Financing",
       sponsorDesc: "This is description about Financing sponsor",
@@ -49,21 +44,25 @@ export default function App() {
     },
   ]);
 
+
   const [detailsCharity, setdetailsCharity] = useState([
     {
       name: "Food Bank",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. We are here to help make people’s lives better. We do this by developing and delivering reliably good modern services, building and maintaining the best quality developments, working with local communities and building long-term partnerships, and  growing and using our position of influence to create positive change",
-      // image: require("./assets/images/charity-logo-blue.png"),
+      image: require("./assets/images/charity-logo-blue.png"),
     },
 
   ]);
 
   const changeProfile = (name,description) => {
+    
     const newProfile = {
       nameProfile: name,
       descriptionProfile: description,
     }
 
+    console.log (newProfile.nameProfile);
+    console.log (newProfile.descriptionProfile);
   const updatedProfile = [ ...detailsCharity, newProfile];
 
     setdetailsCharity(updatedProfile);
@@ -80,13 +79,14 @@ export default function App() {
               <Main SponsorData={sponsor} />
             </Route>
             <Route path="/ForSponsors" component={SponsorPage}></Route>
-            <Route path="/ForCharities">
-              
-              <CharityPage charity={charity} />
+            <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
+             <SponsorDetailsAccept sponsor={charitysp} />
+            </Route>
+            <Route exact path="/ForCharities">
+              <CharityPage sponsor={charitysp} />
             </Route>
             <Route path="/NewFund" component={FundRequest}></Route>
             <Route path="/CharityProfilePage">
-
                <CharityProfilePage charityData={detailsCharity} changeProfile={ changeProfile } />
             </Route>
           </Switch>
