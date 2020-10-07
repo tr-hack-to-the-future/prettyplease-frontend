@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
 
-function DisplayRequest() {
+function RequestDetailsAccept({ cardData }) {
 
     let history = useHistory();
 
@@ -16,6 +16,9 @@ function DisplayRequest() {
             <h3>
                 Sponsorship Request
             </h3>
+            {/* <div>
+            {cardData.charityName}
+            </div> */}
             <div>
                 <Button variant="primary" onClick={handleClick}>
                     Back
@@ -28,4 +31,4 @@ function DisplayRequest() {
 }
 
 
-    export default DisplayRequest;
+    export default RequestDetailsAccept;

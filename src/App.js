@@ -6,7 +6,7 @@ import CharityPage from "./components/CharityPage";
 import FundRequest from "./components/FundRequest";
 import PPNavbar from "./components/PPNavbar";
 import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
-import DisplayRequest from "./components/displayrequest/DisplayRequest";
+import RequestDetailsAccept from "./components/requestdetailsaccept/RequestDetailsAccept";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -56,8 +56,8 @@ export default function App() {
           <Main SponsorData={sponsor} />
         </Route>
         <Route path="/ForSponsors" component={SponsorPage}></Route>
-        <Route path="/DisplayRequest">
-          <DisplayRequest />
+        <Route path="/RequestDetailsAccept">
+          <RequestDetailsAccept />
         </Route>
         <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
           <SponsorDetailsAccept sponsor={charitysp} />

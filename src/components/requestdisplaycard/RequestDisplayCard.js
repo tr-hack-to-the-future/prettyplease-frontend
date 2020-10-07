@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
-function DisplayCardRequest({ cardData }) {
+function RequestDisplayCard({ cardData }) {
 
     return (
         <Row
@@ -40,7 +40,7 @@ function DisplayCardRequest({ cardData }) {
 
                         </Col>
                     </Row>
-                        <Link to="/DisplayRequest">
+                        <Link to="/RequestDetailsAccept">
                             <Button>Show Request</Button>
                         </Link>
                 </Card.Body>
@@ -49,4 +49,4 @@ function DisplayCardRequest({ cardData }) {
     );
 }
 
-export default DisplayCardRequest;
+export default RequestDisplayCard;

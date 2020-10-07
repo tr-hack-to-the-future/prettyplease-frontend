@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import DisplayCardRequest from './DisplayCardRequest';
+import RequestDisplayCard from './RequestDisplayCard';
 
 describe('DisplayCard component', () => {
 
@@ -18,7 +18,7 @@ describe('DisplayCard component', () => {
                 duration: "2 years"
             }
         }
-        const { getByText } = render(<DisplayCardRequest {...props} />);
+        const { getByText } = render(<RequestDisplayCard {...props} />);
         expect(getByText(testName)).toBeTruthy();
         expect(getByText(testDescription)).toBeTruthy();
         expect(getByText('Amount: £1500')).toBeTruthy();
