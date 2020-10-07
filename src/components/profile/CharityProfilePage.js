@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import ProfileTextDescription from './ProfileTextDescription';
 
 
-function CharityProfilePage({charityData}) {
+function CharityProfilePage({charityData, changeProfile}) {
 
 const test =()=>{ console.log ();}
 
@@ -25,7 +25,7 @@ const test =()=>{ console.log ();}
                         <h1>Profile</h1>
                     </Col>
                 </Row>
-            <ProfileTextDescription detailsProfile={charityData}/>
+            <ProfileTextDescription detailsProfile={charityData} changeProfile={changeProfile}/>
         </div>
 
     );

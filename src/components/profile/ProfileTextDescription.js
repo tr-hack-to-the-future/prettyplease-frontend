@@ -4,11 +4,16 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
+import TextareaAutosize from 'react-textarea-autosize';
 
-function ProfileTextDescription({detailsProfile}) {
-
-    const handlerEdit =()=>{
+function ProfileTextDescription({detailsProfile, changeProfile}) {
+// const [name, setName]=useState("");
+    const handlerEdit =(event)=>{
+        changeProfile (event.target.name, event.target.description )
+        // const inputName = event.target.name;
+        // const inputDescription = event.target.description;
+    
 
     }
     return (
@@ -18,23 +23,7 @@ function ProfileTextDescription({detailsProfile}) {
             <div >
                 
                 <Container className="profile-text-description-container">
-                    
-                    {/* <Row className="justify-content-md-center profile-text-description">
-                        <Col xs={{span: 12, offset: 6}} md={{span: 2, offset: 0}} className="text-primary"><h6>Name</h6></Col>
-                        <Col xs={{span: 12, offset: 2}} md={{span: 4, offset: 0}} ><p>{data.name}</p></Col>
-                        <Col xs={{span: 12, offset: 6}} md={{span: 2, offset: 0}}><Button onClick={handlerEdit} variant="outline-primary">Edit</Button></Col>
-                    </Row>
-                    <Row className="justify-content-md-center profile-text-description">
-                        <Col xs={{span: 12, offset: 6}} md={{span: 2, offset: 0}} className="text-primary"><h6>Description</h6></Col>
-                        <Col xs={{span: 12, offset: 2}} md={{span: 4, offset: 0}}>
-                            <p>{data.description}</p></Col>
-                        <Col xs={{span: 12, offset: 6}} md={{span: 2, offset: 0}}><Button onClick={handlerEdit} variant="outline-primary">Edit</Button></Col>
-                    </Row>
-                    <Row className="justify-content-md-center profile-text-description">
-                        <Col xs={{span: 12, offset: 6}} md={{span: 2, offset: 0}} className="text-primary"><h6>Values</h6></Col>
-                        <Col xs={{span: 12, offset: 2}} md={{span: 4, offset: 0}}><p>{data.values}</p></Col>
-                        <Col xs={{span: 12, offset: 6}} md={{span: 2, offset: 0}}><Button onClick={handlerEdit} variant="outline-primary">Edit</Button></Col>
-                    </Row> */}
+
                 <Row>
                     <Col className="col-auto flex-column" xs={6} md={4}>
                         <img
@@ -50,30 +39,35 @@ function ProfileTextDescription({detailsProfile}) {
                             <Form.Label className="text-primary">
                                 Name
                             </Form.Label>
-                            <Form.Control type="text" defaultValue ={data.name}/>
+                            <Form.Control type="text" 
+                            defaultValue={data.name}
+                            //  onChange={handlerName}
+                            // editable="true"
+                            // defaultValue ={data.name}
+
+                            />
                         </Form.Group>
                         <br />  
                         <Form.Group controlId="exampleForm.ControlTextarea1">
+                        {/* <Form.Group className="auto-size-textarea" controlId="exampleForm.ControlTextarea1"> */}
                             <Form.Label className="text-primary">Description</Form.Label>
-                            <Form.Control 
+                            {/* <Form.Control 
                             as="textarea" 
                             rows={3} 
                             defaultValue= {data.description}
                       
-                            />
+                            /> */}
+                        <TextareaAutosize className="auto-size-textarea"
+                        defaultValue= {data.description}
+                        />
                         </Form.Group>
-                        <br />
-
-                        <Form.Group controlId="exampleForm.ControlTextarea1">
-                            <Form.Label className="text-primary">Values</Form.Label>
-                            <Form.Control 
-                                as="textarea" 
-                                rows={3} 
-                                defaultValue={data.values}
-                            />
-                        </Form.Group>
+                    <Row>
+                    <Col md={{ span: 3, offset: 4 }}>
+                        <Button onClick={handlerEdit} variant="outline-primary" type="submit">Save changes</Button>
+                    </Col>
+                       
+                    </Row>
                     
-                    <Button onClick={handlerEdit} variant="outline-primary" type="submit">Save changes</Button>
                     </Col>
                 </Row>
 

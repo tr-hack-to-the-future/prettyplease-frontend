@@ -52,12 +52,22 @@ export default function App() {
   const [detailsCharity, setdetailsCharity] = useState([
     {
       name: "Food Bank",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      values: "We are here to help make people’s lives better. We do this by developing and delivering reliably good modern services, building and maintaining the best quality developments, working with local communities and building long-term partnerships, and  growing and using our position of influence to create positive change",
-      image: require("./assets/images/charity-logo-blue.png"),
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. We are here to help make people’s lives better. We do this by developing and delivering reliably good modern services, building and maintaining the best quality developments, working with local communities and building long-term partnerships, and  growing and using our position of influence to create positive change",
+      // image: require("./assets/images/charity-logo-blue.png"),
     },
 
   ]);
+
+  const changeProfile = (name,description) => {
+    const newProfile = {
+      nameProfile: name,
+      descriptionProfile: description,
+    }
+
+  const updatedProfile = [ ...detailsCharity, newProfile];
+
+    setdetailsCharity(updatedProfile);
+  }
 
   const [isAuth,setIsAuth] = useState(true);
   return (
@@ -77,7 +87,7 @@ export default function App() {
             <Route path="/NewFund" component={FundRequest}></Route>
             <Route path="/CharityProfilePage">
 
-               <CharityProfilePage charityData={detailsCharity} />
+               <CharityProfilePage charityData={detailsCharity} changeProfile={ changeProfile } />
             </Route>
           </Switch>
           </Router>
