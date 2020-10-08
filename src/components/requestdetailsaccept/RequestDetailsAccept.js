@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Modal } from 'react-bootstrap';
 
 function RequestDetailsAccept({ request }) {
 
@@ -13,7 +15,11 @@ function RequestDetailsAccept({ request }) {
     let dispRequest = request[id - 1];
 
     const amount = "£" + dispRequest.amount;
-    const duration = dispRequest.duration === "1" ? dispRequest.duration + " year" : dispRequest.duration + " years" ;
+    const duration = dispRequest.duration === "1" ? dispRequest.duration + " year" : dispRequest.duration + " years";
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <Container>
@@ -55,9 +61,20 @@ function RequestDetailsAccept({ request }) {
                         </Button>
                     </Link>
                     <Link href="">
-                        <Button variant="outline-primary ml-5" size="lg">
+                        <Button variant="outline-primary ml-5" size="lg" onClick={handleShow}>
                             Accept
                         </Button>
+
+                        <Modal show={show} onHide={handleClose}>
+                        <Modal.Header>
+                        <Modal.Title>Sponsorship Request Accepted!</Modal.Title>
+                        </Modal.Header>
+                            <Modal.Footer>
+                                <Button variant="outline-primary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
                     </Link>
                 </Row>
             </Router>
