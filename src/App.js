@@ -7,6 +7,8 @@ import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
 import PPNavbar from "./components/PPNavbar";
 import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
+import RequestDetailsAccept from "./components/requestdetailsaccept/RequestDetailsAccept";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -45,6 +47,41 @@ export default function App() {
   ]);
 
 
+  // Sponsorship requests test data
+  const [sponsorshipRequests, setrequests] = useState([
+    {
+      requestId: "1",
+      charityName: "Food Bank",
+      image: require("./assets/images/charity-logo-blue.png"),
+      description: "Help underwrite some of our operating costs by becoming a ‘Friend’ of our Foodbank.",
+      amount: "5000",
+      isSingleEvent: false, // TODO need to be consistent across app
+      duration: "3",    // should this be durationInYears? 
+      incentive: "We would like you to join us in a business partnership to enable us to continue operating for the year. When you become a 'Friend of the Food Bank' you will receive 30 co-branded Food Bank T-shirts and to opportunity to organise a team building day by volunteering in our warehouse and kitchens."
+    },
+    {
+      requestId: "2",
+      charityName: "Historical Typesetting Society",
+      image: require("./assets/images/charity-logo-green.png"),
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      amount: "900",
+      isSingleEvent: false,
+      duration: "1",
+      incentive: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    },
+    {
+      requestId: "3",
+      charityName: "Animal Shelter",
+      image: require("./assets/images/charity-logo-orange.png"),
+      description: "Our puppies and kittens need your help! We are looking for sponsors to help keep our shelters open for the next two years.",
+      amount: "5000",
+      isSingleEvent: false,
+      duration: "2",
+      incentive: "In return for your help we will put your brand on all our external mailing for the duration of your sponsorship. We will also arrange for some puppies to visit your place of work for a maximum of two days per year."
+    },
+
+  ]);
+
   const [detailsCharity, setdetailsCharity] = useState([
     {
       name: "Food Bank",
@@ -54,43 +91,52 @@ export default function App() {
 
   ]);
 
-  const changeProfile = (name,description) => {
-    
+  const changeProfile = (name, description) => {
+
     const newProfile = {
       nameProfile: name,
       descriptionProfile: description,
     }
 
-    console.log (newProfile.nameProfile);
-    console.log (newProfile.descriptionProfile);
-  const updatedProfile = [ ...detailsCharity, newProfile];
+    console.log(newProfile.nameProfile);
+    console.log(newProfile.descriptionProfile);
+    const updatedProfile = [...detailsCharity, newProfile];
 
     setdetailsCharity(updatedProfile);
   }
 
-  const [isAuth,setIsAuth] = useState(true);
+
+  const [isAuth, setIsAuth] = useState(true);
   return (
-  
-       <Router>
-         <PPNavbar isAuth={isAuth}/>
-          <Switch>
-            <Route exact path="/">
-              {/* {" "} */}
-              <Main SponsorData={sponsor} />
-            </Route>
-            <Route path="/ForSponsors" component={SponsorPage}></Route>
-            <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
-             <SponsorDetailsAccept sponsor={charitysp} />
-            </Route>
-            <Route exact path="/ForCharities">
-              <CharityPage sponsor={charitysp} />
-            </Route>
-            <Route path="/NewFund" component={FundRequest}></Route>
-            <Route path="/CharityProfilePage">
-               <CharityProfilePage charityData={detailsCharity} changeProfile={ changeProfile } />
-            </Route>
-          </Switch>
-          </Router>
-     
+
+    <Router>
+      <PPNavbar isAuth={isAuth} />
+      <Switch>
+        <Route exact path="/">
+          {/* {" "} */}
+          <Main SponsorData={sponsor} />
+        </Route>
+        <Route exact path="/ForSponsors/:id" component={RequestDetailsAccept}>
+          <RequestDetailsAccept request={sponsorshipRequests} />
+        </Route>
+        <Route exact path="/ForSponsors">
+          <SponsorPage requests={sponsorshipRequests} />
+        </Route>
+        <Route path="/RequestDetailsAccept">
+          <RequestDetailsAccept />
+        </Route>
+        <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
+          <SponsorDetailsAccept sponsor={charitysp} />
+        </Route>
+        <Route exact path="/ForCharities">
+          <CharityPage sponsor={charitysp} />
+        </Route>
+        <Route path="/NewFund" component={FundRequest}></Route>
+        <Route path="/CharityProfilePage">
+          <CharityProfilePage charityData={detailsCharity} changeProfile={changeProfile} />
+        </Route>
+      </Switch>
+    </Router>
+
   );
 }
