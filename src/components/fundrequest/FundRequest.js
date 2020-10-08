@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
-
-import './Styles.css';
+import './FundRequest.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -58,8 +57,8 @@ function FundRequest() {
                 {/* Title */}
                 <Row className="page-heading">
                     <Col xs={12} md={{ span: 4, offset: 4 }}>
-                        <h3>Let's get started!</h3>
-                        <h6>Tell us what you're raising money for</h6>
+                        <h2>Let's get started!</h2>
+                        <h5>Tell us what you're raising money for</h5>
 
                     </Col>
                 </Row>
@@ -72,7 +71,7 @@ function FundRequest() {
                             
                             {/* Amount Fund request field*/}
                             <Form.Group controlId="exampleForm.ControlInput1">
-                                <Form.Label>Amount:</Form.Label>
+                                <Form.Label className="text-primary">Amount:</Form.Label>
                                 <Form.Control
                                     required
                                     type="number"
@@ -83,7 +82,7 @@ function FundRequest() {
 
                             {/* Description Fund request field*/}
                             <Form.Group controlId="exampleForm.ControlTextarea1">
-                                <Form.Label>Description:</Form.Label>
+                                <Form.Label className="text-primary">Description:</Form.Label>
                                 <Form.Control as="textarea" rows="3"
                                     required
                                     onChange={handlerDescription}
@@ -95,7 +94,7 @@ function FundRequest() {
                             {/* Duration radio buttons */}
                             <fieldset>
                                 <Form.Group as={Row}>
-                                    <Form.Label as="legend" column sm={2}>
+                                    <Form.Label className="text-primary" as="legend" column sm={2}>
                                         Duration:
                                         </Form.Label>
                                     <Col sm={10}>
@@ -158,7 +157,7 @@ function FundRequest() {
 
                             {/* Incentive Fund request field*/}
                             <Form.Group controlId="exampleForm.ControlTextarea1">
-                                <Form.Label>Incentive:</Form.Label>
+                                <Form.Label className="text-primary">Incentive:</Form.Label>
                                 <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)"
                                     required
                                     onChange={handlerIncentive}
