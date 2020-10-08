@@ -68,6 +68,16 @@ export default function App() {
       duration: "1",  
       incentive: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
     },
+    {
+      requestId: "3",
+      charityName: "Animal Shelter",
+      image: require("./assets/images/charity-logo-orange.png"),
+      description: "Our puppies and kittens need your help! We are looking for sponsors to help keep our shelters open for the next two years.",
+      amount: "5000",  
+      isSingleEvent: false,
+      duration: "2",  
+      incentive: "In return for your help we will put your brand on all our external mailing for the duration of your sponsorship. We will also arrange for some puppies to visit your place of work for a maximum of two days per year."
+    },
 
   ]);
 
