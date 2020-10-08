@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 
 function RequestDisplayCard({ cardData }) {
 
+    const amount = "£" + cardData.amount;
+    const duration = cardData.duration === "1" ? cardData.duration + " year" : cardData.duration + " years" ;
+
     return (
         <Link to={`/ForSponsors/${cardData.requestId}`}>
             <Row
@@ -19,23 +22,18 @@ function RequestDisplayCard({ cardData }) {
                     />
                 </Col>
                 <Col className="col p-4 d-flex flex-column position-static">
-
-
                     <Card.Body>
-
-                        {/* <a className="stretched-link"> */}
                         <Card.Title>{cardData.charityName}</Card.Title>
                         <Card.Text >{cardData.description}</Card.Text>
-                        {/* </a> */}
                         <Row className="pt-2 pb-2">
                             <Col>
                                 <Card.Text>
-                                    Amount: {cardData.amount}
+                                    Amount: {amount}
                                 </Card.Text>
                             </Col>
                             <Col>
                                 <Card.Text>
-                                    Duration: {cardData.duration}
+                                    Duration: {duration}
                                 </Card.Text>
 
                             </Col>

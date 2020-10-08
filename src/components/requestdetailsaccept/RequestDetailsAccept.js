@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
 
@@ -10,6 +11,9 @@ function RequestDetailsAccept({ request }) {
     let history = useHistory();
     let { id } = useParams();
     let dispRequest = request[id - 1];
+
+    const amount = "£" + dispRequest.amount;
+    const duration = dispRequest.duration === "1" ? dispRequest.duration + " year" : dispRequest.duration + " years" ;
 
     return (
         <Container>
@@ -24,9 +28,22 @@ function RequestDetailsAccept({ request }) {
                     alt={dispRequest.charityName}
                 />
             </div>
+
+            {/* <Row className="pt-2 pb-2"> */}
+            <Row className="pt-2 pb-2 justify-content-md-center">
+                <Col className="text-center">
+                    {/* <div className="row justify-content-center mt-5 "> */}
+                    Amount: {amount}
+                </Col>
+                <Col className="text-center">
+                    Duration: {duration}
+                </Col>
+            </Row>
+
             <div className="row justify-content-center mt-5 ">
                 <p>{dispRequest.incentive}</p>
             </div>
+
             <Router>
                 <Row className=" justify-content-center mt-5 ">
                     <Link href="">
