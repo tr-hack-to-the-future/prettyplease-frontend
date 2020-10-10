@@ -5,6 +5,7 @@ import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
 import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
+import SponsorProfilePage from "./components/profile/SponsorProfilePage";
 import PPNavbar from "./components/PPNavbar";
 import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
 import RequestDetailsAccept from "./components/requestdetailsaccept/RequestDetailsAccept";
@@ -91,7 +92,16 @@ export default function App() {
 
   ]);
 
-  const changeProfile = (name, description) => {
+  const [detailsSponsor, setdetailsSponsor] = useState([
+    {
+      name: "Telecom",
+      description: "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters. Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway. Case shot Shiver me timbers gangplank crack Jennys tea cup ballast Blimey lee snow crow's nest rutters. Fluke jib scourge of the seven seas boatswain schooner gaff booty Jack Tar transom spirits.",
+      image: require("./assets/images/abstract-logo2.jpg"),
+    },
+
+  ]);
+
+  const changeCharityProfile = (name, description) => {
 
     const newProfile = {
       nameProfile: name,
@@ -100,9 +110,23 @@ export default function App() {
 
     console.log(newProfile.nameProfile);
     console.log(newProfile.descriptionProfile);
-    const updatedProfile = [...detailsCharity, newProfile];
+    const updatedCharityProfile = [...detailsCharity, newProfile];
 
-    setdetailsCharity(updatedProfile);
+    setdetailsCharity(updatedCharityProfile);
+  }
+
+  const changeSponsorProfile = (name, description) => {
+
+    const newProfile = {
+      nameProfile: name,
+      descriptionProfile: description,
+    }
+
+    console.log(newProfile.nameProfile);
+    console.log(newProfile.descriptionProfile);
+    const updatedSponsorProfile = [...detailsSponsor, newProfile];
+
+    setdetailsSponsor(updatedSponsorProfile);
   }
 
 
@@ -133,7 +157,10 @@ export default function App() {
         </Route>
         <Route path="/NewFund" component={FundRequest}></Route>
         <Route path="/CharityProfilePage">
-          <CharityProfilePage charityData={detailsCharity} changeProfile={changeProfile} />
+          <CharityProfilePage charityData={detailsCharity} changeProfile={changeCharityProfile} />
+        </Route>
+        <Route path="/SponsorProfilePage">
+          <SponsorProfilePage sponsorData={detailsSponsor} changeProfile={changeSponsorProfile} />
         </Route>
       </Switch>
     </Router>

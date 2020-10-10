@@ -21,7 +21,8 @@ function PPNavbar({ isAuth }) {
             <Nav.Link href="/ForSponsors">For Sponsors</Nav.Link>
             <Nav.Link href="/ForCharities">For Charities</Nav.Link>
             <Nav.Link href="/NewFund">Fund Request</Nav.Link>
-            <Nav.Link href="/CharityProfilePage">Profile</Nav.Link>
+            <Nav.Link href="/CharityProfilePage">Charity Profile</Nav.Link>
+            <Nav.Link href="/SponsorProfilePage">Sponsor Profile</Nav.Link>
           </Nav>
           <Nav>
             {!isAuth ? (
