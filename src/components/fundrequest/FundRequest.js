@@ -13,7 +13,7 @@ function FundRequest() {
 
     const [amount, setAmount] = useState("");
     const [description, setDescription] = useState("");
-    const [oneOffEvent, setOneOffEvent] = useState("");
+    const [isSingleEvent, setIsSingleEvent] = useState("");
     const [duration, setDuration] = useState(0);
     const [incentive, setIncentive] = useState("");
 
@@ -34,8 +34,8 @@ function FundRequest() {
         // setDuration(Number(event.target.value));
     }
 
-    const handlerOneoffEvent = (event) => {
-        setOneOffEvent(event.target.value);
+    const handlerIsSingleEvent = (event) => {
+        setIsSingleEvent(event.target.value);
         // setDuration(Number(event.target.value));
     }
 
@@ -44,7 +44,7 @@ function FundRequest() {
             amount: amount,
             description: description,
             incentive: incentive,
-            oneOffEvent:oneOffEvent,
+            isSingleEvent:isSingleEvent,
             duration: duration,
         }
 
@@ -53,7 +53,7 @@ function FundRequest() {
         setAmount("");
         setDescription("");
         setIncentive("");
-        setOneOffEvent("");
+        setIsSingleEvent("");
         setDuration(0);
     };
 
@@ -116,7 +116,7 @@ function FundRequest() {
                                                 id="radioDurationOneOff"
                                                 value={true}
                                                 // value="0"
-                                                onChange={handlerOneoffEvent}
+                                                onChange={handlerIsSingleEvent}
                                             />
                                         </Row>
 
@@ -129,7 +129,7 @@ function FundRequest() {
                                                 id="radioDurationCustomiseDuration"
                                                 value={false}
                                                 // value="1"
-                                                onChange={handlerOneoffEvent}
+                                                onChange={handlerIsSingleEvent}
                                             />
 
                                             
