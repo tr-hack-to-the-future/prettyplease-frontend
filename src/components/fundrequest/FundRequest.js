@@ -5,12 +5,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal'
 
 function FundRequest() {
+    // Variable to control the modal
+    const [smShow, setSmShow] = useState(false);
+
     const [amount, setAmount] = useState("");
     const [description, setDescription] = useState("");
-    const [duration, setDuration] = useState("");
-    const [durationText, setDurationText] = useState("");
+    const [oneOffEvent, setOneOffEvent] = useState("");
+    const [duration, setDuration] = useState(0);
     const [incentive, setIncentive] = useState("");
 
     const handlerAmount = (event) => {
@@ -25,12 +29,14 @@ function FundRequest() {
         setIncentive(event.target.value);
     }
 
-    const handlerDurationText = (event) => {
-        setDuration(Number(event.target.value));
-    }
-
     const handlerDuration = (event) => {
         setDuration(Number(event.target.value));
+        // setDuration(Number(event.target.value));
+    }
+
+    const handlerOneoffEvent = (event) => {
+        setOneOffEvent(event.target.value);
+        // setDuration(Number(event.target.value));
     }
 
     const handlerRegister = (event) => {
@@ -38,15 +44,17 @@ function FundRequest() {
             amount: amount,
             description: description,
             incentive: incentive,
-            duration: duration
+            oneOffEvent:oneOffEvent,
+            duration: duration,
         }
 
         console.log(charityRequest);
+        setSmShow(true)
         setAmount("");
         setDescription("");
         setIncentive("");
-        setDuration("off");
-        setDurationText("");
+        setOneOffEvent("");
+        setDuration(0);
     };
 
     return (
@@ -106,8 +114,9 @@ function FundRequest() {
                                                 label="One-Off"
                                                 name="formHorizontalRadios"
                                                 id="radioDurationOneOff"
-                                                value="0"
-                                                onChange={handlerDuration}
+                                                value={true}
+                                                // value="0"
+                                                onChange={handlerOneoffEvent}
                                             />
                                         </Row>
 
@@ -118,8 +127,9 @@ function FundRequest() {
                                                 aria-label="Customise Duration"
                                                 name="formHorizontalRadios"
                                                 id="radioDurationCustomiseDuration"
-                                                value="1"
-                                                onChange={handlerDuration}
+                                                value={false}
+                                                // value="1"
+                                                onChange={handlerOneoffEvent}
                                             />
 
                                             
@@ -136,7 +146,8 @@ function FundRequest() {
                                                     className="mb-2 mr-sm-2"
                                                     id="inlineFormInputName2"
                                                     placeholder="1"
-                                                    onChange={handlerDurationText}
+                                                    onChange={handlerDuration}
+                                                    vale={duration}
                                                 />
 
                                                 {/* Label years */}
@@ -177,6 +188,19 @@ function FundRequest() {
                 <Row>
                     <Col md={{ span: 2, offset: 8 }}>
                         <Button onClick={handlerRegister} variant="outline-primary" type="submit">Submit</Button>
+                        <Modal
+                                    size="sm"
+                                    show={smShow}
+                                    onHide={() => setSmShow(false)}
+                                    aria-labelledby="example-modal-sizes-title-sm"
+                                >
+                                    <Modal.Header closeButton>
+                                    <Modal.Title id="example-modal-sizes-title-sm">
+                                        Congratulations!
+                                    </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>Your request has been saved</Modal.Body>
+                                </Modal>
                     </Col>
                 </Row>
 
