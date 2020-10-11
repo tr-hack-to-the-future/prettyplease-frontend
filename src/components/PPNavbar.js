@@ -13,7 +13,8 @@ function PPNavbar({ isAuth }) {
           <h1>Pretty{" "}
           <span className="icon" role="img" aria-label="Please">
             🙏
-          </span> </h1>
+          </span></h1>
+          
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
