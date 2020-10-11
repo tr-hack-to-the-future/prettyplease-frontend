@@ -9,8 +9,8 @@ export default function() {
     return (
         <Jumbotron className='Jumbotron'>
             <Row>
-                <Col sm={8}><img src={image} alt="this is an image"/></Col>
-                <Col sm={4}>
+                <Col sm={6}><img src={image} alt="this is an image"/></Col>
+                <Col sm={6}>
                 <h2>Actions speak louder than emojis</h2>
                     <p>
                     Pledge and gratitude work hand in hand. Whether you are a charity or a company, find initiatives and sponsors that match your values

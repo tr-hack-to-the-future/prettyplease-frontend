@@ -8,7 +8,7 @@ import image3 from '../assets/images/Jean-Seberg.jpg';
 
 export default function() {
     return (
-        <Carousel>
+        <Carousel className="carouselContent">
         <Carousel.Item>
         <img
             className="d-block w-100"
