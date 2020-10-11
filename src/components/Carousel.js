@@ -1,13 +1,14 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
+
 export default function() {
     return (
         <Carousel>
         <Carousel.Item>
         <img
             className="d-block w-100"
-            src="holder.js/800x400?text=First slide&bg=373940"
+            src="./images/Jean-Seberg.jpg"
             alt="First slide"
         />
         <Carousel.Caption>
