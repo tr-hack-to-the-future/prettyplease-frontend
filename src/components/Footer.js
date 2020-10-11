@@ -6,7 +6,7 @@ export default function Footer() {
       <Link to={`/ForCharities/${index + 1}`}>
  
     ));
-  }
+}
   
 
 export default Footer;

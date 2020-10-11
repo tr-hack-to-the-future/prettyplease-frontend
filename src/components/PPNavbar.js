@@ -10,10 +10,10 @@ function PPNavbar({ isAuth }) {
     <Router>
       <Navbar collapseOnSelect expand="lg">
         <Navbar.Brand href="/">
-          Pretty{" "}
-          <span class="icon" role="img" aria-label="Please">
+          <h1>Pretty{" "}
+          <span className="icon" role="img" aria-label="Please">
             🙏
-          </span>
+          </span> </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
