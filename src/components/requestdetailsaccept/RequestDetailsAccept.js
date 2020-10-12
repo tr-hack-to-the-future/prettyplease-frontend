@@ -79,7 +79,7 @@ function RequestDetailsAccept({ request }) {
                     </Link>
                 </Row>
             </Router>
-            <div class="row justify-content-center mt-5"></div>
+            <div className="row justify-content-center mt-5"></div>
         </Container>
     );
 }
