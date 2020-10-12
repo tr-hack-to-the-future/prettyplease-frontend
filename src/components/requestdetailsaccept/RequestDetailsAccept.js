@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 
 function RequestDetailsAccept({ request }) {
 
@@ -14,8 +15,8 @@ function RequestDetailsAccept({ request }) {
     let { id } = useParams();
     let dispRequest = request[id - 1];
 
-    const amount = "£" + dispRequest.amount;
-    const duration = dispRequest.duration === "1" ? dispRequest.duration + " year" : dispRequest.duration + " years";
+    const amount = getFormattedAmount(dispRequest.amount);
+    const duration = getFormattedDuration(dispRequest.duration);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -84,3 +85,11 @@ function RequestDetailsAccept({ request }) {
 
 
 export default RequestDetailsAccept;
+
+// function getDurationText(dispRequest) {
+//     return dispRequest.duration === "1" ? dispRequest.duration + " year" : dispRequest.duration + " years";
+// }
+
+// function getAmountText(dispRequest) {
+//     return "£" + dispRequest.amount;
+// }
