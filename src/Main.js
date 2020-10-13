@@ -5,6 +5,7 @@ import SponsorPage from './components/SponsorPage';
 import Jumbotron from './components/Jumbotron';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
+import './App.css';
 
 
 function Main({SponsorData}) {

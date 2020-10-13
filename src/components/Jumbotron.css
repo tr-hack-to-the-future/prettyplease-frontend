@@ -4,4 +4,10 @@
     font-family: 'Patrick Hand SC', cursive;
     background-color: #e5e2da !important;
 }
+.jumbotronImage {
+    max-width: 100%;
+    webkit-box-shadow: -31px 10px 27px -26px rgba(148,143,148,1);
+    -moz-box-shadow: -31px 10px 27px -26px rgba(148,143,148,1);
+    box-shadow: -31px 10px 27px -26px rgba(148,143,148,1);
+}
 

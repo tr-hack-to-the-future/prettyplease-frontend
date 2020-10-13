@@ -6,8 +6,9 @@ export default function() {
       <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <p class="navbar-text"> 
-        <span className="icon" role="img" aria-label="Please">
-            Pretty 🙏
+            © Pretty 
+        <span role="img" aria-label="Please">
+            🙏
           </span>
         </p>
 
