@@ -10,6 +10,8 @@ import PPNavbar from "./components/PPNavbar";
 import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
 import RequestDetailsAccept from "./components/requestdetailsaccept/RequestDetailsAccept";
 
+import SponsorPageAccepted from "./components/SponsorPageAccepted";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -58,6 +60,7 @@ export default function App() {
       amount: "5000",
       isSingleEvent: false, // TODO need to be consistent across app
       duration: "3",    // should this be durationInYears? 
+      requestStatus: "OPEN",
       incentive: "We would like you to join us in a business partnership to enable us to continue operating for the year. When you become a 'Friend of the Food Bank' you will receive 30 co-branded Food Bank T-shirts and to opportunity to organise a team building day by volunteering in our warehouse and kitchens."
     },
     {
@@ -68,6 +71,7 @@ export default function App() {
       amount: "900",
       isSingleEvent: false,
       duration: "1",
+      requestStatus: "OPEN",
       incentive: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
     },
     {
@@ -78,10 +82,23 @@ export default function App() {
       amount: "5000",
       isSingleEvent: false,
       duration: "2",
+      requestStatus: "OPEN",
       incentive: "In return for your help we will put your brand on all our external mailing for the duration of your sponsorship. We will also arrange for some puppies to visit your place of work for a maximum of two days per year."
     },
+    {
+      requestId: "6",
+      charityName: "Youth Netball Team",
+      image: require("./assets/images/charity-logo-balloons.png"),
+      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      amount: "2000",
+      isSingleEvent: false,
+      duration: "1",
+      requestStatus: "ACCEPTED",
+      incentive: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },    
 
   ]);
+
 
   const [detailsCharity, setdetailsCharity] = useState([
     {
@@ -129,6 +146,8 @@ export default function App() {
     setdetailsSponsor(updatedSponsorProfile);
   }
 
+  const openRequests = sponsorshipRequests.filter( request => request.requestStatus === 'OPEN');    
+  const acceptedRequests = sponsorshipRequests.filter( request => request.requestStatus === 'ACCEPTED');    
 
   const [isAuth, setIsAuth] = useState(true);
   return (
@@ -144,8 +163,11 @@ export default function App() {
           <RequestDetailsAccept request={sponsorshipRequests} />
         </Route>
         <Route exact path="/ForSponsors">
-          <SponsorPage requests={sponsorshipRequests} />
+          <SponsorPage requests={openRequests} />
         </Route>
+        <Route exact path="/ForSponsorsAccepted">
+          <SponsorPageAccepted requests={acceptedRequests} />
+        </Route>        
         <Route path="/RequestDetailsAccept">
           <RequestDetailsAccept />
         </Route>

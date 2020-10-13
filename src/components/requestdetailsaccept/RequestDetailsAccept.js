@@ -22,6 +22,12 @@ function RequestDetailsAccept({ request }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const handleClick = () => {
+        setShow(false);
+        history.push("/ForSponsorsAccepted");
+    }
+
+
     return (
         <Container>
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
@@ -62,16 +68,20 @@ function RequestDetailsAccept({ request }) {
                         </Button>
                     </Link>
                     <Link to="/#">
+                        {/* <Button variant="outline-primary ml-5" size="lg" onClick={handleClick}>
+                            Accept
+                        </Button> */}
+
                         <Button variant="outline-primary ml-5" size="lg" onClick={handleShow}>
                             Accept
                         </Button>
-
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header>
                                 <Modal.Title>Sponsorship Request Accepted!</Modal.Title>
                             </Modal.Header>
                             <Modal.Footer>
-                                <Button variant="outline-primary" onClick={handleClose}>
+                                <Button variant="outline-primary" onClick={handleClick}>
+                                {/* <Button variant="outline-primary" onClick={handleClose}> */}
                                     Close
                                 </Button>
                             </Modal.Footer>
