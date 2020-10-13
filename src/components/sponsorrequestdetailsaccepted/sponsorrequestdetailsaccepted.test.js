@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router-dom';
-import RequestDetailsAccept from './RequestDetailsAccept';
+import RequestDetailsCompleted from './SponsorRequestDetailsAccepted';
 
-describe('RequestDisplayCard component', () => {
+describe('SponsorRequestDetailsAccepted component', () => {
 
 
     test(`Given the require props,
@@ -34,9 +34,9 @@ describe('RequestDisplayCard component', () => {
         }
 
         const { getByText } = render(
-            <MemoryRouter initialEntries={['/ForSponsors/1']} >
-                <Route exact path='/ForSponsors/:id'>
-                    <RequestDetailsAccept {...props} />
+            <MemoryRouter initialEntries={['/ForSponsorsAccepted/1']} >
+                <Route exact path='/ForSponsorsAccepted/:id'>
+                    <RequestDetailsCompleted {...props} />
                 </Route>
             </MemoryRouter>
         );

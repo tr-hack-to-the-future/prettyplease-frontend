@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import RequestDisplayCard from './RequestDisplayCard';
+import RequestAcceptedDisplayCard from './RequestAcceptedDisplayCard';
 
-describe('RequestDisplayCard component', () => {
+describe('RequestAcceptedDisplayCard component', () => {
 
 
     test(`Given the require props,
@@ -18,12 +18,13 @@ describe('RequestDisplayCard component', () => {
                 charityName: testName,
                 description: testDescription,
                 amount: "1500",
-                duration: "2"
+                duration: "2",
+                status: "ACCEPTED"
             }]
         }
         const { getByText } = render(
             <MemoryRouter>
-                <RequestDisplayCard {...props} />
+                <RequestAcceptedDisplayCard {...props} />
             </MemoryRouter>
         );
         expect(getByText(testName)).toBeTruthy();
@@ -44,17 +45,19 @@ describe('RequestDisplayCard component', () => {
                 charityName: testName,
                 description: testDescription,
                 amount: "£1500",
-                duration: "2 years"
+                duration: "2 years",
+                status: "ACCEPTED"
             }]
         }
 
         const { getByText } = render(
             <MemoryRouter>
-                <RequestDisplayCard {...props} />
+                <RequestAcceptedDisplayCard {...props} />
             </MemoryRouter>
         );
-        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsors/1');
+        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsorsAccepted/1');
     })
+
 
 
 

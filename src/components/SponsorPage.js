@@ -30,9 +30,7 @@ function SponsorPage({ requests }) {
 
                 <Row>
                     <Card>
-                        {requests.map((request) =>
-                            <RequestDisplayCard cardData={request} />
-                        )}
+                        <RequestDisplayCard cardData={requests} />
                     </Card>
 
                 </Row>

@@ -9,14 +9,13 @@ import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 
-function RequestDetailsAccept({ request }) {
+function SponsorRequestDetails({ request }) {
 
     const history = useHistory();
     const { id } = useParams();
     const dispRequest = request[id - 1];
 
-    const amount = getFormattedAmount(dispRequest.amount);
-    const duration = getFormattedDuration(dispRequest.duration);
+    const acceptButtonVisibility = dispRequest.requestStatus === 'OPEN' ? 'visible' : 'invisible';
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -26,7 +25,6 @@ function RequestDetailsAccept({ request }) {
         setShow(false);
         history.push("/ForSponsorsAccepted");
     }
-
 
     return (
         <Container>
@@ -41,13 +39,12 @@ function RequestDetailsAccept({ request }) {
                     alt={dispRequest.charityName}
                 />
             </div>
-
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
-                    Amount: {amount}
+                    Amount: {getFormattedAmount(dispRequest.amount)}
                 </Col>
                 <Col className="text-center">
-                    Duration: {duration}
+                    Duration: {getFormattedDuration(dispRequest.duration)}
                 </Col>
             </Row>
             <div className="row justify-content-center mt-5 lead">
@@ -67,7 +64,7 @@ function RequestDetailsAccept({ request }) {
                             Back
                         </Button>
                     </Link>
-                    <Link to="/#">
+                    <Link to="/#" className="{acceptButtonVisibility}">
                         {/* <Button variant="outline-primary ml-5" size="lg" onClick={handleClick}>
                             Accept
                         </Button> */}
@@ -95,5 +92,5 @@ function RequestDetailsAccept({ request }) {
 }
 
 
-export default RequestDetailsAccept;
+export default SponsorRequestDetails;
 
