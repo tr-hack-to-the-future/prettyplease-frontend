@@ -8,6 +8,9 @@
   top: 0;
   width: 100%;
 }
+.mr-auto {
+  font-family: 'Lato', sans-serif;
+}
 
 .navbar-brand h1 {
   font-family: 'Sansita Swashed', cursive;
