@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand+SC%7CRoboto&display=swap');
+
 .jumbotron {
+    font-family: 'Patrick Hand SC', cursive;
     background-color: #e5e2da !important;
 }
 

@@ -3,6 +3,15 @@ import React from 'react';
 
 export default function() {
     return (
-      <h1>Hello</h1>
+      <div class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text"> 
+        <span className="icon" role="img" aria-label="Please">
+            Pretty 🙏
+          </span>
+        </p>
+
+      </div>
+    </div>
     );
 }
