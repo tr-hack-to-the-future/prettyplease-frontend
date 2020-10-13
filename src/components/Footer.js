@@ -7,12 +7,14 @@ export default function() {
        <footer id="sticky-footer">
         <div class="container">
           <small>
+            © 
             <p class="navbar-text"> 
-                © Pretty 
+                Pretty 
             <span role="img" aria-label="Please">
                 🙏
-              </span> 2020
+              </span> 
             </p>
+            2020
           </small>
         </div>
       </footer>

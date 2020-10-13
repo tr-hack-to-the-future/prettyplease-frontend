@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Patrick+Hand+SC|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
 
 * {
-  font-family: 'Patrick Hand SC', cursive;
+  font-family: 'Roboto', sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333333;

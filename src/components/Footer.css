@@ -1,3 +1,6 @@
-.navbar navbar-inverse navbar-fixed-bottom {
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;600;900&display=swap');
+
+.navbar-text {
+    font-family:'Sansita Swashed', cursive;
     bottom: 0 !important;
 }
