@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 function PPNavbar({ isAuth }) {
   return (
     <Router>
-      <Navbar className="navcolor" collapseOnSelect expand="lg">
+      <Navbar className="navbar" collapseOnSelect expand="lg">
         <Navbar.Brand className="logo" href="/" >
           <h1>Pretty{" "}
           <span className="icon" role="img" aria-label="Please">

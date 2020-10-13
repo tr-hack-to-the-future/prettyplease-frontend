@@ -1,7 +1,10 @@
-
-
-.navcolor {
-    background-color: white !important;
+.navbar {
+  position: fixed !important;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
 }
 
 .navbar-brand h1 {
