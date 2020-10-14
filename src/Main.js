@@ -5,6 +5,7 @@ import SponsorPage from './components/SponsorPage';
 import Jumbotron from './components/Jumbotron';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
+import Featurette from './components/Featurette';
 import './App.css';
 
 
@@ -13,6 +14,7 @@ function Main({SponsorData}) {
   return (
     <>
       <Jumbotron />
+      <Featurette />
       <Carousel />
       <Footer />
     </>
