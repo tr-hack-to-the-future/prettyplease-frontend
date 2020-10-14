@@ -41,7 +41,7 @@ export default function() {
       <Carousel.Item>
         <img className="d-block w-100" src={image4} alt="Third slide" />
         <Carousel.Caption>
-          <h2>>Third slide label</h2>
+          <h2>Plastic Oceans</h2>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
@@ -51,17 +51,15 @@ export default function() {
       <Carousel.Item>
         <img className="d-block w-100" src={image5} alt="Third slide" />
         <Carousel.Caption>
-          <h2>Third slide label</h2>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h2>999Club</h2>
+          <p>Shelter in Deptford is sponsored by Lowe Guardians</p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item>
         <img className="d-block w-100" src={image6} alt="Third slide" />
         <Carousel.Caption>
-          <h2>Third slide label</h2>
+          <h2>Hackney food bank</h2>
           <p>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
