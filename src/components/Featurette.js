@@ -11,8 +11,7 @@ export default function() {
           At Pretty P***** asking is not a taboo. We start from the principle
           that{" "}
           <span className="boldStatement">if you don't ask you don't get</span>.
-          Our bespoke platform connects charities to compatible sponsors. On our
-          platform generosity prevails.
+          In our pandemic new reality, let generosity be a constant.
         </p>
         <p>
           You are a charity: Let companies wear your badge of honour, connect

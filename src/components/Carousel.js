@@ -43,7 +43,7 @@ export default function() {
         <Carousel.Caption>
           <h2>Plastic Oceans</h2>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Last year Deutsche Bank donated €200,000 to the environmental NGO
           </p>
         </Carousel.Caption>
       </Carousel.Item>

@@ -23,7 +23,7 @@ export default function() {
           <h2>Actions speak louder than emojis</h2>
           <p>
             Pledge and gratitude work hand in hand. Whether you are a charity or
-            a company, find initiatives and sponsors that match your values
+            a company, find sponsors and initiatives that match your values
           </p>
 
           <Nav>
