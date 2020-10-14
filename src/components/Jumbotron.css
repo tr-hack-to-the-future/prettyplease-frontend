@@ -17,8 +17,11 @@
 body .buttonNav {
   color: white;
   width: 187px;
-  background-color: coral;
+  background-color: crimson;
   border-radius: 15px;
   margin-left: 5px;
   text-align: center;
+}
+.buttonNav:hover {
+  color: gray;
 }
