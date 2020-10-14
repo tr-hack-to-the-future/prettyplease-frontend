@@ -19,8 +19,7 @@ function PPNavbar({ isAuth }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/ForSponsors">For Sponsors</Nav.Link>
-            <Nav.Link href="/ForCharities">For Charities</Nav.Link>
+         
             <Nav.Link href="/NewFund">Fund Request</Nav.Link>
             <Nav.Link href="/CharityProfilePage">Charity Profile</Nav.Link>
             <Nav.Link href="/SponsorProfilePage">Sponsor Profile</Nav.Link>

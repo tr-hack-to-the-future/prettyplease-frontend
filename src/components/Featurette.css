@@ -1,4 +1,4 @@
 .featuretteContainer {
-    padding: 50px;
-    margin: 0 auto;
+    padding: 50px !important;
+    margin: 0 auto !important;
 }
