@@ -9,7 +9,8 @@ export default function() {
         <big className="boldStatement">We are about bold statements</big>
         <p>
           At Pretty P***** asking is not a taboo. We start from the principle
-          that <span className="boldStatement">if you don't ask you get</span>.
+          that{" "}
+          <span className="boldStatement">if you don't ask you don't get</span>.
           Our bespoke platform connects charities to compatible sponsors. On our
           platform generosity prevails.
         </p>
@@ -19,7 +20,7 @@ export default function() {
         </p>
         <p>
           you are a sponsor: you don't{" "}
-          <span role="img" aria-label="shit">
+          <span role="img" clasName="icon" aria-label="shit">
             💩
           </span>{" "}
           where your mouth is, wear your{" "}
