@@ -3,11 +3,12 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
+import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 
 function RequestDisplayCard({ cardData }) {
 
-    const amount = "£" + cardData.amount;
-    const duration = cardData.duration === "1" ? cardData.duration + " year" : cardData.duration + " years" ;
+    const amount = getFormattedAmount(cardData.amount);
+    const duration = getFormattedDuration(cardData.duration);
 
     return (
         <Link to={`/ForSponsors/${cardData.requestId}`}>

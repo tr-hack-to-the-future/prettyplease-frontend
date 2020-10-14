@@ -7,15 +7,16 @@ import Col from 'react-bootstrap/Col';
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
+import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 
 function RequestDetailsAccept({ request }) {
 
-    let history = useHistory();
-    let { id } = useParams();
-    let dispRequest = request[id - 1];
+    const history = useHistory();
+    const { id } = useParams();
+    const dispRequest = request[id - 1];
 
-    const amount = "£" + dispRequest.amount;
-    const duration = dispRequest.duration === "1" ? dispRequest.duration + " year" : dispRequest.duration + " years";
+    const amount = getFormattedAmount(dispRequest.amount);
+    const duration = getFormattedDuration(dispRequest.duration);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -35,24 +36,24 @@ function RequestDetailsAccept({ request }) {
                 />
             </div>
 
-            {/* <Row className="pt-2 pb-2"> */}
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
-                    {/* <div className="row justify-content-center mt-5 "> */}
                     Amount: {amount}
                 </Col>
                 <Col className="text-center">
                     Duration: {duration}
                 </Col>
             </Row>
-
+            <div className="row justify-content-center mt-5 lead">
+                {dispRequest.description}
+            </div>
             <div className="row justify-content-center mt-5 ">
-                <p>{dispRequest.incentive}</p>
+                {dispRequest.incentive}
             </div>
 
             <Router>
                 <Row className=" justify-content-center mt-5 ">
-                    <Link href="">
+                    <Link to="/#">
                         <Button
                             variant="outline-primary"
                             size="lg"
@@ -60,15 +61,15 @@ function RequestDetailsAccept({ request }) {
                             Back
                         </Button>
                     </Link>
-                    <Link href="">
+                    <Link to="/#">
                         <Button variant="outline-primary ml-5" size="lg" onClick={handleShow}>
                             Accept
                         </Button>
 
                         <Modal show={show} onHide={handleClose}>
-                        <Modal.Header>
-                        <Modal.Title>Sponsorship Request Accepted!</Modal.Title>
-                        </Modal.Header>
+                            <Modal.Header>
+                                <Modal.Title>Sponsorship Request Accepted!</Modal.Title>
+                            </Modal.Header>
                             <Modal.Footer>
                                 <Button variant="outline-primary" onClick={handleClose}>
                                     Close
@@ -78,9 +79,11 @@ function RequestDetailsAccept({ request }) {
                     </Link>
                 </Row>
             </Router>
+            <div className="row justify-content-center mt-5"></div>
         </Container>
     );
 }
 
 
 export default RequestDetailsAccept;
+
