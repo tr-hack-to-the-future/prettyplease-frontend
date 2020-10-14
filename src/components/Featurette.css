@@ -1,4 +1,9 @@
 .featuretteContainer {
-    padding: 50px !important;
-    margin: 0 auto !important;
+  padding: 50px !important;
+  margin: 0 auto !important;
+}
+
+.boldStatement {
+  font-size: 5rem;
+  font-weight: bold;
 }

@@ -6,11 +6,12 @@ export default function() {
   return (
     <container className="featuretteContainer">
       <Row>
-        <h4> Bouji bouji</h4>
+        <big className="boldStatement">We are about bold statements</big>
         <p>
           At Pretty P***** asking is not a taboo. We start from the principle
-          that if you don't ask you get. Our bespoke platform connects charities
-          to compatible sponsors. On our platform generosity prevails.
+          that <span className="boldStatement">if you don't ask you get</span>.
+          Our bespoke platform connects charities to compatible sponsors. On our
+          platform generosity prevails.
         </p>
         <p>
           You are a charity: Let companies wear your badge of honour, connect

@@ -11,7 +11,11 @@
 }
 
 .jumbotron h2 {
-  font-family: "Lato", sans-serif !important;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  padding-bottom: 50px;
+  font-size: 3.6rem;
+  line-height: 0.8;
 }
 
 body .buttonNav {

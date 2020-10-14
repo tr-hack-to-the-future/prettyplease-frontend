@@ -1,11 +1,14 @@
-.carouselContainer{
-    background-color: #e5e2da !important;
-    width: 50% !important;
-    margin: 0 auto !important;
+.carouselContainer {
+  background-color: #e5e2da !important;
+  width: 50% !important;
+  margin: 0 auto !important;
 }
 
-.carousel-indicators > li{
-    border-radius: 50% !important;
-    width: 12px !important;
-    height: 12px !important;
+.carousel-indicators > li {
+  border-radius: 50% !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+body .carousel p {
+  color: white;
 }

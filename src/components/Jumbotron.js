@@ -8,18 +8,18 @@ export default function() {
   return (
     <Jumbotron className="Jumbotron">
       <Row>
-        <Col sm={7}>
+        <Col sm={6}>
           <img
             className="jumbotronImage"
             src="https://www.telegraph.co.uk/content/dam/good-news/seven-seas/ministry-of-stories-gemma-day-xlarge.jpg"
             alt="new"
           />
           <figureCaption>
-            <p>Alfa supports the Ministry of Stories</p>
+            <p>Alfa sponsors the Ministry of Stories</p>
           </figureCaption>
         </Col>
 
-        <Col sm={4}>
+        <Col sm={5}>
           <h2>Actions speak louder than emojis</h2>
           <p>
             Pledge and gratitude work hand in hand. Whether you are a charity or
