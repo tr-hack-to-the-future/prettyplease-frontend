@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import "./CharityPage.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
