@@ -1,5 +1,5 @@
 .featuretteContainer {
-  padding: 100px 180px;
+  padding: 90px 100px;
   margin: 0 auto;
 }
 
@@ -27,4 +27,11 @@
 }
 .FeaturetteButton:hover {
   color: white;
+}
+
+@media screen and (max-width: 940px) {
+  .featuretteContainer {
+    padding: 50px 40px;
+    margin: 0 auto;
+  }
 }
