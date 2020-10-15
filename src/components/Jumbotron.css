@@ -29,3 +29,8 @@ body .buttonNav {
 .buttonNav:hover {
   color: gray;
 }
+
+.captiontext {
+  text-align: center;
+  font-size: 0.5 rem !important;
+}

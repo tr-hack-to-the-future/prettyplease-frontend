@@ -15,7 +15,7 @@ export default function() {
             alt="new"
           />
           <figureCaption>
-            <p>Alfa sponsors the Ministry of Stories</p>
+            <p className="captiontext">Alfa sponsors the Ministry of Stories</p>
           </figureCaption>
         </Col>
 
