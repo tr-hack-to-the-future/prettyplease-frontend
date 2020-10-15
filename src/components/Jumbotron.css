@@ -18,6 +18,10 @@
   line-height: 0.8;
 }
 
+body .nav {
+  padding-top: 35px;
+  padding-left: 85px;
+}
 body .buttonNav {
   color: white;
   width: 128px;
@@ -30,7 +34,7 @@ body .buttonNav {
   color: gray;
 }
 
-.captiontext {
+body .captiontext {
   text-align: center;
   font-size: 0.5 rem !important;
 }
