@@ -1,28 +1,33 @@
 import React from "react";
 import "./Featurette.css";
+import Nav from "react-bootstrap/Nav";
 import { Row, Col } from "react-bootstrap";
 
 export default function() {
   return (
     <Row>
       <container className="featuretteContainer">
-        <big className="boldStatement">We are about bold statements</big>
+        <h2 className="boldStatement">let generosity be a constant</h2>
         <p>
           At Pretty P***** asking is not a taboo. We start from the principle
           that{" "}
           <span className="boldStatement">if you don't ask you don't get</span>.
-          In our pandemic new reality, let generosity be a constant. You are a
-          charity: Let companies wear your badge of honour, connect with the
-          most ethical organisation globally you are a sponsor: you don't{" "}
-          <span role="img" clasName="icon" aria-label="shit">
+          You are a charity:connect with the most ethical organisation globally
+          You are a sponsor: you don't{" "}
+          <span role="img" clasName="emo" aria-label="shit">
             💩
           </span>{" "}
           where your mouth is, wear your{" "}
-          <span role="img" aria-label="shit">
+          <span role="img" className="emo" aria-label="shit">
             ❤️
           </span>{" "}
           on your sleeve{" "}
         </p>
+        <container>
+          <Nav.Link className="FeaturetteButton" href="/NewFund">
+            Fund Request
+          </Nav.Link>
+        </container>
       </container>
     </Row>
   );

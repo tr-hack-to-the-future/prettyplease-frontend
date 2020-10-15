@@ -11,7 +11,7 @@ import image6 from "../assets/images/hackneyfoodbank.jpg";
 export default function() {
   return (
     <>
-      <h3>let generosity be a Constant</h3>
+      <h3>Campaigns, past and current</h3>
       <Carousel className="carouselContainer">
         <Carousel.Item>
           <img className="d-block w-100" src={image1} alt="Liter of Light" />

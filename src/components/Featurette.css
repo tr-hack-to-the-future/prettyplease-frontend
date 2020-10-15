@@ -4,6 +4,16 @@
 }
 
 .boldStatement {
+  text-align: center;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.FeaturetteButton {
+  text-align: center;
+  color: white;
+  width: 140px;
+  background-color: crimson;
+  border-radius: 63px;
+  margin: 0 auto;
 }
