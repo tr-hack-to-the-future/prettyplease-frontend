@@ -7,12 +7,12 @@ export default function() {
   return (
     <Row>
       <container className="featuretteContainer">
-        <h2 className="boldStatement">let generosity be a constant</h2>
+        <h2 className="greasyStatement">let generosity be a constant</h2>
         <p>
           At Pretty P***** asking is not a taboo. We start from the principle
           that{" "}
           <span className="boldStatement">if you don't ask you don't get</span>.
-          You are a charity:connect with the most ethical organisation globally
+          You are a charity:connect with the most ethical organisation globally.
           You are a sponsor: you don't{" "}
           <span role="img" clasName="emo" aria-label="shit">
             💩
