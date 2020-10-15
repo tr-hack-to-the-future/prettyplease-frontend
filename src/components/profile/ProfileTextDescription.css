@@ -1,13 +1,11 @@
 .profile-text-description-container {
-
-    padding-top: 15px;
-    margin-left: 30%;
+  padding-top: 220px;
+  margin-left: 30%;
 }
 .profile-text-description {
-
-    padding-top: 30px;
+  padding-top: 30px;
 }
 
-.auto-size-textarea{
-    width: 100%;
+.auto-size-textarea {
+  width: 100%;
 }
