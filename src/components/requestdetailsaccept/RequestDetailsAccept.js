@@ -63,13 +63,16 @@ function RequestDetailsAccept({ request }) {
                     </Link>
                     <Link to="/#">
                         <Button variant="outline-primary ml-5" size="lg" onClick={handleShow}>
-                            Accept
+                            Apply
                         </Button>
 
                         <Modal show={show} onHide={handleClose}>
                             <Modal.Header>
-                                <Modal.Title>Sponsorship Request Accepted!</Modal.Title>
+                                <Modal.Title>Sponsorship Request</Modal.Title>
                             </Modal.Header>
+                            <Modal.Body>
+                                Thank you for applying to sponsor our charity.
+                            </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="outline-primary" onClick={handleClose}>
                                     Close
