@@ -4,21 +4,16 @@ import { Row, Col } from "react-bootstrap";
 
 export default function() {
   return (
-    <container className="featuretteContainer">
-      <Row>
+    <Row>
+      <container className="featuretteContainer">
         <big className="boldStatement">We are about bold statements</big>
         <p>
           At Pretty P***** asking is not a taboo. We start from the principle
           that{" "}
           <span className="boldStatement">if you don't ask you don't get</span>.
-          In our pandemic new reality, let generosity be a constant.
-        </p>
-        <p>
-          You are a charity: Let companies wear your badge of honour, connect
-          with the most ethical organisation globally
-        </p>
-        <p>
-          you are a sponsor: you don't{" "}
+          In our pandemic new reality, let generosity be a constant. You are a
+          charity: Let companies wear your badge of honour, connect with the
+          most ethical organisation globally you are a sponsor: you don't{" "}
           <span role="img" clasName="icon" aria-label="shit">
             💩
           </span>{" "}
@@ -28,7 +23,7 @@ export default function() {
           </span>{" "}
           on your sleeve{" "}
         </p>
-      </Row>
-    </container>
+      </container>
+    </Row>
   );
 }

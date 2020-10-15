@@ -38,3 +38,8 @@ body .captiontext {
   text-align: center;
   font-size: 0.5 rem !important;
 }
+
+.col-sm-5 {
+  margin: 0 auto;
+  padding-top: 28px;
+}
