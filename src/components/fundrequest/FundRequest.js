@@ -5,11 +5,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+import ModalConfirmationRequest from './ModalConfirmationRequest';
 
 function FundRequest() {
     // Variable to control the modal
-    const [smShow, setSmShow] = useState(false);
+    // const [smShow, setSmShow] = useState(false);
+    const [modalShow, setModalShow] = React.useState(false);
 
     const [amount, setAmount] = useState("");
     const [description, setDescription] = useState("");
@@ -39,23 +41,55 @@ function FundRequest() {
         // setDuration(Number(event.target.value));
     }
 
-    const handlerRegister = (event) => {
-        const charityRequest = {
-            amount: amount,
-            description: description,
-            incentive: incentive,
-            isSingleEvent:isSingleEvent,
-            duration: duration,
-        }
+    // const handlerRegister = (event) => {
+    //     const charityRequest = {
+    //         amount: amount,
+    //         description: description,
+    //         incentive: incentive,
+    //         isSingleEvent:isSingleEvent,
+    //         duration: duration,
+    //     }
 
-        console.log(charityRequest);
-        setSmShow(true)
-        setAmount("");
-        setDescription("");
-        setIncentive("");
-        setIsSingleEvent("");
-        setDuration(0);
-    };
+    //     console.log(charityRequest);
+    //     return charityRequest;
+
+        
+    //     setModalShow (true);
+
+        
+        
+    //     setSmShow(true);
+    //     setAmount("");
+    //     setDescription("");
+    //     setIncentive("");
+    //     setIsSingleEvent("");
+    //     setDuration(0);
+    // };
+
+   function handlerRegister (){
+         const charityRequest = {
+             amount: amount,
+             description: description,
+             incentive: incentive,
+            isSingleEvent:isSingleEvent,
+             duration: duration,
+         }
+
+         console.log(charityRequest);
+         return charityRequest;
+
+        
+    //     setModalShow (true);
+
+        
+        
+    //     setSmShow(true);
+    //     setAmount("");
+    //     setDescription("");
+    //     setIncentive("");
+    //     setIsSingleEvent("");
+    //     setDuration(0);
+     };
 
     return (
         <div className="FundRequest">
@@ -187,8 +221,17 @@ function FundRequest() {
                 {/* Button register*/}
                 <Row>
                     <Col md={{ span: 2, offset: 8 }}>
-                        <Button onClick={handlerRegister} variant="outline-primary" type="submit">Submit</Button>
-                        <Modal
+                        {/* <Button onClick={handlerRegister} variant="outline-primary" type="submit">Submit</Button> */}
+                        <Button onClick={() => setModalShow(true)} variant="outline-primary" type="submit">Submit</Button>
+                        {console.log (duration+description+incentive+isSingleEvent+ duration)}
+                        <ModalConfirmationRequest show={modalShow} onHide={() => setModalShow(false)} charitydetails={{
+                                amount: amount,
+                                description: description,
+                                incentive: incentive,
+                                isSingleEvent:isSingleEvent,
+                                duration: duration }} />
+                        
+                        {/* <Modal
                                     size="sm"
                                     show={smShow}
                                     onHide={() => setSmShow(false)}
@@ -200,7 +243,7 @@ function FundRequest() {
                                     </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>Your request has been saved</Modal.Body>
-                                </Modal>
+                                </Modal> */}
                     </Col>
                 </Row>
 
