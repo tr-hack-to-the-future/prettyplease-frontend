@@ -19,27 +19,25 @@ function FundRequest() {
     const [duration, setDuration] = useState(0);
     const [incentive, setIncentive] = useState("");
 
-    const handlerAmount = (event) => {
-        setAmount(Number(event.target.value));
-    }
+    // const handlerAmount = (event) => {
+    //     setAmount(Number(event.target.value));
+    // }
 
-    const handlerDescription = (event) => {
-        setDescription(event.target.value);
-    }
+    // const handlerDescription = (event) => {
+    //     setDescription(event.target.value);
+    // }
 
-    const handlerIncentive = (event) => {
-        setIncentive(event.target.value);
-    }
+    // const handlerIncentive = (event) => {
+    //     setIncentive(event.target.value);
+    // }
 
-    const handlerDuration = (event) => {
-        setDuration(Number(event.target.value));
-        // setDuration(Number(event.target.value));
-    }
+    // const handlerDuration = (event) => {
+    //     setDuration(Number(event.target.value));
+    // }
 
-    const handlerIsSingleEvent = (event) => {
-        setIsSingleEvent(event.target.value);
-        // setDuration(Number(event.target.value));
-    }
+    // const handlerIsSingleEvent = (event) => {
+    //     setIsSingleEvent(event.target.value);
+    // }
 
     // const handlerRegister = (event) => {
     //     const charityRequest = {
@@ -66,30 +64,30 @@ function FundRequest() {
     //     setDuration(0);
     // };
 
-   function handlerRegister (){
-         const charityRequest = {
-             amount: amount,
-             description: description,
-             incentive: incentive,
-            isSingleEvent:isSingleEvent,
-             duration: duration,
-         }
+//    function handlerRegister (){
+//          const charityRequest = {
+//              amount: amount,
+//              description: description,
+//              incentive: incentive,
+//             isSingleEvent:isSingleEvent,
+//              duration: duration,
+//          }
 
-         console.log(charityRequest);
-         return charityRequest;
-
-        
-    //     setModalShow (true);
+//          console.log(charityRequest);
+//          return charityRequest;
 
         
+//         setModalShow (true);
+
         
-    //     setSmShow(true);
-    //     setAmount("");
-    //     setDescription("");
-    //     setIncentive("");
-    //     setIsSingleEvent("");
-    //     setDuration(0);
-     };
+        
+//         setSmShow(true);
+//         setAmount("");
+//         setDescription("");
+//         setIncentive("");
+//         setIsSingleEvent("");
+//         setDuration(0);
+//      };
 
     return (
         <div className="FundRequest">
@@ -108,8 +106,8 @@ function FundRequest() {
                 {/* Fund Request form */}       
                 <Form.Row >
                     <Col md={{ span: 6, offset: 3 }}>
-                    
-                        <Form onSubmit={handlerRegister}>
+                    <Form > 
+                        {/* <Form onSubmit={handlerRegister}> */}
                             
                             {/* Amount Fund request field*/}
                             <Form.Group controlId="exampleForm.ControlInput1">
@@ -118,7 +116,7 @@ function FundRequest() {
                                     required
                                     type="number"
                                     placeholder="£1,000"
-                                    onChange={handlerAmount}
+                                    onChange={(event)=>setAmount(Number(event.target.value))}
                                     value={amount} />
                             </Form.Group>
 
@@ -127,7 +125,7 @@ function FundRequest() {
                                 <Form.Label className="text-primary">Description:</Form.Label>
                                 <Form.Control as="textarea" rows="3"
                                     required
-                                    onChange={handlerDescription}
+                                    onChange={(event) =>setDescription(event.target.value)}
                                     value={description}
                                 />
                             </Form.Group>
@@ -150,7 +148,7 @@ function FundRequest() {
                                                 id="radioDurationOneOff"
                                                 value={true}
                                                 // value="0"
-                                                onChange={handlerIsSingleEvent}
+                                                onChange={(event) => setIsSingleEvent(event.target.value)}
                                             />
                                         </Row>
 
@@ -163,7 +161,7 @@ function FundRequest() {
                                                 id="radioDurationCustomiseDuration"
                                                 value={false}
                                                 // value="1"
-                                                onChange={handlerIsSingleEvent}
+                                                onChange={(event) => setIsSingleEvent(event.target.value)}
                                             />
 
                                             
@@ -180,7 +178,7 @@ function FundRequest() {
                                                     className="mb-2 mr-sm-2"
                                                     id="inlineFormInputName2"
                                                     placeholder="1"
-                                                    onChange={handlerDuration}
+                                                    onChange={(event) => setDuration(Number(event.target.value))}
                                                     vale={duration}
                                                 />
 
@@ -205,7 +203,7 @@ function FundRequest() {
                                 <Form.Label className="text-primary">Incentive:</Form.Label>
                                 <Form.Control as="textarea" rows="3" placeholder="Write here the incentive you offer (sponsor branding, vouchers, sampling opportunities,...)"
                                     required
-                                    onChange={handlerIncentive}
+                                    onChange={(event) => setIncentive(event.target.value)}
                                     value={incentive}
                                 />
                             </Form.Group>
@@ -223,7 +221,6 @@ function FundRequest() {
                     <Col md={{ span: 2, offset: 8 }}>
                         {/* <Button onClick={handlerRegister} variant="outline-primary" type="submit">Submit</Button> */}
                         <Button onClick={() => setModalShow(true)} variant="outline-primary" type="submit">Submit</Button>
-                        {console.log (duration+description+incentive+isSingleEvent+ duration)}
                         <ModalConfirmationRequest show={modalShow} onHide={() => setModalShow(false)} charitydetails={{
                                 amount: amount,
                                 description: description,

@@ -7,22 +7,18 @@ import Modal from 'react-bootstrap/Modal';
 
 function ModalConfirmationRequest(props) {
     // Variable to control the modal
-    const [modalShow, setModalShow] = React.useState(false);
+    // const [modalShow, setModalShow] = React.useState(false);
+    // const textDuration = () =>{(props.charitydetails.isSingleEvent ? 'One-Off' : 'years' );
+    // const textDuration = () =>console.log(props.charitydetails.isSingleEvent);
+    const handlerSubmit = () => console.log(props.charitydetails);
 
-    function handlerRegister (){
 
-
-        console.log(props.charitydetails);
-
-    };
 
     return (
-        <aside>         
-            <Container >
 
                         <Modal
-                            show={modalShow}
-                                onHide={() => setModalShow(false)}
+                            // show={modalShow}
+                            //     onHide={() => setModalShow(false)}
                             {...props}
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
@@ -34,14 +30,14 @@ function ModalConfirmationRequest(props) {
                                 </Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <h6>Please, review the data of request. Press submit if you agree or back if you need to edit again:</h6>
-                                <container>
+                                <h6>Press SUBMIT to continue or CLOSE to edit the request:</h6>
+                            
                                 <Row>
                                     <Col xs={6} md={2}>
                                         Amount:
                                     </Col>
                                     <Col xs={6} md={10}>
-                                       <p>£ {props.charitydetails.amount} </p> 
+                                       £ {props.charitydetails.amount}
                                     </Col>
                                 </Row>
                                 <Row>
@@ -57,7 +53,7 @@ function ModalConfirmationRequest(props) {
                                          Duration:
                                     </Col>
                                     <Col xs={6} md={10}>
-                                         {props.charitydetails.duration}
+                                        {(props.charitydetails.isSingleEvent ? 'One-Off' : props.charitydetails.duration +'years' )}
                                     </Col>
                                 </Row>
                                 <Row>
@@ -68,18 +64,15 @@ function ModalConfirmationRequest(props) {
                                       {props.charitydetails.incentive}
                                     </Col>
                                 </Row>
-                                </container>
+                             
 
                             </Modal.Body>
                             <Modal.Footer>
-                                    <Button onClick={handlerRegister}>Submit</Button> 
+                                    <Button onClick={handlerSubmit}>Submit</Button> 
                                  <Button onClick={props.onHide}>Close</Button> 
                             </Modal.Footer>
                             </Modal> 
 
-
-            </Container>
-        </aside>
     );
 }
 
