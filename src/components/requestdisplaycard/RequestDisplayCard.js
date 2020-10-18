@@ -22,7 +22,7 @@ function RequestDisplayCard({ cardData }) {
                 <Col className="col p-4 d-flex flex-column position-static">
                     <Card.Body>
                         <Card.Title>{card.charityName}</Card.Title>
-                        <Card.Text >{card.description}</Card.Text>
+                        <Card.Text >{card.eventDescription}</Card.Text>
                         <Row className="pt-2 pb-2">
                             <Col>
                                 <Card.Text>

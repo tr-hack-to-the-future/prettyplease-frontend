@@ -10,13 +10,15 @@ describe('RequestDisplayCard component', () => {
             When the component is rendered,
             Then it should render a charity name`, () => {
         const testName = 'Test Charity';
-        const testDescription = 'Test description';
+        const testCharityDescription = 'Test charity description';
+        const testEventDescription = 'Test event description';
 
         const props = {
             cardData: [{
                 requestId: 1,
                 charityName: testName,
-                description: testDescription,
+                charityDescription: testCharityDescription,
+                eventDescription: testEventDescription,
                 amount: "1500",
                 duration: "2"
             }]
@@ -27,7 +29,7 @@ describe('RequestDisplayCard component', () => {
             </MemoryRouter>
         );
         expect(getByText(testName)).toBeTruthy();
-        expect(getByText(testDescription)).toBeTruthy();
+        expect(getByText(testEventDescription)).toBeTruthy();
         expect(getByText('Amount: £1500')).toBeTruthy();
         expect(getByText("Duration: 2 years")).toBeTruthy();
     })
@@ -36,13 +38,15 @@ describe('RequestDisplayCard component', () => {
     When the component is rendered,
     Then it should render a link`, () => {
         const testName = 'Test Charity';
-        const testDescription = 'Test description';
+        const testCharityDescription = 'Test charity description';        
+        const testEventDescription = 'Test event description';
 
         const props = {
             cardData: [{
                 requestId: 13,
                 charityName: testName,
-                description: testDescription,
+                charityDescription: testCharityDescription,
+                eventDescription: testEventDescription,
                 amount: "£1500",
                 duration: "2 years"
             }]

@@ -10,14 +10,16 @@ describe('OfferDetailsAccepted component', () => {
             When the component is rendered,
             Then it should render a sponsorship request`, () => {
         const testName = 'Hello Request';
-        const testDescription = 'Test description';
+        const testCharityDescription = 'Test charity description';        
+        const testEventDescription = 'Test event description';
         const testIncentive = 'Test incentive';
   
         const props = {
             request: [{
                 requestId: 1,
                 charityName: testName,
-                description: testDescription,
+                charityDescription: testCharityDescription,
+                eventDescription: testEventDescription,
                 amount: "1500",
                 duration: "2",
                 incentive: testIncentive
@@ -25,7 +27,8 @@ describe('OfferDetailsAccepted component', () => {
             {
                 requestId: 2,
                 charityName: testName,
-                description: testDescription,
+                charityDescription: testCharityDescription,
+                eventDescription: testEventDescription,
                 amount: "10000",
                 duration: "3",
                 incentive: testIncentive
@@ -42,7 +45,7 @@ describe('OfferDetailsAccepted component', () => {
         );
 
         expect(getByText(testName)).toBeTruthy();
-        expect(getByText(testDescription)).toBeTruthy();
+        expect(getByText(testEventDescription)).toBeTruthy();
         expect(getByText("Amount: £1500")).toBeTruthy();
         expect(getByText("Duration: 2 years")).toBeTruthy();
         expect(getByText(testIncentive)).toBeTruthy();

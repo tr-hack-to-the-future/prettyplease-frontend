@@ -5,7 +5,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Modal } from 'react-bootstrap';
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
+import Modal from 'react-bootstrap/Modal';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 import "./SponsorRequestDetails.css";
 
@@ -39,6 +41,18 @@ function SponsorRequestDetails({ request }) {
                     alt={dispRequest.charityName}
                 />
             </div>
+            <Row className="mt-3 justify-content-md-center">
+                <Accordion>
+                    <Card>
+                        <Accordion.Toggle as={Card.Header} eventKey="0">
+                            <strong>What We Do</strong>
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                            <Card.Body>{dispRequest.charityDescription}</Card.Body>
+                        </Accordion.Collapse>                
+                    </Card>
+                </Accordion>
+            </Row>
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
                     Amount: {getFormattedAmount(dispRequest.amount)}
@@ -48,12 +62,11 @@ function SponsorRequestDetails({ request }) {
                 </Col>
             </Row>
             <div className="row justify-content-center mt-5 lead">
-                {dispRequest.description}
+                {dispRequest.eventDescription}
             </div>
             <div className="row justify-content-center mt-5 ">
                 {dispRequest.incentive}
             </div>
-
             <Router>
                 <Row className=" justify-content-center mt-5 ">
                     <Link to="/#">
