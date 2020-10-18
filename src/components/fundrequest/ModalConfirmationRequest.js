@@ -53,7 +53,7 @@ function ModalConfirmationRequest(props) {
                                          Duration:
                                     </Col>
                                     <Col xs={6} md={10}>
-                                        {(props.charitydetails.isSingleEvent ? 'One-Off' : props.charitydetails.duration +'years' )}
+                                        {(props.charitydetails.isSingleEvent ? 'One-Off' : ' ${props.charitydetails.duration} years' )}
                                     </Col>
                                 </Row>
                                 <Row>

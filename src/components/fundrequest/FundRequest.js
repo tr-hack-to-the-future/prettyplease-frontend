@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup'
 import Modal from 'react-bootstrap/Modal';
 import ModalConfirmationRequest from './ModalConfirmationRequest';
 
@@ -112,13 +113,30 @@ function FundRequest() {
                             {/* Amount Fund request field*/}
                             <Form.Group controlId="exampleForm.ControlInput1">
                                 <Form.Label className="text-primary">Amount:</Form.Label>
+                                <InputGroup className="mb-3">
+                                    <InputGroup.Prepend>
+                                    <InputGroup.Text>£</InputGroup.Text>
+                                    </InputGroup.Prepend>
+                                    <Form.Control
+                                    required
+                                    type="number"
+                                    placeholder="1,000"
+                                    onChange={(event)=>setAmount(Number(event.target.value))}
+                                    value={amount} />
+                                   
+                                 
+                                </InputGroup>
+                            </Form.Group>
+
+                            {/* <Form.Group controlId="exampleForm.ControlInput1">
+                                <Form.Label className="text-primary">Amount:</Form.Label>
                                 <Form.Control
                                     required
                                     type="number"
                                     placeholder="£1,000"
                                     onChange={(event)=>setAmount(Number(event.target.value))}
                                     value={amount} />
-                            </Form.Group>
+                            </Form.Group> */}
 
                             {/* Description Fund request field*/}
                             <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -154,7 +172,9 @@ function FundRequest() {
 
                                         {/* Radio button Customise Duration. If the user press this option, the duration field is taken*/}  
                                         <Row>
-                                            <Form.Check
+                                        <div className="form-inline">
+                                            <Form.Check 
+                                                
                                                 type="radio"
                                                 aria-label="Customise Duration"
                                                 name="formHorizontalRadios"
@@ -164,12 +184,30 @@ function FundRequest() {
                                                 onChange={(event) => setIsSingleEvent(event.target.value)}
                                             />
 
-                                            
+                                            {/* <Form inline>  */}
+                                                <InputGroup className="mb-3">
+                                                    {/* <Form.Label htmlFor="inlineFormInputName2" srOnly>
+                                                        CustomiseDuration
+                                                    </Form.Label> */}
+                                                    <Form.Control 
+                                                        
+                                                        // size="sm"
+                                                        type="number"
+                                                        // className="mb-2 mr-sm-2"
+                                                        // id="inlineFormInputName2"
+                                                        placeholder="1"
+                                                        onChange={(event) => setDuration(Number(event.target.value))}
+                                                        vale={duration}
+                                                    />
+                                                    <InputGroup.Append>
+                                                    <InputGroup.Text>years</InputGroup.Text>
+                                                    </InputGroup.Append>
+                                                </InputGroup>
                                             {/* Form inline to show the radio button, textbox and label in the same line */}
-                                            <Form inline> 
+                                            {/* <Form inline>  */}
 
                                                 {/* Customize duration textbox */}
-                                                <Form.Label htmlFor="inlineFormInputName2" srOnly>
+                                                {/* <Form.Label htmlFor="inlineFormInputName2" srOnly>
                                                     CustomiseDuration
                                                 </Form.Label>
                                                 <Form.Control
@@ -180,16 +218,16 @@ function FundRequest() {
                                                     placeholder="1"
                                                     onChange={(event) => setDuration(Number(event.target.value))}
                                                     vale={duration}
-                                                />
+                                                /> */}
 
                                                 {/* Label years */}
-                                                <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
+                                                {/* <Form.Label className="my-1 mr-2" htmlFor="inlineFormCustomSelectPref">
                                                     years
-                                                </Form.Label>
+                                                </Form.Label> */}
 
                                             {/* End of the Form inline */}
-                                            </Form>
-
+                                            {/* </Form> */}
+                                            </div>
                                         </Row>
 
                                     </Col>
