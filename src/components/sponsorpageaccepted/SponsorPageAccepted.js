@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import RequestAcceptedDisplayCard from '../requestaccepteddisplaycard/RequestAcceptedDisplayCard';
+import OfferAcceptedDisplayCard from '../offeraccepteddisplaycard/OfferAcceptedDisplayCard';
 import { useHistory } from 'react-router-dom';
 import "./SponsorPageAccepted.css";
 
@@ -16,7 +16,7 @@ function SponsorPageAccepted({ requests }) {
     }
 
 
-    const formatText = requests.length === 1 ? 'request' : 'requests';
+    const formatText = requests.length === 1 ? 'offer' : 'offers';
     return (
         <div className="SponsorPageAccepted">
             <Container>
@@ -24,17 +24,22 @@ function SponsorPageAccepted({ requests }) {
                 <Row className="justify-content-md-center mt-4">
                     <Col>
                         <Button variant="outline-primary ml-5" size="lg" onClick={handleClick}>
-                            Open Requests
+                            Requests
                         </Button>
                     </Col>
                     <Col>
+                        <Button variant="outline-primary ml-5" size="lg">
+                            Offers Pending
+                        </Button>
+                  </Col>                    
+                    <Col>
                         <Button variant="outline-primary ml-5" size="lg" disabled>
-                            Accepted Requests
+                            Offers Accepted
                         </Button>
                     </Col>
                     <Col>
                         <Button variant="outline-primary ml-5" size="lg" >
-                            Declined Requests
+                            Offers Declined
                         </Button>
                     </Col>
                 </Row>
@@ -44,7 +49,7 @@ function SponsorPageAccepted({ requests }) {
 
                 <Row>
                     <Card>
-                        <RequestAcceptedDisplayCard cardData={requests} />
+                        <OfferAcceptedDisplayCard cardData={requests} />
                     </Card>
 
                 </Row>

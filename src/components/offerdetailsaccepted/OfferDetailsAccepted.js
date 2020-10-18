@@ -6,10 +6,10 @@ import Col from 'react-bootstrap/Col';
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
-import "./SponsorRequestDetailsAccepted.css";
+import "./OfferDetailsAccepted.css";
 
 
-function SponsorRequestDetailsAccepted({ request }) {
+function OfferDetailsAccepted({ request }) {
 
     const history = useHistory();
     const { id } = useParams();
@@ -26,7 +26,7 @@ function SponsorRequestDetailsAccepted({ request }) {
 
 
     return (
-        <Container className="SponsorRequestDetailsAccepted">
+        <Container className="OfferDetailsAccepted">
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
                 <h3>{dispRequest.charityName}</h3>
             </Row>
@@ -74,5 +74,5 @@ function SponsorRequestDetailsAccepted({ request }) {
 }
 
 
-export default SponsorRequestDetailsAccepted;
+export default OfferDetailsAccepted;
 

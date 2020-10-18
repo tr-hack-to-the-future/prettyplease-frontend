@@ -21,20 +21,25 @@ function SponsorPage({ requests }) {
     <div className="SponsorPage">
       <Container>
         {/* TODO temporary buttons for navigation - will be moved into Navbar */}
-        <Row className="justify-content-md-center mt-4"> 
-        <Col>
+        <Row className="justify-content-md-center mt-4">
+          <Col>
             <Button variant="outline-primary ml-5" size="lg" disabled>
-              Open Requests
+              Requests
             </Button>
-          </Col>          
+          </Col>
+          <Col>
+            <Button variant="outline-primary ml-5" size="lg">
+              Offers Pending
+          </Button>
+          </Col>
           <Col>
             <Button variant="outline-primary ml-5" size="lg" onClick={handleClick}>
-              Accepted Requests
+              Offers Accepted
             </Button>
           </Col>
           <Col>
             <Button variant="outline-primary ml-5" size="lg" >
-              Declined Requests
+              Offers Declined
             </Button>
           </Col>
         </Row>

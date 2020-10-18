@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 
-function RequestAcceptedDisplayCard({ cardData }) {
+function OfferAcceptedDisplayCard({ cardData }) {
 
 
     return cardData.map((card, index) => (
@@ -43,4 +43,4 @@ function RequestAcceptedDisplayCard({ cardData }) {
     ));
 }
 
-export default RequestAcceptedDisplayCard;
+export default OfferAcceptedDisplayCard;

@@ -9,7 +9,7 @@ import SponsorProfilePage from "./components/profile/SponsorProfilePage";
 import PPNavbar from "./components/PPNavbar";
 import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
 import SponsorRequestDetails from "./components/sponsorrequestdetails/SponsorRequestDetails";
-import SponsorRequestDetailsAccepted from "./components/sponsorrequestdetailsaccepted/SponsorRequestDetailsAccepted";
+import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetailsAccepted";
 
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
 
@@ -97,7 +97,6 @@ export default function App() {
       requestStatus: "ACCEPTED",
       incentive: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
-
   ]);
 
 
@@ -170,7 +169,7 @@ export default function App() {
           <SponsorPageAccepted requests={acceptedRequests} />
         </Route>
         <Route exact path="/ForSponsorsAccepted/:id">
-          <SponsorRequestDetailsAccepted request={acceptedRequests} component={SponsorRequestDetailsAccepted} />
+          <OfferDetailsAccepted request={acceptedRequests} component={OfferDetailsAccepted} />
         </Route>
         <Route path="/SponsorRequestDetails">
           <SponsorRequestDetails />
