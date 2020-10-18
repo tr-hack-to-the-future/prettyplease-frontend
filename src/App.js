@@ -18,14 +18,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
-  const [sponsor, setSponsor] = useState([
-    { sponsorName: "AlFA", completed: false },
-    { sponsorName: "Sponsor2", completed: false },
-    { sponsorName: "Black Rock", completed: false },
-    { sponsorName: "Adidas", completed: false },
-    { sponsorName: "Sponsor4", completed: true },
-    { sponsorName: "Eigen", completed: false },
-  ]);
+  // const [sponsor, setSponsor] = useState([
+  //   { sponsorName: "AlFA", completed: false },
+  //   { sponsorName: "Sponsor2", completed: false },
+  //   { sponsorName: "Black Rock", completed: false },
+  //   { sponsorName: "Adidas", completed: false },
+  //   { sponsorName: "Sponsor4", completed: true },
+  //   { sponsorName: "Eigen", completed: false },
+  // ]);
   const [charitysp, setcharity] = useState([
     {
       sponsorName: "Financing",
@@ -96,7 +96,7 @@ export default function App() {
       duration: "1",
       requestStatus: "ACCEPTED",
       incentive: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },    
+    },
 
   ]);
 
@@ -147,8 +147,8 @@ export default function App() {
     setdetailsSponsor(updatedSponsorProfile);
   }
 
-  const openRequests = sponsorshipRequests.filter( request => request.requestStatus === 'OPEN');    
-  const acceptedRequests = sponsorshipRequests.filter( request => request.requestStatus === 'ACCEPTED');    
+  const openRequests = sponsorshipRequests.filter(request => request.requestStatus === 'OPEN');
+  const acceptedRequests = sponsorshipRequests.filter(request => request.requestStatus === 'ACCEPTED');
 
   const [isAuth, setIsAuth] = useState(true);
   return (
@@ -158,20 +158,20 @@ export default function App() {
       <Switch>
         <Route exact path="/">
           {/* {" "} */}
-          <Main SponsorData={sponsor} />
+          <Main />
         </Route>
-        <Route exact path="/ForSponsors/:id" component={SponsorRequestDetails}>
+        <Route path="/ForSponsors/:id" component={SponsorRequestDetails}>
           <SponsorRequestDetails request={sponsorshipRequests} />
         </Route>
-        <Route exact path="/ForSponsors">
+        <Route path="/ForSponsors">
           <SponsorPage requests={openRequests} />
         </Route>
         <Route exact path="/ForSponsorsAccepted">
           <SponsorPageAccepted requests={acceptedRequests} />
-        </Route>        
+        </Route>
         <Route exact path="/ForSponsorsAccepted/:id">
-          <SponsorRequestDetailsAccepted request={acceptedRequests} component={SponsorRequestDetailsAccepted}/>
-        </Route>        
+          <SponsorRequestDetailsAccepted request={acceptedRequests} component={SponsorRequestDetailsAccepted} />
+        </Route>
         <Route path="/SponsorRequestDetails">
           <SponsorRequestDetails />
         </Route>
