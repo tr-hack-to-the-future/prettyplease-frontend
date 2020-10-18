@@ -1,0 +1,28 @@
+.carouselTitle {
+  text-align: center;
+  padding-bottom: 10px;
+}
+.carouselContainer {
+  background-color: #e5e2da !important;
+  width: 70% !important;
+  margin: 0 auto !important;
+}
+
+.carousel-indicators > li {
+  border-radius: 100% !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+body .carousel p {
+  color: white;
+}
+
+body .carousel h2 {
+  color: white;
+}
+
+@media screen and (max-width: 940px) {
+  .carouselContainer {
+    width: 80% !important;
+  }
+}

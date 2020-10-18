@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import "./SponsorPage.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import RequestDisplayCard from './requestdisplaycard/RequestDisplayCard';
@@ -14,7 +15,6 @@ function SponsorPage({ requests }) {
     const handleClick = () => {
         history.push("/ForSponsorsAccepted");
     }
-
 
     return (
         <div className="SponsorPage">

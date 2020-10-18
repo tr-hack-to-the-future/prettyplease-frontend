@@ -1,11 +1,42 @@
-.navpurple {
-    background-color: #5e35b1;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@400;600;900&display=swap');
 
+.navbar {
+  position: fixed !important;
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+}
+.mr-auto {
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar-brand h1 {
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 4.5rem;
+}
+
+.icon {
+    font-size: 100px;
+    display: inline-block;
+    transform: scale(1.2);  
+}
 
   
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 940px) {
     div.hideonmobile {
       display: none;
+    }
+
+    .navbar-brand h1 {
+      font-size: 2.5rem;
+    }
+
+    .icon {
+      font-size: 50px;
+      padding-right: 20px;
+      display: inline-block;
+      transform: scale(0.8);  
     }
   }

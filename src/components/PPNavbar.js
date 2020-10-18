@@ -8,19 +8,21 @@ import { BrowserRouter as Router } from "react-router-dom";
 function PPNavbar({ isAuth }) {
   return (
     <Router>
-      <Navbar collapseOnSelect expand="lg">
-        <Navbar.Brand href="/">
-          Pretty{" "}
-          <span className="icon" role="img" aria-label="Please">
-            🙏
-          </span>
+      <Navbar className="navbar" collapseOnSelect expand="lg">
+        <Navbar.Brand className="logo" href="/">
+          <h1>
+            Pretty{" "}
+            <span className="icon" role="img" aria-label="Please">
+              🙏
+            </span>
+          </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/ForSponsors">For Sponsors</Nav.Link>
-            <Nav.Link href="/ForCharities">For Charities</Nav.Link>
-            <Nav.Link href="/NewFund">Fund Request</Nav.Link>
+            <Nav.Link href="#">About Us</Nav.Link>
+            <Nav.Link href="#">Campaigns</Nav.Link>
+            <Nav.Link href="#">FAQs</Nav.Link>
             <Nav.Link href="/CharityProfilePage">Charity Profile</Nav.Link>
             <Nav.Link href="/SponsorProfilePage">Sponsor Profile</Nav.Link>
           </Nav>

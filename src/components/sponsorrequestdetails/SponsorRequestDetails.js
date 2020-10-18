@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
