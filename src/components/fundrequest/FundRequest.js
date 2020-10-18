@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
-import Modal from 'react-bootstrap/Modal';
+// import Modal from 'react-bootstrap/Modal';
 import ModalConfirmationRequest from './ModalConfirmationRequest';
 
 function FundRequest() {
@@ -52,11 +52,11 @@ function FundRequest() {
     //     console.log(charityRequest);
     //     return charityRequest;
 
-        
+
     //     setModalShow (true);
 
-        
-        
+
+
     //     setSmShow(true);
     //     setAmount("");
     //     setDescription("");
@@ -65,36 +65,36 @@ function FundRequest() {
     //     setDuration(0);
     // };
 
-//    function handlerRegister (){
-//          const charityRequest = {
-//              amount: amount,
-//              description: description,
-//              incentive: incentive,
-//             isSingleEvent:isSingleEvent,
-//              duration: duration,
-//          }
+    //    function handlerRegister (){
+    //          const charityRequest = {
+    //              amount: amount,
+    //              description: description,
+    //              incentive: incentive,
+    //             isSingleEvent:isSingleEvent,
+    //              duration: duration,
+    //          }
 
-//          console.log(charityRequest);
-//          return charityRequest;
+    //          console.log(charityRequest);
+    //          return charityRequest;
 
-        
-//         setModalShow (true);
 
-        
-        
-//         setSmShow(true);
-//         setAmount("");
-//         setDescription("");
-//         setIncentive("");
-//         setIsSingleEvent("");
-//         setDuration(0);
-//      };
+    //         setModalShow (true);
+
+
+
+    //         setSmShow(true);
+    //         setAmount("");
+    //         setDescription("");
+    //         setIncentive("");
+    //         setIsSingleEvent("");
+    //         setDuration(0);
+    //      };
 
     return (
         <div className="FundRequest">
-            
+
             <Container className="container-FundRequest">
-                
+
                 {/* Title */}
                 <Row className="page-heading">
                     <Col xs={12} md={{ span: 4, offset: 4 }}>
@@ -104,27 +104,27 @@ function FundRequest() {
                     </Col>
                 </Row>
 
-                {/* Fund Request form */}       
+                {/* Fund Request form */}
                 <Form.Row >
                     <Col md={{ span: 6, offset: 3 }}>
-                    <Form > 
-                        {/* <Form onSubmit={handlerRegister}> */}
-                            
+                        <Form >
+                            {/* <Form onSubmit={handlerRegister}> */}
+
                             {/* Amount Fund request field*/}
                             <Form.Group controlId="exampleForm.ControlInput1">
                                 <Form.Label className="text-primary">Amount:</Form.Label>
                                 <InputGroup className="mb-3">
                                     <InputGroup.Prepend>
-                                    <InputGroup.Text>£</InputGroup.Text>
+                                        <InputGroup.Text>£</InputGroup.Text>
                                     </InputGroup.Prepend>
                                     <Form.Control
-                                    required
-                                    type="number"
-                                    placeholder="1,000"
-                                    onChange={(event)=>setAmount(Number(event.target.value))}
-                                    value={amount} />
-                                   
-                                 
+                                        required
+                                        type="number"
+                                        placeholder="1,000"
+                                        onChange={(event) => setAmount(Number(event.target.value))}
+                                        value={amount} />
+
+
                                 </InputGroup>
                             </Form.Group>
 
@@ -143,12 +143,12 @@ function FundRequest() {
                                 <Form.Label className="text-primary">Description:</Form.Label>
                                 <Form.Control as="textarea" rows="3"
                                     required
-                                    onChange={(event) =>setDescription(event.target.value)}
+                                    onChange={(event) => setDescription(event.target.value)}
                                     value={description}
                                 />
                             </Form.Group>
 
-                          
+
                             {/* Duration radio buttons */}
                             <fieldset>
                                 <Form.Group as={Row}>
@@ -157,7 +157,7 @@ function FundRequest() {
                                         </Form.Label>
                                     <Col sm={10}>
 
-                                        {/* Radio button Duration One-Off */}  
+                                        {/* Radio button Duration One-Off */}
                                         <Row>
                                             <Form.Check
                                                 type="radio"
@@ -170,41 +170,36 @@ function FundRequest() {
                                             />
                                         </Row>
 
-                                        {/* Radio button Customise Duration. If the user press this option, the duration field is taken*/}  
+                                        {/* Radio button Customise Duration. If the user press this option, the duration field is taken*/}
                                         <Row>
-                                        <div className="form-inline">
-                                            <Form.Check 
-                                                
-                                                type="radio"
-                                                aria-label="Customise Duration"
-                                                name="formHorizontalRadios"
-                                                id="radioDurationCustomiseDuration"
-                                                value={false}
-                                                // value="1"
-                                                onChange={(event) => setIsSingleEvent(event.target.value)}
-                                            />
+                                            <div className="form-inline">
+                                                <Form.Check
 
-                                            {/* <Form inline>  */}
+                                                    type="radio"
+                                                    aria-label="Customise Duration"
+                                                    name="formHorizontalRadios"
+                                                    id="radioDurationCustomiseDuration"
+                                                    value={false}
+                                                    onChange={(event) => setIsSingleEvent(event.target.value)}
+                                                />
+
+                                                {/* <Form inline>  */}
                                                 <InputGroup className="mb-3">
                                                     {/* <Form.Label htmlFor="inlineFormInputName2" srOnly>
                                                         CustomiseDuration
                                                     </Form.Label> */}
-                                                    <Form.Control 
-                                                        
-                                                        // size="sm"
+                                                    <Form.Control
                                                         type="number"
-                                                        // className="mb-2 mr-sm-2"
-                                                        // id="inlineFormInputName2"
                                                         placeholder="1"
                                                         onChange={(event) => setDuration(Number(event.target.value))}
                                                         vale={duration}
                                                     />
                                                     <InputGroup.Append>
-                                                    <InputGroup.Text>years</InputGroup.Text>
+                                                        <InputGroup.Text>years</InputGroup.Text>
                                                     </InputGroup.Append>
                                                 </InputGroup>
-                                            {/* Form inline to show the radio button, textbox and label in the same line */}
-                                            {/* <Form inline>  */}
+                                                {/* Form inline to show the radio button, textbox and label in the same line */}
+                                                {/* <Form inline>  */}
 
                                                 {/* Customize duration textbox */}
                                                 {/* <Form.Label htmlFor="inlineFormInputName2" srOnly>
@@ -225,14 +220,14 @@ function FundRequest() {
                                                     years
                                                 </Form.Label> */}
 
-                                            {/* End of the Form inline */}
-                                            {/* </Form> */}
+                                                {/* End of the Form inline */}
+                                                {/* </Form> */}
                                             </div>
                                         </Row>
 
                                     </Col>
 
-                                {/* End of the radio button section */}
+                                    {/* End of the radio button section */}
                                 </Form.Group>
                             </fieldset>
 
@@ -247,25 +242,26 @@ function FundRequest() {
                             </Form.Group>
 
 
-                        {/* End of the form */}
+                            {/* End of the form */}
                         </Form>
 
 
                     </Col>
                 </Form.Row>
- 
+
                 {/* Button register*/}
                 <Row>
                     <Col md={{ span: 2, offset: 8 }}>
                         {/* <Button onClick={handlerRegister} variant="outline-primary" type="submit">Submit</Button> */}
                         <Button onClick={() => setModalShow(true)} variant="outline-primary" type="submit">Submit</Button>
                         <ModalConfirmationRequest show={modalShow} onHide={() => setModalShow(false)} charitydetails={{
-                                amount: amount,
-                                description: description,
-                                incentive: incentive,
-                                isSingleEvent:isSingleEvent,
-                                duration: duration }} />
-                        
+                            amount: amount,
+                            description: description,
+                            incentive: incentive,
+                            isSingleEvent: isSingleEvent,
+                            duration: duration
+                        }} />
+
                         {/* <Modal
                                     size="sm"
                                     show={smShow}
