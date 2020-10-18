@@ -7,6 +7,7 @@ import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-rout
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
+import "./SponsorRequestDetails.css";
 
 function SponsorRequestDetails({ request }) {
 
@@ -14,7 +15,7 @@ function SponsorRequestDetails({ request }) {
     const { id } = useParams();
     const dispRequest = request[id - 1];
 
-    const acceptButtonVisibility = dispRequest.requestStatus === 'OPEN' ? 'visible' : 'invisible';
+    // const acceptButtonVisibility = dispRequest.requestStatus === 'OPEN' ? 'visible' : 'invisible';
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -26,7 +27,7 @@ function SponsorRequestDetails({ request }) {
     }
 
     return (
-        <Container>
+        <Container className="SponsorRequestDetails">
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
                 <h3>{dispRequest.charityName}</h3>
             </Row>

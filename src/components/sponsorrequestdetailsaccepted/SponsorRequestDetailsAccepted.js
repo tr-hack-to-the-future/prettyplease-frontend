@@ -3,10 +3,11 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
+import "./SponsorRequestDetailsAccepted.css";
+
 
 function SponsorRequestDetailsAccepted({ request }) {
 
@@ -25,7 +26,7 @@ function SponsorRequestDetailsAccepted({ request }) {
 
 
     return (
-        <Container>
+        <Container className="SponsorRequestDetailsAccepted">
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
                 <h3>{dispRequest.charityName}</h3>
             </Row>
