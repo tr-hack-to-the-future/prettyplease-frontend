@@ -191,7 +191,9 @@ export default function App() {
         <Route path="/SponsorProfilePage">
           <SponsorProfilePage sponsorData={detailsSponsor} changeProfile={changeSponsorProfile} />
         </Route>
-        <Route exact path="/ConfirmationRequestPage" component={ConfirmationRequestPage} ></Route>
+        <Route  path="/ConfirmationRequestPage">
+          <ConfirmationRequestPage />
+        </Route>
       </Switch>
     </Router>
 

@@ -3,24 +3,21 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { BrowserRouter as Router, Link, Redirect} from "react-router-dom";
-import ConfirmationRequestPage from './ConfirmationRequestPage';
+import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
+import { useHistory } from "react-router-dom";
 
 function ModalConfirmationRequest(props) {
-    // const handlerSubmit = () => {
-    //     console.log(props.charitydetails)
-    //     <ConfirmationRequestPage />
-    // };
+    const history = useHistory();
+    const handleClose = () => props.onHide();
 
-function handlerSubmit (){
-    console.log(props.charitydetails);
+    // When press submit button, the data of the form is sent to the backend. Close the Modal and go to page Confirmation Request Page
+    const handlerSubmit = () => {
+        console.log(props.charitydetails);
+        // Call the funtion onHide to close the Modal
+        handleClose();
+        history.push("/ConfirmationRequestPage");
+    };
 
-    // return(
-    //     <Redirect to={{
-    //         pathname: "/ConfirmationRequestPage"
-    //       }}/>
-    // )
-};
     return (
         <Modal
             {...props}
@@ -35,17 +32,17 @@ function handlerSubmit (){
             </Modal.Header>
             <Modal.Body>
                 <h6>Press SUBMIT to continue or CLOSE to edit the request:</h6>
-
                 <Row>
-                    <Col xs={6} md={2}>
+                    <Col xs={4} md={2}>
                         Amount:
-                                    </Col>
+                    </Col>
                     <Col xs={6} md={10}>
-                        £ {props.charitydetails.amount}
+                        {/* Formattedd Amount to show the currency */}
+                        {getFormattedAmount(props.charitydetails.amount)}
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={6} md={2}>
+                    <Col xs={4} md={2}>
                         Description:
                                     </Col>
                     <Col xs={6} md={10}>
@@ -53,32 +50,28 @@ function handlerSubmit (){
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={6} md={2}>
+                    <Col xs={4} md={2}>
                         Duration:
-                                    </Col>
+                    </Col>
                     <Col xs={6} md={10}>
-                        {(props.charitydetails.isSingleEvent === "true" ? 'One-Off' : props.charitydetails.duration + '  years')}
+                        {/* Formattedd duration to show 1 year or x years */}
+                        {(props.charitydetails.isSingleEvent === "true" ? 'One-Off' : getFormattedDuration(props.charitydetails.duration))}
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={6} md={2}>
+                    <Col xs={4} md={2}>
                         Incentive:
-                                    </Col>
+                    </Col>
                     <Col xs={6} md={10}>
                         {props.charitydetails.incentive}
                     </Col>
                 </Row>
             </Modal.Body>
-         
+
             <Modal.Footer>
-                <Router>
-                    <Link to="/ConfirmationRequestPage" />
-                {/* <Link className="btn btn-primary" type="button" strict to={"/ConfirmationRequestPage"}>Submit</Link> */}
-                        <Button onClick={handlerSubmit}>Submit</Button>
-                </Router>
-                    <Button onClick={props.onHide}>Close</Button>
+                <Button onClick={handlerSubmit}>Submit</Button>
+                <Button onClick={handleClose}>Close</Button>
             </Modal.Footer>
-        
         </Modal>
 
     );
