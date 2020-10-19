@@ -7,11 +7,15 @@ import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
 import SponsorProfilePage from "./components/profile/SponsorProfilePage";
 import PPNavbar from "./components/PPNavbar";
-import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
+
+
 import SponsorRequestDetails from "./components/sponsorrequestdetails/SponsorRequestDetails";
 import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetailsAccepted";
 
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
+
+import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
+
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
