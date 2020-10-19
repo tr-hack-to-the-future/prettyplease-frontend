@@ -1,16 +1,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import RequestDisplayCard from './RequestDisplayCard';
+import OfferAcceptedDisplayCard from './OfferAcceptedDisplayCard';
 
-describe('RequestDisplayCard component', () => {
+describe('OfferAcceptedDisplayCard component', () => {
 
 
     test(`Given the require props,
             When the component is rendered,
             Then it should render a charity name`, () => {
         const testName = 'Test Charity';
-        const testCharityDescription = 'Test charity description';
+        const testCharityDescription = 'Test charity description';        
         const testEventDescription = 'Test event description';
 
         const props = {
@@ -20,12 +20,13 @@ describe('RequestDisplayCard component', () => {
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
                 amount: "1500",
-                duration: "2"
+                duration: "2",
+                status: "ACCEPTED"
             }]
         }
         const { getByText } = render(
             <MemoryRouter>
-                <RequestDisplayCard {...props} />
+                <OfferAcceptedDisplayCard {...props} />
             </MemoryRouter>
         );
         expect(getByText(testName)).toBeTruthy();
@@ -48,17 +49,19 @@ describe('RequestDisplayCard component', () => {
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
                 amount: "£1500",
-                duration: "2 years"
+                duration: "2 years",
+                status: "ACCEPTED"
             }]
         }
 
         const { getByText } = render(
             <MemoryRouter>
-                <RequestDisplayCard {...props} />
+                <OfferAcceptedDisplayCard {...props} />
             </MemoryRouter>
         );
-        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsors/1');
+        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsorsAccepted/1');
     })
+
 
 
 
