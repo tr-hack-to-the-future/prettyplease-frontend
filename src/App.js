@@ -9,6 +9,7 @@ import SponsorProfilePage from "./components/profile/SponsorProfilePage";
 import PPNavbar from "./components/PPNavbar";
 import SponsorDetailsAccept from "./components/SponsorDetailsAccept";
 import RequestDetailsAccept from "./components/requestdetailsaccept/RequestDetailsAccept";
+import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -162,6 +163,7 @@ export default function App() {
         <Route path="/SponsorProfilePage">
           <SponsorProfilePage sponsorData={detailsSponsor} changeProfile={changeSponsorProfile} />
         </Route>
+        <Route exact path="/ConfirmationRequestPage" component={ConfirmationRequestPage} ></Route>
       </Switch>
     </Router>
 

@@ -1,13 +1,26 @@
 import React, { Component, useState } from 'react';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { BrowserRouter as Router, Link, Redirect} from "react-router-dom";
+import ConfirmationRequestPage from './ConfirmationRequestPage';
 
 function ModalConfirmationRequest(props) {
-    const handlerSubmit = () => console.log(props.charitydetails);
+    // const handlerSubmit = () => {
+    //     console.log(props.charitydetails)
+    //     <ConfirmationRequestPage />
+    // };
 
+function handlerSubmit (){
+    console.log(props.charitydetails);
+
+    // return(
+    //     <Redirect to={{
+    //         pathname: "/ConfirmationRequestPage"
+    //       }}/>
+    // )
+};
     return (
         <Modal
             {...props}
@@ -56,10 +69,16 @@ function ModalConfirmationRequest(props) {
                     </Col>
                 </Row>
             </Modal.Body>
+         
             <Modal.Footer>
-                <Button onClick={handlerSubmit}>Submit</Button>
-                <Button onClick={props.onHide}>Close</Button>
+                <Router>
+                    <Link to="/ConfirmationRequestPage" />
+                {/* <Link className="btn btn-primary" type="button" strict to={"/ConfirmationRequestPage"}>Submit</Link> */}
+                        <Button onClick={handlerSubmit}>Submit</Button>
+                </Router>
+                    <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>
+        
         </Modal>
 
     );

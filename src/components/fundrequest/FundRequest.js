@@ -165,7 +165,6 @@ function FundRequest() {
                                                 name="formHorizontalRadios"
                                                 id="radioDurationOneOff"
                                                 value={true}
-                                                // value="0"
                                                 onChange={(event) => setIsSingleEvent(event.target.value)}
                                             />
                                         </Row>
