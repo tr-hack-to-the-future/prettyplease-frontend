@@ -1,24 +1,25 @@
-# PRETTY PLEASE - Charity Marketplace web application 
-## DEVELOPER GUIDE
+# Pretty Please - Charity Marketplace web application 
+## Setup
 
-1. Clone the repository from GitHub. <br />
+1. Download or clone this repository. <br />
 2. In the project directory, run the following to install the dependencies:<br />
-    npm install
+    
+    ### `npm install`
 
     -For bootstrap installation:
-    ### npm install react-bootstrap bootstrap 
+       ### `npm install react-bootstrap bootstrap` 
 
     - For router dependencies installation: 
-       ### npm install react-router-dom 
+       ### `npm install react-router-dom` 
 
     - For install textarea autosize:
-       ### npm install react-textarea-autosize
+       ### `npm install react-textarea-autosize`
     
     - For install styled components:
-       ### npm install --save styled-components
+       ### `npm install --save styled-components`
 
     - For install babel plugin:
-       ### npm install --save-dev babel-plugin-styled-components
+       ### `npm install --save-dev babel-plugin-styled-components`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
