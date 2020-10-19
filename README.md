@@ -6,7 +6,7 @@
     
     ### `npm install`
 
-    -For bootstrap installation:
+    - For bootstrap installation: 
        ### `npm install react-bootstrap bootstrap` 
 
     - For router dependencies installation: 
@@ -21,7 +21,7 @@
     - For install babel plugin:
        ### `npm install --save-dev babel-plugin-styled-components`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 3. Runs the app in the development mode.<br />
     Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
