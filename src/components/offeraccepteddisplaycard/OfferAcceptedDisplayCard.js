@@ -5,11 +5,11 @@ import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 
-function RequestDisplayCard({ cardData }) {
+function OfferAcceptedDisplayCard({ cardData }) {
 
 
     return cardData.map((card, index) => (
-        <Link to={`/ForSponsors/${index + 1}`} key={card.requestId}>
+        <Link to={`/ForSponsorsAccepted/${index + 1}`} key={card.requestId}>
             <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <Col className="col-auto flex-column">
                     <img
@@ -43,4 +43,4 @@ function RequestDisplayCard({ cardData }) {
     ));
 }
 
-export default RequestDisplayCard;
+export default OfferAcceptedDisplayCard;

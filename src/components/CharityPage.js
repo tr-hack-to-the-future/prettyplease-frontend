@@ -3,7 +3,7 @@ import "./CharityPage.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-import DisplayCard from "./DisplayCard";
+import DisplayCard from "./charityview/DisplayCard";
 
 function CharityPage({ sponsor }) {
   return (
