@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { Modal } from 'react-bootstrap';
 
 
 import Button from "react-bootstrap/Button";
@@ -15,6 +16,10 @@ function SponsorDetailsAccept({ sponsor }) {
   let history = useHistory();
   let { id } = useParams();
   let dispSponsor = sponsor[id - 1];
+  const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
   return (
     <Container>
       <Row className="row justify-content-center mt-5 mb-4 text-primary">
@@ -44,9 +49,22 @@ function SponsorDetailsAccept({ sponsor }) {
             </Button>
           </Link>
           <Link href="">
-            <Button variant="outline-primary ml-5" size="lg">
+            <Button variant="outline-primary ml-5" size="lg" onClick={handleShow}>
               Accept
             </Button>
+            <Modal show={show} onHide={handleClose}>
+                            <Modal.Header>
+                                <Modal.Title>Accepted Sponsor </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                You have accepted the Sponsor offer from {dispSponsor.sponsorName}
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="outline-primary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
           </Link>
         </Row>
       </Router>
