@@ -13,7 +13,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-textarea-autosize": "^8.2.0"
+    "react-textarea-autosize": "^8.2.0",
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,6 +39,11 @@
       "last 1 safari version"
     ]
   },
+
   "homepage": "https://tr-hack-to-the-future.github.io/prettyplease",
   "devDependencies": {}
+  "homepage": "https://tr-hack-to-the-future.github.io/prettyplease-frontend",
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1"
+  }
 }
