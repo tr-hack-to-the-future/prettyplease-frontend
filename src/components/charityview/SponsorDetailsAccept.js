@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { Modal } from 'react-bootstrap';
+import './charityview.css';
 
 
 import Button from "react-bootstrap/Button";
@@ -21,7 +22,7 @@ function SponsorDetailsAccept({ sponsor }) {
     const handleShow = () => setShow(true);
 
   return (
-    <Container>
+    <Container className="padding">
       <Row className="row justify-content-center mt-5 mb-4 text-primary">
         <h3>{dispSponsor.sponsorName}</h3>
       </Row>
