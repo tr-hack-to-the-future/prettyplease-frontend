@@ -39,10 +39,8 @@
       "last 1 safari version"
     ]
   },
-
   "homepage": "https://tr-hack-to-the-future.github.io/prettyplease",
   "devDependencies": {
     "babel-plugin-styled-components": "^1.11.1"
   }
-
 }
