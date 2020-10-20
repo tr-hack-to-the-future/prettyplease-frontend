@@ -37,7 +37,7 @@ export function FooterContainer() {
           © Pretty{" "}
           <span role="img" aria-label="Please">
             🙏
-          </span>
+          </span>{" "}
           2020
         </p>
       </Footer.Text>
