@@ -1,6 +1,5 @@
 import React, { Component, useState } from "react";
 import Main from "./Main.js";
-import "./App.css";
 import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
 import FundRequest from "./components/fundrequest/FundRequest";
