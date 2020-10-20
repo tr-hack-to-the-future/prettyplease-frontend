@@ -7,15 +7,11 @@ import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
 import SponsorProfilePage from "./components/profile/SponsorProfilePage";
 import PPNavbar from "./components/PPNavbar";
-
-
 import SponsorRequestDetails from "./components/sponsorrequestdetails/SponsorRequestDetails";
 import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetailsAccepted";
-
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
-
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
-
+import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -194,6 +190,9 @@ export default function App() {
         </Route>
         <Route path="/SponsorProfilePage">
           <SponsorProfilePage sponsorData={detailsSponsor} changeProfile={changeSponsorProfile} />
+        </Route>
+        <Route  path="/ConfirmationRequestPage">
+          <ConfirmationRequestPage />
         </Route>
       </Switch>
     </Router>
