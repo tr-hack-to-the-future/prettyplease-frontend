@@ -24,6 +24,8 @@ body .nav {
 body .buttonNav {
   color: white;
   width: 128px;
+  font-size: 0.9em;
+  font-weight: bold;
   background-color: crimson;
   border-radius: 63px;
   margin-left: 5px;
