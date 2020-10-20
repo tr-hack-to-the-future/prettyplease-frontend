@@ -6,7 +6,7 @@ import Jumbotron from "./components/Jumbotron";
 import Carousel from "./components/Carousel";
 import Featurette from "./components/Featurette";
 import { FooterContainer } from "./containers/footer";
-import { FaqsContainer } from "../containers/faqs";
+import { FaqsContainer } from "./containers/faqs";
 import "./App.css";
 
 function Main({ SponsorData }) {
