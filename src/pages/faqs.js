@@ -5,6 +5,7 @@ import { FaqsContainer } from "../containers/faqs";
 export default function FaqsPage() {
   return (
     <>
+      hello
       <FaqsContainer />
       <FooterContainer />
     </>

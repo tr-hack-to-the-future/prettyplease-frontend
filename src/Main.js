@@ -7,7 +7,6 @@ import Carousel from "./components/Carousel";
 import Featurette from "./components/Featurette";
 import { FooterContainer } from "./containers/footer";
 import { FaqsContainer } from "./containers/faqs";
-import "./App.css";
 
 function Main({ SponsorData }) {
   return (

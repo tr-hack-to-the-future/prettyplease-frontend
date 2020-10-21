@@ -212,7 +212,9 @@ export default function App() {
         <Route path="/ConfirmationRequestPage">
           <ConfirmationRequestPage />
         </Route>
-        <Route path="./pages/faqs"></Route>
+        <Route path="/faqs">
+          <FaqsPage />
+        </Route>
       </Switch>
     </Router>
   );
