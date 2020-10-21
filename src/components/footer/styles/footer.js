@@ -33,8 +33,11 @@ export const Link = styled.a`
   margin-bottom: 20px;
   font-size: 13px;
   text-decoration: none !important;
+  display: flex;
+
   &:hover {
     color: black !important;
+    cursor: pointer;
   }
 `;
 
