@@ -24,7 +24,7 @@ Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
 };
 
 Accordion.Item = function AccordionItem({ children, ...restProps }) {
-  const [toggleShow, setToggleShow] = useState(false);
+  const [toggleShow, setToggleShow] = useState();
 
   return (
     <ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
