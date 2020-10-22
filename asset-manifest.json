@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/prettyplease-frontend/static/css/main.bc1b0d51.chunk.css",
+    "main.js": "/prettyplease-frontend/static/js/main.c07b865f.chunk.js",
+    "main.js.map": "/prettyplease-frontend/static/js/main.c07b865f.chunk.js.map",
+    "runtime-main.js": "/prettyplease-frontend/static/js/runtime-main.c638165f.js",
+    "runtime-main.js.map": "/prettyplease-frontend/static/js/runtime-main.c638165f.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/prettyplease-frontend/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.2951b163.chunk.js": "/prettyplease-frontend/static/js/2.2951b163.chunk.js",
+    "static/js/2.2951b163.chunk.js.map": "/prettyplease-frontend/static/js/2.2951b163.chunk.js.map",
+    "index.html": "/prettyplease-frontend/index.html",
+    "precache-manifest.7c9dae5885f0b797e30b9f933087ecec.js": "/prettyplease-frontend/precache-manifest.7c9dae5885f0b797e30b9f933087ecec.js",
+    "service-worker.js": "/prettyplease-frontend/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/prettyplease-frontend/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.bc1b0d51.chunk.css.map": "/prettyplease-frontend/static/css/main.bc1b0d51.chunk.css.map",
+    "static/js/2.2951b163.chunk.js.LICENSE.txt": "/prettyplease-frontend/static/js/2.2951b163.chunk.js.LICENSE.txt",
+    "static/media/999club.jpg": "/prettyplease-frontend/static/media/999club.f1947bbd.jpg",
+    "static/media/abstract-logo.jpg": "/prettyplease-frontend/static/media/abstract-logo.c12ae83a.jpg",
+    "static/media/abstract-logo2.jpg": "/prettyplease-frontend/static/media/abstract-logo2.61e6e747.jpg",
+    "static/media/abstract-logo3.jpg": "/prettyplease-frontend/static/media/abstract-logo3.d4d0f2c9.jpg",
+    "static/media/abstract-logo4.jpg": "/prettyplease-frontend/static/media/abstract-logo4.053a4a74.jpg",
+    "static/media/charity-logo-orange.png": "/prettyplease-frontend/static/media/charity-logo-orange.4c725eeb.png",
+    "static/media/hackneyfoodbank.jpg": "/prettyplease-frontend/static/media/hackneyfoodbank.f5cc36c4.jpg",
+    "static/media/kindness.jpg": "/prettyplease-frontend/static/media/kindness.887e16b3.jpg",
+    "static/media/literoflight.jpg": "/prettyplease-frontend/static/media/literoflight.73033f1a.jpg",
+    "static/media/mind.jpg": "/prettyplease-frontend/static/media/mind.4b8e969c.jpg",
+    "static/media/plasticoceans.jpg": "/prettyplease-frontend/static/media/plasticoceans.1a926e7a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c638165f.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.2951b163.chunk.js",
+    "static/css/main.bc1b0d51.chunk.css",
+    "static/js/main.c07b865f.chunk.js"
+  ]
+}
