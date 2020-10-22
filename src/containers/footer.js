@@ -33,13 +33,11 @@ export function FooterContainer() {
       </Footer.Row>
       <Footer.Break />
       <Footer.Text>
-        <p>
           © Pretty{" "}
           <span role="img" aria-label="Please">
             🙏
           </span>{" "}
           2020
-        </p>
       </Footer.Text>
     </Footer>
   );
