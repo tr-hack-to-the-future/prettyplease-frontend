@@ -44,9 +44,9 @@ Accordion.Header = function AccordionHeader({ children, ...restProps }) {
     <Header onClick={() => setToggleShow(!toggleShow)} {...restProps}>
       {children}
       {toggleShow ? (
-        <img src="/images/icons/close-slim.png" alt="Close" />
+        <i className="fa fa-chevron-up" alt="Close" />
       ) : (
-        <img src="/images/icons/add.png" alt="Open" />
+        <i className="fa fa-chevron-down" alt="Open" />
       )}
     </Header>
   );

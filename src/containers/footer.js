@@ -26,18 +26,24 @@ export function FooterContainer() {
         </Footer.Column>
 
         <Footer.Column>
-          <Footer.Link href="#">Facebook</Footer.Link>
-          <Footer.Link href="#">Instagram</Footer.Link>
-          <Footer.Link href="#">Twitter</Footer.Link>
+          <Footer.Link href="#">
+            <i className="fa fa-facebook" alt="Facebook"></i>
+          </Footer.Link>
+          <Footer.Link href="#">
+            <i className="fa fa-instagram" alt="Instagram"></i>
+          </Footer.Link>
+          <Footer.Link href="#">
+            <i className="fa fa-twitter" alt="Twitter"></i>
+          </Footer.Link>
         </Footer.Column>
       </Footer.Row>
       <Footer.Break />
       <Footer.Text>
-          © Pretty{" "}
-          <span role="img" aria-label="Please">
-            🙏
-          </span>{" "}
-          2020
+        © Pretty{" "}
+        <span role="img" aria-label="Please">
+          🙏
+        </span>{" "}
+        2020
       </Footer.Text>
     </Footer>
   );

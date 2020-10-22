@@ -16,6 +16,7 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  margin: 0 auto;
 `;
 
 export const Row = styled.div`
@@ -45,12 +46,14 @@ export const Title = styled.p`
   font-size: 16px;
   color: #757575;
   margin-bottom: 40px;
+  padding-left: 82px;
 `;
 
 export const Text = styled.p`
   font-size: 13px;
   color: #757575;
   margin-bottom: 40px;
+  text-align: center;
 `;
 
 export const Break = styled.div`

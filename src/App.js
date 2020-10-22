@@ -11,7 +11,7 @@ import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetails
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
-import FaqsPage from "./pages/faqs";
+import Faqs from "./pages/faqs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -213,7 +213,7 @@ export default function App() {
           <ConfirmationRequestPage />
         </Route>
         <Route path="/faqs">
-          <FaqsPage />
+          <Faqs />
         </Route>
       </Switch>
     </Router>

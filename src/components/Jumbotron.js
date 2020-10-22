@@ -14,9 +14,9 @@ export default function() {
             src="https://www.telegraph.co.uk/content/dam/good-news/seven-seas/ministry-of-stories-gemma-day-xlarge.jpg"
             alt="new"
           />
-          <figureCaption>
+          <figurecaption>
             <p className="captiontext">Alfa sponsors the Ministry of Stories</p>
-          </figureCaption>
+          </figurecaption>
         </Col>
 
         <Col sm={5}>
