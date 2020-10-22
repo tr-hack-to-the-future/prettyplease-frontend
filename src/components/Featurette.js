@@ -24,7 +24,7 @@ export default function() {
           on your sleeve{" "}
         </p>
         <container>
-          <Nav.Link className="FeaturetteButton" href="/NewFund">
+          <Nav.Link className="FeaturetteButton" href="/prettyplease-frontend/#/NewFund">
             Fund Request
           </Nav.Link>
         </container>

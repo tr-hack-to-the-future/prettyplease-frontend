@@ -14,7 +14,7 @@ import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept"
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FaqsPage from "./pages/faqs";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
   // const [sponsor, setSponsor] = useState([
@@ -190,7 +190,7 @@ export default function App() {
     <Router>
       <PPNavbar isAuth={isAuth} />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/" component={Main}>
           {/* {" "} */}
           <Main />
         </Route>
@@ -234,7 +234,7 @@ export default function App() {
         <Route path="/ConfirmationRequestPage">
           <ConfirmationRequestPage />
         </Route>
-        <Route path="/faqs">
+        <Route exact path="/faqs">
           <FaqsPage />
         </Route>
       </Switch>
