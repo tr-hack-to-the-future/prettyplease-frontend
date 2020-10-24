@@ -7,6 +7,7 @@ import {
   SubTitle,
   FigCaption,
   Image,
+  ButtonLink,
   Pane
 } from "./styles/jumbotron";
 
@@ -46,4 +47,11 @@ Jumbotron.FigCaption = function JumbotronFigCaption({
 
 Jumbotron.Image = function JumbotronImage({ children, ...restProps }) {
   return <Image {...restProps} />;
+};
+
+Jumbotron.ButtonLink = function JumbotronButtonLink({
+  children,
+  ...restProps
+}) {
+  return <ButtonLink {...restProps}>{children}</ButtonLink>;
 };

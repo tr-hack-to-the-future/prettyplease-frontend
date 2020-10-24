@@ -21,6 +21,12 @@ export function JumbotronContainer() {
             Plea and gratitude work hand in hand. Whether you are a charity or a
             company, find sponsors and initiatives that match your values
           </Jumbotron.SubTitle>
+          <Jumbotron.ButtonLink href="/prettyplease-frontend/#/ForSponsors">
+            For Sponsors
+          </Jumbotron.ButtonLink>
+          <Jumbotron.ButtonLink href="/prettyplease-frontend/#/ForCharities">
+            For Charities
+          </Jumbotron.ButtonLink>
         </Jumbotron.Pane>
       </Jumbotron>
     </Jumbotron.Container>
