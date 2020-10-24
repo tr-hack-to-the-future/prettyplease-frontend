@@ -12,10 +12,10 @@ function FundRequest() {
     // Variable to control the modal
     const [modalShow, setModalShow] = React.useState(false);
 
-    const [amount, setAmount] = useState("");
-    const [description, setDescription] = useState("");
+    const [amountRequested, setAmountRequested] = useState("");
+    const [eventDescription, setEventDescription] = useState("");
     const [isSingleEvent, setIsSingleEvent] = useState("");
-    const [duration, setDuration] = useState(0);
+    const [durationInYears, setDurationInYears] = useState(0);
     const [incentive, setIncentive] = useState("");
 
     return (
@@ -47,8 +47,8 @@ function FundRequest() {
                                         required
                                         type="number"
                                         placeholder="1,000"
-                                        onChange={(event) => setAmount(Number(event.target.value))}
-                                        value={amount}
+                                        onChange={(event) => setAmountRequested(Number(event.target.value))}
+                                        value={amountRequested}
                                     />
                                 </InputGroup>
                             </Form.Group>
@@ -58,8 +58,8 @@ function FundRequest() {
                                 <Form.Label className="text-primary">Description:</Form.Label>
                                 <Form.Control as="textarea" rows="3"
                                     required
-                                    onChange={(event) => setDescription(event.target.value)}
-                                    value={description}
+                                    onChange={(event) => setEventDescription(event.target.value)}
+                                    value={eventDescription}
                                 />
                             </Form.Group>
 
@@ -99,8 +99,8 @@ function FundRequest() {
                                                     <Form.Control
                                                         type="number"
                                                         placeholder="1"
-                                                        onChange={(event) => setDuration(Number(event.target.value))}
-                                                        vale={duration}
+                                                        onChange={(event) => setDurationInYears(Number(event.target.value))}
+                                                        vale={durationInYears}
                                                     />
                                                     <InputGroup.Append>
                                                         <InputGroup.Text>years</InputGroup.Text>
@@ -132,11 +132,15 @@ function FundRequest() {
                     <Col md={{ span: 2, offset: 8 }}>
                         <Button onClick={() => setModalShow(true)} variant="outline-primary" type="submit">Submit</Button>
                         <ModalConfirmationRequest show={modalShow} onHide={() => setModalShow(false)} charitydetails={{
-                            amount: amount,
-                            description: description,
+                            charityId: "CHAZ10",
+                            eventDescription: eventDescription,
                             incentive: incentive,
+                            amountRequested: amountRequested,
+                            amountAgreed: amountRequested,
                             isSingleEvent: isSingleEvent,
-                            duration: duration
+                            durationInYears: durationInYears,
+                            agreedDurationInYears: durationInYears,
+                            requestStatus: "OPEN"
                         }} />
                     </Col>
                 </Row>

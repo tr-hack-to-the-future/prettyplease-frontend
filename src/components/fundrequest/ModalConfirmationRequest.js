@@ -1,4 +1,6 @@
 import React, { Component, useState } from 'react';
+import axios from "axios";
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -12,10 +14,19 @@ function ModalConfirmationRequest(props) {
 
     // When press submit button, the data of the form is sent to the backend. Close the Modal and go to page Confirmation Request Page
     const handlerSubmit = () => {
+
         console.log(props.charitydetails);
-        // Call the funtion onHide to close the Modal
-        handleClose();
-        history.push("/ConfirmationRequestPage");
+
+        axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests", props.charitydetails)
+            .then(response => {
+                console.log(response)
+                handleClose();   // Call the funtion onHide to close the Modal
+                history.push("/ConfirmationRequestPage");
+            })
+            .catch(error => console.log(error))
+
+
+
     };
 
     return (
@@ -38,7 +49,7 @@ function ModalConfirmationRequest(props) {
                     </Col>
                     <Col xs={6} md={10}>
                         {/* Formattedd Amount to show the currency */}
-                        {getFormattedAmount(props.charitydetails.amount)}
+                        {getFormattedAmount(props.charitydetails.amountRequested)}
                     </Col>
                 </Row>
                 <Row>
@@ -46,7 +57,7 @@ function ModalConfirmationRequest(props) {
                         Description:
                                     </Col>
                     <Col xs={6} md={10}>
-                        {props.charitydetails.description}
+                        {props.charitydetails.eventDescription}
                     </Col>
                 </Row>
                 <Row>
@@ -55,7 +66,7 @@ function ModalConfirmationRequest(props) {
                     </Col>
                     <Col xs={6} md={10}>
                         {/* Formattedd duration to show 1 year or x years */}
-                        {(props.charitydetails.isSingleEvent === "true" ? 'One-Off' : getFormattedDuration(props.charitydetails.duration))}
+                        {(props.charitydetails.isSingleEvent === "true" ? 'One-Off' : getFormattedDuration(props.charitydetails.durationInYears))}
                     </Col>
                 </Row>
                 <Row>
