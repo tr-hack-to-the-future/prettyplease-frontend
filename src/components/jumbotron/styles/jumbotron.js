@@ -53,7 +53,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h2`
   text-align: justify;
   font-size: 22px;
-  line-height: 1.4;
+  line-height: 1.2;
   padding-bottom: 35px;
   padding-top: 25px;
 
@@ -82,11 +82,14 @@ export const ButtonLink = styled.a`
   background-color: crimson;
   border-radius: 50px;
   text-align: center;
-  margin-left: 73px;
+  margin-left: 62px;
   text-decoration: none !important;
 
   &:hover {
     color: grey;
     cursor: pointer;
+  }
+  @media (max-width: 600px) {
+    margin-left: 5px;
   }
 `;
