@@ -4,7 +4,7 @@ export const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: ${({ direction }) => direction};
+  flex-direction: row-reverse;
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
@@ -13,12 +13,20 @@ export const Inner = styled.div`
     flex-direction: column;
   }
 `;
-
+export const Pane = styled.div`
+  width: 50%;
+`;
 export const Item = styled.div`
   display: flex;
+  border-bottom: 8px dashed coral;
+  padding: 50px 5%;
+  color: damson;
+  overflow: hidden;
 `;
 
-export const Container = styled.section``;
+export const Container = styled.section`
+  background-color: beige;
+`;
 
 export const Title = styled.h1`
   font-size: 50px;
@@ -41,6 +49,6 @@ export const SubTitle = styled.h2`
 `;
 
 export const Image = styled.img`
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
 `;
