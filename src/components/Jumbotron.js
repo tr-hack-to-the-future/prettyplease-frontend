@@ -27,10 +27,10 @@ export default function() {
           </p>
 
           <Nav>
-            <Nav.Link className="buttonNav" href="/ForSponsors">
+            <Nav.Link className="buttonNav" href="/prettyplease-frontend/#/ForSponsors">
               For Sponsors
             </Nav.Link>
-            <Nav.Link className="buttonNav" href="/ForCharities">
+            <Nav.Link className="buttonNav" href="/prettyplease-frontend/#/ForCharities">
               For Charities
             </Nav.Link>
           </Nav>

@@ -1,10 +1,10 @@
-import React, { Component, useState } from "react";
-import Container from "react-bootstrap/Container";
+import React, { Component, useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ProfileTextDescription from "./ProfileTextDescription";
 
 function SponsorProfilePage({ sponsorData, changeProfile }) {
+
   return (
     <div>
       <Row className="justify-content-md-center profile">
