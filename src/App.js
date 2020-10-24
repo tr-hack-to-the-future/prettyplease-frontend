@@ -184,20 +184,31 @@ export default function App() {
 
     
   // Fetch the requests from the API
-  const [sponsorshipRequests, setRequests] = useState([]);
+  const [fundingRequests, setRequests] = useState([]);
   useEffect(() => {
     axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests")
       .then(response => setRequests(response.data))
       .catch(error => console.log(error))
      }, []);
 
-  const openRequests = sponsorshipRequests.filter(
+  const openRequests = fundingRequests.filter(
     request => request.requestStatus === "OPEN"
   );
-  const acceptedRequests = sponsorshipRequests.filter(
-    request => request.requestStatus === "ACCEPTED"
-  );
 
+  // TODO fetch sponsorId from currentUser context
+  // Fetch the offers for a sponsor from the API
+  const [sponsorOffers, setSponsorOffers] = useState([]);
+  useEffect(() => {
+    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/b19dcdc9-1547-11eb-9ed1-0a7222284ed8")
+      .then(response => setSponsorOffers(response.data))
+      .catch(error => console.log(error))
+     }, []);
+
+
+  const acceptedOffers = sponsorOffers.filter(
+    offer => offer.offerStatus === "ACCEPTED"
+  );
+  
   const [isAuth, setIsAuth] = useState(true);
   return (
     <Router>
@@ -208,20 +219,16 @@ export default function App() {
           <Main />
         </Route>
         <Route path="/ForSponsors/:id" component={SponsorRequestDetails}>
-          <SponsorRequestDetails request={sponsorshipRequests} />
+          <SponsorRequestDetails request={fundingRequests} />
         </Route>
         <Route path="/ForSponsors">
           <SponsorPage key={openRequests.requestId} requests={openRequests} />
-          {/* <SponsorPage key={openRequests.requestId} requestid={openRequests.requestId} requests={openRequests} /> */}
         </Route>
         <Route exact path="/ForSponsorsAccepted">
-          <SponsorPageAccepted requests={acceptedRequests} />
+          <SponsorPageAccepted offers={acceptedOffers} />
         </Route>
         <Route exact path="/ForSponsorsAccepted/:id">
-          <OfferDetailsAccepted
-            request={acceptedRequests}
-            component={OfferDetailsAccepted}
-          />
+          <OfferDetailsAccepted offer={acceptedOffers} component={OfferDetailsAccepted} />
         </Route>
         <Route path="/SponsorRequestDetails">
           <SponsorRequestDetails />

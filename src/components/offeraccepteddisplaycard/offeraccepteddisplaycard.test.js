@@ -19,9 +19,9 @@ describe('OfferAcceptedDisplayCard component', () => {
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "1500",
-                duration: "2",
-                status: "ACCEPTED"
+                offerAmount: "1500",
+                durationInYears: "2",
+                requestStatus: "ACCEPTED"
             }]
         }
         const { getByText } = render(
@@ -48,9 +48,9 @@ describe('OfferAcceptedDisplayCard component', () => {
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "£1500",
-                duration: "2 years",
-                status: "ACCEPTED"
+                offerAmount: "£1500",
+                durationInYears: "2 years",
+                offerStatus: "ACCEPTED"
             }]
         }
 

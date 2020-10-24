@@ -19,8 +19,8 @@ describe('RequestDisplayCard component', () => {
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "1500",
-                duration: "2"
+                amountRequested: "1500",
+                durationInYears: "2"
             }]
         }
         const { getByText } = render(
@@ -47,8 +47,8 @@ describe('RequestDisplayCard component', () => {
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "£1500",
-                duration: "2 years"
+                amountRequested: "£1500",
+                durationInYears: "2 years"
             }]
         }
 

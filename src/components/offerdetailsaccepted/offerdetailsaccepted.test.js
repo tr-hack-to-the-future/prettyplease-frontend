@@ -15,22 +15,24 @@ describe('OfferDetailsAccepted component', () => {
         const testIncentive = 'Test incentive';
   
         const props = {
-            request: [{
+            offer: [{
                 requestId: 1,
+                offerId: "ABC24",
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "1500",
-                duration: "2",
+                amountAgreed: "1500",
+                agreedDurationInYears: "2",
                 incentive: testIncentive
             },
             {
                 requestId: 2,
+                offerId: "ABC25",
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "10000",
-                duration: "3",
+                amountAgreed: "10000",
+                agreedDurationInYears: "3",
                 incentive: testIncentive
             }
             ]

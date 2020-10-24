@@ -13,7 +13,7 @@ function OfferAcceptedDisplayCard({ cardData }) {
             <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <Col className="col-auto flex-column">
                     <img
-                        src={card.image}
+                        src={card.charityImageUrl}
                         width="200"
                         height="200"
                         alt={card.charityName}
@@ -26,12 +26,12 @@ function OfferAcceptedDisplayCard({ cardData }) {
                         <Row className="pt-2 pb-2">
                             <Col>
                                 <Card.Text>
-                                    Amount: {getFormattedAmount(card.amount)}
+                                    Amount: {getFormattedAmount(card.offerAmount)}
                                 </Card.Text>
                             </Col>
                             <Col>
                                 <Card.Text>
-                                    Duration: {getFormattedDuration(card.duration)}
+                                    Duration: {getFormattedDuration(card.durationInYears)}
                                 </Card.Text>
 
                             </Col>
