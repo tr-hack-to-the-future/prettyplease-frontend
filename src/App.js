@@ -1,8 +1,9 @@
-import React, { Component, useState,useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
 import Main from "./Main.js";
 import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
+import { CharityOfferProvider } from "./components/charityview/charityOffersContext";
 import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
 import SponsorProfilePage from "./components/profile/SponsorProfilePage";
@@ -29,24 +30,24 @@ export default function App() {
     {
       sponsorName: "Financing",
       sponsorDesc: "This is description about Financing sponsor",
-      sponsorImg: require("./assets/images/abstract-logo.jpg")
+      sponsorImg: require("./assets/images/abstract-logo.jpg"),
     },
     {
       sponsorName: "Telecom",
       sponsorDesc: "This is description about Telecom Sponsor",
-      sponsorImg: require("./assets/images/abstract-logo2.jpg")
+      sponsorImg: require("./assets/images/abstract-logo2.jpg"),
     },
     {
       sponsorName: "Sports Brand",
       sponsorDesc: "This is description about Sports goods Sponsor",
-      sponsorImg: require("./assets/images/abstract-logo3.jpg")
+      sponsorImg: require("./assets/images/abstract-logo3.jpg"),
     },
     {
       sponsorName: "Manufacturing Brand",
       sponsorDesc:
         "This is description about Manufacturing sponsor and their values",
-      sponsorImg: require("./assets/images/abstract-logo4.jpg")
-    }
+      sponsorImg: require("./assets/images/abstract-logo4.jpg"),
+    },
   ]);
 
   // Sponsorship requests test data
@@ -64,7 +65,7 @@ export default function App() {
       duration: "3", // should this be durationInYears?
       requestStatus: "OPEN",
       incentive:
-        "We would like you to join us in a business partnership to enable us to continue operating for the year. When you become a 'Friend of the Food Bank' you will receive 30 co-branded Food Bank T-shirts and to opportunity to organise a team building day by volunteering in our warehouse and kitchens."
+        "We would like you to join us in a business partnership to enable us to continue operating for the year. When you become a 'Friend of the Food Bank' you will receive 30 co-branded Food Bank T-shirts and to opportunity to organise a team building day by volunteering in our warehouse and kitchens.",
     },
     {
       requestId: "12",
@@ -79,7 +80,7 @@ export default function App() {
       duration: "1",
       requestStatus: "OPEN",
       incentive:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
     },
     {
       requestId: "15",
@@ -94,7 +95,7 @@ export default function App() {
       duration: "2",
       requestStatus: "OPEN",
       incentive:
-        "In return for your help we will put your brand on all our external mailing for the duration of your sponsorship. We will also arrange for some puppies to visit your place of work for a maximum of two days per year."
+        "In return for your help we will put your brand on all our external mailing for the duration of your sponsorship. We will also arrange for some puppies to visit your place of work for a maximum of two days per year.",
     },
     {
       requestId: "13",
@@ -109,10 +110,9 @@ export default function App() {
       duration: "1",
       requestStatus: "ACCEPTED",
       incentive:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    }
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    },
   ]);
-
 
   // const [detailsCharity, setdetailsCharity] = useState([
   //   {
@@ -125,18 +125,21 @@ export default function App() {
 
   const [detailsCharity, setdetailsCharity] = useState([]);
 
-  useEffect (() => {
-    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities/CHAZ2")
-     .then (response=> {setdetailsCharity (response.data)
-    })
-    .catch(error=> console.log (error))
-  },[]);
-
+  useEffect(() => {
+    axios
+      .get(
+        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities/CHAZ2"
+      )
+      .then((response) => {
+        setdetailsCharity(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   const changeCharityProfile = (name, description) => {
     const newProfile = {
       nameProfile: name,
-      descriptionProfile: description
+      descriptionProfile: description,
     };
 
     console.log(newProfile.nameProfile);
@@ -146,7 +149,7 @@ export default function App() {
     setdetailsCharity(updatedCharityProfile);
   };
 
-    // const [detailsSponsor, setdetailsSponsor] = useState([
+  // const [detailsSponsor, setdetailsSponsor] = useState([
   //   {
   //     name: "Telecom",
   //     description: "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters. Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.Trysail Sail ho Corsair red ensign hulk smartly boom jib rum gangway. Case shot Shiver me timbers gangplank crack Jennys tea cup ballast Blimey lee snow crow's nest rutters. Fluke jib scourge of the seven seas boatswain schooner gaff booty Jack Tar transom spirits.",
@@ -157,18 +160,21 @@ export default function App() {
 
   const [detailsSponsor, setdetailsSponsor] = useState([]);
 
-  useEffect (() => {
-    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors/SPON1")
-     .then (response=> {setdetailsSponsor (response.data)
-    })
-    .catch(error=> console.log (error))
-  },[]);
-  
+  useEffect(() => {
+    axios
+      .get(
+        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors/SPON1"
+      )
+      .then((response) => {
+        setdetailsSponsor(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   const changeSponsorProfile = (name, description) => {
     const newProfile = {
       nameProfile: name,
-      descriptionProfile: description
+      descriptionProfile: description,
     };
 
     console.log(newProfile.nameProfile);
@@ -179,10 +185,10 @@ export default function App() {
   };
 
   const openRequests = sponsorshipRequests.filter(
-    request => request.requestStatus === "OPEN"
+    (request) => request.requestStatus === "OPEN"
   );
   const acceptedRequests = sponsorshipRequests.filter(
-    request => request.requestStatus === "ACCEPTED"
+    (request) => request.requestStatus === "ACCEPTED"
   );
 
   const [isAuth, setIsAuth] = useState(true);
@@ -212,12 +218,18 @@ export default function App() {
         <Route path="/SponsorRequestDetails">
           <SponsorRequestDetails />
         </Route>
-        <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
-          <SponsorDetailsAccept  />
-        </Route>
-        <Route exact path="/ForCharities">
-          <CharityPage />
-        </Route>
+        <CharityOfferProvider>
+          <Route exact path="/ForCharities">
+            <CharityPage />
+          </Route>
+          <Route
+            exact
+            path="/ForCharities/:id"
+            component={SponsorDetailsAccept}
+          >
+            <SponsorDetailsAccept />
+          </Route>
+        </CharityOfferProvider>
         <Route path="/NewFund" component={FundRequest}></Route>
         <Route path="/CharityProfilePage">
           <CharityProfilePage

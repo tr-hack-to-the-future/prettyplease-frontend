@@ -1,8 +1,9 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { Modal } from 'react-bootstrap';
 import './charityview.css';
+import {useCharityOffer} from "./charityOffersContext";
 
 
 import Button from "react-bootstrap/Button";
@@ -10,33 +11,42 @@ import {
   BrowserRouter as Router,
   Link,
   useParams,
-  useHistory,
+ useHistory
 } from "react-router-dom";
 
-function SponsorDetailsAccept({ sponsor }) {
-  let history = useHistory();
+
+function SponsorDetailsAccept() {
+  
   let { id } = useParams();
-  let dispSponsor = sponsor[id - 1];
+  let {sponsorOffers} = useCharityOffer();
+  let {history} = useHistory();
+  let [dispSponsor,setdispSponsor] = useState();
+ 
+  dispSponsor= (sponsorOffers[id-1]);
+  console.log(dispSponsor);
+ 
   const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+ 
 
   return (
+    
     <Container className="padding">
       <Row className="row justify-content-center mt-5 mb-4 text-primary">
-        <h3>Hello{dispSponsor.sponsorName}</h3>
+        <h3>{dispSponsor.sponsorName}</h3>
       </Row>
-
+ 
       <div className="rounded mx-auto d-block  text-center">
         <img
-          src={dispSponsor.sponsorImg}
+          src={dispSponsor.sponsorImageUrl}
           width="200"
           height="200"
           alt={dispSponsor.sponsorName}
         />
       </div>
       <div className="row justify-content-center mt-5 ">
-        <p>{dispSponsor.sponsorDesc}</p>
+        <p>{dispSponsor.sponsorDescription}</p>
       </div>
       <Router>
         <Row className=" justify-content-center mt-5 ">
@@ -69,8 +79,9 @@ function SponsorDetailsAccept({ sponsor }) {
           </Link>
         </Row>
       </Router>
-      <div class="row justify-content-center mt-5"></div>
-    </Container>
+      <div class="row justify-content-center mt-5"></div> 
+ 
+ </Container>
   );
 }
 

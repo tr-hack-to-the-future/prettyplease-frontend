@@ -5,8 +5,12 @@ import Row from "react-bootstrap/Row";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SponsorDetailsAccept from "./SponsorDetailsAccept";
 
-export default function DisplayCard({ sponsor }) {
-  DisplayLink(sponsor);
+
+
+export default function DisplayCard({sponsor}) {
+
+  
+ 
   return sponsor.map((ch, index) => (
     
     <Link to={`/ForCharities/${index + 1}`}>
@@ -33,13 +37,3 @@ export default function DisplayCard({ sponsor }) {
   ));
 }
 
-function DisplayLink(sponsor){
-  return(
-  <Router>
-  <Switch>
-     <Route exact path="#/ForCharities/:id" component={SponsorDetailsAccept}>
-         <SponsorDetailsAccept sponsor={sponsor} />
-       </Route>
-       </Switch>
-   </Router>)
-}

@@ -4,26 +4,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 import DisplayCard from "./charityview/DisplayCard";
+import {useCharityOffer} from "./charityview/charityOffersContext";
 
 import axios from "axios";
 
 function CharityPage() {
-  let charityid = "CHAZ1";
-  let [sponsorOffers, setSponsorOffers] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charityoffers/" +
-          charityid
-      )
-      .then((response) =>
-        setSponsorOffers(
-          response.data.filter((offer) => offer.requestStatus === "OPEN")
-        )
-      )
-      .catch((error) => console.log(error));
-  }, []);
+  let {sponsorOffers} = useCharityOffer();
+ 
 
   return (
     <div className="ReviewAccept">
