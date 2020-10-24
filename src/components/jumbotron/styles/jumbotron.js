@@ -10,7 +10,7 @@ export const Inner = styled.div`
   width: 100%;
 
   @media (max-width: 1000px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 export const Pane = styled.div`
@@ -18,7 +18,7 @@ export const Pane = styled.div`
   padding: 20px;
   @media (max-width: 1000px) {
     width: 100%;
-    padding: 0 45px;
+    padding: 45px;
     text-align: center;
   }
 `;
@@ -91,5 +91,6 @@ export const ButtonLink = styled.a`
   }
   @media (max-width: 600px) {
     margin-left: 5px;
+    padding-bottom: 15px;
   }
 `;
