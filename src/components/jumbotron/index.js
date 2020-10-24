@@ -5,6 +5,7 @@ import {
   Inner,
   Title,
   SubTitle,
+  FigCaption,
   Image,
   Pane
 } from "./styles/jumbotron";
@@ -34,6 +35,13 @@ Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
 
 Jumbotron.Pane = function JumbotronPane({ children, ...restProps }) {
   return <Pane {...restProps}>{children}</Pane>;
+};
+
+Jumbotron.FigCaption = function JumbotronFigCaption({
+  children,
+  ...restProps
+}) {
+  return <FigCaption {...restProps}>{children}</FigCaption>;
 };
 
 Jumbotron.Image = function JumbotronImage({ children, ...restProps }) {

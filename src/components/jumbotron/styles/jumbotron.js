@@ -4,7 +4,7 @@ export const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  flex-direction: row;
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
@@ -15,22 +15,33 @@ export const Inner = styled.div`
 `;
 export const Pane = styled.div`
   width: 50%;
+  padding: 20px;
+  @media (max-width: 1000px) {
+    width: 100%;
+    padding: 0 45px;
+    text-align: center;
+  }
 `;
 export const Item = styled.div`
   display: flex;
   border-bottom: 8px dashed coral;
   padding: 50px 5%;
-  color: damson;
+  color: black;
   overflow: hidden;
 `;
 
 export const Container = styled.section`
-  background-color: beige;
+  background-color: white;
+  padding-top: 180px;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 100px;
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 50px;
-  line-height: 1.1;
+  line-height: 0.9;
   margin-bottom: 8px;
 
   @media (max-width: 600px) {
@@ -49,6 +60,13 @@ export const SubTitle = styled.h2`
 `;
 
 export const Image = styled.img`
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
+`;
+
+export const FigCaption = styled.p`
+  text-align: center;
+  color: grey;
+  font-weight: 2em;
+  font-style: italic;
 `;
