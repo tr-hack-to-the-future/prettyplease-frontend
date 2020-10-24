@@ -11,11 +11,11 @@ import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 import "./OfferDetailsAccepted.css";
 
 
-function OfferDetailsAccepted({ request }) {
+function OfferDetailsAccepted({ offer }) {
 
     const history = useHistory();
     const { id } = useParams();
-    const dispRequest = request[id - 1];
+    const dispRequest = offer[id - 1];
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -34,7 +34,7 @@ function OfferDetailsAccepted({ request }) {
             </Row>
             <div className="rounded mx-auto d-block  text-center">
                 <img
-                    src={dispRequest.image}
+                    src={dispRequest.charityImageUrl}
                     width="200"
                     height="200"
                     alt={dispRequest.charityName}
@@ -54,21 +54,24 @@ function OfferDetailsAccepted({ request }) {
             </Row>            
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
-                    Amount: {getFormattedAmount(dispRequest.amount)}
+                    Amount: {getFormattedAmount(dispRequest.amountAgreed)}
                 </Col>
                 <Col className="text-center">
-                    Duration: {getFormattedDuration(dispRequest.duration)}
+                    Duration: {getFormattedDuration(dispRequest.agreedDurationInYears)}
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
-                <h4>Sponsorship Accepted</h4>
+                <h4>Sponsorship Accepted!</h4>
             </Row>
-            <div className="row justify-content-center mt-5 lead">
+            <Row className="justify-content-md-center">
+                You will be contacted by {dispRequest.charityName} within the next seven days to finalise details of your sponsorship agreement.
+            </Row>
+            <Row className="row justify-content-center mt-5 lead">
                 {dispRequest.eventDescription}
-            </div>
-            <div className="row justify-content-center mt-5 ">
+            </Row>
+            <Row className="row justify-content-center">
                 {dispRequest.incentive}
-            </div>
+            </Row>
 
             <Router>
                 <Row className=" justify-content-center mt-5 ">

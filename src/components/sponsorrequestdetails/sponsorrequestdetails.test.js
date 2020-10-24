@@ -20,8 +20,8 @@ describe('SponsorRequestDetails component', () => {
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "1500",
-                duration: "2",
+                amountRequested: "1500",
+                durationInYears: "2",
                 incentive: testIncentive
             },
             {
@@ -29,8 +29,8 @@ describe('SponsorRequestDetails component', () => {
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amount: "10000",
-                duration: "3",
+                amountRequested: "10000",
+                durationInYears: "3",
                 incentive: testIncentive
             }
             ]

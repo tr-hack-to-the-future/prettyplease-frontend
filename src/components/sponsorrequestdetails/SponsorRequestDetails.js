@@ -35,7 +35,7 @@ function SponsorRequestDetails({ request }) {
             </Row>
             <div className="rounded mx-auto d-block  text-center">
                 <img
-                    src={dispRequest.image}
+                    src={dispRequest.charityImageUrl}
                     width="200"
                     height="200"
                     alt={dispRequest.charityName}
@@ -55,10 +55,10 @@ function SponsorRequestDetails({ request }) {
             </Row>
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
-                    Amount: {getFormattedAmount(dispRequest.amount)}
+                    Amount: {getFormattedAmount(dispRequest.amountRequested)}
                 </Col>
                 <Col className="text-center">
-                    Duration: {getFormattedDuration(dispRequest.duration)}
+                    Duration: {getFormattedDuration(dispRequest.durationInYears)}
                 </Col>
             </Row>
             <div className="row justify-content-center mt-5 lead">
