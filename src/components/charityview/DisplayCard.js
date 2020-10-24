@@ -6,12 +6,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SponsorDetailsAccept from "./SponsorDetailsAccept";
 
 export default function DisplayCard({ sponsor }) {
+  DisplayLink(sponsor);
   return sponsor.map((ch, index) => (
+    
     <Link to={`/ForCharities/${index + 1}`}>
       <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <Col className="col-auto flex-column">
           <img
-            src={ch.sponsorImg}
+            src={ch.sponsorImageUrl}
             width="200"
             height="200"
             alt={ch.sponsorName}
@@ -22,10 +24,22 @@ export default function DisplayCard({ sponsor }) {
             <strong className="d-inline-block mb-2 text-primary">
               {ch.sponsorName}
             </strong>
-            <p className="card-text mb-auto">{ch.sponsorDesc}</p>
+            <p className="card-text mb-auto">{ch.sponsorDescription}</p>
           </a>
         </Col>
       </Row>
     </Link>
+
   ));
+}
+
+function DisplayLink(sponsor){
+  return(
+  <Router>
+  <Switch>
+     <Route exact path="#/ForCharities/:id" component={SponsorDetailsAccept}>
+         <SponsorDetailsAccept sponsor={sponsor} />
+       </Route>
+       </Switch>
+   </Router>)
 }

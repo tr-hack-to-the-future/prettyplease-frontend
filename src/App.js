@@ -213,10 +213,10 @@ export default function App() {
           <SponsorRequestDetails />
         </Route>
         <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
-          <SponsorDetailsAccept sponsor={charitysp} />
+          <SponsorDetailsAccept  />
         </Route>
         <Route exact path="/ForCharities">
-          <CharityPage sponsor={charitysp} />
+          <CharityPage />
         </Route>
         <Route path="/NewFund" component={FundRequest}></Route>
         <Route path="/CharityProfilePage">

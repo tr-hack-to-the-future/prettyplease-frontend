@@ -24,7 +24,7 @@ function SponsorDetailsAccept({ sponsor }) {
   return (
     <Container className="padding">
       <Row className="row justify-content-center mt-5 mb-4 text-primary">
-        <h3>{dispSponsor.sponsorName}</h3>
+        <h3>Hello{dispSponsor.sponsorName}</h3>
       </Row>
 
       <div className="rounded mx-auto d-block  text-center">
