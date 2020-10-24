@@ -14,7 +14,7 @@ function Main({ SponsorData }) {
       <Jumbotron />
       <Featurette />
       <Carousel />
-      <FooterContainer />
+      {/* <FooterContainer /> */}
     </>
   );
 }

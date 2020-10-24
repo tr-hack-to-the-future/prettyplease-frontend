@@ -13,6 +13,8 @@ import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetails
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
+import FailRequestPage from "./components/fundrequest/FailRequestPage";
+import { FooterContainer } from "./containers/footer";
 import Faqs from "./pages/faqs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -200,6 +202,9 @@ export default function App() {
           {/* {" "} */}
           <Main />
         </Route>
+        <Route path="/faqs">
+          <Faqs />
+        </Route>
         <Route path="/ForSponsors/:id" component={SponsorRequestDetails}>
           <SponsorRequestDetails request={sponsorshipRequests} />
         </Route>
@@ -218,38 +223,37 @@ export default function App() {
         <Route path="/SponsorRequestDetails">
           <SponsorRequestDetails />
         </Route>
-        <CharityOfferProvider>
-          <Route exact path="/ForCharities">
-            <CharityPage />
-          </Route>
-          <Route
-            exact
-            path="/ForCharities/:id"
-            component={SponsorDetailsAccept}
-          >
-            <SponsorDetailsAccept />
-          </Route>
-        </CharityOfferProvider>
-        <Route path="/NewFund" component={FundRequest}></Route>
-        <Route path="/CharityProfilePage">
-          <CharityProfilePage
-            charityData={detailsCharity}
-            changeProfile={changeCharityProfile}
-          />
-        </Route>
+
         <Route path="/SponsorProfilePage">
           <SponsorProfilePage
             sponsorData={detailsSponsor}
             changeProfile={changeSponsorProfile}
           />
         </Route>
-        <Route path="/ConfirmationRequestPage">
+
+        <CharityOfferProvider>
+          <Route exact path="/ForCharities">
+            <CharityPage />
+          </Route>
+          <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
+            <SponsorDetailsAccept />
+          </Route>
+          <Route path="/NewFund" component={FundRequest}></Route>
+          <Route path="/CharityProfilePage">
+            <CharityProfilePage
+              charityData={detailsCharity}
+              changeProfile={changeCharityProfile}
+            />
+          </Route>
+          <Route path="/ConfirmationRequestPage">
           <ConfirmationRequestPage />
         </Route>
-        <Route path="/faqs">
-          <Faqs />
+        <Route path="/FailRequestPage">
+          <FailRequestPage />
         </Route>
+        </CharityOfferProvider>
       </Switch>
+      <FooterContainer />
     </Router>
   );
 }

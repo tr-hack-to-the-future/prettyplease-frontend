@@ -23,10 +23,11 @@ function ModalConfirmationRequest(props) {
                 handleClose();   // Call the funtion onHide to close the Modal
                 history.push("/ConfirmationRequestPage");
             })
-            .catch(error => console.log(error))
-
-
-
+            .catch(error => {
+                console.log(error)
+                handleClose();   // Call the funtion onHide to close the Modal
+                history.push("/FailRequestPage");
+            })
     };
 
     return (
