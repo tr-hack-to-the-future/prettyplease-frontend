@@ -6,7 +6,7 @@ function Faqs() {
   return (
     <>
       <FaqsContainer />
-      <FooterContainer />
+      {/* <FooterContainer /> */}
     </>
   );
 }

@@ -69,15 +69,15 @@ function SponsorRequestDetails({ request }) {
             </div>
             <Router>
                 <Row className=" justify-content-center mt-5 ">
-                    <Link to="/#">
+                    {/* <Link to="/#"> */}
                         <Button
                             variant="outline-primary"
                             size="lg"
                             onClick={() => history.goBack()}>
                             Back
                         </Button>
-                    </Link>
-                    <Link to="/#" className="{acceptButtonVisibility}">
+                    {/* </Link> */}
+                    {/* <Link to="/#" className="{acceptButtonVisibility}"> */}
                         {/* <Button variant="outline-primary ml-5" size="lg" onClick={handleClick}>
                             Accept
                         </Button> */}
@@ -99,7 +99,7 @@ function SponsorRequestDetails({ request }) {
                                 </Button>
                             </Modal.Footer>
                         </Modal>
-                    </Link>
+                    {/* </Link> */}
                 </Row>
             </Router>
             <div className="row justify-content-center mt-5"></div>
