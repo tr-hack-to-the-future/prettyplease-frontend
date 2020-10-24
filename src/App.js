@@ -12,7 +12,7 @@ import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetails
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
-import FaqsPage from "./pages/faqs";
+import Faqs from "./pages/faqs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -234,8 +234,8 @@ export default function App() {
         <Route path="/ConfirmationRequestPage">
           <ConfirmationRequestPage />
         </Route>
-        <Route exact path="/faqs">
-          <FaqsPage />
+        <Route path="/faqs">
+          <Faqs />
         </Route>
       </Switch>
     </Router>
