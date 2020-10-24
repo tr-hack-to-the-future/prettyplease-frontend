@@ -2,7 +2,7 @@
 
 This is the front end of the Pretty please Application, built throughout the [Tech Returners](https://techreturners.com) Your Journey Into Tech course. It integrates with a backend, available [here](https://github.com/tr-hack-to-the-future/prettyplease-backend).
 
-The hosted version of the application is available here: (https://tr-hack-to-the-future.github.io/prettyplease-frontend/).
+The hosted version of the application is available here: [https://tr-hack-to-the-future.github.io/prettyplease-frontend/](https://tr-hack-to-the-future.github.io/prettyplease-frontend/).
 
 ### Technology Used
 
