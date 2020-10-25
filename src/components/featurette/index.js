@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Inner, Text, ButtonLink } from "./styles/featurette";
+import { Container, Inner, Pane, Text, ButtonLink } from "./styles/featurette";
 
 export default function Featurette({ children, ...restProps }) {
   return (
@@ -15,6 +15,10 @@ Featurette.Inner = function FeaturetteInner({ children, ...restProps }) {
 
 Featurette.Text = function FeaturetteText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
+};
+
+Featurette.Pane = function FeaturettePane({ children, ...restProps }) {
+  return <Pane {...restProps}>{children}</Pane>;
 };
 
 Featurette.ButtonLink = function FeaturetteButtonLink({
