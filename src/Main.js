@@ -3,7 +3,7 @@ import Sponsorlist from "./components/Sponsorlist";
 import CharityPage from "./components/CharityPage";
 import SponsorPage from "./components/SponsorPage";
 import Carousel from "./components/Carousel";
-import Featurette from "./components/Featurette";
+import Featurette from "./components/featurette";
 import { JumbotronContainer } from "./containers/jumbotron";
 import { FaqsContainer } from "./containers/faqs";
 
