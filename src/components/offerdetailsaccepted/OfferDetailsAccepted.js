@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
-import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
+import { BrowserRouter as Router, useHistory, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 import "./OfferDetailsAccepted.css";
@@ -48,10 +48,10 @@ function OfferDetailsAccepted({ offer }) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>{dispRequest.charityDescription}</Card.Body>
-                        </Accordion.Collapse>                
+                        </Accordion.Collapse>
                     </Card>
                 </Accordion>
-            </Row>            
+            </Row>
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
                     Amount: {getFormattedAmount(dispRequest.amountAgreed)}
@@ -69,20 +69,17 @@ function OfferDetailsAccepted({ offer }) {
             <Row className="row justify-content-center mt-5 lead">
                 {dispRequest.eventDescription}
             </Row>
-            <Row className="row justify-content-center">
+            <Row className="row justify-content-center mt-2">
                 {dispRequest.incentive}
             </Row>
-
             <Router>
                 <Row className=" justify-content-center mt-5 ">
-                    <Link to="/#">
-                        <Button
-                            variant="outline-primary"
-                            size="lg"
-                            onClick={() => history.goBack()}>
-                            Back
-                        </Button>
-                    </Link>
+                    <Button
+                        variant="outline-primary"
+                        size="lg"
+                        onClick={() => history.goBack()}>
+                        Back
+                    </Button>
                 </Row>
             </Router>
             <div className="row justify-content-center mt-5"></div>
