@@ -46,10 +46,13 @@ function PPNavbar() {
               Sponsor Profile
             </Nav.Link>
           </Nav>
-          <Nav>
+          
             {!currentUser ? (
-              <Nav.Link href="">Login</Nav.Link>
+              <Nav>
+              <Nav.Link href="/prettyplease-frontend/#/Login">Login</Nav.Link>
+              </Nav>
             ) : (
+              < Nav>
               <Nav.Link href="">
                 <svg
                   width="1em"
@@ -71,8 +74,11 @@ function PPNavbar() {
                 </svg>
                 Profile
               </Nav.Link>
+              <Button variant='link' onClick={handleLogout}>Log Out</Button>
+              </Nav>
+           
             )}
-          </Nav>
+          
         </Navbar.Collapse>
       </Navbar>
     </Router>

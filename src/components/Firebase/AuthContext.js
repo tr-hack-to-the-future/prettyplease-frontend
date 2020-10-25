@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
   }
   function signalong(email, password,name, description, type,imageUrl){
     signup(email, password);
-    writeUserData(currentUser.UID, name, description, email, type,imageUrl)
+    writeUserData(currentUser.uid, name, description, email, type,imageUrl)
 
   }
   

@@ -23,7 +23,7 @@ import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
 import Faqs from "./pages/faqs";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router , Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
   // const [sponsor, setSponsor] = useState([
@@ -158,11 +158,10 @@ export default function App() {
   const acceptedOffers = sponsorOffers.filter(
     (offer) => offer.offerStatus === "ACCEPTED"
   );
-
-  const [isAuth, setIsAuth] = useState(true);
   return (
-    <Router>
+    <Router >
       <AuthProvider>
+      
         <PPNavbar />
         <Switch>
           <Route exact path="/" component={Main}>
@@ -205,7 +204,7 @@ export default function App() {
           </Route>
 
           <CharityOfferProvider>
-            <Route exact path="/ForCharities">
+            <Route path="/ForCharities">
               <CharityPage />
             </Route>
             <Route
@@ -228,9 +227,10 @@ export default function App() {
             <Route path="/FailRequestPage">
               <FailRequestPage />
             </Route>
-          </CharityOfferProvider>
+            </CharityOfferProvider>
         </Switch>
         <FooterContainer />
+       
       </AuthProvider>
     </Router>
   );

@@ -37,7 +37,7 @@ export default function Login() {
 
   return (
     <Container className="CardPadding">
-      <Row className="justify-content-md-center mb-4">
+      <Row className="justify-content-md-center mt-4 mb-4">
         <h3>Sign In</h3>
       </Row>
       <Row className="justify-content-md-center">
@@ -77,9 +77,9 @@ export default function Login() {
           </Row>
           <Row className="">
             <p className="text-center my-3">Don't have an account? </p>
-            <Nav.Link className="text-center my-2" href="/SignUp">
-              {" "}
-              Sign up here{" "}
+            <Nav.Link className="text-center my-2" href="prettyplease-frontend/#/SignUp">
+              
+              Sign up here
             </Nav.Link>
           </Row>
           <Link

@@ -48,7 +48,7 @@ export default function SignUp() {
   }
   return (
     <Container className="CardPadding">
-      <Row className="justify-content-md-center mb-4">
+      <Row className="justify-content-md-center mt-4 mb-4">
         <h4>Sign Up with Pretty Please</h4>
       </Row>
 
