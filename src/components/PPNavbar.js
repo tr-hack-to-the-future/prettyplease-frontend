@@ -9,7 +9,7 @@ import { HashRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 function PPNavbar() {
-  const { currentUser, logout } = useAuth();
+  const { currentUser,userType, logout } = useAuth();
   const [error, setError] = useState("");
   const history = useHistory();
 
@@ -53,7 +53,7 @@ function PPNavbar() {
               </Nav>
             ) : (
               < Nav>
-              <Nav.Link href="">
+              <Nav.Link href={userType ==='sponsor'?'/SponsorProfilePage':'/CharityProfilePage'}>
                 <svg
                   width="1em"
                   height="40px"

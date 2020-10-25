@@ -204,7 +204,7 @@ export default function App() {
           </Route>
 
           <CharityOfferProvider>
-            <Route path="/ForCharities">
+            <Route exact path="/ForCharities">
               <CharityPage />
             </Route>
             <Route

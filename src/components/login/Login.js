@@ -20,17 +20,17 @@ export default function Login() {
  
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
-  const { login, readUserData,userType} = useAuth();
-  async function handlerSubmit(event) {
+  const { signnow,userType} = useAuth();
+  function handlerSubmit(event) {
     event.preventDefault();
     try {
       setError("");
 
-      await login(emailid, password);
-      await readUserData();
+      signnow(emailid, password);
 
       INITIAL_STATE();
-      history.replace(from);
+      (userType==='charity')?history.push('/ForCharities'):history.push('/ForSponsor');
+      
     } catch {
       setError("Failed to Sign In");
     }

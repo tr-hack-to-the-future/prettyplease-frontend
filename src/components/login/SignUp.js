@@ -32,7 +32,7 @@ export default function SignUp() {
   function handleOption(event){
     setUserType(event.target.value)
   }
-  async function handlerSignup(event) {
+  function handlerSignup(event) {
     if (password !== passwordConfirm) {
       return setError("Passwords dont match");
     }
@@ -43,9 +43,9 @@ export default function SignUp() {
 
       // await signup(emailid, password);
      
-      await signalong(emailid, password, name, description, usertype, imageUrl);
+      signalong(emailid, password, name, description, usertype, imageUrl);
       // await writeUserData(currentUser.uid, name, description, emailid, usertype,imageUrl)
-      await readUserData();
+      readUserData();
       INITIAL_STATE();
       history.push("/");
     } catch {
