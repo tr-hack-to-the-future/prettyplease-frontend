@@ -86,7 +86,7 @@ export const ButtonLink = styled.a`
   text-decoration: none !important;
 
   &:hover {
-    color: grey;
+    color: white;
     cursor: pointer;
   }
   @media (max-width: 600px) {
