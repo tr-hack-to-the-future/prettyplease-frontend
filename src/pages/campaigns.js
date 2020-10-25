@@ -1,14 +1,13 @@
 import React from "react";
 import { FooterContainer } from "../containers/footer";
-import { FaqsContainer } from "../containers/faqs";
+import { CampaignsContainer } from "../containers/campaigns";
 
-function Faqs() {
+function Campaigns() {
   return (
     <>
-      <FaqsContainer />
       <FooterContainer />
     </>
   );
 }
 
-export default Faqs;
+export default Campaigns;

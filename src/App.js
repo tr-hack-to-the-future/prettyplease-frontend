@@ -16,6 +16,7 @@ import ConfirmationRequestPage from "./components/fundrequest/ConfirmationReques
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
 import Faqs from "./pages/faqs";
+import Campaigns from "./pages/campaigns";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -32,24 +33,24 @@ export default function App() {
     {
       sponsorName: "Financing",
       sponsorDesc: "This is description about Financing sponsor",
-      sponsorImg: require("./assets/images/abstract-logo.jpg"),
+      sponsorImg: require("./assets/images/abstract-logo.jpg")
     },
     {
       sponsorName: "Telecom",
       sponsorDesc: "This is description about Telecom Sponsor",
-      sponsorImg: require("./assets/images/abstract-logo2.jpg"),
+      sponsorImg: require("./assets/images/abstract-logo2.jpg")
     },
     {
       sponsorName: "Sports Brand",
       sponsorDesc: "This is description about Sports goods Sponsor",
-      sponsorImg: require("./assets/images/abstract-logo3.jpg"),
+      sponsorImg: require("./assets/images/abstract-logo3.jpg")
     },
     {
       sponsorName: "Manufacturing Brand",
       sponsorDesc:
         "This is description about Manufacturing sponsor and their values",
-      sponsorImg: require("./assets/images/abstract-logo4.jpg"),
-    },
+      sponsorImg: require("./assets/images/abstract-logo4.jpg")
+    }
   ]);
 
   // const [detailsCharity, setdetailsCharity] = useState([
@@ -68,16 +69,16 @@ export default function App() {
       .get(
         "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities/CHAZ2"
       )
-      .then((response) => {
+      .then(response => {
         setdetailsCharity(response.data);
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   }, []);
 
   const changeCharityProfile = (name, description) => {
     const newProfile = {
       nameProfile: name,
-      descriptionProfile: description,
+      descriptionProfile: description
     };
 
     console.log(newProfile.nameProfile);
@@ -103,16 +104,16 @@ export default function App() {
       .get(
         "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors/SPON1"
       )
-      .then((response) => {
+      .then(response => {
         setdetailsSponsor(response.data);
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   }, []);
 
   const changeSponsorProfile = (name, description) => {
     const newProfile = {
       nameProfile: name,
-      descriptionProfile: description,
+      descriptionProfile: description
     };
 
     console.log(newProfile.nameProfile);
@@ -122,15 +123,16 @@ export default function App() {
     setdetailsSponsor(updatedSponsorProfile);
   };
 
-
-    
   // Fetch the requests from the API
   const [fundingRequests, setRequests] = useState([]);
   useEffect(() => {
-    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests")
+    axios
+      .get(
+        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests"
+      )
       .then(response => setRequests(response.data))
-      .catch(error => console.log(error))
-     }, []);
+      .catch(error => console.log(error));
+  }, []);
 
   const openRequests = fundingRequests.filter(
     request => request.requestStatus === "OPEN"
@@ -140,16 +142,18 @@ export default function App() {
   // Fetch the offers for a sponsor from the API
   const [sponsorOffers, setSponsorOffers] = useState([]);
   useEffect(() => {
-    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/b19dcdc9-1547-11eb-9ed1-0a7222284ed8")
+    axios
+      .get(
+        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/b19dcdc9-1547-11eb-9ed1-0a7222284ed8"
+      )
       .then(response => setSponsorOffers(response.data))
-      .catch(error => console.log(error))
-     }, []);
-
+      .catch(error => console.log(error));
+  }, []);
 
   const acceptedOffers = sponsorOffers.filter(
     offer => offer.offerStatus === "ACCEPTED"
   );
-  
+
   const [isAuth, setIsAuth] = useState(true);
   return (
     <Router>
@@ -162,6 +166,9 @@ export default function App() {
         <Route path="/faqs">
           <Faqs />
         </Route>
+        <Route path="/campaigns">
+          <Campaigns />
+        </Route>
         <Route path="/ForSponsors/:id" component={SponsorRequestDetails}>
           <SponsorRequestDetails request={fundingRequests} />
         </Route>
@@ -172,7 +179,10 @@ export default function App() {
           <SponsorPageAccepted offers={acceptedOffers} />
         </Route>
         <Route exact path="/ForSponsorsAccepted/:id">
-          <OfferDetailsAccepted offer={acceptedOffers} component={OfferDetailsAccepted} />
+          <OfferDetailsAccepted
+            offer={acceptedOffers}
+            component={OfferDetailsAccepted}
+          />
         </Route>
         <Route path="/SponsorRequestDetails">
           <SponsorRequestDetails />
@@ -189,7 +199,11 @@ export default function App() {
           <Route exact path="/ForCharities">
             <CharityPage />
           </Route>
-          <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
+          <Route
+            exact
+            path="/ForCharities/:id"
+            component={SponsorDetailsAccept}
+          >
             <SponsorDetailsAccept />
           </Route>
           <Route path="/NewFund" component={FundRequest}></Route>
@@ -200,11 +214,11 @@ export default function App() {
             />
           </Route>
           <Route path="/ConfirmationRequestPage">
-          <ConfirmationRequestPage />
-        </Route>
-        <Route path="/FailRequestPage">
-          <FailRequestPage />
-        </Route>
+            <ConfirmationRequestPage />
+          </Route>
+          <Route path="/FailRequestPage">
+            <FailRequestPage />
+          </Route>
         </CharityOfferProvider>
       </Switch>
       <FooterContainer />
