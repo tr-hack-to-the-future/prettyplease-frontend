@@ -1,11 +1,28 @@
 import React from "react";
 import "./Navbar.css";
 import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
+import {useAuth} from  './Firebase/AuthContext';
 
 import { HashRouter as Router } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 
-function PPNavbar({ isAuth }) {
+
+function PPNavbar() {
+  const {currentUser, logout}=useAuth();
+  const [error,setError] = useState("");
+  const history = useHistory();
+
+  async function handleLogout(){
+    setError('');
+    try{
+      await logout();
+      history.pushState('/Login')
+    }catch{
+      setError('Failed to logout')
+    }
+  }
   return (
     <Router>
       <Navbar className="navbar" collapseOnSelect expand="lg">
@@ -28,8 +45,7 @@ function PPNavbar({ isAuth }) {
 
           </Nav>
           <Nav>
-            {!isAuth ? (
-              // <Nav.Link href="/profile/CharityProfilePage">Login</Nav.Link>
+            {!currentUser ? (
               <Nav.Link href="">Login</Nav.Link>
             ) : (
               <Nav.Link href="">
