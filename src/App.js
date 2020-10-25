@@ -163,11 +163,17 @@ export default function App() {
   return (
     <Router>
       <AuthProvider>
-        <PPNavbar isAuth={isAuth} />
+        <PPNavbar />
         <Switch>
           <Route exact path="/" component={Main}>
             {/* {" "} */}
             <Main />
+          </Route>
+          <Route exact path="/Login">
+            <Login />
+          </Route>
+          <Route exact path="/SignUp">
+            <SignUp />
           </Route>
           <Route path="/faqs">
             <Faqs />

@@ -1,26 +1,25 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
-import {useAuth} from  './Firebase/AuthContext';
+import { useAuth } from "./Firebase/AuthContext";
 
 import { HashRouter as Router } from "react-router-dom";
-import {useHistory } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
 
 function PPNavbar() {
-  const {currentUser, logout}=useAuth();
-  const [error,setError] = useState("");
+  const { currentUser, logout } = useAuth();
+  const [error, setError] = useState("");
   const history = useHistory();
 
-  async function handleLogout(){
-    setError('');
-    try{
+  async function handleLogout() {
+    setError("");
+    try {
       await logout();
-      history.pushState('/Login')
-    }catch{
-      setError('Failed to logout')
+      history.pushState("/Login");
+    } catch {
+      setError("Failed to logout");
     }
   }
   return (
@@ -40,9 +39,12 @@ function PPNavbar() {
             <Nav.Link href="#">About Us</Nav.Link>
             <Nav.Link href="#">Campaigns</Nav.Link>
             <Nav.Link href="/prettyplease-frontend/#/faqs">FAQs</Nav.Link>
-            <Nav.Link href="/prettyplease-frontend/#/CharityProfilePage">Charity Profile</Nav.Link>
-            <Nav.Link href="/prettyplease-frontend/#/SponsorProfilePage">Sponsor Profile</Nav.Link>
-
+            <Nav.Link href="/prettyplease-frontend/#/CharityProfilePage">
+              Charity Profile
+            </Nav.Link>
+            <Nav.Link href="/prettyplease-frontend/#/SponsorProfilePage">
+              Sponsor Profile
+            </Nav.Link>
           </Nav>
           <Nav>
             {!currentUser ? (
