@@ -6,7 +6,6 @@ import Carousel from "./components/Carousel";
 import Featurette from "./components/Featurette";
 import { JumbotronContainer } from "./containers/jumbotron";
 import { FaqsContainer } from "./containers/faqs";
-import { FooterContainer } from "./containers/footer";
 
 function Main({ SponsorData }) {
   return (
@@ -15,7 +14,6 @@ function Main({ SponsorData }) {
       <Featurette />
       <Carousel />
       <FaqsContainer />
-      <FooterContainer />
     </>
   );
 }

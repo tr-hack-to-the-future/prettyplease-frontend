@@ -15,7 +15,6 @@ import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept"
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
-import Faqs from "./pages/faqs";
 import Campaigns from "./pages/campaigns";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -162,9 +161,6 @@ export default function App() {
         <Route exact path="/" component={Main}>
           {/* {" "} */}
           <Main />
-        </Route>
-        <Route path="/faqs">
-          <Faqs />
         </Route>
         <Route path="/campaigns">
           <Campaigns />
