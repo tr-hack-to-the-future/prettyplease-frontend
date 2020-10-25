@@ -1,12 +1,16 @@
 import React from "react";
-import { Container, Pane, Text, ButtonLink } from "./styles/featurette";
+import { Container, Inner, Text, ButtonLink } from "./styles/featurette";
 
 export default function Featurette({ children, ...restProps }) {
-  return <Container {...restProps}>{children}</Container>;
+  return (
+    <Container {...restProps}>
+      <Inner>{children}</Inner>
+    </Container>
+  );
 }
 
-Featurette.Pane = function FeaturettePane({ children, ...restProps }) {
-  return <Pane {...restProps}>{children}</Pane>;
+Featurette.Inner = function FeaturetteInner({ children, ...restProps }) {
+  return <Inner {...restProps}>{children}</Inner>;
 };
 
 Featurette.Text = function FeaturetteText({ children, ...restProps }) {
