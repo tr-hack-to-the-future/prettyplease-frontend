@@ -10,7 +10,9 @@ import SponsorProfilePage from "./components/profile/SponsorProfilePage";
 import PPNavbar from "./components/PPNavbar";
 import SponsorRequestDetails from "./components/sponsorrequestdetails/SponsorRequestDetails";
 import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetailsAccepted";
+import OfferDetailsPending from "./components/offerdetailspending/OfferDetailsPending";
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
+import SponsorPagePending from "./components/sponsorpagepending/SponsorPagePending";
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
@@ -123,13 +125,15 @@ export default function App() {
     setdetailsSponsor(updatedSponsorProfile);
   };
 
+  // TODO fetch sponsorId from currentUser context
+  const currentUser = {
+    uid: "b19dcdc9-1547-11eb-9ed1-0a7222284ed8",
+    userType: "sponsor"
+  }
   // Fetch the requests from the API
   const [fundingRequests, setRequests] = useState([]);
   useEffect(() => {
-    axios
-      .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests"
-      )
+    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uId)
       .then(response => setRequests(response.data))
       .catch(error => console.log(error));
   }, []);
@@ -142,16 +146,17 @@ export default function App() {
   // Fetch the offers for a sponsor from the API
   const [sponsorOffers, setSponsorOffers] = useState([]);
   useEffect(() => {
-    axios
-      .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/b19dcdc9-1547-11eb-9ed1-0a7222284ed8"
-      )
+    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
       .then(response => setSponsorOffers(response.data))
       .catch(error => console.log(error));
   }, []);
 
   const acceptedOffers = sponsorOffers.filter(
     offer => offer.offerStatus === "ACCEPTED"
+  );
+
+  const pendingOffers = sponsorOffers.filter(
+    offer => offer.offerStatus === "PENDING"
   );
 
   const [isAuth, setIsAuth] = useState(true);
@@ -176,7 +181,7 @@ export default function App() {
           <SponsorPage key={openRequests.requestId} requests={openRequests} />
         </Route>
         <Route exact path="/ForSponsorsAccepted">
-          <SponsorPageAccepted offers={acceptedOffers} />
+          <SponsorPageAccepted key={acceptedOffers.requestId} offers={acceptedOffers} />
         </Route>
         <Route exact path="/ForSponsorsAccepted/:id">
           <OfferDetailsAccepted
@@ -184,6 +189,16 @@ export default function App() {
             component={OfferDetailsAccepted}
           />
         </Route>
+        <Route exact path="/ForSponsorsPending">
+          <SponsorPagePending offers={pendingOffers} />
+        </Route>
+        <Route exact path="/ForSponsorsPending/:id">
+          <OfferDetailsPending
+            offer={pendingOffers}
+            component={OfferDetailsPending}
+          />
+        </Route>
+
         <Route path="/SponsorRequestDetails">
           <SponsorRequestDetails />
         </Route>

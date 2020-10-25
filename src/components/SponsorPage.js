@@ -7,13 +7,17 @@ import Col from 'react-bootstrap/Col';
 import RequestDisplayCard from './requestdisplaycard/RequestDisplayCard';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
+import { getFormattedPlural } from './requestformatter';
 
 function SponsorPage({ requests }) {
 
-  const formatText = requests.length === 1 ? 'request' : 'requests';
+  // const formatText = requests.length === 1 ? 'request' : 'requests';
 
   const history = useHistory();
-  const handleClick = () => {
+  const handlePending = () => {
+    history.push("/ForSponsorsPending");
+  }
+  const handleAccepted = () => {
     history.push("/ForSponsorsAccepted");
   }
 
@@ -28,23 +32,18 @@ function SponsorPage({ requests }) {
             </Button>
           </Col>
           <Col>
-            <Button variant="outline-primary ml-5" size="lg">
+            <Button variant="outline-primary ml-5" size="lg" onClick={handlePending}>
               Offers Pending
           </Button>
           </Col>
           <Col>
-            <Button variant="outline-primary ml-5" size="lg" onClick={handleClick}>
+            <Button variant="outline-primary ml-5" size="lg" onClick={handleAccepted}>
               Offers Accepted
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="outline-primary ml-5" size="lg" >
-              Offers Declined
             </Button>
           </Col>
         </Row>
         <Row className="justify-content-md-center mt-4">
-          <p>There are {requests.length} sponsorship {formatText} available</p>
+          <p>There are {requests.length} sponsorship {getFormattedPlural("request", requests.length)} available</p>
         </Row>
 
         <Row>

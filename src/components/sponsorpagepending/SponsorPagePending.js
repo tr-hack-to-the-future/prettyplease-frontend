@@ -4,22 +4,26 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import OfferAcceptedDisplayCard from '../offeraccepteddisplaycard/OfferAcceptedDisplayCard';
+import OfferPendingDisplayCard from '../offerpendingdisplaycard/OfferPendingDisplayCard';
 import { useHistory } from 'react-router-dom';
-import "./SponsorPageAccepted.css";
+import "./SponsorPagePending.css";
 import { getFormattedPlural } from '../requestformatter';
 
-function SponsorPageAccepted({ offers }) {
+function SponsorPagePending({ offers }) {
+
     const history = useHistory();
-    const handlePending = () => {
-        history.push("/ForSponsorsPending");
+    const handleClick = () => {
+        history.push("/ForSponsors");
+    }
+    const handleAccepted = () => {
+        history.push("/ForSponsorsAccepted");
     }
     const handleRequests = () => {
         history.push("/ForSponsors");
     }
 
     return (
-        <div className="SponsorPageAccepted">
+        <div className="SponsorPagePending">
             <Container>
                 {/* TODO temporary buttons for navigation - will be moved into Navbar */}
                 <Row className="justify-content-md-center mt-4">
@@ -29,23 +33,23 @@ function SponsorPageAccepted({ offers }) {
                         </Button>
                     </Col>
                     <Col>
-                        <Button variant="outline-primary ml-5" size="lg" onClick={handlePending}>
+                        <Button variant="outline-primary ml-5" size="lg" disabled>
                             Offers Pending
                         </Button>
                     </Col>
                     <Col>
-                        <Button variant="outline-primary ml-5" size="lg" disabled>
+                        <Button variant="outline-primary ml-5" size="lg" onClick={handleAccepted}>
                             Offers Accepted
                         </Button>
                     </Col>
                 </Row>
                 <Row className="justify-content-md-center mt-4">
-                    <p>You have {offers.length} accepted sponsorship {getFormattedPlural("offer", offers.length)}</p>
+                    <p>You have {offers.length} pending sponsorship {getFormattedPlural("offer", offers.length)}</p>
                 </Row>
 
                 <Row>
                     <Card>
-                        <OfferAcceptedDisplayCard cardData={offers} />
+                        <OfferPendingDisplayCard cardData={offers} />
                     </Card>
 
                 </Row>
@@ -57,4 +61,4 @@ function SponsorPageAccepted({ offers }) {
     );
 }
 
-export default SponsorPageAccepted;
+export default SponsorPagePending;

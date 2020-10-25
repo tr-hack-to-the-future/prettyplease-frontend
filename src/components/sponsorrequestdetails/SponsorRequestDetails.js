@@ -3,12 +3,14 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { BrowserRouter as Router, useHistory, useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { BrowserRouter as Router, useHistory, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
+import axios from 'axios';
+
 import "./SponsorRequestDetails.css";
 
 function SponsorRequestDetails({ request }) {
@@ -17,16 +19,62 @@ function SponsorRequestDetails({ request }) {
     const { id } = useParams();
     const dispRequest = request[id - 1];
 
-    // const acceptButtonVisibility = dispRequest.requestStatus === 'OPEN' ? 'visible' : 'invisible';
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
 
     const handleClick = () => {
         setShow(false);
         history.push("/ForSponsorsAccepted");
     }
+
+    // TODO Temporary Stub method
+    const postOffer = (newOffer) => {
+        return new Promise((resolve, reject) => {
+            console.log("in postOffer: " + newOffer);
+            alert(newOffer.sponsorId);
+            resolve("b19dcdc9-1547-11eb-9ed1-0a7222284ed8");
+            // reject();
+        });
+    }
+
+    const addOffer = () => {
+        // show the modal
+        handleShow();
+        // create a new offer from the dispRequest
+        // const newperson = {...dispRequest, status: "ACCEPTED"};
+        // TODO fetch sponsorId from currentUser context
+        const userId = "b19dcdc9-1547-11eb-9ed1-0a7222284ed8";
+        const newOffer = {
+            // TODO sponsor ID has to come from the user context
+            sponsorId: userId,
+            requestId: dispRequest.requestId,
+            offerStatus: "PENDING",
+            offerAmount: dispRequest.amountRequested,
+            isSingleEvent: dispRequest.isSingleEvent,
+            offerDurationInYears: dispRequest.durationInYears  
+        };
+        // Stub out the POST
+        // POST the new offer (update the SponsorOffer table)
+        // GET the sponsor requests back
+        // navigate to another page (Pending or Requests?)
+         postOffer(newOffer)
+        // axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+        .then ( response => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
+        // .then ( response => setRequests(response.data))
+        .catch( error => console.log(error));
+
+        // axios
+        // .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+        // .then (response => console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> OFFERID= " + response))
+        // .then ( () => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests"))
+        // // .then ( response => setRequests(response.data))
+        //     // .then(() => axios.get("https://dxmg4z4kvl.execute-api.eu-west-2.amazonaws.com/dev/tasks?userId=47801de2-98b0-4bce-a7ed-a"))
+        //     // .then(response => setTasks(response.data))
+        // .catch(error => console.log(error))
+        }    
+ 
 
     return (
         <Container className="SponsorRequestDetails">
@@ -49,7 +97,7 @@ function SponsorRequestDetails({ request }) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>{dispRequest.charityDescription}</Card.Body>
-                        </Accordion.Collapse>                
+                        </Accordion.Collapse>
                     </Card>
                 </Accordion>
             </Row>
@@ -61,45 +109,37 @@ function SponsorRequestDetails({ request }) {
                     Duration: {getFormattedDuration(dispRequest.durationInYears)}
                 </Col>
             </Row>
-            <div className="row justify-content-center mt-5 lead">
+            <Row className="row justify-content-center mt-5 lead">
                 {dispRequest.eventDescription}
-            </div>
-            <div className="row justify-content-center mt-5 ">
+            </Row>
+            <Row className="row justify-content-center mt-2">
                 {dispRequest.incentive}
-            </div>
+            </Row>
             <Router>
                 <Row className=" justify-content-center mt-5 ">
-                    {/* <Link to="/#"> */}
-                        <Button
-                            variant="outline-primary"
-                            size="lg"
-                            onClick={() => history.goBack()}>
-                            Back
+                    <Button
+                        variant="outline-primary"
+                        size="lg"
+                        onClick={() => history.goBack()}>
+                        Back
+                    </Button>
+                    <Button variant="outline-primary ml-5" size="lg" onClick={addOffer}>
+                        Apply
                         </Button>
-                    {/* </Link> */}
-                    {/* <Link to="/#" className="{acceptButtonVisibility}"> */}
-                        {/* <Button variant="outline-primary ml-5" size="lg" onClick={handleClick}>
-                            Accept
-                        </Button> */}
-
-                        <Button variant="outline-primary ml-5" size="lg" onClick={handleShow}>
-                            Apply
-                        </Button>
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header>
-                                <Modal.Title>Sponsorship Request</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                Thank you for applying to sponsor our charity.
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header>
+                            <Modal.Title>Sponsorship Request</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            Thank you for applying to sponsor our charity.
                             </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="outline-primary" onClick={handleClick}>
-                                    {/* <Button variant="outline-primary" onClick={handleClose}> */}
+                        <Modal.Footer>
+                            <Button variant="outline-primary" onClick={handleClick}>
+                                {/* <Button variant="outline-primary" onClick={handleClose}> */}
                                     Close
                                 </Button>
-                            </Modal.Footer>
-                        </Modal>
-                    {/* </Link> */}
+                        </Modal.Footer>
+                    </Modal>
                 </Row>
             </Router>
             <div className="row justify-content-center mt-5"></div>
