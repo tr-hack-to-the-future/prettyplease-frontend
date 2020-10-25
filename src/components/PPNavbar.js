@@ -21,10 +21,9 @@ function PPNavbar({ isAuth }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="#">About Us</Nav.Link>
-            <Nav.Link href="#/prettyplease-frontend/#/campaigns">
+            <Nav.Link href="/prettyplease-frontend/#/campaigns">
               Campaigns
             </Nav.Link>
-            <Nav.Link href="/prettyplease-frontend/#/faqs">FAQs</Nav.Link>
             <Nav.Link href="/prettyplease-frontend/#/CharityProfilePage">
               Charity Profile
             </Nav.Link>
