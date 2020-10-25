@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
   display: flex;
   border-bottom: 1px dashed #222;
+  padding-top: 180px;
 `;
 
 export const Frame = styled.div`
@@ -30,8 +31,8 @@ export const Title = styled.h1`
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 8px;
-  color: grey;
-  text-align: center;
+  color: black;
+  text-align: left;
 
   @media (max-width: 600px) {
     font-size: 35px;
