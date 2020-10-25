@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
 import Main from "./Main.js";
 //Authentication imports
+import { AuthProvider } from "./components/Firebase/AuthContext";
 import PrivateRoute from "./components/login/PrivateRoute";
 import Login from "./components/login/Login";
 import SignUp from "./components/login/SignUp.js";
