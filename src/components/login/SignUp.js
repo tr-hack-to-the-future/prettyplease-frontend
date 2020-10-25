@@ -22,16 +22,16 @@ export default function SignUp() {
     setPasswordConfirm("");
     setName("");
     setDescription("");
-    
+
     setUserType("sponsor");
     setWebUrl("");
     setError("");
   };
-  const {  signalong,userType } = useAuth();
+  const { signalong, userType } = useAuth();
 
   let history = useHistory();
-  function handleOption(event){
-    setUserType(event.target.value)
+  function handleOption(event) {
+    setUserType(event.target.value);
   }
   function handlerSignup(event) {
     if (password !== passwordConfirm) {
@@ -43,14 +43,22 @@ export default function SignUp() {
       setError("");
 
       // await signup(emailid, password);
-     
-     signalong(emailid, password, name, description, usertype, imageUrl,webUrl);
+
+      signalong(
+        emailid,
+        password,
+        name,
+        description,
+        usertype,
+        imageUrl,
+        webUrl
+      );
       // await writeUserData(currentUser.uid, name, description, emailid, usertype,imageUrl)
-      
+
       INITIAL_STATE();
       history.push("/");
-    } catch {
-      setError("Failed to load");
+    } catch (e) {
+      setError(e);
     }
   }
   return (
@@ -116,7 +124,7 @@ export default function SignUp() {
           <Form.Group controlId="webUrl">
             <Form.Label>Your Website Link</Form.Label>
             <Form.Control
-            type="text"
+              type="text"
               placeholder="http://www.yourweburl.com"
               onChange={(event) => {
                 setWebUrl(event.target.value);
@@ -125,10 +133,7 @@ export default function SignUp() {
           </Form.Group>
           <Form.Group controlId="usertype">
             <Form.Label>How would you like to get involved</Form.Label>
-            <Form.Control
-              as="select"
-              onChange={handleOption}
-            >
+            <Form.Control as="select" onChange={handleOption}>
               <option value="sponsor">I am a Sponsor</option>
               <option value="charity">I am a Fund Raiser/Charity</option>
             </Form.Control>
