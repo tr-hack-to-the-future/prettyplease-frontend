@@ -10,6 +10,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [userType, setUserType] = useState(null);
   const [loading, setLoading] = useState(false);
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
@@ -29,15 +30,19 @@ export function AuthProvider({ children }) {
       profile_picture : imageUrl
     });
   }
+  async function readUserData(){
+    var userId = currentUser.uid;
+    return database.ref('/users/' + userId).once('value').then(function(snapshot) {
+      setUserType(snapshot.val().type);
+      
+    }) 
+  }
   function signalong(email, password,name, description, type,imageUrl){
     signup(email, password);
-    writeUserData(currentUser.uid, name, description, email, type,imageUrl)
+    writeUserData(currentUser.uid, name, description, email, type,imageUrl);
 
   }
-  
- // const user = uid => db.ref(`users/${uid}`);
  
-  //const users = () =>db.ref('users');
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -48,9 +53,10 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
+    userType,
     signup,
     login,
-    logout,signalong,
+    logout,signalong,readUserData
   };
   return (
     <AuthContext.Provider value={value}>

@@ -20,13 +20,14 @@ export default function Login() {
  
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
-  const { login } = useAuth();
+  const { login, readUserData,userType} = useAuth();
   async function handlerSubmit(event) {
     event.preventDefault();
     try {
       setError("");
 
       await login(emailid, password);
+      await readUserData();
 
       INITIAL_STATE();
       history.replace(from);
