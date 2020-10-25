@@ -23,8 +23,9 @@ export function AuthProvider({ children }) {
   function logout(){
     return auth.signOut();
   }
-  function createUserRec(){
-    
+
+  /* function createUserRec(){
+    console.log(userdetails);
     if (userType==='sponsor'){
     axios
     .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userdetails)
@@ -35,35 +36,44 @@ export function AuthProvider({ children }) {
     .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities", userdetails)
     .then(console.log("Successfully Posted"))
     .catch(error => console.log(error))}
-  }
-  }
+  } */
 
-  function writeUserData(userId, name, description, email, type,imageUrl) {
+  function writeUserData(userId, name, description, email, type,imageUrl,webUrl) {
     if (userType ==='charity'){
-      setUserDetails({
+      userdetails = {
         charityId : userId,
         name: name,
         description: description,
         imageUrl: imageUrl,
-        webUrl: imageUrl
-       })
+        webUrl: webUrl
+       }
+       axios
+       .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities", userdetails)
+       .then(console.log("Successfully Posted"))
+       .catch(error => console.log(error))
     }else{
-      setUserDetails({
+      userdetails={
         sponsorId : userId,
         name: name,
         description: description,
         imageUrl: imageUrl,
-        webUrl: imageUrl});
+        webUrl: webUrl}
+        axios
+    .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userdetails)
+    .then(console.log("Successfully Posted"))
+    .catch(error => console.log(error))
     }
-    createUserRec();
+   // createUserRec();
     return database.ref('users/' + userId).set({
       username: name,
       description : description,
       email: email,
       type: type,
-      profile_picture : imageUrl
+      imageUrl : imageUrl,
+      webUrl : webUrl
     });
   }
+  
  function readUserData(){
     var userId = currentUser.uid;
     return database.ref('/users/' + userId).once('value').then(function(snapshot) {
@@ -72,9 +82,13 @@ export function AuthProvider({ children }) {
     }) 
   }
   
-  function signalong(email, password,name, description, type,imageUrl){
-    signup(email, password);
-    writeUserData(currentUser.uid, name, description, email, type,imageUrl);
+  function signalong(email, password,name, description, type,imageUrl,webUrl){
+    try{
+    signup(email, password).then(
+    writeUserData(currentUser.uid, name, description, email, type,imageUrl,webUrl));
+    }catch(e){
+      console.log(e)
+    }
 
   }
   function signnow(email, password){

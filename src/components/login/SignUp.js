@@ -12,7 +12,7 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [usertype, setUserType] = useState("sponsor");
-  
+  const [webUrl, setWebUrl] = useState("");
   const [imageUrl, setimageUrl] = useState("");
   const [error, setError] = useState("");
   const isInvalid = emailid === "" || password === "" || passwordConfirm === "";
@@ -24,9 +24,10 @@ export default function SignUp() {
     setDescription("");
     
     setUserType("sponsor");
+    setWebUrl("");
     setError("");
   };
-  const {  signalong,readUserData,userType } = useAuth();
+  const {  signalong,userType } = useAuth();
 
   let history = useHistory();
   function handleOption(event){
@@ -43,9 +44,9 @@ export default function SignUp() {
 
       // await signup(emailid, password);
      
-      signalong(emailid, password, name, description, usertype, imageUrl);
+     signalong(emailid, password, name, description, usertype, imageUrl,webUrl);
       // await writeUserData(currentUser.uid, name, description, emailid, usertype,imageUrl)
-      readUserData();
+      
       INITIAL_STATE();
       history.push("/");
     } catch {
@@ -109,6 +110,16 @@ export default function SignUp() {
               required
               onChange={(event) => {
                 setDescription(event.target.value);
+              }}
+            />
+          </Form.Group>
+          <Form.Group controlId="webUrl">
+            <Form.Label>Your Website Link</Form.Label>
+            <Form.Control
+            type="text"
+              placeholder="http://www.yourweburl.com"
+              onChange={(event) => {
+                setWebUrl(event.target.value);
               }}
             />
           </Form.Group>
