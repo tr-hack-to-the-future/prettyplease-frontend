@@ -1,5 +1,6 @@
 import React from "react";
 import Jumbotron from "../components/jumbotron";
+import Emoji from "../helpers/emoji";
 
 export function JumbotronContainer() {
   return (
@@ -35,6 +36,25 @@ export function JumbotronContainer() {
           </Jumbotron.ButtonLink>
         </Jumbotron.Pane>
       </Jumbotron>
+      <Jumbotron.Section>
+        <Jumbotron.Text>
+          At Pretty <Emoji symbol="🙏" label="please" />
+          asking is not a taboo. We start from the principle that{" "}
+          <b
+            style={{
+              textWeight: "bold",
+              textDecoration: "underline yellow"
+            }}
+          >
+            if you don't ask you don't get.
+          </b>
+          <Jumbotron.Title>Let generosity be a Constant!</Jumbotron.Title>
+          You are a charity:connect with the most ethical organisation globally.
+          You are a sponsor: wear your <Emoji symbol="🐑" label="sheep" />
+          on your sleeve
+        </Jumbotron.Text>
+        <Jumbotron.ButtonLink>Try this</Jumbotron.ButtonLink>
+      </Jumbotron.Section>
     </Jumbotron.Container>
   );
 }
