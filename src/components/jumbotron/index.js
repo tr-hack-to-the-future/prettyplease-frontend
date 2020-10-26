@@ -13,14 +13,10 @@ import {
   Pane
 } from "./styles/jumbotron";
 
-export default function Jumbotron({
-  children,
-  direction = "row",
-  ...restProps
-}) {
+export default function Jumbotron({ children, ...restProps }) {
   return (
     <Item {...restProps}>
-      <Inner direction={direction}>{children}</Inner>
+      <Inner>{children}</Inner>
     </Item>
   );
 }
