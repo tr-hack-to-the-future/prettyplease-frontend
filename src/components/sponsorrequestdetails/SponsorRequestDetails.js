@@ -18,7 +18,7 @@ function SponsorRequestDetails({ requests }) {
     const history = useHistory();
     const { id } = useParams();
     // fetches the selected request from the array
-    const [request] = requests.filter(r => r.requestId  === id);
+    const [request] = requests.filter(r => r.requestId === id);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -54,17 +54,17 @@ function SponsorRequestDetails({ requests }) {
             offerStatus: "PENDING",
             offerAmount: request.amountRequested,
             isSingleEvent: request.isSingleEvent,
-            offerDurationInYears: request.durationInYears  
+            offerDurationInYears: request.durationInYears
         };
         // Stub out the POST
         // POST the new offer (update the SponsorOffer table)
         // GET the sponsor requests back
         // navigate to another page (Pending or Requests?)
-         postOffer(newOffer)
-        // axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
-        .then ( response => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
-        // .then ( response => setRequests(response.data))
-        .catch( error => console.log(error));
+        postOffer(newOffer)
+            // axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+            .then(response => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
+            // .then ( response => setRequests(response.data))
+            .catch(error => console.log(error));
 
         // axios
         // .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
@@ -74,8 +74,8 @@ function SponsorRequestDetails({ requests }) {
         //     // .then(() => axios.get("https://dxmg4z4kvl.execute-api.eu-west-2.amazonaws.com/dev/tasks?userId=47801de2-98b0-4bce-a7ed-a"))
         //     // .then(response => setTasks(response.data))
         // .catch(error => console.log(error))
-        }    
- 
+    }
+
 
     return (
         <Container className="SponsorRequestDetails">
@@ -116,33 +116,31 @@ function SponsorRequestDetails({ requests }) {
             <Row className="row justify-content-center mt-2">
                 {request.incentive}
             </Row>
-            <Router>
-                <Row className=" justify-content-center mt-5 ">
-                    <Button
-                        variant="outline-primary"
-                        size="lg"
-                        onClick={() => history.goBack()}>
-                        Back
+            <Row className=" justify-content-center mt-5 ">
+                <Button
+                    variant="outline-primary"
+                    size="lg"
+                    onClick={() => history.goBack()}>
+                    Back
                     </Button>
-                    <Button variant="outline-primary ml-5" size="lg" onClick={addOffer}>
-                        Apply
+                <Button variant="outline-primary ml-5" size="lg" onClick={addOffer}>
+                    Apply
                         </Button>
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header>
-                            <Modal.Title>Sponsorship Request</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            Thank you for applying to sponsor our charity.
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header>
+                        <Modal.Title>Sponsorship Request</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Thank you for applying to sponsor our charity.
                             </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="outline-primary" onClick={handleClick}>
-                                {/* <Button variant="outline-primary" onClick={handleClose}> */}
+                    <Modal.Footer>
+                        <Button variant="outline-primary" onClick={handleClick}>
+                            {/* <Button variant="outline-primary" onClick={handleClose}> */}
                                     Close
                                 </Button>
-                        </Modal.Footer>
-                    </Modal>
-                </Row>
-            </Router>
+                    </Modal.Footer>
+                </Modal>
+            </Row>
             <div className="row justify-content-center mt-5"></div>
         </Container>
     );

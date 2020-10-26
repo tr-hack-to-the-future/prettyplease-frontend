@@ -6,3 +6,13 @@
   padding-top: 220px;
   padding-bottom: 15px;
 }
+
+.container-ConfirmationPage {
+  margin-top: 15%;
+  margin-bottom: 5%;
+}
+
+.container-FailRequestPage {
+  margin-top: 15%;
+  margin-bottom: 5%;
+}
