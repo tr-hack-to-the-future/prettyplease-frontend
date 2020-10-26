@@ -76,10 +76,17 @@ export const FigCaption = styled.p`
 `;
 
 export const Section = styled.div`
+  max-width: 1100px;
   margin: 0 auto;
+  width: 100%;
+  padding: 50px;
   text-align: center;
-  max-width: 100%;
 `;
+export const Text = styled.p`
+  font-size: 2rem;
+  text-align: justify;
+`;
+
 export const ButtonLink = styled.a`
   color: white;
   background: crimson;
@@ -99,9 +106,9 @@ export const ButtonLink = styled.a`
     transform: translate(1px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   }
-  // }
-  // @media (max-width: 600px) {
-  //   margin-left: 1px;
-  //   padding-bottom: 15px;
-  // }
+  }
+  @media (max-width: 600px) {
+    margin-left: 1px;
+    padding-bottom: 15px;
+  }
 `;

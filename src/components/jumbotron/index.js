@@ -8,6 +8,7 @@ import {
   FigCaption,
   Image,
   ButtonLink,
+  Text,
   Section,
   Pane
 } from "./styles/jumbotron";
@@ -52,6 +53,9 @@ Jumbotron.Section = function JumbotronSection({ children, ...restProps }) {
 
 Jumbotron.Image = function JumbotronImage({ children, ...restProps }) {
   return <Image {...restProps} />;
+};
+Jumbotron.Text = function JumbotronText({ children, ...restProps }) {
+  return <Text {...restProps}>{children}</Text>;
 };
 
 Jumbotron.ButtonLink = function JumbotronButtonLink({
