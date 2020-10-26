@@ -4,17 +4,19 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 import DisplayCard from "./charityview/DisplayCard";
-import { useCharityOffer } from "./charityview/charityOffersContext";
-import { useAuth } from "./Firebase/AuthContext";
 import { Route, Redirect, useLocation } from "react-router-dom";
+import { useAuth } from "./Firebase/AuthContext";
 
-import axios from "axios";
 
 function CharityPage() {
-  let { sponsorOffers } = useCharityOffer();
-  let { currentUser } = useAuth();
+  
+  let { sponsorOffers,getSponsorOffers } = useAuth();
   let location = useLocation();
-
+try{
+  getSponsorOffers()
+}catch(e){
+  console.log(e)
+}
   return (
     <div className="ReviewAccept">
       <Container>
