@@ -49,7 +49,8 @@ export default function SignUp() {
       //writeUserData(currentUser.uid, name, description, emailid, usertype,imageUrl).then(signup(emailid, password))
 
       INITIAL_STATE();
-      history.push("/");
+      history.push('/')
+      //(usertype==='sponsor')?history.push("/ForSponsors"):history.push("/ForCharities");
     } catch (e) {
       setError(e);
     }

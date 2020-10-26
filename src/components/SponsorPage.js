@@ -21,7 +21,7 @@ function SponsorPage({ requests }) {
     history.push("/ForSponsorsAccepted");
   }
 
-  return ( currentUser?(
+  return ( 
     <div className="SponsorPage">
       <Container>
         {/* TODO temporary buttons for navigation - will be moved into Navbar */}
@@ -59,13 +59,7 @@ function SponsorPage({ requests }) {
         </Row>
 
       </Container>
-    </div>):(<Redirect
-              to={{
-                pathname: "/Login",
-                state: { from: location }
-              }}
-            />)
-
+    </div>
 
   );
 }

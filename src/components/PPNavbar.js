@@ -17,7 +17,7 @@ function PPNavbar() {
     setError("");
     try {
       await logout();
-      history.pushState("/Login");
+      history.pushState("/");
     } catch {
       setError("Failed to logout");
     }
@@ -39,12 +39,7 @@ function PPNavbar() {
             <Nav.Link href="#">About Us</Nav.Link>
             <Nav.Link href="#">Campaigns</Nav.Link>
             <Nav.Link href="/prettyplease-frontend/#/faqs">FAQs</Nav.Link>
-            <Nav.Link href="/prettyplease-frontend/#/CharityProfilePage">
-              Charity Profile
-            </Nav.Link>
-            <Nav.Link href="/prettyplease-frontend/#/SponsorProfilePage">
-              Sponsor Profile
-            </Nav.Link>
+            {userType ==='sponsor'&& currentUser?<Nav.Link href="/ForSponsors">Sponsor Page</Nav.Link>:<Nav.Link href="/ForCharities">Charity Page</Nav.Link>}
           </Nav>
           
             {!currentUser ? (
@@ -53,7 +48,8 @@ function PPNavbar() {
               </Nav>
             ) : (
               < Nav>
-              <Nav.Link href={userType ==='sponsor'?'/SponsorProfilePage':'/CharityProfilePage'}>
+                          
+              <Nav.Link href={userType ==='sponsor'?"/prettyplease-frontend/#/SponsorProfilePage":"/prettyplease-frontend/#/CharityProfilePage"}>
                 <svg
                   width="1em"
                   height="40px"
