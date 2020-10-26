@@ -35,6 +35,10 @@ export function JumbotronContainer() {
           </Jumbotron.ButtonLink>
         </Jumbotron.Pane>
       </Jumbotron>
+      <Jumbotron.Section>
+        <Jumbotron.Title>Hello</Jumbotron.Title>
+        <Jumbotron.ButtonLink>Try this</Jumbotron.ButtonLink>
+      </Jumbotron.Section>
     </Jumbotron.Container>
   );
 }

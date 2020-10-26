@@ -75,23 +75,33 @@ export const FigCaption = styled.p`
   font-style: italic;
 `;
 
+export const Section = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+`;
 export const ButtonLink = styled.a`
   color: white;
-  width: 200px;
-  font-size: 1.2em;
-  padding: 10px;
-  background-color: crimson;
+  background: crimson;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+
   border-radius: 50px;
-  text-align: center;
-  margin-left: 62px;
-  text-decoration: none !important;
+  margin: 1rem;
+  transition: all 0.1s;
 
   &:hover {
     color: white;
-    cursor: pointer;
+    text-decoration: none !important;
+    transform: translate(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   }
-  @media (max-width: 600px) {
-    margin-left: 5px;
-    padding-bottom: 15px;
-  }
+  // }
+  // @media (max-width: 600px) {
+  //   margin-left: 1px;
+  //   padding-bottom: 15px;
+  // }
 `;
