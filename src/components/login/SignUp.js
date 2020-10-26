@@ -27,7 +27,7 @@ export default function SignUp() {
     setWebUrl("");
     setError("");
   };
-  const { signalong, userType } = useAuth();
+  const { userType, currentUser, signalong } = useAuth();
 
   let history = useHistory();
   function handleOption(event) {
@@ -42,18 +42,11 @@ export default function SignUp() {
     try {
       setError("");
 
-      // await signup(emailid, password);
+      signalong(emailid, password,name, description, emailid, usertype, imageUrl, webUrl);
 
-      signalong(
-        emailid,
-        password,
-        name,
-        description,
-        usertype,
-        imageUrl,
-        webUrl
-      );
-      // await writeUserData(currentUser.uid, name, description, emailid, usertype,imageUrl)
+      
+      //await createUserRec();
+      //writeUserData(currentUser.uid, name, description, emailid, usertype,imageUrl).then(signup(emailid, password))
 
       INITIAL_STATE();
       history.push("/");
