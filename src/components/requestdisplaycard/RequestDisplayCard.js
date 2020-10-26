@@ -9,7 +9,7 @@ function RequestDisplayCard({ cardData }) {
 
 
     return cardData.map((card, index) => (
-        <Link to={`/ForSponsors/${index + 1}`} key={card.requestId}>
+        <Link to={`/ForSponsors/${card.requestId}`} key={card.requestId} >
             <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <Col className="col-auto flex-column">
                     <img
