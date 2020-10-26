@@ -11,21 +11,10 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
 import ModalConfirmationRequest from './ModalConfirmationRequest';
 
-// const getUserid=()=>{
-//     let { currentUser } = useAuth();
-//     return currentUser.uid;
-// }
-//import UserContext from '../charityview/charityOffersContext'
-
 function FundRequest() {
     // Variable to control the modal
     const [modalShow, setModalShow] = React.useState(false);
-    //   const currentUser = useContext(UserContext);
-    // let { currentUser } = useAuth();
-    // let { charityid = currentUser.uid;
-    const { currentUser } = useAuth();
-    //  console.log ("This is the charityid:"+ user.currentUser);
-
+    const { currentUserID } = useAuth();
 
     const [amountRequested, setAmountRequested] = useState("");
     const [eventDescription, setEventDescription] = useState("");
@@ -157,7 +146,7 @@ function FundRequest() {
                         <Button onClick={() => setModalShow(true)} variant="outline-primary" type="submit">Submit</Button>
                         <ModalConfirmationRequest show={modalShow} onHide={() => setModalShow(false)}
                             charitydetails={{
-                                charityId: currentUser,
+                                charityId: currentUserID,
                                 eventDescription: eventDescription,
                                 incentive: incentive,
                                 amountRequested: amountRequested,
