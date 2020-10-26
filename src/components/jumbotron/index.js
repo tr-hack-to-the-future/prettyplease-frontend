@@ -28,10 +28,17 @@ export default function Jumbotron({
 Jumbotron.Container = function JumbotronContainer({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 };
+Jumbotron.Item = function JumbotronItem({ children, ...restProps }) {
+  return <Item {...restProps}>{children}</Item>;
+};
+Jumbotron.Inner = function JumbotronInner({ children, ...restProps }) {
+  return <Inner {...restProps}>{children}</Inner>;
+};
 
 Jumbotron.Title = function JumbotronTitle({ children, ...restProps }) {
   return <Title {...restProps}>{children}</Title>;
 };
+
 Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
   return <SubTitle {...restProps}>{children}</SubTitle>;
 };
