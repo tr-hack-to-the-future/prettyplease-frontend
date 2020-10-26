@@ -67,7 +67,7 @@ function SponsorRequestDetails({ request }) {
             <div className="row justify-content-center mt-5 ">
                 {dispRequest.incentive}
             </div>
-            <Router>
+            {/* <Router> */}
                 <Row className=" justify-content-center mt-5 ">
                     {/* <Link to="/#"> */}
                         <Button
@@ -101,7 +101,7 @@ function SponsorRequestDetails({ request }) {
                         </Modal>
                     {/* </Link> */}
                 </Row>
-            </Router>
+            {/* </Router> */}
             <div className="row justify-content-center mt-5"></div>
         </Container>
     );

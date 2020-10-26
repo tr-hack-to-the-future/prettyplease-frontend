@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 function ConfirmationRequestPage() {
   return (
     <div>
-      <Container className="container-FundRequest">
+      <Container className="container-ConfirmationPage">
         <Row className="justify-content-md-center mt-4">
           <h2>CONGRATULATIONS!</h2>
         </Row>
