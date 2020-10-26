@@ -13,11 +13,11 @@ function PPNavbar() {
   const [error, setError] = useState("");
   const history = useHistory();
 
-  async function handleLogout() {
+    function handleLogout() {
     setError("");
     try {
-      await logout();
-      history.pushState("/");
+      logout();
+      
     } catch {
       setError("Failed to logout");
     }

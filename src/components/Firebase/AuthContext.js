@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth, database, storage } from "./firebase";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -10,26 +11,31 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
-  const [currentUserID,setCurrentUserID] = useState(null);
+  const [currentUserID, setCurrentUserID] = useState(null);
   const [userType, setUserType] = useState(null);
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
   let [sponsorOffers, setSponsorOffers] = useState([]);
- 
+
   function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password).then((authUser) =>{
+    return auth.signInWithEmailAndPassword(email, password).then((authUser) => {
       setCurrentUser(authUser.user);
       setCurrentUserID(authUser.user.uid);
       return database
-      .ref("/users/" + authUser.user.uid)
-      .once("value")
-      .then(function (snapshot) {
-        setUserType(snapshot.val().type);
-      });
+        .ref("/users/" + authUser.user.uid)
+        .once("value")
+        .then(function (snapshot) {
+          setUserType(snapshot.val().type);
+        });
     });
-
   }
   function logout() {
-    return auth.signOut();
+    return auth.signOut().then(() => {
+      setCurrentUser(null);
+      setCurrentUserID(null);
+      setUserType("");
+      history.push("/");
+    });
   }
   function signalong(
     emailid,
@@ -46,7 +52,7 @@ export function AuthProvider({ children }) {
     auth.createUserWithEmailAndPassword(emailid, password).then((authUser) => {
       setCurrentUser(authUser.user);
       setCurrentUserID(authUser.user.uid);
-      console.log(userType)
+      console.log(userType);
       if (type === "charity") {
         const userdetails = {
           charityId: authUser.user.uid,
@@ -92,7 +98,7 @@ export function AuthProvider({ children }) {
       });
     });
   }
-//To get Sponsor Offer Data
+  //To get Sponsor Offer Data
   function getSponsorOffers() {
     const chofferdata = axios
       .get(

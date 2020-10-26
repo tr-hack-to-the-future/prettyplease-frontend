@@ -7,7 +7,7 @@ import { useAuth } from "../Firebase/AuthContext";
 
 import Button from "react-bootstrap/Button";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Link,
   useParams,
   useHistory,
@@ -17,8 +17,8 @@ import {
 function SponsorDetailsAccept() {
   let { id } = useParams();
   let { sponsorOffers } = useAuth();
-  let { history } = useHistory();
-
+  let  history  = useHistory();
+ 
  
 
   let dispSponsor = sponsorOffers[id - 1];
@@ -26,6 +26,12 @@ function SponsorDetailsAccept() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleClick = () => {
+    //console.log(location);
+    history.goBack()
+   
+}
+
 
   return (
     <Container className="padding">
@@ -46,16 +52,16 @@ function SponsorDetailsAccept() {
       </div>
       <Router>
         <Row className=" justify-content-center mt-5 ">
-        <Link to="/#">
+         <Link to="/#">
             <Button
               variant="outline-primary"
               size="lg"
-              onClick={(e) =>history.goBack()
+              onClick={handleClick
             }
             >
               Back
             </Button>
-            </Link> 
+            </Link>
          
             <Button
               variant="outline-primary ml-5"
