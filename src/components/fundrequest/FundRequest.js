@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
 import ModalConfirmationRequest from './ModalConfirmationRequest';
-import UserContext from '../charityview/charityOffersContext'
+//import UserContext from '../charityview/charityOffersContext'
 
 function FundRequest() {
     // Variable to control the modal

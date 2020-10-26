@@ -3,27 +3,35 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { Modal } from "react-bootstrap";
 import "./charityview.css";
-import { useCharityOffer } from "./charityOffersContext";
+import { useAuth } from "../Firebase/AuthContext";
 
 import Button from "react-bootstrap/Button";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Link,
   useParams,
   useHistory,
+  useLocation,
 } from "react-router-dom";
 
 function SponsorDetailsAccept() {
   let { id } = useParams();
-  let { sponsorOffers } = useCharityOffer();
-  let { history } = useHistory();
-  let [dispSponsor, setdispSponsor] = useState();
+  let { sponsorOffers } = useAuth();
+  let  history  = useHistory();
+ 
+ 
 
-  dispSponsor = sponsorOffers[id - 1];
+  let dispSponsor = sponsorOffers[id - 1];
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleClick = () => {
+    //console.log(location);
+    history.goBack()
+   
+}
+
 
   return (
     <Container className="padding">
@@ -44,16 +52,17 @@ function SponsorDetailsAccept() {
       </div>
       <Router>
         <Row className=" justify-content-center mt-5 ">
-          <Link href="">
+         <Link to="/#">
             <Button
               variant="outline-primary"
               size="lg"
-              onClick={() => history.goBack()}
+              onClick={handleClick
+            }
             >
               Back
             </Button>
-          </Link>
-          <Link href="">
+            </Link>
+         
             <Button
               variant="outline-primary ml-5"
               size="lg"
@@ -75,9 +84,9 @@ function SponsorDetailsAccept() {
                 </Button>
               </Modal.Footer>
             </Modal>
-          </Link>
+           
         </Row>
-      </Router>
+        </Router>
       <div class="row justify-content-center mt-5"></div>
     </Container>
   );
