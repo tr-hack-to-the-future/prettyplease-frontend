@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useAuth, AuthContext, AuthProvider } from "../Firebase/AuthContext";
-
+import { useAuth } from "../Firebase/AuthContext";
 
 import './FundRequest.css';
 import Container from 'react-bootstrap/Container';

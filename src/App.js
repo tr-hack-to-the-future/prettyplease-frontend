@@ -70,31 +70,31 @@ export default function App() {
 
   // ]);
 
-  const [detailsCharity, setdetailsCharity] = useState([]);
+  // const [detailsCharity, setdetailsCharity] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities/CHAZ2"
-      )
-      .then(response => {
-        setdetailsCharity(response.data);
-      })
-      .catch(error => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities/CHAZ2"
+  //     )
+  //     .then(response => {
+  //       setdetailsCharity(response.data);
+  //     })
+  //     .catch(error => console.log(error));
+  // }, []);
 
-  const changeCharityProfile = (name, description) => {
-    const newProfile = {
-      nameProfile: name,
-      descriptionProfile: description
-    };
+  // const changeCharityProfile = (name, description) => {
+  //   const newProfile = {
+  //     nameProfile: name,
+  //     descriptionProfile: description
+  //   };
 
-    console.log(newProfile.nameProfile);
-    console.log(newProfile.descriptionProfile);
-    const updatedCharityProfile = [...detailsCharity, newProfile];
+  //   console.log(newProfile.nameProfile);
+  //   console.log(newProfile.descriptionProfile);
+  //   const updatedCharityProfile = [...detailsCharity, newProfile];
 
-    setdetailsCharity(updatedCharityProfile);
-  };
+  //   setdetailsCharity(updatedCharityProfile);
+  // };
 
   // const [detailsSponsor, setdetailsSponsor] = useState([
   //   {
@@ -105,31 +105,31 @@ export default function App() {
 
   // ]);
 
-  const [detailsSponsor, setdetailsSponsor] = useState([]);
+  // const [detailsSponsor, setdetailsSponsor] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors/SPON1"
-      )
-      .then(response => {
-        setdetailsSponsor(response.data);
-      })
-      .catch(error => console.log(error));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors/SPON1"
+  //     )
+  //     .then(response => {
+  //       setdetailsSponsor(response.data);
+  //     })
+  //     .catch(error => console.log(error));
+  // }, []);
 
-  const changeSponsorProfile = (name, description) => {
-    const newProfile = {
-      nameProfile: name,
-      descriptionProfile: description
-    };
+  // const changeSponsorProfile = (name, description) => {
+  //   const newProfile = {
+  //     nameProfile: name,
+  //     descriptionProfile: description
+  //   };
 
-    console.log(newProfile.nameProfile);
-    console.log(newProfile.descriptionProfile);
-    const updatedSponsorProfile = [...detailsSponsor, newProfile];
+  //   console.log(newProfile.nameProfile);
+  //   console.log(newProfile.descriptionProfile);
+  //   const updatedSponsorProfile = [...detailsSponsor, newProfile];
 
-    setdetailsSponsor(updatedSponsorProfile);
-  };
+  //   setdetailsSponsor(updatedSponsorProfile);
+  // };
 
   // TODO fetch sponsorId from currentUser context
   const currentUser = {
@@ -198,17 +198,17 @@ export default function App() {
           <Route exact path="/ForSponsorsPending/:id">
             <OfferDetailsPending offers={pendingOffers} component={OfferDetailsPending} />
           </Route>
-          <Route path="/SponsorProfilePage">
+          {/* <Route path="/SponsorProfilePage">
             <SponsorProfilePage
               sponsorData={detailsSponsor}
               changeProfile={changeSponsorProfile}
             />
-          </Route>
-
-           
+          </Route> */}
+          <Route path="/SponsorProfilePage" component={SponsorProfilePage}></Route>
+         
             <Route exact path="/ForCharities">
               <CharityPage />
-            </Route>
+            </Route> 
             <Route
               exact
               path="/ForCharities/:id"
@@ -217,12 +217,13 @@ export default function App() {
               <SponsorDetailsAccept />
             </Route>
             <Route path="/NewFund" component={FundRequest}></Route>
-            <Route path="/CharityProfilePage">
+            <Route path="/CharityProfilePage" component={CharityProfilePage}></Route>
+            {/* <Route path="/CharityProfilePage">
               <CharityProfilePage
                 charityData={detailsCharity}
                 changeProfile={changeCharityProfile}
               />
-            </Route>
+            </Route> */}
             <Route path="/ConfirmationRequestPage">
               <ConfirmationRequestPage />
             </Route>
