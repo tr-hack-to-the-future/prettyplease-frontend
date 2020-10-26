@@ -9,7 +9,7 @@ import { HashRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 function PPNavbar() {
-  const { currentUser,userType, logout } = useAuth();
+  const { currentUser, userType, logout } = useAuth();
   const [error, setError] = useState("");
   const history = useHistory();
 
@@ -39,17 +39,26 @@ function PPNavbar() {
             <Nav.Link href="#">About Us</Nav.Link>
             <Nav.Link href="#">Campaigns</Nav.Link>
             <Nav.Link href="/prettyplease-frontend/#/faqs">FAQs</Nav.Link>
-            {userType ==='sponsor'&& currentUser?<Nav.Link href="/ForSponsors">Sponsor Page</Nav.Link>:<Nav.Link href="/ForCharities">Charity Page</Nav.Link>}
-          </Nav>
-          
-            {!currentUser ? (
-              <Nav>
-              <Nav.Link href="/prettyplease-frontend/#/Login">Login</Nav.Link>
-              </Nav>
+            {userType === "sponsor" && currentUser ? (
+              <Nav.Link href="/ForSponsors">Sponsor Page</Nav.Link>
             ) : (
-              < Nav>
-                          
-              <Nav.Link href={userType ==='sponsor'?"/prettyplease-frontend/#/SponsorProfilePage":"/prettyplease-frontend/#/CharityProfilePage"}>
+              <Nav.Link href="/ForCharities">Charity Page</Nav.Link>
+            )}
+          </Nav>
+
+          {!currentUser ? (
+            <Nav>
+              <Nav.Link href="/prettyplease-frontend/#/Login">Login</Nav.Link>
+            </Nav>
+          ) : (
+            <Nav>
+              <Nav.Link
+                href={
+                  userType === "sponsor"
+                    ? "/prettyplease-frontend/#/SponsorProfilePage"
+                    : "/prettyplease-frontend/#/CharityProfilePage"
+                }
+              >
                 <svg
                   width="1em"
                   height="40px"
@@ -70,11 +79,11 @@ function PPNavbar() {
                 </svg>
                 Profile
               </Nav.Link>
-              <Button variant='link' onClick={handleLogout}>Log Out</Button>
-              </Nav>
-           
-            )}
-          
+              <Button variant="link" onClick={handleLogout}>
+                Log Out
+              </Button>
+            </Nav>
+          )}
         </Navbar.Collapse>
       </Navbar>
     </Router>
