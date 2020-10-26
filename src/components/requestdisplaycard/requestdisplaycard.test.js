@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import RequestDisplayCard from './RequestDisplayCard';
 
-describe('RequestDisplayCard component', () => {
+describe.skip('RequestDisplayCard component', () => {
 
 
     test(`Given the require props,

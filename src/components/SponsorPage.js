@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import "./SponsorPage.css";
 import Container from 'react-bootstrap/Container';
@@ -9,9 +11,26 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
 import { getFormattedPlural } from './requestformatter';
 
-function SponsorPage({ requests }) {
+function SponsorPage() {
 
-  // const formatText = requests.length === 1 ? 'request' : 'requests';
+
+  // Fetch the requests from the API
+  const [fundingRequests, setRequests] = useState([]);
+  useEffect(() => {
+    // TODO fetch sponsorId from currentUser context
+    const currentUser = {
+      uid: "b19dcdc9-1547-11eb-9ed1-0a7222284ed8",
+      userType: "sponsor"
+    };
+
+    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uId)
+      .then(response => setRequests(response.data))
+      .catch(error => console.log(error));
+  }, []);
+  const requests = fundingRequests.filter(
+    request => request.requestStatus === "OPEN"
+  );
+
 
   const history = useHistory();
   const handlePending = () => {
@@ -48,7 +67,7 @@ function SponsorPage({ requests }) {
 
         <Row>
           <Card>
-            <RequestDisplayCard cardData={requests} />
+            <RequestDisplayCard key={requests.requestId} cardData={requests} />
           </Card>
 
         </Row>

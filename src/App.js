@@ -17,6 +17,7 @@ import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept"
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
+import Faqs from "./pages/faqs";
 import Campaigns from "./pages/campaigns";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -137,10 +138,6 @@ export default function App() {
       .catch(error => console.log(error));
   }, []);
 
-  const openRequests = fundingRequests.filter(
-    request => request.requestStatus === "OPEN"
-  );
-
   // TODO fetch sponsorId from currentUser context
   // Fetch the offers for a sponsor from the API
   const [sponsorOffers, setSponsorOffers] = useState([]);
@@ -149,7 +146,7 @@ export default function App() {
       .then(response => setSponsorOffers(response.data))
       .catch(error => console.log(error));
   }, []);
-
+  // TODO filter in the components 
   const acceptedOffers = sponsorOffers.filter(
     offer => offer.offerStatus === "ACCEPTED"
   );
@@ -167,36 +164,29 @@ export default function App() {
           {/* {" "} */}
           <Main />
         </Route>
+        <Route path="/faqs">
+          <Faqs />
+        </Route>
         <Route path="/campaigns">
           <Campaigns />
         </Route>
         <Route path="/ForSponsors/:id" component={SponsorRequestDetails}>
-          <SponsorRequestDetails request={fundingRequests} />
+          <SponsorRequestDetails key={fundingRequests.requestId} requests={fundingRequests} />
         </Route>
         <Route path="/ForSponsors">
-          <SponsorPage key={openRequests.requestId} requests={openRequests} />
+          <SponsorPage />
         </Route>
         <Route exact path="/ForSponsorsAccepted">
-          <SponsorPageAccepted key={acceptedOffers.requestId} offers={acceptedOffers} />
+          <SponsorPageAccepted />
         </Route>
         <Route exact path="/ForSponsorsAccepted/:id">
-          <OfferDetailsAccepted
-            offer={acceptedOffers}
-            component={OfferDetailsAccepted}
-          />
+          <OfferDetailsAccepted  key={acceptedOffers.offerId} offers={acceptedOffers} component={OfferDetailsAccepted} />
         </Route>
         <Route exact path="/ForSponsorsPending">
-          <SponsorPagePending offers={pendingOffers} />
+          <SponsorPagePending />
         </Route>
         <Route exact path="/ForSponsorsPending/:id">
-          <OfferDetailsPending
-            offer={pendingOffers}
-            component={OfferDetailsPending}
-          />
-        </Route>
-
-        <Route path="/SponsorRequestDetails">
-          <SponsorRequestDetails />
+          <OfferDetailsPending offers={pendingOffers} component={OfferDetailsPending} />
         </Route>
 
         <Route path="/SponsorProfilePage">

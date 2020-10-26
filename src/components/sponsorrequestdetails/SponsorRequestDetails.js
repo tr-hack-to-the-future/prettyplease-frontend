@@ -13,11 +13,12 @@ import axios from 'axios';
 
 import "./SponsorRequestDetails.css";
 
-function SponsorRequestDetails({ request }) {
+function SponsorRequestDetails({ requests }) {
 
     const history = useHistory();
     const { id } = useParams();
-    const dispRequest = request[id - 1];
+    // fetches the selected request from the array
+    const [request] = requests.filter(r => r.requestId  === id);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -26,7 +27,7 @@ function SponsorRequestDetails({ request }) {
 
     const handleClick = () => {
         setShow(false);
-        history.push("/ForSponsorsAccepted");
+        history.push("/ForSponsorsPending");
     }
 
     // TODO Temporary Stub method
@@ -49,11 +50,11 @@ function SponsorRequestDetails({ request }) {
         const newOffer = {
             // TODO sponsor ID has to come from the user context
             sponsorId: userId,
-            requestId: dispRequest.requestId,
+            requestId: request.requestId,
             offerStatus: "PENDING",
-            offerAmount: dispRequest.amountRequested,
-            isSingleEvent: dispRequest.isSingleEvent,
-            offerDurationInYears: dispRequest.durationInYears  
+            offerAmount: request.amountRequested,
+            isSingleEvent: request.isSingleEvent,
+            offerDurationInYears: request.durationInYears  
         };
         // Stub out the POST
         // POST the new offer (update the SponsorOffer table)
@@ -79,14 +80,14 @@ function SponsorRequestDetails({ request }) {
     return (
         <Container className="SponsorRequestDetails">
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
-                <h3>{dispRequest.charityName}</h3>
+                <h3>{request.charityName}</h3>
             </Row>
             <div className="rounded mx-auto d-block  text-center">
                 <img
-                    src={dispRequest.charityImageUrl}
+                    src={request.charityImageUrl}
                     width="200"
                     height="200"
-                    alt={dispRequest.charityName}
+                    alt={request.charityName}
                 />
             </div>
             <Row className="mt-3 justify-content-md-center">
@@ -96,24 +97,24 @@ function SponsorRequestDetails({ request }) {
                             <strong>What We Do</strong>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body>{dispRequest.charityDescription}</Card.Body>
+                            <Card.Body>{request.charityDescription}</Card.Body>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
             </Row>
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
-                    Amount: {getFormattedAmount(dispRequest.amountRequested)}
+                    Amount: {getFormattedAmount(request.amountRequested)}
                 </Col>
                 <Col className="text-center">
-                    Duration: {getFormattedDuration(dispRequest.durationInYears)}
+                    Duration: {getFormattedDuration(request.durationInYears)}
                 </Col>
             </Row>
             <Row className="row justify-content-center mt-5 lead">
-                {dispRequest.eventDescription}
+                {request.eventDescription}
             </Row>
             <Row className="row justify-content-center mt-2">
-                {dispRequest.incentive}
+                {request.incentive}
             </Row>
             <Router>
                 <Row className=" justify-content-center mt-5 ">

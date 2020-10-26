@@ -11,33 +11,24 @@ import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 import "./OfferDetailsAccepted.css";
 
 
-function OfferDetailsAccepted({ offer }) {
+function OfferDetailsAccepted({ offers }) {
 
     const history = useHistory();
     const { id } = useParams();
-    const dispRequest = offer[id - 1];
-
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const handleClick = () => {
-        setShow(false);
-        history.push("/ForSponsorsAccepted");
-    }
-
+    // fetches the selected offer from the array
+    const [offer] = offers.filter(o => o.offerId  === id);
 
     return (
         <Container className="OfferDetailsAccepted">
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
-                <h3>{dispRequest.charityName}</h3>
+                <h3>{offer.charityName}</h3>
             </Row>
             <div className="rounded mx-auto d-block  text-center">
                 <img
-                    src={dispRequest.charityImageUrl}
+                    src={offer.charityImageUrl}
                     width="200"
                     height="200"
-                    alt={dispRequest.charityName}
+                    alt={offer.charityName}
                 />
             </div>
             <Row className="mt-3 justify-content-md-center">
@@ -47,30 +38,30 @@ function OfferDetailsAccepted({ offer }) {
                             <strong>What We Do</strong>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body>{dispRequest.charityDescription}</Card.Body>
+                            <Card.Body>{offer.charityDescription}</Card.Body>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
             </Row>
             <Row className="pt-2 pb-2 justify-content-md-center">
                 <Col className="text-center">
-                    Amount: {getFormattedAmount(dispRequest.amountAgreed)}
+                    Amount: {getFormattedAmount(offer.amountAgreed)}
                 </Col>
                 <Col className="text-center">
-                    Duration: {getFormattedDuration(dispRequest.agreedDurationInYears)}
+                    Duration: {getFormattedDuration(offer.agreedDurationInYears)}
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
                 <h4>Sponsorship Accepted!</h4>
             </Row>
             <Row className="justify-content-md-center">
-                You will be contacted by {dispRequest.charityName} within the next seven days to finalise details of your sponsorship agreement.
+                You will be contacted by {offer.charityName} within the next seven days to finalise details of your sponsorship agreement.
             </Row>
             <Row className="row justify-content-center mt-5 lead">
-                {dispRequest.eventDescription}
+                {offer.eventDescription}
             </Row>
             <Row className="row justify-content-center mt-2">
-                {dispRequest.incentive}
+                {offer.incentive}
             </Row>
             <Router>
                 <Row className=" justify-content-center mt-5 ">
