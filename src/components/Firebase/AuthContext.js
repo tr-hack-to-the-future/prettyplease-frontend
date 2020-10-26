@@ -97,6 +97,7 @@ export function AuthProvider({ children }) {
 
   function readUserData() {
     let userId = currentUser.uid;
+    
     return database
       .ref("/users/" + userId)
       .once("value")
