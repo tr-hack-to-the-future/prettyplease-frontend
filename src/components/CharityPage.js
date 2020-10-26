@@ -15,7 +15,7 @@ function CharityPage() {
   let { currentUser } = useAuth();
   let location = useLocation();
 
-  return  (
+  return (
     <div className="ReviewAccept">
       <Container>
         <Row className="justify-content-md-center mt-4">
@@ -27,7 +27,7 @@ function CharityPage() {
         <DisplayCard sponsor={sponsorOffers}></DisplayCard>
       </Container>
     </div>
-  ) 
+  );
 }
 
 export default CharityPage;

@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "./login.css";
 import { useAuth } from "../Firebase/AuthContext";
-import { Link,useHistory,useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import SignUp from "./SignUp";
 
@@ -17,10 +17,10 @@ export default function Login() {
     setError("");
   };
   let history = useHistory();
- 
+
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
-  const { signnow,userType} = useAuth();
+  const { signnow, userType } = useAuth();
   function handlerSubmit(event) {
     event.preventDefault();
     try {
@@ -29,8 +29,8 @@ export default function Login() {
       signnow(emailid, password);
 
       INITIAL_STATE();
-     // (userType==='charity')?history.push('/ForCharities'):history.push('/ForSponsor');
-      history.push('/');
+      // (userType==='charity')?history.push('/ForCharities'):history.push('/ForSponsor');
+      history.push("/");
     } catch {
       setError("Failed to Sign In");
     }
@@ -78,8 +78,10 @@ export default function Login() {
           </Row>
           <Row className="">
             <p className="text-center my-3">Don't have an account? </p>
-            <Nav.Link className="text-center my-2" href="prettyplease-frontend/#/SignUp">
-              
+            <Nav.Link
+              className="text-center my-2"
+              href="prettyplease-frontend/#/SignUp"
+            >
               Sign up here
             </Nav.Link>
           </Row>

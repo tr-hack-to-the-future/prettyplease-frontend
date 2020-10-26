@@ -42,14 +42,19 @@ export default function SignUp() {
     try {
       setError("");
 
-      signalong(emailid, password,name, description, emailid, usertype, imageUrl, webUrl);
-
-      
-      //await createUserRec();
-      //writeUserData(currentUser.uid, name, description, emailid, usertype,imageUrl).then(signup(emailid, password))
+      signalong(
+        emailid,
+        password,
+        name,
+        description,
+        emailid,
+        usertype,
+        imageUrl,
+        webUrl
+      );
 
       INITIAL_STATE();
-      history.push('/')
+      history.push("/");
       //(usertype==='sponsor')?history.push("/ForSponsors"):history.push("/ForCharities");
     } catch (e) {
       setError(e);

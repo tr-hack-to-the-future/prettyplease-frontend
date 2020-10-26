@@ -35,7 +35,8 @@ export function AuthProvider({ children }) {
     setUserType(type);
 
     auth.createUserWithEmailAndPassword(emailid, password).then((authUser) => {
-      if (userType === "charity") {
+      console.log(userType)
+      if (type === "charity") {
         const userdetails = {
           charityId: authUser.user.uid,
           name: name,
