@@ -15,7 +15,7 @@ function CharityPage() {
   let { currentUser } = useAuth();
   let location = useLocation();
 
-  return currentUser ? (
+  return  (
     <div className="ReviewAccept">
       <Container>
         <Row className="justify-content-md-center mt-4">
@@ -27,14 +27,7 @@ function CharityPage() {
         <DisplayCard sponsor={sponsorOffers}></DisplayCard>
       </Container>
     </div>
-  ) : (
-    <Redirect
-      to={{
-        pathname: "/Login",
-        state: { from: location },
-      }}
-    />
-  );
+  ) 
 }
 
 export default CharityPage;

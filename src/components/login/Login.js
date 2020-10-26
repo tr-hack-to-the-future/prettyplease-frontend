@@ -29,8 +29,8 @@ export default function Login() {
       signnow(emailid, password);
 
       INITIAL_STATE();
-      (userType==='charity')?history.push('/ForCharities'):history.push('/ForSponsor');
-      
+     // (userType==='charity')?history.push('/ForCharities'):history.push('/ForSponsor');
+      history.push('/');
     } catch {
       setError("Failed to Sign In");
     }
