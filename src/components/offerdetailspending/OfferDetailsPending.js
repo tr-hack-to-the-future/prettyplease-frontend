@@ -6,20 +6,19 @@ import Col from 'react-bootstrap/Col';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { BrowserRouter as Router, useHistory, useParams } from 'react-router-dom';
-import { useState } from 'react';
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
-import "./OfferDetailsAccepted.css";
+import "./OfferDetailsPending.css";
 
 
-function OfferDetailsAccepted({ offers }) {
+function OfferDetailsPending({ offers }) {
 
     const history = useHistory();
     const { id } = useParams();
     // fetches the selected offer from the array
-    const [offer] = offers.filter(o => o.offerId  === id);
+    const [offer] = offers.filter(o => o.offerId === id);
 
     return (
-        <Container className="OfferDetailsAccepted">
+        <Container className="OfferDetailsPending">
             <Row className="row justify-content-center mt-5 mb-4 text-primary">
                 <h3>{offer.charityName}</h3>
             </Row>
@@ -52,10 +51,10 @@ function OfferDetailsAccepted({ offers }) {
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
-                <h4>Sponsorship Accepted!</h4>
+                <h4>Sponsorship Request Pending</h4>
             </Row>
             <Row className="justify-content-md-center">
-                You will be contacted by {offer.charityName} within the next seven days to finalise details of your sponsorship agreement.
+                You will be contacted by the charity once a decision has been made.
             </Row>
             <Row className="row justify-content-center mt-5 lead">
                 {offer.eventDescription}
@@ -79,5 +78,5 @@ function OfferDetailsAccepted({ offers }) {
 }
 
 
-export default OfferDetailsAccepted;
+export default OfferDetailsPending;
 

@@ -15,6 +15,7 @@ import ModalConfirmationRequest from './ModalConfirmationRequest';
 //     let { currentUser } = useAuth();
 //     return currentUser.uid;
 // }
+//import UserContext from '../charityview/charityOffersContext'
 
 function FundRequest() {
     // Variable to control the modal

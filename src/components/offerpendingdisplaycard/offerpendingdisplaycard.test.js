@@ -1,31 +1,32 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import RequestDisplayCard from './RequestDisplayCard';
+import OfferPendingDisplayCard from './OfferPendingDisplayCard';
 
-describe.skip('RequestDisplayCard component', () => {
+describe.skip('OfferPendingDisplayCard component', () => {
 
 
     test(`Given the require props,
             When the component is rendered,
             Then it should render a charity name`, () => {
         const testName = 'Test Charity';
-        const testCharityDescription = 'Test charity description';
+        const testCharityDescription = 'Test charity description';        
         const testEventDescription = 'Test event description';
 
         const props = {
             cardData: [{
-                requestId: 1,
+                offerId: 1,
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amountRequested: "1500",
-                durationInYears: "2"
+                offerAmount: "1500",
+                durationInYears: "2",
+                requestStatus: "ACCEPTED"
             }]
         }
         const { getByText } = render(
             <MemoryRouter>
-                <RequestDisplayCard {...props} />
+                <OfferPendingDisplayCard key={props.cardData.offerId} {...props} />
             </MemoryRouter>
         );
         expect(getByText(testName)).toBeTruthy();
@@ -43,23 +44,21 @@ describe.skip('RequestDisplayCard component', () => {
 
         const props = {
             cardData: [{
-                requestId: 13,
+                offerId: 13,
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
-                amountRequested: "£1500",
-                durationInYears: "2 years"
+                offerAmount: "£1500",
+                durationInYears: "2 years",
+                offerStatus: "ACCEPTED"
             }]
         }
 
         const { getByText } = render(
             <MemoryRouter>
-                <RequestDisplayCard {...props} />
+                <OfferPendingDisplayCard key={props.cardData.offerId} {...props} />
             </MemoryRouter>
         );
-        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsors/1');
+        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsorsPending/1');
     })
-
-
-
 })

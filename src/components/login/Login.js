@@ -20,13 +20,13 @@ export default function Login() {
 
   let location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
-  const { signnow, userType } = useAuth();
+  const { login, userType } = useAuth();
   function handlerSubmit(event) {
     event.preventDefault();
     try {
       setError("");
 
-      signnow(emailid, password);
+      login(emailid, password);
 
       INITIAL_STATE();
       // (userType==='charity')?history.push('/ForCharities'):history.push('/ForSponsor');
