@@ -47,7 +47,7 @@ function ProfileTextDescription({ detailsProfile, changeProfile }) {
             <Container className="profile-text-description-container">
                 <Row>
                     {/* Show the image of the Profile in the first column*. The image is not modifiable yet*/}
-                    <Col className="col-auto flex-column" xs={6} md={4}>
+                    <Col className="col-auto flex-column" xs={6} md={4}> 
                         <img
 
                             src={detailsProfile.map((data) => data.imageUrl)}

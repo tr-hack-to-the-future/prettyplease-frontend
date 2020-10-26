@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
 import ModalConfirmationRequest from './ModalConfirmationRequest';
-import UserContext from '../charityview/charityOffersContext'
+//import UserContext from '../charityview/charityOffersContext'
 
 function FundRequest() {
     // Variable to control the modal
@@ -16,9 +16,18 @@ function FundRequest() {
 
     const [amountRequested, setAmountRequested] = useState("");
     const [eventDescription, setEventDescription] = useState("");
-    const [isSingleEvent, setIsSingleEvent] = useState("");
+    const [isSingleEvent, setIsSingleEvent] = useState(false);
     const [durationInYears, setDurationInYears] = useState(0);
     const [incentive, setIncentive] = useState("");
+
+    const handlerISingleEvent = () => {
+        setIsSingleEvent(true);
+        setDurationInYears(0);
+    };
+
+    const handlerDurationInYears = () => {
+        setIsSingleEvent(false);
+    };
 
     return (
         <div className="FundRequest">
@@ -48,7 +57,7 @@ function FundRequest() {
                                     <Form.Control
                                         required
                                         type="number"
-                                        placeholder="1,000"
+                                        placeholder="1000"
                                         onChange={(event) => setAmountRequested(Number(event.target.value))}
                                         value={amountRequested}
                                     />
@@ -73,18 +82,6 @@ function FundRequest() {
                                         </Form.Label>
                                     <Col sm={10}>
 
-                                        {/* Radio button Duration One-Off */}
-                                        <Row>
-                                            <Form.Check
-                                                type="radio"
-                                                label="One-Off"
-                                                name="formHorizontalRadios"
-                                                id="radioDurationOneOff"
-                                                value={true}
-                                                onChange={(event) => setIsSingleEvent(event.target.value)}
-                                            />
-                                        </Row>
-
                                         {/* Radio button Customise Duration. If the user press this option, the duration field is taken*/}
                                         <Row>
                                             {/* <Form inline>  */}
@@ -94,8 +91,8 @@ function FundRequest() {
                                                     aria-label="Customise Duration"
                                                     name="formHorizontalRadios"
                                                     id="radioDurationCustomiseDuration"
-                                                    value={false}
-                                                    onChange={(event) => setIsSingleEvent(event.target.value)}
+                                                    onChange={handlerDurationInYears}
+                                                    defaultChecked
                                                 />
                                                 <InputGroup className="mb-3">
                                                     <Form.Control
@@ -109,6 +106,17 @@ function FundRequest() {
                                                     </InputGroup.Append>
                                                 </InputGroup>
                                             </div>
+                                        </Row>
+
+                                        {/* Radio button Duration One-Off */}
+                                        <Row>
+                                            <Form.Check
+                                                type="radio"
+                                                label="One-Off"
+                                                name="formHorizontalRadios"
+                                                id="radioDurationOneOff"
+                                                onChange={handlerISingleEvent}
+                                            />
                                         </Row>
                                     </Col>
                                     {/* End of the radio button section */}
@@ -134,17 +142,17 @@ function FundRequest() {
                     <Col md={{ span: 2, offset: 8 }}>
                         <Button onClick={() => setModalShow(true)} variant="outline-primary" type="submit">Submit</Button>
                         <ModalConfirmationRequest show={modalShow} onHide={() => setModalShow(false)}
-                        charitydetails={{
-                            charityId: "CHAZ10",
-                            eventDescription: eventDescription,
-                            incentive: incentive,
-                            amountRequested: amountRequested,
-                            amountAgreed: amountRequested,
-                            isSingleEvent: isSingleEvent,
-                            durationInYears: durationInYears,
-                            agreedDurationInYears: durationInYears,
-                            requestStatus: "OPEN"
-                        }} />
+                            charitydetails={{
+                                charityId: "CHAZ10",
+                                eventDescription: eventDescription,
+                                incentive: incentive,
+                                amountRequested: amountRequested,
+                                amountAgreed: amountRequested,
+                                isSingleEvent: isSingleEvent,
+                                durationInYears: durationInYears,
+                                agreedDurationInYears: durationInYears,
+                                requestStatus: "OPEN"
+                            }} />
                     </Col>
                 </Row>
             </Container>

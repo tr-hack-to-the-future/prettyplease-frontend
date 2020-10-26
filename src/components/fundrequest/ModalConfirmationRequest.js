@@ -67,7 +67,7 @@ function ModalConfirmationRequest(props) {
                     </Col>
                     <Col xs={6} md={10}>
                         {/* Formattedd duration to show 1 year or x years */}
-                        {(props.charitydetails.isSingleEvent === "true" ? 'One-Off' : getFormattedDuration(props.charitydetails.durationInYears))}
+                        {(props.charitydetails.isSingleEvent ? 'One-Off' : getFormattedDuration(props.charitydetails.durationInYears))}
                     </Col>
                 </Row>
                 <Row>
