@@ -10,8 +10,20 @@ import RequestDisplayCard from './requestdisplaycard/RequestDisplayCard';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
 import { getFormattedPlural } from './requestformatter';
+import {useAuth} from "./Firebase/AuthContext"
+import {Route,Redirect,useLocation} from 'react-router-dom';
 
 function SponsorPage() {
+  let {currentUser} = useAuth();
+  let location = useLocation();
+
+  const history = useHistory();
+  const handlePending = () => {
+    history.push("/ForSponsorsPending");
+  }
+  const handleAccepted = () => {
+    history.push("/ForSponsorsAccepted");
+  }
 
 
   // Fetch the requests from the API
@@ -32,15 +44,7 @@ function SponsorPage() {
   );
 
 
-  const history = useHistory();
-  const handlePending = () => {
-    history.push("/ForSponsorsPending");
-  }
-  const handleAccepted = () => {
-    history.push("/ForSponsorsAccepted");
-  }
-
-  return (
+  return ( 
     <div className="SponsorPage">
       <Container>
         {/* TODO temporary buttons for navigation - will be moved into Navbar */}
@@ -74,7 +78,6 @@ function SponsorPage() {
 
       </Container>
     </div>
-
 
   );
 }

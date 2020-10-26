@@ -1,6 +1,12 @@
 import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
 import Main from "./Main.js";
+//Authentication imports
+import { AuthProvider } from "./components/Firebase/AuthContext";
+import PrivateRoute from "./components/login/PrivateRoute";
+import Login from "./components/login/Login";
+import SignUp from "./components/login/SignUp.js";
+
 import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
 import { CharityOfferProvider } from "./components/charityview/charityOffersContext";
@@ -148,81 +154,85 @@ export default function App() {
   }, []);
   // TODO filter in the components 
   const acceptedOffers = sponsorOffers.filter(
-    offer => offer.offerStatus === "ACCEPTED"
+    (offer) => offer.offerStatus === "ACCEPTED"
   );
-
+  // TODO filter in the components 
   const pendingOffers = sponsorOffers.filter(
-    offer => offer.offerStatus === "PENDING"
+    (offer) => offer.offerStatus === "PENDING"
   );
 
-  const [isAuth, setIsAuth] = useState(true);
+
   return (
     <Router>
-      <PPNavbar isAuth={isAuth} />
-      <Switch>
-        <Route exact path="/" component={Main}>
-          {/* {" "} */}
-          <Main />
-        </Route>
-        <Route path="/faqs">
-          <Faqs />
-        </Route>
-        <Route path="/campaigns">
-          <Campaigns />
-        </Route>
-        <Route path="/ForSponsors/:id" component={SponsorRequestDetails}>
-          <SponsorRequestDetails key={fundingRequests.requestId} requests={fundingRequests} />
-        </Route>
-        <Route path="/ForSponsors">
-          <SponsorPage />
-        </Route>
-        <Route exact path="/ForSponsorsAccepted">
-          <SponsorPageAccepted />
-        </Route>
-        <Route exact path="/ForSponsorsAccepted/:id">
-          <OfferDetailsAccepted  key={acceptedOffers.offerId} offers={acceptedOffers} component={OfferDetailsAccepted} />
-        </Route>
-        <Route exact path="/ForSponsorsPending">
-          <SponsorPagePending />
-        </Route>
-        <Route exact path="/ForSponsorsPending/:id">
-          <OfferDetailsPending offers={pendingOffers} component={OfferDetailsPending} />
-        </Route>
-
-        <Route path="/SponsorProfilePage">
-          <SponsorProfilePage
-            sponsorData={detailsSponsor}
-            changeProfile={changeSponsorProfile}
-          />
-        </Route>
-
-        <CharityOfferProvider>
-          <Route exact path="/ForCharities">
-            <CharityPage />
+      <AuthProvider>
+        <PPNavbar />
+        <Switch>
+          <Route exact path="/" component={Main}>
+            {/* {" "} */}
+            <Main />
+            <Route path="/campaigns">
+              <Campaigns />
+            </Route>
           </Route>
-          <Route
-            exact
-            path="/ForCharities/:id"
-            component={SponsorDetailsAccept}
-          >
-            <SponsorDetailsAccept />
+          <Route exact path="/Login">
+            <Login />
           </Route>
-          <Route path="/NewFund" component={FundRequest}></Route>
-          <Route path="/CharityProfilePage">
-            <CharityProfilePage
-              charityData={detailsCharity}
-              changeProfile={changeCharityProfile}
+          <Route exact path="/SignUp">
+            <SignUp />
+          </Route>
+          <Route path="/ForSponsors/:id" component={SponsorRequestDetails}>
+            <SponsorRequestDetails key={fundingRequests.requestId} requests={fundingRequests} />
+          </Route>
+          <Route path="/ForSponsors">
+            <SponsorPage />
+          </Route>
+          <Route exact path="/ForSponsorsAccepted">
+            <SponsorPageAccepted />
+          </Route>
+          <Route exact path="/ForSponsorsAccepted/:id">
+            <OfferDetailsAccepted key={acceptedOffers.offerId} offers={acceptedOffers} component={OfferDetailsAccepted} />
+          </Route>
+          <Route exact path="/ForSponsorsPending">
+            <SponsorPagePending />
+          </Route>
+          <Route exact path="/ForSponsorsPending/:id">
+            <OfferDetailsPending offers={pendingOffers} component={OfferDetailsPending} />
+          </Route>
+          <Route path="/SponsorProfilePage">
+            <SponsorProfilePage
+              sponsorData={detailsSponsor}
+              changeProfile={changeSponsorProfile}
             />
           </Route>
-          <Route path="/ConfirmationRequestPage">
-            <ConfirmationRequestPage />
-          </Route>
-          <Route path="/FailRequestPage">
-            <FailRequestPage />
-          </Route>
-        </CharityOfferProvider>
-      </Switch>
-      <FooterContainer />
+
+          <CharityOfferProvider>
+            <Route exact path="/ForCharities">
+              <CharityPage />
+            </Route>
+            <Route
+              exact
+              path="/ForCharities/:id"
+              component={SponsorDetailsAccept}
+            >
+              <SponsorDetailsAccept />
+            </Route>
+            <Route path="/NewFund" component={FundRequest}></Route>
+            <Route path="/CharityProfilePage">
+              <CharityProfilePage
+                charityData={detailsCharity}
+                changeProfile={changeCharityProfile}
+              />
+            </Route>
+            <Route path="/ConfirmationRequestPage">
+              <ConfirmationRequestPage />
+            </Route>
+            <Route path="/FailRequestPage">
+              <FailRequestPage />
+            </Route>
+          </CharityOfferProvider>
+        </Switch>
+        <FooterContainer />
+      </AuthProvider>
     </Router>
   );
 }
