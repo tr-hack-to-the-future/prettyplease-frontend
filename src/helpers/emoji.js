@@ -3,7 +3,9 @@ import React from "react";
 const Emoji = props => (
   <span
     className="emoji"
-    style={{ paddingRight: "5px" }}
+    style={{
+      paddingRight: "10px"
+    }}
     role="img"
     aria-label={props.label ? props.label : ""}
     aria-hidden={props.label ? "false" : "true"}

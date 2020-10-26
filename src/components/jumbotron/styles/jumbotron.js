@@ -53,7 +53,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.h2`
   text-align: justify;
-  font-size: 22px;
+  font-size: 1.85rem;
   line-height: 1.2;
   padding-bottom: 35px;
   padding-top: 25px;
@@ -71,19 +71,20 @@ export const Image = styled.img`
 export const FigCaption = styled.p`
   text-align: center;
   color: grey;
-  font-weight: 2em;
+  font-weight: 1.5rem;
   font-style: italic;
 `;
 
 export const Section = styled.div`
   max-width: 1100px;
   margin: 0 auto;
-  width: 100%;
-  padding: 50px;
+  width: 80%;
+  padding: 100px 55px;
   text-align: center;
 `;
 export const Text = styled.p`
-  font-size: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.1;
   text-align: justify;
 `;
 
