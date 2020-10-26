@@ -7,8 +7,12 @@ import Col from 'react-bootstrap/Col';
 import RequestDisplayCard from './requestdisplaycard/RequestDisplayCard';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
+import {useAuth} from "./Firebase/AuthContext"
+import {Route,Redirect,useLocation} from 'react-router-dom';
 
 function SponsorPage({ requests }) {
+  let {currentUser} = useAuth();
+  let location = useLocation();
 
   const formatText = requests.length === 1 ? 'request' : 'requests';
 
@@ -17,7 +21,7 @@ function SponsorPage({ requests }) {
     history.push("/ForSponsorsAccepted");
   }
 
-  return (
+  return ( 
     <div className="SponsorPage">
       <Container>
         {/* TODO temporary buttons for navigation - will be moved into Navbar */}
@@ -56,7 +60,6 @@ function SponsorPage({ requests }) {
 
       </Container>
     </div>
-
 
   );
 }
