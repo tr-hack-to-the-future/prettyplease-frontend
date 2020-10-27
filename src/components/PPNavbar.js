@@ -9,6 +9,7 @@ import { useAuth } from "./Firebase/AuthContext";
 import { HashRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
+
 function PPNavbar() {
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [shouldShowShadow, setShouldShowShadow] = useState(false);
@@ -49,7 +50,7 @@ function PPNavbar() {
         <div>
           <Nav>
             <Nav.Link href="/prettyplease-frontend/#/ForCharities">Charity Page</Nav.Link>
-            <Nav.Link href="/prettyplease-frontend/#/NewFund">Fund raise</Nav.Link>
+            <Nav.Link href="/prettyplease-frontend/#/NewFund">Raise Funds</Nav.Link>
           </Nav>
         </div>
       );
@@ -90,8 +91,8 @@ function PPNavbar() {
 
             </Nav>
             {!currentUser ? (
-              <Nav>
-                <Nav.Link href="/prettyplease-frontend/#/Login">Login</Nav.Link>
+              <Nav >
+                <Nav.Link  href="/prettyplease-frontend/#/Login">Login</Nav.Link>
               </Nav>
             ) : (
                 <Nav>
