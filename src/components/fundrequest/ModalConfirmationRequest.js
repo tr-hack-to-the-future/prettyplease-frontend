@@ -17,7 +17,7 @@ function ModalConfirmationRequest(props) {
 
         console.log(props.charitydetails);
 
-        axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests", props.charitydetails)
+        axios.post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/requests", props.charitydetails)
             .then(response => {
                 console.log(response)
                 handleClose();   // Call the funtion onHide to close the Modal

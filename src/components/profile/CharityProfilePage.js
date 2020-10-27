@@ -16,7 +16,7 @@ function CharityProfilePage() {
   useEffect(() => {
     axios
       .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities/"+currentUserID
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/charities/"+currentUserID
       )
       .then(response => {
         setdetailsCharity(response.data);

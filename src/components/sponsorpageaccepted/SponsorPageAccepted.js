@@ -33,7 +33,7 @@ function SponsorPageAccepted() {
     //     uid: "CyQ1Hku3lZb9NMni5BF1eWis18d2", // sponsor IOI@gmail.com
     //         userType: "sponsor"
     //      }
-    //         axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
+    //         axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
     //             .then(response => setSponsorOffers(response.data))
     //             .catch(error => console.log(error));
     //     }, []);

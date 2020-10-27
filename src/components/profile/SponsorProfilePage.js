@@ -16,7 +16,7 @@ function SponsorProfilePage() {
   useEffect(() => {
     axios
       .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors/"+currentUserID
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors/"+currentUserID
       )
       .then(response => {
         setdetailsSponsor(response.data);

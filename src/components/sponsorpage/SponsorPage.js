@@ -37,7 +37,7 @@ function SponsorPage() {
   //   // };
   //   console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  " + currentUser.uid);
 
-  //   axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uid)
+  //   axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uid)
   //     .then(response => setRequests(response.data))
   //     .catch(error => console.log(error));
   // }, []);

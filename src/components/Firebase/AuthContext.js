@@ -64,7 +64,7 @@ export function AuthProvider({ children }) {
 
         axios
           .post(
-            "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities",
+            "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/charities",
             userdetails
           )
           .then((response) => console.log(response))
@@ -80,7 +80,7 @@ export function AuthProvider({ children }) {
 
         axios
           .post(
-            "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors",
+            "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors",
             userdetails
           )
           .then((response) => console.log(response))
@@ -102,7 +102,7 @@ export function AuthProvider({ children }) {
   function getSponsorOffers() {
     const chofferdata = axios
       .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charityoffers/" +
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/charityoffers/" +
         currentUserID
       )
       .then((response) =>
@@ -115,7 +115,7 @@ export function AuthProvider({ children }) {
   }
 
 // useEffect(() => {
-  //   axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUserID)
+  //   axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUserID)
   //     .then(response => setRequests(response.data))
   //     .catch(error => console.log(error));
   // }, []);
@@ -124,7 +124,7 @@ export function AuthProvider({ children }) {
   const [fundingRequests, setRequests] = useState([]);
   function getSponsorRequests() {
     const openRequests =
-      axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uid)
+      axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uid)
         .then(response => setRequests(response.data))
         .catch(error => console.log(error));
     return openRequests;
@@ -134,7 +134,7 @@ export function AuthProvider({ children }) {
   const [offers, setOffers] = useState([]);
   function getOffers() {
   const offerData =
-    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
+    axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
       .then(response => setOffers(response.data))
       .catch(error => console.log(error));
     return offerData;
@@ -142,8 +142,8 @@ export function AuthProvider({ children }) {
 
   
   // Add the post request to applyToSponsorRequest() - add to SponsorRequestDetails
-  // axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
-  // .then(response => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
+  // axios.post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+  // .then(response => axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
   // // .then ( response => setRequests(response.data))
   // .catch(error => console.log(error));
 
@@ -157,7 +157,7 @@ export function AuthProvider({ children }) {
     webUrl: "test post web url"
 }
 axios
-  .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
+  .post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
   .then(console.log("Successfully Posted dummy data"))
   .catch(error => console.log(error)); */
 

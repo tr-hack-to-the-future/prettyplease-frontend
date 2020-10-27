@@ -74,15 +74,15 @@ console.log("\n____________________________________> " + JSON.stringify(newOffer
         // GET the sponsor requests back
         // navigate to another page (Pending or Requests?)
         // postOffer(newOffer)
-            axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
-            .then(response => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
+            axios.post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+            .then(response => axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
             // .then ( response => setRequests(response.data))
             .catch(error => console.log(error));
 
         // axios
-        // .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+        // .post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
         // .then (response => console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> OFFERID= " + response))
-        // .then ( () => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/requests"))
+        // .then ( () => axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/requests"))
         // // .then ( response => setRequests(response.data))
         //     // .then(() => axios.get("https://dxmg4z4kvl.execute-api.eu-west-2.amazonaws.com/dev/tasks?userId=47801de2-98b0-4bce-a7ed-a"))
         //     // .then(response => setTasks(response.data))
