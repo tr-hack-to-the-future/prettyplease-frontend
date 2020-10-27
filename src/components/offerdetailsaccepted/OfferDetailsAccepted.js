@@ -12,7 +12,7 @@ import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 import "./OfferDetailsAccepted.css";
 
 
-function OfferDetailsAccepted({ offers }) {
+function OfferDetailsAccepted() {
 
     const history = useHistory();
     const { id } = useParams();
