@@ -7,16 +7,25 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { BrowserRouter as Router, useHistory, useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from "../Firebase/AuthContext";
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 import "./OfferDetailsAccepted.css";
 
 
-function OfferDetailsAccepted({ offers }) {
+function OfferDetailsAccepted() {
 
     const history = useHistory();
     const { id } = useParams();
+    
+    // Fetch the sponsor offers from the API
+    let { offers, getOffers } = useAuth();
+    try {
+      getOffers();
+    } catch (e) {
+      console.log(e)
+    }
     // fetches the selected offer from the array
-    const [offer] = offers.filter(o => o.offerId  === id);
+    const [offer] = offers.filter(o => o.offerId === id);
 
     return (
         <Container className="OfferDetailsAccepted">

@@ -1,21 +1,16 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import "./SponsorPage.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import RequestDisplayCard from './requestdisplaycard/RequestDisplayCard';
+import RequestDisplayCard from '../requestdisplaycard/RequestDisplayCard';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
-import { getFormattedPlural } from './requestformatter';
-import {useAuth} from "./Firebase/AuthContext"
-import {Route,Redirect,useLocation} from 'react-router-dom';
+import { getFormattedPlural } from '../requestformatter';
+import { useAuth } from "../Firebase/AuthContext";
 
 function SponsorPage() {
-  let {currentUser} = useAuth();
-  let location = useLocation();
 
   const history = useHistory();
   const handlePending = () => {
@@ -25,26 +20,41 @@ function SponsorPage() {
     history.push("/ForSponsorsAccepted");
   }
 
+  // // const {currentUser} = useAuth();
+  // const currentUser = {
+  //   //   uid: "b19dcdc9-1547-11eb-9ed1-0a7222284ed8",
+  //   uid: "CyQ1Hku3lZb9NMni5BF1eWis18d2", // sponsor IOI@gmail.com
+  //       userType: "sponsor"
+  //    }
 
-  // Fetch the requests from the API
-  const [fundingRequests, setRequests] = useState([]);
-  useEffect(() => {
-    // TODO fetch sponsorId from currentUser context
-    const currentUser = {
-      uid: "b19dcdc9-1547-11eb-9ed1-0a7222284ed8",
-      userType: "sponsor"
-    };
+  // // Fetch the requests from the API
+  // const [fundingRequests, setRequests] = useState([]);
+  // useEffect(() => {
+  //   // TODO fetch sponsorId from currentUser context
+  //   // const currentUser = {
+  //   //   uid: "b19dcdc9-1547-11eb-9ed1-0a7222284ed8",
+  //   //   userType: "sponsor"
+  //   // };
+  //   console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  " + currentUser.uid);
 
-    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uId)
-      .then(response => setRequests(response.data))
-      .catch(error => console.log(error));
-  }, []);
+  //   axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uid)
+  //     .then(response => setRequests(response.data))
+  //     .catch(error => console.log(error));
+  // }, []);
+
+  let { fundingRequests, getSponsorRequests } = useAuth();
+  // let location = useLocation();
+  try {
+    getSponsorRequests();
+  } catch (e) {
+    console.log(e)
+  }
   const requests = fundingRequests.filter(
     request => request.requestStatus === "OPEN"
   );
 
 
-  return ( 
+  return (
     <div className="SponsorPage">
       <Container>
         {/* TODO temporary buttons for navigation - will be moved into Navbar */}
