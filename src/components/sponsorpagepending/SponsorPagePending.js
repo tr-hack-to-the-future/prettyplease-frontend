@@ -12,15 +12,11 @@ import { getFormattedPlural } from '../requestformatter';
 
 function SponsorPagePending() {
 
-    const history = useHistory();
-
     // fetch the sponsor offers    
     let { offers, getOffers } = useAuth();
-    try {
+    useEffect(() => {
         getOffers();
-    } catch (e) {
-        console.log(e)
-    }
+    }, []);    
 
     const offersPending = offers.filter(
         offer => offer.offerStatus === "PENDING"
