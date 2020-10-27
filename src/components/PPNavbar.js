@@ -51,6 +51,8 @@ function PPNavbar() {
           <Nav>
             <Nav.Link href="/prettyplease-frontend/#/ForCharities">Charity Page</Nav.Link>
             <Nav.Link href="/prettyplease-frontend/#/NewFund">Raise Funds</Nav.Link>
+            <Nav.Link href="/prettyplease-frontend/#/FundRequests">Fund Requests</Nav.Link>
+            <Nav.Link href="/prettyplease-frontend/#/AcceptedOffers">Accepted Offers</Nav.Link>
           </Nav>
         </div>
       );

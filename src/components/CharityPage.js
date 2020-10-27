@@ -1,34 +1,43 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./CharityPage.css";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-
-import DisplayCard from "./charityview/DisplayCard";
-import { Route, Redirect, useLocation } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 import { useAuth } from "./Firebase/AuthContext";
-
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/NavItem";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import DisplayCard from "./charityview/DisplayCard";
+import { getFormattedAmount, getFormattedDuration } from "./requestformatter";
+import { useHistory } from "react-router-dom";
 
 function CharityPage() {
-  
-  let { sponsorOffers,getSponsorOffers } = useAuth();
-  let location = useLocation();
-try{
-  getSponsorOffers()
-}catch(e){
-  console.log(e)
-}
+  const history = useHistory();
+  let { sponsorOffers, getSponsorOffers } = useAuth();
+  let openOffers = sponsorOffers.filter(
+    (offers) => offers.requestStatus === "OPEN"
+  );
+  useEffect(() => {
+    getSponsorOffers().then(console.log(sponsorOffers));
+  }, []);
+
   return (
-    <div className="ReviewAccept">
-      <Container>
+    <Container>
+      <div className="ReviewAccept">
         <Row className="justify-content-md-center mt-4">
           <p>
-            You have received {sponsorOffers.length}{" "}
-            {sponsorOffers.length > 1 ? "offers" : "offer"} for your request
+            {openOffers.length > 1
+              ? "You have received {openOffers.length} offers"
+              : "We will update here as soon as you receive offers!"}
           </p>
         </Row>
-        <DisplayCard sponsor={sponsorOffers}></DisplayCard>
-      </Container>
-    </div>
+
+        <Row>
+          <DisplayCard sponsor={openOffers}></DisplayCard>
+        </Row>
+      </div>
+    </Container>
   );
 }
 

@@ -106,10 +106,11 @@ export function AuthProvider({ children }) {
         currentUserID
       )
       .then((response) =>
-        setSponsorOffers(
-          response.data.filter((offer) => offer.requestStatus === "OPEN")
+        // setSponsorOffers(
+        //   response.data.filter((offer) => offer.requestStatus === "OPEN")
+        setSponsorOffers(response.data)
         )
-      )
+      
       .catch((error) => console.log(error));
     return chofferdata;
   }
