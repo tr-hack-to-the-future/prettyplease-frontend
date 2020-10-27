@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -18,11 +19,9 @@ function OfferDetailsPending() {
 
     // Fetch the sponsor offers from the API
     let { offers, getOffers } = useAuth();
-    try {
-      getOffers();
-    } catch (e) {
-      console.log(e)
-    }
+    useEffect(() => {
+        getOffers();
+    }, []);
     // filter to the selected offer from the array
     const [offer] = offers.filter(o => o.offerId === id);
 

@@ -4,21 +4,20 @@ import "./SponsorPage.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import RequestDisplayCard from '../requestdisplaycard/RequestDisplayCard';
-
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getFormattedPlural } from '../requestformatter';
 import { useAuth } from "../Firebase/AuthContext";
 
 function SponsorPage() {
 
-  const history = useHistory();
+  // const history = useHistory();
 
   let { fundingRequests, getSponsorRequests } = useAuth();
-  try {
+  useEffect(() => {
     getSponsorRequests();
-  } catch (e) {
-    console.log(e)
-  }
+  }, []);
+
   const requests = fundingRequests.filter(
     request => request.requestStatus === "OPEN"
   );

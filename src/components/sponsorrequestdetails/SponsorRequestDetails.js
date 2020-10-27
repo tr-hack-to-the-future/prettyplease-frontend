@@ -54,8 +54,6 @@ function SponsorRequestDetails() {
         } catch (e) {
             console.log(e);
         }
-        // switch to Offers Pending page
-        // come back to page with apply button disabled?
     }
 
 
