@@ -16,18 +16,15 @@ function OfferDetailsPending() {
     const history = useHistory();
     const { id } = useParams();
 
-    // TODO change to fetch only a single item?
+    // Fetch the sponsor offers from the API
     let { offers, getOffers } = useAuth();
     try {
       getOffers();
     } catch (e) {
       console.log(e)
     }
-    // fetches the selected offer from the array
+    // filter to the selected offer from the array
     const [offer] = offers.filter(o => o.offerId === id);
-    console.log(">>>>>>>>>>>>>>>>>>>>>>" + JSON.stringify(offer));  
-
-    // const [offer] = offers.filter(o => o.offerId === id);
 
     return (
         <Container className="OfferDetailsPending">

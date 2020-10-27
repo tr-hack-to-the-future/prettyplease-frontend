@@ -16,7 +16,8 @@ function OfferDetailsAccepted() {
 
     const history = useHistory();
     const { id } = useParams();
-    // TODO change to fetch only a single item?
+    
+    // Fetch the sponsor offers from the API
     let { offers, getOffers } = useAuth();
     try {
       getOffers();
@@ -25,7 +26,6 @@ function OfferDetailsAccepted() {
     }
     // fetches the selected offer from the array
     const [offer] = offers.filter(o => o.offerId === id);
-    console.log(">>>>>>>>>>>>>>>>>>>>>>" + JSON.stringify(offer));  
 
     return (
         <Container className="OfferDetailsAccepted">
