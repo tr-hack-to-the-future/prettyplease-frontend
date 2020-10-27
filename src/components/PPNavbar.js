@@ -9,7 +9,7 @@ import { useAuth } from "./Firebase/AuthContext";
 import { HashRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-function PPNavbar({ isAuth }) 
+function PPNavbar() 
 {
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [shouldShowShadow, setShouldShowShadow] = useState(false);
