@@ -31,7 +31,9 @@ function SponsorPagePending() {
             <Container>
 
                 <Row className="justify-content-md-center mt-4">
+
                     <h5>You have {offersPending.length} pending sponsorship {getFormattedPlural("offer", offersPending.length)}</h5>
+
                 </Row>
 
                 <Row className="card-SponsorPagePending">
