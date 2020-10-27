@@ -133,50 +133,6 @@ export default function App() {
     setdetailsSponsor(updatedSponsorProfile);
   };
 
-  // TODO fetch sponsorId from currentUser context
-  // const { currentUserID } = useAuth();
-  // const currentUser = {
-  //   // uid: "b19dcdc9-1547-11eb-9ed1-0a7222284ed8",
-  //   uid: "CyQ1Hku3lZb9NMni5BF1eWis18d2",
-  //   userType: "sponsor"
-  // }
-  
-  // // Fetch the requests from the API
-  // console.log("\n----------------------->current user= " + JSON.stringify(currentUserID));
-  //  const [fundingRequests, setRequests] = useState([]);
-  // useEffect(() => {
-  //   axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUserID)
-  //     .then(response => setRequests(response.data))
-  //     .catch(error => console.log(error));
-  // }, []);
-
-  // // TODO fetch sponsorId from currentUser context
-  // Fetch the offers for a sponsor from the API
-  //  const [offers, setSponsorOffers] = useState([]);
-  // useEffect(() => {
-  //   axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUserID)
-  //     .then(response => setSponsorOffers(response.data))
-  //     .catch(error => console.log(error));
-  // }, []);
-
-  // // Fetch the offer data
-  // let { offers, getOffers } = useAuth();
-  // try {
-  //   getOffers();
-  // } catch (e) {
-  //   console.log(e)
-  // }
-
-  // // TODO filter in the components 
-  // const acceptedOffers = offers.filter(
-  //   (offer) => offer.offerStatus === "ACCEPTED"
-  // );
-  // // TODO filter in the components 
-  // const pendingOffers = offers.filter(
-  //   (offer) => offer.offerStatus === "PENDING"
-  // );
-
-
   return (
     <Router>
       <AuthProvider>
@@ -197,7 +153,6 @@ export default function App() {
           </Route>
           <Route path="/ForSponsors/:id">
             <SponsorRequestDetails />
-            {/* <SponsorRequestDetails key={fundingRequests.requestId} requests={fundingRequests} /> */}
           </Route>
           <Route path="/ForSponsors">
             <SponsorPage />
@@ -207,14 +162,12 @@ export default function App() {
           </Route>
           <Route exact path="/ForSponsorsAccepted/:id">
             <OfferDetailsAccepted />
-            {/* <OfferDetailsAccepted key={acceptedOffers.offerId} offers={acceptedOffers} component={OfferDetailsAccepted} /> */}
           </Route>
           <Route exact path="/ForSponsorsPending">
             <SponsorPagePending />
           </Route>
           <Route exact path="/ForSponsorsPending/:id">
             <OfferDetailsPending />
-            {/* <OfferDetailsPending key={pendingOffers.offerId} offers={pendingOffers} component={OfferDetailsPending} /> */}
           </Route>
           <Route path="/SponsorProfilePage">
             <SponsorProfilePage
@@ -222,7 +175,6 @@ export default function App() {
               changeProfile={changeSponsorProfile}
             />
           </Route>
-
 
           <Route exact path="/ForCharities">
             <CharityPage />
