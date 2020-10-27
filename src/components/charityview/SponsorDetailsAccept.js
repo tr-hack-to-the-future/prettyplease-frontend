@@ -25,15 +25,16 @@ function SponsorDetailsAccept() {
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => {
+  let { getSponsorOffers } = useAuth();
+  const handleAccept = () => {
     const requestId = {
       requestId: dispSponsor.requestId,
     };
     const offerId = { offerId: dispSponsor.offerId };
     axios
       .put(
-        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/requests/",
-        requestId
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/requests/" +dispSponsor.requestId
+      
       )
       .then((response) => {
         console.log(response);
@@ -44,8 +45,8 @@ function SponsorDetailsAccept() {
       });
     axios
       .put(
-        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers/",
-        offerId
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers/"+ dispSponsor.offerId
+        
       )
       .then((response) => {
         console.log(response);
@@ -53,7 +54,7 @@ function SponsorDetailsAccept() {
       .catch((error) => {
         console.log(error);
       });
-
+      getSponsorOffers();
     setShow(true);
   };
 
@@ -87,7 +88,7 @@ function SponsorDetailsAccept() {
             </Button>
           </Link>
 
-          <Button variant="outline-primary ml-5" size="lg" onClick={handleShow}>
+          <Button variant="outline-primary ml-5" size="lg" onClick={handleAccept}>
             Accept
           </Button>
           <Modal show={show} onHide={handleClose}>

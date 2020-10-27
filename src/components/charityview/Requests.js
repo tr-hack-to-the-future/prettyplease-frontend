@@ -23,7 +23,7 @@ export default function Requests() {
     history.push("/ForCharities");
   };
   const handleAccepted = () => {
-    history.push("/ForCharitiesAccepted");
+    history.push("/ForCharities/Accepted");
   };
 
   console.log(sponsorOffers);

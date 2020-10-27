@@ -41,14 +41,15 @@ function CharityPage() {
   
   const history = useHistory();
   let { sponsorOffers, getSponsorOffers } = useAuth();
+  let openOffers = sponsorOffers.filter((offers)=>offers.requestStatus==="OPEN")
   useEffect(() => {
     getSponsorOffers().then(console.log(sponsorOffers));
   }, []);
   const handleRequests = () => {
-    history.push("/Requests");
+    history.push("/ForCharities/Requests");
   }
   const handleAccepted = () => {
-    history.push("/CharityAcceptedOffers");
+    history.push("/ForCharities/Accepted");
   }
   return (
     <Container>
@@ -80,32 +81,18 @@ function CharityPage() {
       </Row>
       <Row className="justify-content-md-center mt-4">
       <p>
-          You have received {sponsorOffers.length}{" "}
-          {sponsorOffers.length > 1 ? "offers" : "offer"} for your request
+          You have received {openOffers.length}{" "}
+          {openOffers.length > 1 ? "offers" : "offer"} for your request
         </p>
         </Row>
 
         <Row>
          
-          <DisplayCard sponsor={sponsorOffers}></DisplayCard>
+          <DisplayCard sponsor={openOffers}></DisplayCard>
        
 
         </Row>
 
-      {/*  <Navbar className="inline-navbar">
-        <Nav variant="tabs" >
-          <Nav.Link href="/Requests">All Requests
-         
-            </Nav.Link>
-
-          <Nav.Link href="/GetSponsorOffers">
-            Offers on your Request
-            <GetSponsorOffers />
-          </Nav.Link>
-
-          <Nav.Link href="/Accepted">Accepted Offers</Nav.Link>
-        </Nav>
-      </Navbar> */}
     </div>
     </Container>
   );
