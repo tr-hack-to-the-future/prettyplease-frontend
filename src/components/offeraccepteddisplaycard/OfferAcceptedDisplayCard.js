@@ -29,7 +29,7 @@ function OfferAcceptedDisplayCard({ cardData }) {
                             </Col>
                             <Col>
                                 <Card.Text>
-                                    Duration: {getFormattedDuration(card.durationInYears)}
+                                    Duration: {card.durationInYears=== 0 ? 'One-Off':getFormattedDuration(card.durationInYears)}
                                 </Card.Text>
 
                             </Col>

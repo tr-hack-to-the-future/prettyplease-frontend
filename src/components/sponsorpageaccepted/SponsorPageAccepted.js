@@ -4,8 +4,6 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import OfferAcceptedDisplayCard from '../offeraccepteddisplaycard/OfferAcceptedDisplayCard';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from "../Firebase/AuthContext";
@@ -14,12 +12,6 @@ import { getFormattedPlural } from '../requestformatter';
 
 function SponsorPageAccepted() {
     const history = useHistory();
-    const handlePending = () => {
-        history.push("/ForSponsorsPending");
-    }
-    const handleRequests = () => {
-        history.push("/ForSponsors");
-    }
 
     //     // TODO fetch sponsorId from currentUser context
     //     // Fetch the offers for a sponsor from the API
@@ -51,30 +43,15 @@ function SponsorPageAccepted() {
 
     return (
         <div className="SponsorPageAccepted">
-            <Container>
-                {/* TODO temporary buttons for navigation - will be moved into Navbar */}
+            <Container >
+
                 <Row className="justify-content-md-center mt-4">
-                    <Col>
-                        <Button variant="outline-primary ml-5" size="lg" onClick={handleRequests}>
-                            Requests
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button variant="outline-primary ml-5" size="lg" onClick={handlePending}>
-                            Offers Pending
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button variant="outline-primary ml-5" size="lg" disabled>
-                            Offers Accepted
-                        </Button>
-                    </Col>
-                </Row>
-                <Row className="justify-content-md-center mt-4">
-                    <p>You have {offersAccepted.length} accepted sponsorship {getFormattedPlural("offer", offersAccepted.length)}</p>
+
+                    <h5>You have {offersAccepted.length} accepted sponsorship {getFormattedPlural("offer", offersAccepted.length)}</h5>
+
                 </Row>
 
-                <Row>
+                <Row className="card-SponsorPageAccepted">
                     <Card>
                         <OfferAcceptedDisplayCard cardData={offersAccepted} />
                     </Card>
