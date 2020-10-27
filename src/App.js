@@ -9,7 +9,8 @@ import SignUp from "./components/login/SignUp.js";
 
 import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
-import Requests from "./components/charityview/Requests"
+import Requests from "./components/charityview/Requests";
+import CharityAcceptedOffers from  "./components/charityview/CharityAcceptedOffers";
 
 
 import FundRequest from "./components/fundrequest/FundRequest";
@@ -218,6 +219,9 @@ export default function App() {
             </Route>
             <Route exact path="/Requests">
               <Requests />
+            </Route>
+            <Route exact path="/ForCharitiesAccepted">
+              <CharityAcceptedOffers />
             </Route>
             <Route
               exact

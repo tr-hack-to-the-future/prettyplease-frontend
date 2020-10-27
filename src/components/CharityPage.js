@@ -48,7 +48,7 @@ function CharityPage() {
     history.push("/Requests");
   }
   const handleAccepted = () => {
-    history.push("/ForSponsorsAccepted");
+    history.push("/CharityAcceptedOffers");
   }
   return (
     <Container>
