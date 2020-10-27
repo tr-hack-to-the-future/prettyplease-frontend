@@ -9,6 +9,8 @@ import SignUp from "./components/login/SignUp.js";
 
 import SponsorPage from "./components/SponsorPage";
 import CharityPage from "./components/CharityPage";
+import Requests from "./components/charityview/Requests"
+
 
 import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
@@ -20,6 +22,8 @@ import OfferDetailsPending from "./components/offerdetailspending/OfferDetailsPe
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
 import SponsorPagePending from "./components/sponsorpagepending/SponsorPagePending";
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
+import GetSponsorOffers from "./components/CharityPage"
+
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
@@ -208,6 +212,12 @@ export default function App() {
            
             <Route exact path="/ForCharities">
               <CharityPage />
+            </Route>
+            <Route exact path="/GetSponsorOffers">
+              <GetSponsorOffers />
+            </Route>
+            <Route exact path="/Requests">
+              <Requests />
             </Route>
             <Route
               exact

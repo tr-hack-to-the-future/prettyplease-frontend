@@ -102,45 +102,18 @@ export function AuthProvider({ children }) {
   function getSponsorOffers() {
     const chofferdata = axios
       .get(
-        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charityoffers/" +
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/charityoffers/" +
           currentUserID
       )
       .then((response) =>
-        setSponsorOffers(
-          response.data.filter((offer) => offer.requestStatus === "OPEN")
+        // setSponsorOffers(
+        //   response.data.filter((offer) => offer.requestStatus === "OPEN")
+        setSponsorOffers(response.data)
         )
-      )
+      
       .catch((error) => console.log(error));
     return chofferdata;
-  }
-
-  /* 
-    let userrec = {
-      sponsorId : "SPON24889999999",
-      name: "Postman's Horse Farm Organisation",
-      description: "Etiam vel nisi lacinia, luctus turpis et, rutrum ipsum. ",
-      imageUrl: "./assets/images/abstract-logo1.jpg",
-      webUrl: "test post web url"
-  }
-  axios
-    .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
-    .then(console.log("Successfully Posted dummy data"))
-    .catch(error => console.log(error)); */
-
-  /* function readUserData() {
-    let userId = currentUser.uid;
-    return database
-      .ref("/users/" + userId)
-      .once("value")
-      .then(function (snapshot) {
-        setUserType(snapshot.val().type);
-      });
-  } */
-
-  /* function signnow(email, password) {
-    login(email, password);
-  } */
-
+  } 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setLoading(false);
@@ -155,8 +128,9 @@ export function AuthProvider({ children }) {
     logout,
     login,
     signalong,
-    getSponsorOffers,
     sponsorOffers,
+    getSponsorOffers
+    
   };
   return (
     <AuthContext.Provider value={value}>
