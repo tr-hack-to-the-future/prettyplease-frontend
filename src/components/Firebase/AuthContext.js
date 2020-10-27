@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { auth, database, storage } from "./firebase";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { ArrowAltCircleRight } from "@styled-icons/fa-regular";
 
 const AuthContext = React.createContext();
 
@@ -114,11 +115,7 @@ export function AuthProvider({ children }) {
     return chofferdata;
   }
 
-// useEffect(() => {
-  //   axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUserID)
-  //     .then(response => setRequests(response.data))
-  //     .catch(error => console.log(error));
-  // }, []);
+
   // For Sponsor API Calls
   // Fetch the requests from the API
   const [fundingRequests, setRequests] = useState([]);
@@ -133,72 +130,85 @@ export function AuthProvider({ children }) {
   // Fetch the offers for a sponsor from the API
   const [offers, setOffers] = useState([]);
   function getOffers() {
-  const offerData =
-    axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
-      .then(response => setOffers(response.data))
-      .catch(error => console.log(error));
+    const offerData =
+      axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
+        .then(response => setOffers(response.data))
+        .catch(error => console.log(error));
     return offerData;
   }
 
-  
-  // Add the post request to applyToSponsorRequest() - add to SponsorRequestDetails
-  // axios.post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
-  // .then(response => axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
-  // // .then ( response => setRequests(response.data))
-  // .catch(error => console.log(error));
+  // Insert a new SponsorOffer row
+  function createOffer(newOffer) {
 
+    // // Promise testing example code
+    // return new Promise((resolve, reject) => {
+    //   console.log("POST offer " + JSON.stringify(newOffer));
+    //   resolve(newOffer.sponsorId);
+    //   reject("test failed POST offer");
+    // });
 
-/* 
-  let userrec = {
-    sponsorId : "SPON24889999999",
-    name: "Postman's Horse Farm Organisation",
-    description: "Etiam vel nisi lacinia, luctus turpis et, rutrum ipsum. ",
-    imageUrl: "./assets/images/abstract-logo1.jpg",
-    webUrl: "test post web url"
-}
-axios
-  .post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
-  .then(console.log("Successfully Posted dummy data"))
-  .catch(error => console.log(error)); */
+    // validate newOffer?
+    console.log("POST offer " + JSON.stringify(newOffer));
+    const postData = axios.post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+      // .then(response => axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUserID))
+      .then(response => getOffers())
+      // .then ( response => setRequests(response.data))
+      .catch(error => console.log(error));
+    return postData;
+  }
 
-/* function readUserData() {
-  let userId = currentUser.uid;
-  return database
-    .ref("/users/" + userId)
-    .once("value")
-    .then(function (snapshot) {
-      setUserType(snapshot.val().type);
+  /* 
+    let userrec = {
+      sponsorId : "SPON24889999999",
+      name: "Postman's Horse Farm Organisation",
+      description: "Etiam vel nisi lacinia, luctus turpis et, rutrum ipsum. ",
+      imageUrl: "./assets/images/abstract-logo1.jpg",
+      webUrl: "test post web url"
+  }
+  axios
+    .post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
+    .then(console.log("Successfully Posted dummy data"))
+    .catch(error => console.log(error)); */
+
+  /* function readUserData() {
+    let userId = currentUser.uid;
+    return database
+      .ref("/users/" + userId)
+      .once("value")
+      .then(function (snapshot) {
+        setUserType(snapshot.val().type);
+      });
+  } */
+
+  /* function signnow(email, password) {
+    login(email, password);
+  } */
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setLoading(false);
     });
-} */
-
-/* function signnow(email, password) {
-  login(email, password);
-} */
-
-useEffect(() => {
-  const unsubscribe = auth.onAuthStateChanged((user) => {
-    setLoading(false);
+    return unsubscribe;
   });
-  return unsubscribe;
-});
 
-const value = {
-  currentUser,
-  currentUserID,
-  userType,
-  logout,
-  login,
-  signalong,
-  getSponsorOffers,
-  sponsorOffers,
-  getSponsorRequests,
-  fundingRequests,
-  getOffers,
-  offers
-};
-return (
-  <AuthContext.Provider value={value}>
-    {!loading && children}
-  </AuthContext.Provider>
-);
+  const value = {
+    currentUser,
+    currentUserID,
+    userType,
+    logout,
+    login,
+    signalong,
+    getSponsorOffers,
+    sponsorOffers,
+    getSponsorRequests,
+    fundingRequests,
+    getOffers,
+    offers,
+    createOffer
+  };
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
 }
