@@ -55,8 +55,8 @@ function OfferDetailsPending() {
                 <Col className="text-center">
                     Amount: {getFormattedAmount(offer.amountAgreed)}
                 </Col>
-                <Col className="text-center">
-                    Duration: {getFormattedDuration(offer.agreedDurationInYears)}
+                <Col className="text-center">                 
+                    Duration: {offer.durationInYears=== 0 ? 'One-Off':getFormattedDuration(offer.durationInYears)}
                 </Col>
             </Row>
             <Row className="justify-content-md-center">
