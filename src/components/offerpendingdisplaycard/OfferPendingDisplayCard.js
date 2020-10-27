@@ -9,7 +9,7 @@ function OfferPendingDisplayCard({ cardData }) {
 
 
     return cardData.map((card, index) => (
-        <Link to={`/ForSponsorsPending/${index + 1}`} key={card.offerId}>
+        <Link to={`/ForSponsorsPending/${card.offerId}`} key={card.offerId}>
             <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <Col className="col-auto flex-column">
                     <img
