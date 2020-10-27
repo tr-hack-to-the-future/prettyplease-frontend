@@ -5,12 +5,12 @@ import Main from "./Main.js";
 import { AuthProvider } from "./components/Firebase/AuthContext";
 import { useAuth } from "./components/Firebase/AuthContext";
 import PrivateRoute from "./components/login/PrivateRoute";
+
 import Login from "./components/login/Login";
 import SignUp from "./components/login/SignUp.js";
 
 import SponsorPage from "./components/sponsorpage/SponsorPage";
 import CharityPage from "./components/CharityPage";
-
 import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
 import SponsorProfilePage from "./components/profile/SponsorProfilePage";
@@ -31,14 +31,6 @@ import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 export default function App() {
-  // const [sponsor, setSponsor] = useState([
-  //   { sponsorName: "AlFA", completed: false },
-  //   { sponsorName: "Sponsor2", completed: false },
-  //   { sponsorName: "Black Rock", completed: false },
-  //   { sponsorName: "Adidas", completed: false },
-  //   { sponsorName: "Sponsor4", completed: true },
-  //   { sponsorName: "Eigen", completed: false },
-  // ]);
   const [charitysp, setcharity] = useState([
     {
       sponsorName: "Financing",
@@ -169,30 +161,17 @@ export default function App() {
           <Route exact path="/ForSponsorsPending/:id">
             <OfferDetailsPending />
           </Route>
-          <Route path="/SponsorProfilePage">
-            <SponsorProfilePage
-              sponsorData={detailsSponsor}
-              changeProfile={changeSponsorProfile}
-            />
-          </Route>
+
+          <Route path="/SponsorProfilePage" component={SponsorProfilePage}></Route>
 
           <Route exact path="/ForCharities">
             <CharityPage />
           </Route>
-          <Route
-            exact
-            path="/ForCharities/:id"
-            component={SponsorDetailsAccept}
-          >
+          <Route exact path="/ForCharities/:id" component={SponsorDetailsAccept}>
             <SponsorDetailsAccept />
           </Route>
           <Route path="/NewFund" component={FundRequest}></Route>
-          <Route path="/CharityProfilePage">
-            <CharityProfilePage
-              charityData={detailsCharity}
-              changeProfile={changeCharityProfile}
-            />
-          </Route>
+          <Route path="/CharityProfilePage" component={CharityProfilePage}></Route>
           <Route path="/ConfirmationRequestPage">
             <ConfirmationRequestPage />
           </Route>

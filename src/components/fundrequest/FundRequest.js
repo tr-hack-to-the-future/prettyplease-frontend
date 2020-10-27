@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useAuth } from "../Firebase/AuthContext";
+
 import './FundRequest.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,18 +9,18 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup'
 import ModalConfirmationRequest from './ModalConfirmationRequest';
-//import UserContext from '../charityview/charityOffersContext'
 
 function FundRequest() {
     // Variable to control the modal
     const [modalShow, setModalShow] = React.useState(false);
-    //   const currentUser = useContext(UserContext);
+    const { currentUserID } = useAuth();
 
     const [amountRequested, setAmountRequested] = useState("");
     const [eventDescription, setEventDescription] = useState("");
     const [isSingleEvent, setIsSingleEvent] = useState(false);
     const [durationInYears, setDurationInYears] = useState(0);
     const [incentive, setIncentive] = useState("");
+
 
     const handlerISingleEvent = () => {
         setIsSingleEvent(true);
@@ -143,7 +145,7 @@ function FundRequest() {
                         <Button onClick={() => setModalShow(true)} variant="outline-primary" type="submit">Submit</Button>
                         <ModalConfirmationRequest show={modalShow} onHide={() => setModalShow(false)}
                             charitydetails={{
-                                charityId: "CHAZ10",
+                                charityId: currentUserID,
                                 eventDescription: eventDescription,
                                 incentive: incentive,
                                 amountRequested: amountRequested,
