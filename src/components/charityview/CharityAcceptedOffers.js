@@ -18,45 +18,15 @@ export default function CharityAcceptedOffers() {
   const history = useHistory();
   useEffect(() => {
     getSponsorOffers().then(console.log(sponsorOffers));
-    sponsorOffers.filter((request) => request.requestStatus === "ACCEPTED")
+    sponsorOffers.filter((request) => request.requestStatus === "ACCEPTED");
   }, []);
-  const handleOffers = () => {
-    history.push("/ForCharities");
-  };
-  const handleRequests = () => { 
-    history.push("/ForCharities/Requests");
-  };
 
-  console.log(sponsorOffers);
   return sponsorOffers.map((card, index) => (
     <div className="padding">
       <Container>
-        <Row className="justify-content-md-center mt-4">
-          <Col>
-            <Button
-              variant="outline-primary ml-5"
-              size="md"
-              onClick={handleOffers}
-            >
-              Review Offers
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="outline-primary ml-5" size="md" onClick={handleRequests}>
-              Fund Requests
-            </Button>
-          </Col>
-          <Col>
-            <Button
-              variant="outline-primary ml-5"
-              size="md"
-              disabled
-            >
-              Accepted Offers
-            </Button>
-          </Col>
+        <Row className="justify-content-md-center mt-4 mb-4">
+          Accepted Offers
         </Row>
-        <Row className="justify-content-md-center mt-4 mb-4">Accepted Offers</Row>
         <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <Col className="col-auto flex-column">
             <img
@@ -83,10 +53,11 @@ export default function CharityAcceptedOffers() {
                 </Col>
               </Row>
               <Card.Title>Your sponsor is {card.sponsorName}</Card.Title>
-              <Card.Text>Sponsor Details : <br/>{card.sponsorDescription}</Card.Text>
-              
+              <Card.Text>
+                Sponsor Details : <br />
+                {card.sponsorDescription}
+              </Card.Text>
             </Card.Body>
-            
           </Col>
         </Row>
       </Container>

@@ -19,43 +19,14 @@ export default function Requests() {
   useEffect(() => {
     getSponsorOffers().then(console.log(sponsorOffers));
   }, []);
-  const handleOffers = () => {
-    history.push("/ForCharities");
-  };
-  const handleAccepted = () => {
-    history.push("/ForCharities/Accepted");
-  };
 
   console.log(sponsorOffers);
   return sponsorOffers.map((card, index) => (
     <div className="padding">
       <Container>
-        <Row className="justify-content-md-center mt-4">
-          <Col>
-            <Button
-              variant="outline-primary ml-5"
-              size="md"
-              onClick={handleOffers}
-            >
-              Review Offers
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="outline-primary ml-5" size="md" disabled>
-              Fund Requests
-            </Button>
-          </Col>
-          <Col>
-            <Button
-              variant="outline-primary ml-5"
-              size="md"
-              onClick={handleAccepted}
-            >
-              Accepted Offers
-            </Button>
-          </Col>
+        <Row className="justify-content-md-center mt-4 mb-4">
+          Your Fund Requests
         </Row>
-        <Row className="justify-content-md-center mt-4 mb-4">Your Fund Requests</Row>
         <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <Col className="col-auto flex-column">
             <img
@@ -81,7 +52,7 @@ export default function Requests() {
                   </Card.Text>
                 </Col>
               </Row>
-              <Row  className="pt-2 pb-2 ml-auto">
+              <Row className="pt-2 pb-2 ml-auto">
                 <Card.Text>Request Status: {card.requestStatus} </Card.Text>
               </Row>
             </Card.Body>
