@@ -45,6 +45,27 @@ function PPNavbar()
     }
   }
 
+  function showUserTypeNavbar() {
+     if (userType === "charity" && currentUser) {
+      return (
+        <div>
+          <Nav>
+              <Nav.Link href="/prettyplease-frontend/#/ForCharities">Charity Page</Nav.Link>
+              <Nav.Link href="/prettyplease-frontend/#/NewFund">Fund raise</Nav.Link>
+          </Nav>    
+        </div>
+      );
+    } else if(userType === "sponsor" && currentUser) {
+      return (
+        <div>
+          <Nav>
+                <Nav.Link href="/prettyplease-frontend/#/ForSponsors">Sponsor Page</Nav.Link>
+          </Nav>    
+        </div>
+      );
+    }
+  }
+
   return (
     <Router>
       <div className={`header ${hiddenStyle} ${shadowStyle}`}>
@@ -77,6 +98,18 @@ function PPNavbar()
               <Nav.Link href="/prettyplease-frontend/#/SponsorProfilePage">
                 Sponsor Profile
               </Nav.Link> */}
+
+              {showUserTypeNavbar()}
+
+              {/* {(userType === "charity" && currentUser)?
+              <Nav.Link href="/prettyplease-frontend/#/ForCharities">Charity Page</Nav.Link>&&
+              <Nav.Link href="/prettyplease-frontend/#/NewFund">Fund raise</Nav.Link>
+                
+              :(
+                <Nav.Link href="/prettyplease-frontend/#/ForSponsors">Sponsor Page</Nav.Link>
+              )
+              } */}
+
             </Nav>
             {!currentUser ? (
             <Nav>
@@ -111,6 +144,7 @@ function PPNavbar()
                 </svg>
                 Profile
               </Nav.Link>
+
               <Button variant="link" onClick={handleLogout}>
                 Log Out
               </Button>
