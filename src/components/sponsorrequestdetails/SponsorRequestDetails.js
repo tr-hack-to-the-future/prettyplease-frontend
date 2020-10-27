@@ -119,8 +119,8 @@ console.log("\n____________________________________> " + JSON.stringify(newOffer
                 <Col className="text-center">
                     Amount: {getFormattedAmount(request.amountRequested)}
                 </Col>
-                <Col className="text-center">
-                    Duration: {getFormattedDuration(request.durationInYears)}
+                <Col className="text-center">     
+                    Duration: {request.durationInYears=== 0 ? 'One-Off':getFormattedDuration(request.durationInYears)}
                 </Col>
             </Row>
             <Row className="row justify-content-center mt-5 lead">
