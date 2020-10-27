@@ -1,12 +1,14 @@
 import React, { Component, useState } from 'react';
-import './ProfileTextDescription.css';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import TextareaAutosize from 'react-textarea-autosize';
 import Modal from 'react-bootstrap/Modal'
+import TextareaAutosize from 'react-textarea-autosize';
+
+import './ProfileTextDescription.css';
 
 function ProfileTextDescription({ detailsProfile, changeProfile }) {
     //TODO use the local variables to get/set the values of the fields, in order to update the state
@@ -23,7 +25,7 @@ function ProfileTextDescription({ detailsProfile, changeProfile }) {
     const [name, setName] = useState(
         // detailsProfile.map((data) => data.name)
     );
-    console.log("This is the url of the image" + detailsProfile.map((data) => data.image));
+
     const [description, setDescription] = useState(
         // detailsProfile.map((data) => data.description)
     );
@@ -39,15 +41,12 @@ function ProfileTextDescription({ detailsProfile, changeProfile }) {
         setSmShow(true)
     }
 
-
     return (
-
         <div >
-
             <Container className="profile-text-description-container">
                 <Row>
                     {/* Show the image of the Profile in the first column*. The image is not modifiable yet*/}
-                    <Col className="col-auto flex-column" xs={6} md={4}> 
+                    <Col className="col-auto flex-column" xs={6} md={4}>
                         <img
 
                             src={detailsProfile.map((data) => data.imageUrl)}

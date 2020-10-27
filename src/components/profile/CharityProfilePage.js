@@ -1,11 +1,42 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
+import axios from "axios";
+
+import { useAuth } from "../Firebase/AuthContext";
+import ProfileTextDescription from './ProfileTextDescription';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ProfileTextDescription from './ProfileTextDescription';
 
+function CharityProfilePage() {   
 
-function CharityProfilePage({charityData, changeProfile}) {   
+    const [detailsCharity, setdetailsCharity] = useState([]);
+    const { currentUserID } = useAuth();
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charities/"+currentUserID
+      )
+      .then(response => {
+        setdetailsCharity(response.data);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
+  const changeCharityProfile = (name, description) => {
+    const newProfile = {
+      nameProfile: name,
+      descriptionProfile: description
+    };
+
+    console.log(newProfile.nameProfile);
+    console.log(newProfile.descriptionProfile);
+    const updatedCharityProfile = [...detailsCharity, newProfile];
+
+    setdetailsCharity(updatedCharityProfile);
+  };
+
     return (     
         <div>
             <Container>
@@ -14,7 +45,7 @@ function CharityProfilePage({charityData, changeProfile}) {
                         <h1>Profile</h1>
                     </Col>
                 </Row>
-            <ProfileTextDescription detailsProfile={charityData} changeProfile={changeProfile}/>
+            <ProfileTextDescription detailsProfile={detailsCharity} changeProfile={changeCharityProfile}/>
             </Container>
         </div>
     );
