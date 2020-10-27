@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import OfferAcceptedDisplayCard from './OfferAcceptedDisplayCard';
 
-describe.skip('OfferAcceptedDisplayCard component', () => {
+describe('OfferAcceptedDisplayCard component', () => {
 
 
     test(`Given the require props,
@@ -15,7 +15,7 @@ describe.skip('OfferAcceptedDisplayCard component', () => {
 
         const props = {
             cardData: [{
-                requestId: 1,
+                offerId: 1,
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,
@@ -44,7 +44,7 @@ describe.skip('OfferAcceptedDisplayCard component', () => {
 
         const props = {
             cardData: [{
-                requestId: 13,
+                offerId: 13,
                 charityName: testName,
                 charityDescription: testCharityDescription,
                 eventDescription: testEventDescription,

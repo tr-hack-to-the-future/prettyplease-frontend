@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import OfferPendingDisplayCard from './OfferPendingDisplayCard';
 
-describe.skip('OfferPendingDisplayCard component', () => {
+describe('OfferPendingDisplayCard component', () => {
 
 
     test(`Given the require props,
@@ -59,6 +59,6 @@ describe.skip('OfferPendingDisplayCard component', () => {
                 <OfferPendingDisplayCard key={props.cardData.offerId} {...props} />
             </MemoryRouter>
         );
-        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsorsPending/1');
+        expect(getByText(testName).closest('a')).toHaveAttribute('href', '/ForSponsorsPending/13');
     })
 })
