@@ -7,6 +7,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import { BrowserRouter as Router, useHistory, useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from "../Firebase/AuthContext";
 import { getFormattedAmount, getFormattedDuration } from '../requestformatter';
 import "./OfferDetailsAccepted.css";
 
@@ -15,8 +16,16 @@ function OfferDetailsAccepted({ offers }) {
 
     const history = useHistory();
     const { id } = useParams();
+    // TODO change to fetch only a single item?
+    let { offers, getOffers } = useAuth();
+    try {
+      getOffers();
+    } catch (e) {
+      console.log(e)
+    }
     // fetches the selected offer from the array
-    const [offer] = offers.filter(o => o.offerId  === id);
+    const [offer] = offers.filter(o => o.offerId === id);
+    console.log(">>>>>>>>>>>>>>>>>>>>>>" + JSON.stringify(offer));  
 
     return (
         <Container className="OfferDetailsAccepted">

@@ -103,7 +103,7 @@ export function AuthProvider({ children }) {
     const chofferdata = axios
       .get(
         "https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/charityoffers/" +
-          currentUserID
+        currentUserID
       )
       .then((response) =>
         setSponsorOffers(
@@ -114,53 +114,91 @@ export function AuthProvider({ children }) {
     return chofferdata;
   }
 
-  /* 
-    let userrec = {
-      sponsorId : "SPON24889999999",
-      name: "Postman's Horse Farm Organisation",
-      description: "Etiam vel nisi lacinia, luctus turpis et, rutrum ipsum. ",
-      imageUrl: "./assets/images/abstract-logo1.jpg",
-      webUrl: "test post web url"
+// useEffect(() => {
+  //   axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUserID)
+  //     .then(response => setRequests(response.data))
+  //     .catch(error => console.log(error));
+  // }, []);
+  // For Sponsor API Calls
+  // Fetch the requests from the API
+  const [fundingRequests, setRequests] = useState([]);
+  function getSponsorRequests() {
+    const openRequests =
+      axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uid)
+        .then(response => setRequests(response.data))
+        .catch(error => console.log(error));
+    return openRequests;
   }
-  axios
-    .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
-    .then(console.log("Successfully Posted dummy data"))
-    .catch(error => console.log(error)); */
 
-  /* function readUserData() {
-    let userId = currentUser.uid;
-    return database
-      .ref("/users/" + userId)
-      .once("value")
-      .then(function (snapshot) {
-        setUserType(snapshot.val().type);
-      });
-  } */
+  // Fetch the offers for a sponsor from the API
+  const [offers, setOffers] = useState([]);
+  function getOffers() {
+  const offerData =
+    axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
+      .then(response => setOffers(response.data))
+      .catch(error => console.log(error));
+    return offerData;
+  }
 
-  /* function signnow(email, password) {
-    login(email, password);
-  } */
+  
+  // Add the post request to applyToSponsorRequest() - add to SponsorRequestDetails
+  // axios.post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+  // .then(response => axios.get("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + response))
+  // // .then ( response => setRequests(response.data))
+  // .catch(error => console.log(error));
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setLoading(false);
+
+/* 
+  let userrec = {
+    sponsorId : "SPON24889999999",
+    name: "Postman's Horse Farm Organisation",
+    description: "Etiam vel nisi lacinia, luctus turpis et, rutrum ipsum. ",
+    imageUrl: "./assets/images/abstract-logo1.jpg",
+    webUrl: "test post web url"
+}
+axios
+  .post("https://xlkpx8p087.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
+  .then(console.log("Successfully Posted dummy data"))
+  .catch(error => console.log(error)); */
+
+/* function readUserData() {
+  let userId = currentUser.uid;
+  return database
+    .ref("/users/" + userId)
+    .once("value")
+    .then(function (snapshot) {
+      setUserType(snapshot.val().type);
     });
-    return unsubscribe;
-  });
+} */
 
-  const value = {
-    currentUser,
-    currentUserID,
-    userType,
-    logout,
-    login,
-    signalong,
-    getSponsorOffers,
-    sponsorOffers,
-  };
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+/* function signnow(email, password) {
+  login(email, password);
+} */
+
+useEffect(() => {
+  const unsubscribe = auth.onAuthStateChanged((user) => {
+    setLoading(false);
+  });
+  return unsubscribe;
+});
+
+const value = {
+  currentUser,
+  currentUserID,
+  userType,
+  logout,
+  login,
+  signalong,
+  getSponsorOffers,
+  sponsorOffers,
+  getSponsorRequests,
+  fundingRequests,
+  getOffers,
+  offers
+};
+return (
+  <AuthContext.Provider value={value}>
+    {!loading && children}
+  </AuthContext.Provider>
+);
 }
