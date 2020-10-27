@@ -53,7 +53,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.h2`
   text-align: justify;
-  font-size: 22px;
+  font-size: 1.85rem;
   line-height: 1.2;
   padding-bottom: 35px;
   padding-top: 25px;
@@ -71,27 +71,45 @@ export const Image = styled.img`
 export const FigCaption = styled.p`
   text-align: center;
   color: grey;
-  font-weight: 2em;
+  font-weight: 1.5rem;
   font-style: italic;
+`;
+
+export const Section = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 80%;
+  padding: 100px 55px;
+  text-align: center;
+`;
+export const Text = styled.p`
+  font-size: 1.25rem;
+  line-height: 1.1;
+  text-align: justify;
 `;
 
 export const ButtonLink = styled.a`
   color: white;
-  width: 200px;
-  font-size: 1.2em;
-  padding: 10px;
-  background-color: crimson;
+  background: crimson;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: none;
+
   border-radius: 50px;
-  text-align: center;
-  margin-left: 62px;
-  text-decoration: none !important;
+  margin: 1rem;
+  transition: all 0.1s;
 
   &:hover {
     color: white;
-    cursor: pointer;
+    text-decoration: none !important;
+    transform: translate(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
   }
   @media (max-width: 600px) {
-    margin-left: 5px;
+    margin-left: 1px;
     padding-bottom: 15px;
   }
 `;
