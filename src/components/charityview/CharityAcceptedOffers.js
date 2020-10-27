@@ -24,7 +24,7 @@ export default function CharityAcceptedOffers() {
     history.push("/ForCharities");
   };
   const handleRequests = () => { 
-    history.push("/Requests");
+    history.push("/ForCharities/Requests");
   };
 
   console.log(sponsorOffers);

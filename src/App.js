@@ -217,10 +217,10 @@ export default function App() {
             <Route exact path="/GetSponsorOffers">
               <GetSponsorOffers />
             </Route>
-            <Route exact path="/Requests">
+            <Route exact path="/ForCharities/Requests">
               <Requests />
             </Route>
-            <Route exact path="/ForCharitiesAccepted">
+            <Route exact path="/ForCharities/Accepted">
               <CharityAcceptedOffers />
             </Route>
             <Route
