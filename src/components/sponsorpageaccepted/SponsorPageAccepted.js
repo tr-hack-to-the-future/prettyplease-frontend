@@ -46,7 +46,9 @@ function SponsorPageAccepted() {
             <Container >
 
                 <Row className="justify-content-md-center mt-4">
+
                     <h5>You have {offersAccepted.length} accepted sponsorship {getFormattedPlural("offer", offersAccepted.length)}</h5>
+
                 </Row>
 
                 <Row className="card-SponsorPageAccepted">

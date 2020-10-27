@@ -4,6 +4,7 @@ import "./SponsorPage.css";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import RequestDisplayCard from '../requestdisplaycard/RequestDisplayCard';
+
 import { useHistory } from 'react-router-dom';
 import { getFormattedPlural } from '../requestformatter';
 import { useAuth } from "../Firebase/AuthContext";
@@ -52,6 +53,7 @@ function SponsorPage() {
 
         <Row className="justify-content-md-center mt-4">
           <h5>There are {requests.length} sponsorship {getFormattedPlural("request", requests.length)} available</h5>
+
         </Row>
 
         <Row>
