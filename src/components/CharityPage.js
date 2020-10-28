@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./CharityPage.css";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 
 import { useAuth } from "./Firebase/AuthContext";
 
@@ -30,8 +31,10 @@ function CharityPage() {
           </h3>
         </Row>
 
-        <Row>
-          <DisplayCard sponsor={openOffers}></DisplayCard>
+        <Row className="justify-content-md-center mt-4">
+          <Card>
+            <DisplayCard sponsor={openOffers}></DisplayCard>
+          </Card>
         </Row>
       </div>
     </Container>

@@ -70,7 +70,7 @@ function SponsorDetailsAccept() {
       </Row>
       <Row className="row justify-content-center mt-5 mb-4">
         <p>
-          For Event : <br />
+          Interested in Sponsoring for Event : <br />
           {dispSponsor.eventDescription}
         </p>
       </Row>
