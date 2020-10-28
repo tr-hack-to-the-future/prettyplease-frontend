@@ -1,8 +1,27 @@
 import React from "react";
+import { useAuth } from "../components/Firebase/AuthContext";
+import { useHistory } from "react-router-dom";
+
 import Jumbotron from "../components/jumbotron";
 import Emoji from "../helpers/emoji";
 
 export function JumbotronContainer() {
+
+  const { currentUser } = useAuth();
+  const history = useHistory();
+
+  const handlerForSponsor = () => {
+     !currentUser? 
+     history.push("/Login"):
+     history.push("/ForSponsors");
+  }
+
+  const handlerForCharities = () => {
+    !currentUser? 
+    history.push("/Login"): 
+    history.push("/ForCharities");
+ }
+
   return (
     <Jumbotron.Container>
       <Jumbotron>
@@ -22,18 +41,22 @@ export function JumbotronContainer() {
             Plea and gratitude work hand in hand. Whether you are a charity or a
             company, find sponsors and initiatives that match your values
           </Jumbotron.SubTitle>
-          <Jumbotron.ButtonLink
+
+          <Jumbotron.ButtonLink onClick={handlerForSponsor} alt="For sponsors"> For Sponsors</Jumbotron.ButtonLink>
+          <Jumbotron.ButtonLink onClick={handlerForCharities} alt="For charities"> For Charities</Jumbotron.ButtonLink>
+          
+          {/* <Jumbotron.ButtonLink
             href="/prettyplease-frontend/#/ForSponsors"
             alt="For sponsors"
           >
             For Sponsors
-          </Jumbotron.ButtonLink>
-          <Jumbotron.ButtonLink
+          </Jumbotron.ButtonLink> */}
+          {/* <Jumbotron.ButtonLink
             href="/prettyplease-frontend/#/ForCharities"
             alt="For charities"
           >
             For Charities
-          </Jumbotron.ButtonLink>
+          </Jumbotron.ButtonLink> */}
         </Jumbotron.Pane>
       </Jumbotron>
       <Jumbotron.Section>
