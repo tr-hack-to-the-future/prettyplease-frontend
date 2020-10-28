@@ -30,7 +30,8 @@ export const Item = styled.div`
 `;
 
 export const Container = styled.section`
-  padding-top: 138px;
+  padding-top: 160px;
+  background: #f7f6f5;
   @media (max-width: 1000px) {
     margin-bottom: 100px;
   }

@@ -29,7 +29,9 @@
   color: #333;
   transform: translateY(0);
   transition: transform 0.6s ease;
+  
 }
+
 
 .header.shadow {
   box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);

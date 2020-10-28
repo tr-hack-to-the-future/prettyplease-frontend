@@ -17,6 +17,10 @@ export function JumbotronContainer() {
     !currentUser ? history.push("/Login") : history.push("/ForCharities");
   };
 
+  const handlerNewRequest = () => {
+    !currentUser ? history.push("/Login") : history.push("/NewFund");
+  };
+
   return (
     <Jumbotron.Container>
       <Jumbotron>
@@ -59,7 +63,10 @@ export function JumbotronContainer() {
           sponsor: wear your <Emoji symbol="❤️" label="heart" />
           on your sleeve.
         </Jumbotron.Text>
-        <Jumbotron.ButtonLink alt="Fund Request">
+        <Jumbotron.ButtonLink 
+        onClick={handlerNewRequest}
+        alt="Fund Request">
+          {" "}
           Fund Request
         </Jumbotron.ButtonLink>
       </Jumbotron.Section>

@@ -69,10 +69,13 @@ function PPNavbar() {
     }
   }
 
+  
+
   return (
     <Router>
       <div className={`header ${hiddenStyle} ${shadowStyle}`}>
         <Navbar className="navbar" collapseOnSelect expand="lg">
+          
           <Navbar.Brand className="logo" href="/prettyplease-frontend">
             <h1>
               Pretty{" "}
