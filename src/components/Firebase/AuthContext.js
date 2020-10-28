@@ -99,7 +99,7 @@ export function AuthProvider({ children }) {
       });
     });
   }
-  //To get Sponsor Offer Data
+  //To get Sponsor Offer Data for Charity
   function getSponsorOffers() {
     const chofferdata = axios
       .get(
@@ -110,6 +110,23 @@ export function AuthProvider({ children }) {
         // setSponsorOffers(
         //   response.data.filter((offer) => offer.requestStatus === "OPEN")
         setSponsorOffers(response.data)
+      )
+
+      .catch((error) => console.log(error));
+    return chofferdata;
+  }
+  //To get Requests Raised Data for Charity
+  let [charityReq, setCharityReq] = useState([]);
+  function getCharityRequests() {
+    const chofferdata = axios
+      .get(
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/charityrequests/" +
+          currentUserID
+      )
+      .then((response) =>
+        // setSponsorOffers(
+        //   response.data.filter((offer) => offer.requestStatus === "OPEN")
+        setCharityReq(response.data)
       )
 
       .catch((error) => console.log(error));
@@ -214,6 +231,8 @@ export function AuthProvider({ children }) {
     getOffers,
     offers,
     createOffer,
+    charityReq,
+    getCharityRequests,
   };
   return (
     <AuthContext.Provider value={value}>
