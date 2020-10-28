@@ -59,7 +59,9 @@ export function JumbotronContainer() {
           sponsor: wear your <Emoji symbol="🐑" label="sheep" />
           on your sleeve
         </Jumbotron.Text>
-        <Jumbotron.ButtonLink>Fund Request</Jumbotron.ButtonLink>
+        <Jumbotron.ButtonLink alt="Fund Request">
+          Fund Request
+        </Jumbotron.ButtonLink>
       </Jumbotron.Section>
     </Jumbotron.Container>
   );
