@@ -37,10 +37,10 @@ export default function CharityAcceptedOffers() {
             <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <Col className="col-auto flex-column">
                 <img
-                  src={card.charityImageUrl}
-                  width="200"
-                  height="200"
-                  alt={card.charityName}
+                  src={card.sponsorImageUrl}
+                  width="250"
+                  height="250"
+                  alt={card.sponsorName}
                 />
               </Col>
               <Col className="col p-4 d-flex flex-column position-static">
