@@ -4,12 +4,9 @@ export const Container = styled.div`
   display: flex;
   max-width: 1000px;
   flex-direction: column;
-  padding: 70px 20px;
   margin: auto;
-
-  @media (max-width: 1000px) {
-    padding: 70px 20px 70px 30px;
-  }
+  padding-top: 30px;
+  padding-left: 58px;
 `;
 
 export const Column = styled.div`

@@ -4,7 +4,8 @@ const Emoji = props => (
   <span
     className="emoji"
     style={{
-      paddingright: "10px"
+      paddingRight: "5px",
+      border: "1px bold black"
     }}
     role="img"
     aria-label={props.label ? props.label : ""}

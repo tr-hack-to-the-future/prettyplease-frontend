@@ -24,16 +24,13 @@ export const Pane = styled.div`
 `;
 export const Item = styled.div`
   display: flex;
-  border-bottom: 1px dashed coral;
   padding: 50px 5%;
   color: black;
   overflow: hidden;
 `;
 
 export const Container = styled.section`
-  background-color: white;
-  padding-top: 180px;
-
+  padding-top: 138px;
   @media (max-width: 1000px) {
     margin-bottom: 100px;
   }
@@ -54,7 +51,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h2`
   text-align: justify;
   font-size: 1.85rem;
-  line-height: 1.2;
+  line-height: 1;
   padding-bottom: 35px;
   padding-top: 25px;
 
@@ -76,16 +73,28 @@ export const FigCaption = styled.p`
 `;
 
 export const Section = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 80%;
-  padding: 100px 55px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 45px 100px 80px 100px;
+  @media (max-width: 1000px) {
+    width: 100%;
+    padding: 45px;
+    text-align: center;
+    fon-size: 1px;
+  }
 `;
 export const Text = styled.p`
-  font-size: 1.25rem;
+  font-size: 1.8em;
+  margin: 50px;
   line-height: 1.1;
+  font-style: bold;
   text-align: justify;
+
+  @media (max-width: 1000px) {
+    font-size: 1.2em;
+    margin: 0 10px 20px 10px;
+  }
 `;
 
 export const ButtonLink = styled.a`
@@ -104,9 +113,6 @@ export const ButtonLink = styled.a`
   &:hover {
     color: white;
     text-decoration: none !important;
-    transform: translate(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  }
   }
   @media (max-width: 600px) {
     margin-left: 1px;

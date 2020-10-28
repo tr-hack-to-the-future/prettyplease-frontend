@@ -6,21 +6,16 @@ import Jumbotron from "../components/jumbotron";
 import Emoji from "../helpers/emoji";
 
 export function JumbotronContainer() {
-
   const { currentUser } = useAuth();
   const history = useHistory();
 
   const handlerForSponsor = () => {
-     !currentUser? 
-     history.push("/Login"):
-     history.push("/ForSponsors");
-  }
+    !currentUser ? history.push("/Login") : history.push("/ForSponsors");
+  };
 
   const handlerForCharities = () => {
-    !currentUser? 
-    history.push("/Login"): 
-    history.push("/ForCharities");
- }
+    !currentUser ? history.push("/Login") : history.push("/ForCharities");
+  };
 
   return (
     <Jumbotron.Container>
@@ -42,41 +37,29 @@ export function JumbotronContainer() {
             company, find sponsors and initiatives that match your values
           </Jumbotron.SubTitle>
 
-          <Jumbotron.ButtonLink onClick={handlerForSponsor} alt="For sponsors"> For Sponsors</Jumbotron.ButtonLink>
-          <Jumbotron.ButtonLink onClick={handlerForCharities} alt="For charities"> For Charities</Jumbotron.ButtonLink>
-          
-          {/* <Jumbotron.ButtonLink
-            href="/prettyplease-frontend/#/ForSponsors"
-            alt="For sponsors"
-          >
+          <Jumbotron.ButtonLink onClick={handlerForSponsor} alt="For sponsors">
+            {" "}
             For Sponsors
-          </Jumbotron.ButtonLink> */}
-          {/* <Jumbotron.ButtonLink
-            href="/prettyplease-frontend/#/ForCharities"
+          </Jumbotron.ButtonLink>
+          <Jumbotron.ButtonLink
+            onClick={handlerForCharities}
             alt="For charities"
           >
+            {" "}
             For Charities
-          </Jumbotron.ButtonLink> */}
+          </Jumbotron.ButtonLink>
         </Jumbotron.Pane>
       </Jumbotron>
       <Jumbotron.Section>
         <Jumbotron.Text>
           At Pretty <Emoji symbol="🙏" label="please" />
-          asking is not a taboo. We start from the principle that{" "}
-          <b
-            style={{
-              textWeight: "bold",
-              textDecoration: "underline yellow"
-            }}
-          >
-            if you don't ask you don't get.
-          </b>
-          <Jumbotron.Title>Let generosity be a Constant!</Jumbotron.Title>
-          You are a charity:connect with the most ethical organisation globally.
-          You are a sponsor: wear your <Emoji symbol="🐑" label="sheep" />
+          asking is not a taboo. We start from the principle that if you don't
+          ask you don't get.Let generosity be a Constant. You are a
+          charity:connect with the most ethical organisation globally. You are a
+          sponsor: wear your <Emoji symbol="🐑" label="sheep" />
           on your sleeve
         </Jumbotron.Text>
-        <Jumbotron.ButtonLink>Try this</Jumbotron.ButtonLink>
+        <Jumbotron.ButtonLink>Fund Request</Jumbotron.ButtonLink>
       </Jumbotron.Section>
     </Jumbotron.Container>
   );
