@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   display: flex;
-  border-bottom: 1px dashed #222;
-  padding-top: 180px;
 `;
 
 export const Frame = styled.div`
@@ -27,12 +25,12 @@ export const Item = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 50px;
+  font-size: 2rem;
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 8px;
   color: black;
-  text-align: left;
+  text-align: center;
 
   @media (max-width: 600px) {
     font-size: 35px;
@@ -60,7 +58,7 @@ export const Header = styled.div`
 export const Body = styled.div`
   max-width: 1200px;
   transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);
-  font-size: 17px;
+  font-size: 1.85rem;
   font-weight: normal;
   line-height: normal;
   background: #f7f6f5;
