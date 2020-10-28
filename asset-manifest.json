@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/prettyplease-frontend/static/css/main.0464463f.chunk.css",
-    "main.js": "/prettyplease-frontend/static/js/main.451de7b2.chunk.js",
-    "main.js.map": "/prettyplease-frontend/static/js/main.451de7b2.chunk.js.map",
+    "main.css": "/prettyplease-frontend/static/css/main.736e6a99.chunk.css",
+    "main.js": "/prettyplease-frontend/static/js/main.8f11614a.chunk.js",
+    "main.js.map": "/prettyplease-frontend/static/js/main.8f11614a.chunk.js.map",
     "runtime-main.js": "/prettyplease-frontend/static/js/runtime-main.7d629949.js",
     "runtime-main.js.map": "/prettyplease-frontend/static/js/runtime-main.7d629949.js.map",
     "static/css/2.ce2397d7.chunk.css": "/prettyplease-frontend/static/css/2.ce2397d7.chunk.css",
-    "static/js/2.c12662c1.chunk.js": "/prettyplease-frontend/static/js/2.c12662c1.chunk.js",
-    "static/js/2.c12662c1.chunk.js.map": "/prettyplease-frontend/static/js/2.c12662c1.chunk.js.map",
+    "static/js/2.dd150f27.chunk.js": "/prettyplease-frontend/static/js/2.dd150f27.chunk.js",
+    "static/js/2.dd150f27.chunk.js.map": "/prettyplease-frontend/static/js/2.dd150f27.chunk.js.map",
     "index.html": "/prettyplease-frontend/index.html",
     "static/css/2.ce2397d7.chunk.css.map": "/prettyplease-frontend/static/css/2.ce2397d7.chunk.css.map",
-    "static/css/main.0464463f.chunk.css.map": "/prettyplease-frontend/static/css/main.0464463f.chunk.css.map",
-    "static/js/2.c12662c1.chunk.js.LICENSE.txt": "/prettyplease-frontend/static/js/2.c12662c1.chunk.js.LICENSE.txt",
+    "static/css/main.736e6a99.chunk.css.map": "/prettyplease-frontend/static/css/main.736e6a99.chunk.css.map",
+    "static/js/2.dd150f27.chunk.js.LICENSE.txt": "/prettyplease-frontend/static/js/2.dd150f27.chunk.js.LICENSE.txt",
     "static/media/999club.43fd94d0.jpg": "/prettyplease-frontend/static/media/999club.43fd94d0.jpg",
     "static/media/abstract-logo.jpg": "/prettyplease-frontend/static/media/abstract-logo.f419cc51.jpg",
     "static/media/abstract-logo2.jpg": "/prettyplease-frontend/static/media/abstract-logo2.27447ea1.jpg",
@@ -26,8 +26,8 @@
   "entrypoints": [
     "static/js/runtime-main.7d629949.js",
     "static/css/2.ce2397d7.chunk.css",
-    "static/js/2.c12662c1.chunk.js",
-    "static/css/main.0464463f.chunk.css",
-    "static/js/main.451de7b2.chunk.js"
+    "static/js/2.dd150f27.chunk.js",
+    "static/css/main.736e6a99.chunk.css",
+    "static/js/main.8f11614a.chunk.js"
   ]
 }
