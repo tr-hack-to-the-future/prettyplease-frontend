@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./CharityPage.css";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 
 import { useAuth } from "./Firebase/AuthContext";
 
@@ -22,14 +23,18 @@ function CharityPage() {
       <div className="ReviewAccept">
         <Row className="justify-content-md-center mt-4">
           <h3>
-            {openOffers.length > 1
-              ? "You have received {openOffers.length} offers"
-              : "We will update here as soon as you receive offers!"}
+            {openOffers.length === 0
+              ? "We will update here as soon as you receive offers!"
+              : openOffers.length === 1
+              ? "You have received an offer"
+              : "You have received " + openOffers.length + " offers"}
           </h3>
         </Row>
 
-        <Row>
-          <DisplayCard sponsor={openOffers}></DisplayCard>
+        <Row className="justify-content-md-center mt-4">
+          <Card>
+            <DisplayCard sponsor={openOffers}></DisplayCard>
+          </Card>
         </Row>
       </div>
     </Container>

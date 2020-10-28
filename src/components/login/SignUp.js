@@ -24,6 +24,7 @@ export default function SignUp() {
     setDescription("");
 
     setUserType("sponsor");
+    setimageUrl("");
     setWebUrl("");
     setError("");
   };
@@ -137,7 +138,16 @@ export default function SignUp() {
               <option value="charity">I am a Fund Raiser/Charity</option>
             </Form.Control>
           </Form.Group>
-          <Form.File id="img-file" label="Upload your image" lang="en" custom />
+          <Form.Group controlId="imageUrl">
+            <Form.Label>Your Image Url</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="http://www.imageurl.com"
+              onChange={(event) => {
+                setimageUrl(event.target.value);
+              }}
+            />
+          </Form.Group>
 
           <Row className="justify-content-md-center mt-4">
             <Button

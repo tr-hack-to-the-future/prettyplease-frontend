@@ -17,24 +17,24 @@ import {
 
 function SponsorDetailsAccept() {
   let { id } = useParams();
-  let { sponsorOffers } = useAuth();
+  let { sponsorOffers, getSponsorOffers } = useAuth();
   let history = useHistory();
   let dispSponsor = sponsorOffers.filter(
     (offer) => offer.requestStatus === "OPEN"
   )[id - 1];
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  let { getSponsorOffers } = useAuth();
+  const handleClose = () => {
+    setShow(false);
+    getSponsorOffers().then(console.log(sponsorOffers));
+    history.goBack();
+  };
+
   const handleAccept = () => {
-    const requestId = {
-      requestId: dispSponsor.requestId,
-    };
-    const offerId = { offerId: dispSponsor.offerId };
     axios
       .put(
-        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/requests/" +dispSponsor.requestId
-      
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/requests/" +
+          dispSponsor.requestId
       )
       .then((response) => {
         console.log(response);
@@ -45,8 +45,8 @@ function SponsorDetailsAccept() {
       });
     axios
       .put(
-        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers/"+ dispSponsor.offerId
-        
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers/" +
+          dispSponsor.offerId
       )
       .then((response) => {
         console.log(response);
@@ -54,7 +54,7 @@ function SponsorDetailsAccept() {
       .catch((error) => {
         console.log(error);
       });
-      getSponsorOffers();
+    getSponsorOffers();
     setShow(true);
   };
 
@@ -68,7 +68,12 @@ function SponsorDetailsAccept() {
       <Row className="row justify-content-center mt-5 mb-4 text-primary">
         <h3>{dispSponsor.sponsorName}</h3>
       </Row>
-
+      <Row className="row justify-content-center mt-5 mb-4">
+        <p>
+          Interested in Sponsoring for Event : <br />
+          {dispSponsor.eventDescription}
+        </p>
+      </Row>
       <div className="rounded mx-auto d-block  text-center">
         <img
           src={dispSponsor.sponsorImageUrl}
@@ -88,7 +93,11 @@ function SponsorDetailsAccept() {
             </Button>
           </Link>
 
-          <Button variant="outline-primary ml-5" size="lg" onClick={handleAccept}>
+          <Button
+            variant="outline-primary ml-5"
+            size="lg"
+            onClick={handleAccept}
+          >
             Accept
           </Button>
           <Modal show={show} onHide={handleClose}>

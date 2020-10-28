@@ -11,24 +11,25 @@ import Card from "react-bootstrap/Card";
 import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
 
 export default function Requests() {
-  let { sponsorOffers, getSponsorOffers } = useAuth();
+  let { charityReq, getCharityRequests } = useAuth();
 
   useEffect(() => {
-    getSponsorOffers().then(console.log(sponsorOffers));
+    getCharityRequests().then(console.log(charityReq));
   }, []);
 
-  return sponsorOffers
-    .filter(
-      (offer, index, self) =>
-        index === self.findIndex((obj) => obj.requestId === offer.requestId)
-    )
-    .map((card, index) => (
-      
-        <div className="padding">
-          <Container>
-            <Row className="justify-content-md-center mt-4 mb-4">
-              <h3>Your Fund Requests</h3>
-            </Row>
+  return (
+    <Container>
+      <div className="padding">
+        <Row className="justify-content-md-center mt-4">
+          <h3>Your Fund Requests</h3>
+        </Row>
+        {charityReq
+          .filter(
+            (offer, index, self) =>
+              index ===
+              self.findIndex((obj) => obj.requestId === offer.requestId)
+          )
+          .map((card, index) => (
             <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <Col className="col-auto flex-column">
                 <img
@@ -60,8 +61,8 @@ export default function Requests() {
                 </Card.Body>
               </Col>
             </Row>
-          </Container>
-        </div>
-      
-    ));
+          ))}
+      </div>
+    </Container>
+  );
 }
