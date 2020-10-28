@@ -104,43 +104,47 @@ export function AuthProvider({ children }) {
     const chofferdata = axios
       .get(
         "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/charityoffers/" +
-        currentUserID
+          currentUserID
       )
       .then((response) =>
         // setSponsorOffers(
         //   response.data.filter((offer) => offer.requestStatus === "OPEN")
         setSponsorOffers(response.data)
-        )
-      
+      )
+
       .catch((error) => console.log(error));
     return chofferdata;
   }
-
 
   // For Sponsor API Calls
   // Fetch the requests from the API
   const [fundingRequests, setRequests] = useState([]);
   function getSponsorRequests() {
-    const openRequests =
-      axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUser.uid)
-        .then(response => setRequests(response.data))
-        .catch(error => console.log(error));
+    const openRequests = axios
+      .get(
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" +
+          currentUser.uid
+      )
+      .then((response) => setRequests(response.data))
+      .catch((error) => console.log(error));
     return openRequests;
   }
 
   // Fetch the offers for a sponsor from the API
   const [offers, setOffers] = useState([]);
   function getOffers() {
-    const offerData =
-      axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" + currentUser.uid)
-        .then(response => setOffers(response.data))
-        .catch(error => console.log(error));
+    const offerData = axios
+      .get(
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsoroffers/" +
+          currentUser.uid
+      )
+      .then((response) => setOffers(response.data))
+      .catch((error) => console.log(error));
     return offerData;
   }
 
   // Insert a new SponsorOffer row
   function createOffer(newOffer) {
-
     // // Promise testing example code
     // return new Promise((resolve, reject) => {
     //   console.log("POST offer " + JSON.stringify(newOffer));
@@ -150,11 +154,15 @@ export function AuthProvider({ children }) {
 
     // validate newOffer?
     console.log("POST offer " + JSON.stringify(newOffer));
-    const postData = axios.post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers", newOffer)
+    const postData = axios
+      .post(
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/offers",
+        newOffer
+      )
       // .then(response => axios.get("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsorrequests/" + currentUserID))
-      .then(response => getOffers())
+      .then((response) => getOffers())
       // .then ( response => setRequests(response.data))
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
     return postData;
   }
 
@@ -205,7 +213,7 @@ export function AuthProvider({ children }) {
     fundingRequests,
     getOffers,
     offers,
-    createOffer
+    createOffer,
   };
   return (
     <AuthContext.Provider value={value}>

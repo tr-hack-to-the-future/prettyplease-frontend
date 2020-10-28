@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/NavItem";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
@@ -14,18 +15,21 @@ import { useHistory } from "react-router-dom";
 
 export default function CharityAcceptedOffers() {
   let { sponsorOffers, getSponsorOffers } = useAuth();
-
-  const history = useHistory();
+  let [acceptedOffers, setAcceptedOffers] = useState(null);
+  
   useEffect(() => {
     getSponsorOffers().then(console.log(sponsorOffers));
-    sponsorOffers.filter((request) => request.requestStatus === "ACCEPTED");
+    
   }, []);
 
-  return sponsorOffers.map((card, index) => (
+  return sponsorOffers.filter( (request) =>
+  request.requestStatus === "ACCEPTED" &&
+  request.offerStatus === "ACCEPTED"
+).map((card, index) => (
     <div className="padding">
       <Container>
         <Row className="justify-content-md-center mt-4 mb-4">
-          Accepted Offers
+          <h3>Accepted Offers</h3>
         </Row>
         <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <Col className="col-auto flex-column">
