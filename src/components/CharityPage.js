@@ -22,9 +22,8 @@ function CharityPage() {
       <div className="ReviewAccept">
         <Row className="justify-content-md-center mt-4">
           <h3>
-            {openOffers.length > 1
-              ? "You have received {openOffers.length} offers"
-              : "We will update here as soon as you receive offers!"}
+            {openOffers.length ===0 ?"We will update here as soon as you receive offers!"
+              : (openOffers.length===1?"You have received an offer":"You have received "+ openOffers.length+" offers")} 
           </h3>
         </Row>
 
