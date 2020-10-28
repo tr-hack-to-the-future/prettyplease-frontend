@@ -15,7 +15,7 @@ import { useHistory } from "react-router-dom";
 
 export default function CharityAcceptedOffers() {
   let { sponsorOffers, getSponsorOffers } = useAuth();
- // let [acceptedOffers, setAcceptedOffers] = useState(null);
+  // let [acceptedOffers, setAcceptedOffers] = useState(null);
 
   useEffect(() => {
     getSponsorOffers().then(console.log(sponsorOffers));
@@ -25,16 +25,15 @@ export default function CharityAcceptedOffers() {
     <Container>
       <div className="padding">
         <Row className="justify-content-md-center mt-4">
-      <h3>Accepted Offers</h3>
-      </Row>
-      {sponsorOffers
-        .filter(
-          (request) =>
-            request.requestStatus === "ACCEPTED" &&
-            request.offerStatus === "ACCEPTED"
-        )
-        .map((card, index) => (
-          
+          <h3>Accepted Offers</h3>
+        </Row>
+        {sponsorOffers
+          .filter(
+            (request) =>
+              request.requestStatus === "ACCEPTED" &&
+              request.offerStatus === "ACCEPTED"
+          )
+          .map((card, index) => (
             <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <Col className="col-auto flex-column">
                 <img
@@ -68,9 +67,8 @@ export default function CharityAcceptedOffers() {
                 </Card.Body>
               </Col>
             </Row>
-          
-        ))}
-        </div>
+          ))}
+      </div>
     </Container>
   );
 }

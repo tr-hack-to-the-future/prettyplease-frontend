@@ -17,7 +17,7 @@ import {
 
 function SponsorDetailsAccept() {
   let { id } = useParams();
-  let { sponsorOffers,getSponsorOffers } = useAuth();
+  let { sponsorOffers, getSponsorOffers } = useAuth();
   let history = useHistory();
   let dispSponsor = sponsorOffers.filter(
     (offer) => offer.requestStatus === "OPEN"
@@ -28,9 +28,8 @@ function SponsorDetailsAccept() {
     setShow(false);
     getSponsorOffers().then(console.log(sponsorOffers));
     history.goBack();
-    
   };
- 
+
   const handleAccept = () => {
     axios
       .put(
@@ -69,7 +68,12 @@ function SponsorDetailsAccept() {
       <Row className="row justify-content-center mt-5 mb-4 text-primary">
         <h3>{dispSponsor.sponsorName}</h3>
       </Row>
-
+      <Row className="row justify-content-center mt-5 mb-4">
+        <p>
+          For Event : <br />
+          {dispSponsor.eventDescription}
+        </p>
+      </Row>
       <div className="rounded mx-auto d-block  text-center">
         <img
           src={dispSponsor.sponsorImageUrl}
