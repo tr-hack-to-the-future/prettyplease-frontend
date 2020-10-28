@@ -34,7 +34,7 @@ export function JumbotronContainer() {
           <Jumbotron.Title>Actions Speak louder than emojis</Jumbotron.Title>
           <Jumbotron.SubTitle>
             Plea and gratitude work hand in hand. Whether you are a charity or a
-            company, find sponsors and initiatives that match your values
+            company, find sponsors and initiatives that match your values.
           </Jumbotron.SubTitle>
 
           <Jumbotron.ButtonLink onClick={handlerForSponsor} alt="For sponsors">
@@ -54,10 +54,10 @@ export function JumbotronContainer() {
         <Jumbotron.Text>
           At Pretty <Emoji symbol="🙏" label="please" />
           asking is not a taboo. We start from the principle that if you don't
-          ask you don't get.Let generosity be a Constant. You are a
-          charity:connect with the most ethical organisation globally. You are a
+          ask, you don't get. Let generosity be a constant. You are a
+          charity: connect with the most ethical organisations globally. You are a
           sponsor: wear your <Emoji symbol="🐑" label="sheep" />
-          on your sleeve
+          on your sleeve.
         </Jumbotron.Text>
         <Jumbotron.ButtonLink alt="Fund Request">
           Fund Request
