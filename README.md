@@ -18,6 +18,20 @@ This project uses the following technology:
 
 ![alt text](https://github.com/tr-hack-to-the-future/prettyplease-frontend/blob/master/pretty-please_screenshot.png)
 
+### Environment variables
+You will need to add the environment variables in a .env.local file in project root folder.
+This file will contain the Firebase configuration credentials.
+
+REACT_APP_API_KEY= "XXXXxxxx"
+REACT_APP_AUTH_DOMAIN= "xxxxXXXX.firebaseapp.com"
+REACT_APP_DATABASE_URL="https://xxxXXXX.firebaseio.com"
+REACT_APP_PROJECT_ID= "xxxxXXXX"
+REACT_APP_STORAGE_BUCKET= "xxxxXXXX.appspot.com"
+REACT_APP_MESSAGING_SENDER_ID= "xxxxXXXX"
+REACT_APP_ID= "xxxxXXXX"
+REACT_MEAS_ID= "xxxxXXXX"
+
+
 ### Running the application locally
 
 [Node.js](https://nodejs.org/en/) must be installed if not already.
