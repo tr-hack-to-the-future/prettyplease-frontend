@@ -11,7 +11,7 @@ export default function Requests() {
   let { charityReq, getCharityRequests } = useAuth();
 
   useEffect(() => {
-    getCharityRequests().then(console.log(charityReq));
+    getCharityRequests();
   }, []);
 
   return (

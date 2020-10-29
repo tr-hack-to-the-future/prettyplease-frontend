@@ -12,7 +12,7 @@ function CharityPage() {
     (offers) => offers.requestStatus === "OPEN"
   );
   useEffect(() => {
-    getSponsorOffers().then(console.log(sponsorOffers));
+    getSponsorOffers();
   }, []);
 
   return (
