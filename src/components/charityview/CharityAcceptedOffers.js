@@ -1,11 +1,10 @@
-import React, { useEffect} from "react";
-import "./charityview.css";
+import React, { useEffect } from "react";
+import "./CharityView.css";
 import Container from "react-bootstrap/Container";
 import { useAuth } from "../Firebase/AuthContext";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-
 import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
 
 export default function CharityAcceptedOffers() {
@@ -50,7 +49,10 @@ export default function CharityAcceptedOffers() {
                     </Col>
                     <Col>
                       <Card.Text>
-                        Duration: {(card.durationInYears)?getFormattedDuration(card.durationInYears):"One-off Event"}
+                        Duration:{" "}
+                        {card.durationInYears
+                          ? getFormattedDuration(card.durationInYears)
+                          : "One-off Event"}
                       </Card.Text>
                     </Col>
                   </Row>

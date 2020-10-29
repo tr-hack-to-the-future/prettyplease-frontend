@@ -1,8 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, database, storage } from "./firebase";
+import { auth, database } from "./firebase";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { ArrowAltCircleRight } from "@styled-icons/fa-regular";
 
 const AuthContext = React.createContext();
 
