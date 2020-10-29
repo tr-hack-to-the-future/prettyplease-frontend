@@ -56,16 +56,14 @@ export function JumbotronContainer() {
       </Jumbotron>
       <Jumbotron.Section>
         <Jumbotron.Text>
-          At Pretty <Emoji symbol="🙏" label="please" />
+          At Pretty <Emoji label="please" symbol="🙏" />
           asking is not a taboo. We start from the principle that if you don't
-          ask, you don't get. Let generosity be a constant. You are a
-          charity: connect with the most ethical organisations globally. You are a
-          sponsor: wear your <Emoji symbol="❤️" label="heart" />
+          ask, you don't get. Let generosity be a constant. You are a charity:
+          connect with the most ethical organisations globally. You are a
+          sponsor: wear your <Emoji label="heart" symbol="❤️"  />
           on your sleeve.
         </Jumbotron.Text>
-        <Jumbotron.ButtonLink 
-        onClick={handlerNewRequest}
-        alt="Fund Request">
+        <Jumbotron.ButtonLink onClick={handlerNewRequest} alt="Fund Request">
           {" "}
           Fund Request
         </Jumbotron.ButtonLink>
