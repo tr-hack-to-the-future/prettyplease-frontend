@@ -55,7 +55,7 @@ export default function CharityAcceptedOffers() {
                     </Col>
                     <Col>
                       <Card.Text>
-                        Duration: {getFormattedDuration(card.durationInYears)}
+                        Duration: {(card.durationInYears)?getFormattedDuration(card.durationInYears):"One-off Event"}
                       </Card.Text>
                     </Col>
                   </Row>
