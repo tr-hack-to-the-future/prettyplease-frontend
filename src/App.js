@@ -1,10 +1,7 @@
-import React, { Component, useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Main from "./Main.js";
 //Authentication imports
 import { AuthProvider } from "./components/Firebase/AuthContext";
-import { useAuth } from "./components/Firebase/AuthContext";
-import PrivateRoute from "./components/login/PrivateRoute";
 
 import Login from "./components/login/Login";
 import SignUp from "./components/login/SignUp.js";
@@ -24,41 +21,16 @@ import OfferDetailsPending from "./components/offerdetailspending/OfferDetailsPe
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
 import SponsorPagePending from "./components/sponsorpagepending/SponsorPagePending";
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
-import GetSponsorOffers from "./components/CharityPage";
 
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
-import Faqs from "./pages/faqs";
+
 import Campaigns from "./pages/campaigns";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
-  const [charitysp, setcharity] = useState([
-    {
-      sponsorName: "Financing",
-      sponsorDesc: "This is description about Financing sponsor",
-      sponsorImg: require("./assets/images/abstract-logo.jpg"),
-    },
-    {
-      sponsorName: "Telecom",
-      sponsorDesc: "This is description about Telecom Sponsor",
-      sponsorImg: require("./assets/images/abstract-logo2.jpg"),
-    },
-    {
-      sponsorName: "Sports Brand",
-      sponsorDesc: "This is description about Sports goods Sponsor",
-      sponsorImg: require("./assets/images/abstract-logo3.jpg"),
-    },
-    {
-      sponsorName: "Manufacturing Brand",
-      sponsorDesc:
-        "This is description about Manufacturing sponsor and their values",
-      sponsorImg: require("./assets/images/abstract-logo4.jpg"),
-    },
-  ]);
-
   return (
     <Router>
       <AuthProvider>
@@ -126,9 +98,6 @@ export default function App() {
           <Route exact path="/ForCharities">
             <CharityPage />
           </Route>
-          {/* <Route exact path="/GetSponsorOffers">
-              <GetSponsorOffers />
-            </Route> */}
           <Route exact path="/FundRequests">
             <Requests />
           </Route>
