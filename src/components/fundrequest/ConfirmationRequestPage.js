@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
@@ -16,7 +16,4 @@ function ConfirmationRequestPage() {
     </div>
   );
 }
-export default ConfirmationRequestPage
-
-
-
+export default ConfirmationRequestPage;

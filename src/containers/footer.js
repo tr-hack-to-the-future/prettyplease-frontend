@@ -16,12 +16,20 @@ export function FooterContainer() {
           </Footer.Text>
         </Footer.Column>
         <Footer.Column>
-          <Footer.Link href="#">For Companies</Footer.Link>
-          <Footer.Link href="#">For Charities</Footer.Link>
+          <Footer.Link href="/prettyplease-frontend/#/ForSponsors">
+            For Companies
+          </Footer.Link>
+          <Footer.Link href="/prettyplease-frontend/#/ForCharities">
+            For Charities
+          </Footer.Link>
         </Footer.Column>
         <Footer.Column>
-          <Footer.Link href="#">Campaigns</Footer.Link>
-          <Footer.Link href="#">Contact Us</Footer.Link>
+          <Footer.Link href="/prettyplease-frontend/#/Campaigns">
+            Campaigns
+          </Footer.Link>
+          <Footer.Link href="/prettyplease-frontend/#/AboutUs">
+            Contact Us
+          </Footer.Link>
         </Footer.Column>
         <Footer.Column>
           <Footer.Link href="#">

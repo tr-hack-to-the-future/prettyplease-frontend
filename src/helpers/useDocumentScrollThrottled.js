@@ -9,7 +9,7 @@ function useDocumentScrollThrottled(callback) {
     const { scrollTop: currentScrollTop } =
       document.documentElement || document.body;
 
-    setScrollPosition(previousPosition => {
+    setScrollPosition((previousPosition) => {
       previousScrollTop = previousPosition;
       return currentScrollTop;
     });

@@ -1,9 +1,8 @@
 import React from "react";
 import { useAuth } from "../components/Firebase/AuthContext";
 import { useHistory } from "react-router-dom";
-
 import Jumbotron from "../components/jumbotron";
-import Emoji from "../helpers/emoji";
+import Emoji from "../Helpers/emoji";
 
 export function JumbotronContainer() {
   const { currentUser } = useAuth();
@@ -58,14 +57,12 @@ export function JumbotronContainer() {
         <Jumbotron.Text>
           At Pretty <Emoji symbol="🙏" label="please" />
           asking is not a taboo. We start from the principle that if you don't
-          ask, you don't get. Let generosity be a constant. You are a
-          charity: connect with the most ethical organisations globally. You are a
+          ask, you don't get. Let generosity be a constant. You are a charity:
+          connect with the most ethical organisations globally. You are a
           sponsor: wear your <Emoji symbol="❤️" label="heart" />
           on your sleeve.
         </Jumbotron.Text>
-        <Jumbotron.ButtonLink 
-        onClick={handlerNewRequest}
-        alt="Fund Request">
+        <Jumbotron.ButtonLink onClick={handlerNewRequest} alt="Fund Request">
           {" "}
           Fund Request
         </Jumbotron.ButtonLink>

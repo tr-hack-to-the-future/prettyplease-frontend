@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, database } from "./firebase";
+import { auth, database } from "./Firebase";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -106,8 +106,6 @@ export function AuthProvider({ children }) {
           currentUserID
       )
       .then((response) =>
-        // setSponsorOffers(
-        //   response.data.filter((offer) => offer.requestStatus === "OPEN")
         setSponsorOffers(response.data)
       )
 
@@ -123,8 +121,6 @@ export function AuthProvider({ children }) {
           currentUserID
       )
       .then((response) =>
-        // setSponsorOffers(
-        //   response.data.filter((offer) => offer.requestStatus === "OPEN")
         setCharityReq(response.data)
       )
 
@@ -161,14 +157,6 @@ export function AuthProvider({ children }) {
 
   // Insert a new SponsorOffer row
   function createOffer(newOffer) {
-    // // Promise testing example code
-    // return new Promise((resolve, reject) => {
-    //   console.log("POST offer " + JSON.stringify(newOffer));
-    //   resolve(newOffer.sponsorId);
-    //   reject("test failed POST offer");
-    // });
-
-    // validate newOffer?
     console.log("POST offer " + JSON.stringify(newOffer));
     const postData = axios
       .post(
@@ -181,34 +169,6 @@ export function AuthProvider({ children }) {
       .catch((error) => console.log(error));
     return postData;
   }
-
-  /* 
-    let userrec = {
-      sponsorId : "SPON24889999999",
-      name: "Postman's Horse Farm Organisation",
-      description: "Etiam vel nisi lacinia, luctus turpis et, rutrum ipsum. ",
-      imageUrl: "./assets/images/abstract-logo1.jpg",
-      webUrl: "test post web url"
-  }
-  axios
-    .post("https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors", userrec)
-    .then(console.log("Successfully Posted dummy data"))
-    .catch(error => console.log(error)); */
-
-  /* function readUserData() {
-    let userId = currentUser.uid;
-    return database
-      .ref("/users/" + userId)
-      .once("value")
-      .then(function (snapshot) {
-        setUserType(snapshot.val().type);
-      });
-  } */
-
-  /* function signnow(email, password) {
-    login(email, password);
-  } */
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setLoading(false);

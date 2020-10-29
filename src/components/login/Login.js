@@ -1,10 +1,9 @@
-import React, { Component, useState } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Form, Button } from "react-bootstrap";
 import "./login.css";
 import { useAuth } from "../Firebase/AuthContext";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
-import SignUp from "./SignUp";
 
 export default function Login() {
   const [emailid, setEmailId] = useState("");
@@ -18,9 +17,7 @@ export default function Login() {
   };
   let history = useHistory();
 
-  let location = useLocation();
-  let { from } = location.state || { from: { pathname: "/" } };
-  const { login, userType } = useAuth();
+  const { login } = useAuth();
   function handlerSubmit(event) {
     event.preventDefault();
     try {
@@ -29,7 +26,6 @@ export default function Login() {
       login(emailid, password);
 
       INITIAL_STATE();
-      // (userType==='charity')?history.push('/ForCharities'):history.push('/ForSponsor');
       history.push("/");
     } catch {
       setError("Failed to Sign In");

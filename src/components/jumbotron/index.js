@@ -10,8 +10,8 @@ import {
   ButtonLink,
   Text,
   Section,
-  Pane
-} from "./styles/jumbotron";
+  Pane,
+} from "./styles/Jumbotron";
 
 export default function Jumbotron({ children, ...restProps }) {
   return (

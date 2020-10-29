@@ -1,16 +1,12 @@
 import React from "react";
 import Main from "./Main.js";
-//Authentication imports
 import { AuthProvider } from "./components/Firebase/AuthContext";
-
 import Login from "./components/login/Login";
 import SignUp from "./components/login/SignUp.js";
-
 import SponsorPage from "./components/sponsorpage/SponsorPage";
 import CharityPage from "./components/CharityPage";
 import Requests from "./components/charityview/Requests";
 import CharityAcceptedOffers from "./components/charityview/CharityAcceptedOffers";
-
 import FundRequest from "./components/fundrequest/FundRequest";
 import CharityProfilePage from "./components/profile/CharityProfilePage";
 import SponsorProfilePage from "./components/profile/SponsorProfilePage";
@@ -21,12 +17,11 @@ import OfferDetailsPending from "./components/offerdetailspending/OfferDetailsPe
 import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
 import SponsorPagePending from "./components/sponsorpagepending/SponsorPagePending";
 import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
-
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
-
-import Campaigns from "./pages/campaigns";
+import Campaigns from "./pages/Campaigns";
+import ContactUs from "./pages/ContactUs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -36,12 +31,12 @@ export default function App() {
       <AuthProvider>
         <PPNavbar />
         <Switch>
-          <Route exact path="/" component={Main}>
-            {/* {" "} */}
-            <Main />
-            <Route path="/campaigns">
-              <Campaigns />
-            </Route>
+          <Route exact path="/" component={Main}></Route>
+          <Route path="/Campaigns">
+            <Campaigns />
+          </Route>
+          <Route path="/ContactUs">
+            <ContactUs />
           </Route>
           <Route exact path="/Login">
             <Login />

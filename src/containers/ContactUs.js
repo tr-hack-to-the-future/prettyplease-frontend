@@ -1,5 +1,5 @@
 import React from "react";
 
-export function CampaignsContainer() {
+export function ContactUsContainer() {
   return <div>Coming Soon</div>;
 }

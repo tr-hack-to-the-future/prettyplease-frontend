@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Container, Row, Form, Button, Card, Alert } from "react-bootstrap";
+import { Container, Row, Form, Button } from "react-bootstrap";
 import "./login.css";
-
 import { useAuth } from "../Firebase/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function SignUp() {
   const [emailid, setEmailId] = useState("");
@@ -22,13 +21,12 @@ export default function SignUp() {
     setPasswordConfirm("");
     setName("");
     setDescription("");
-
     setUserType("sponsor");
     setimageUrl("");
     setWebUrl("");
     setError("");
   };
-  const { userType, currentUser, signalong } = useAuth();
+  const { signalong } = useAuth();
 
   let history = useHistory();
   function handleOption(event) {
@@ -39,10 +37,8 @@ export default function SignUp() {
       return setError("Passwords dont match");
     }
     event.preventDefault();
-
     try {
       setError("");
-
       signalong(
         emailid,
         password,
@@ -53,10 +49,8 @@ export default function SignUp() {
         imageUrl,
         webUrl
       );
-
       INITIAL_STATE();
       history.push("/");
-      //(usertype==='sponsor')?history.push("/ForSponsors"):history.push("/ForCharities");
     } catch (e) {
       setError(e);
     }

@@ -8,7 +8,7 @@ import image4 from "../assets/images/plasticoceans.jpg";
 import image5 from "../assets/images/999club.jpg";
 import image6 from "../assets/images/hackneyfoodbank.jpg";
 
-export default function() {
+export default function styledCarousel() {
   return (
     <>
       <h3 className="carouselTitle"> Past Campaigns</h3>
