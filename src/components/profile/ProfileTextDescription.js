@@ -53,7 +53,7 @@ function ProfileTextDescription({ detailsProfile, changeProfile }) {
                             // src={image}
                             width="200"
                             height="200"
-                            alt={detailsProfile.map((data) => data.imageUrl)}
+                            alt={detailsProfile.map((data) => data.name)}
                         // alt={image}
                         />
                     </Col>
