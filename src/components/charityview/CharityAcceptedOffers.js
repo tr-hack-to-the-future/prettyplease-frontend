@@ -1,17 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect} from "react";
 import "./charityview.css";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import { useAuth } from "../Firebase/AuthContext";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/NavItem";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 
 import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
-import { useHistory } from "react-router-dom";
 
 export default function CharityAcceptedOffers() {
   let { sponsorOffers, getSponsorOffers } = useAuth();
