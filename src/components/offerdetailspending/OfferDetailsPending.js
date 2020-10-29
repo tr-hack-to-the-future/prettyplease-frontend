@@ -11,7 +11,7 @@ import {
   useHistory,
   useParams,
 } from "react-router-dom";
-import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
+import { getFormattedAmount, getFormattedDuration } from "../RequestFormatter";
 import { useAuth } from "../Firebase/AuthContext";
 import "./OfferDetailsPending.css";
 

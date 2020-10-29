@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import OfferAcceptedDisplayCard from "../OfferAcceptedDisplayCard/OfferAcceptedDisplayCard";
 import { useAuth } from "../Firebase/AuthContext";
 import "./SponsorPageAccepted.css";
-import { getFormattedPlural } from "../requestformatter";
+import { getFormattedPlural } from "../RequestFormatter";
 
 function SponsorPageAccepted() {
 

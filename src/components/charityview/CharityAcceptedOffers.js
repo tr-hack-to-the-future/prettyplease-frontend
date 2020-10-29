@@ -5,7 +5,7 @@ import { useAuth } from "../Firebase/AuthContext";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
+import { getFormattedAmount, getFormattedDuration } from "../RequestFormatter";
 
 export default function CharityAcceptedOffers() {
   let { sponsorOffers, getSponsorOffers } = useAuth();

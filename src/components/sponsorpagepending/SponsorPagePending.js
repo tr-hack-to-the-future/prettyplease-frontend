@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import OfferPendingDisplayCard from "../OfferPendingDisplayCard/OfferPendingDisplayCard";
 import { useAuth } from "../Firebase/AuthContext";
 import "./SponsorPagePending.css";
-import { getFormattedPlural } from "../requestformatter";
+import { getFormattedPlural } from "../RequestFormatter";
 
 function SponsorPagePending() {
   // fetch the sponsor offers

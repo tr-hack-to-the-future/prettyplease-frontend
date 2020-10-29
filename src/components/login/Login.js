@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Form, Button } from "react-bootstrap";
-import "./login.css";
+import "./Login.css";
 import { useAuth } from "../Firebase/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";

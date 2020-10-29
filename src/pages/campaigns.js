@@ -1,6 +1,6 @@
 import React from "react";
-import { CampaignsContainer } from "../containers/campaigns";
-import { FooterContainer } from "../containers/footer";
+import { CampaignsContainer } from "../Containers/Campaigns";
+import { FooterContainer } from "../Containers/footer";
 
 function Campaigns() {
   return  <>

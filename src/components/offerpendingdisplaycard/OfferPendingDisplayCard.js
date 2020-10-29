@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
-import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
+import { getFormattedAmount, getFormattedDuration } from "../RequestFormatter";
 
 function OfferPendingDisplayCard({ cardData }) {
   return cardData.map((card, index) => (

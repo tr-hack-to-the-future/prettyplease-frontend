@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "./components/Carousel";
-import { JumbotronContainer } from "./containers/jumbotron";
-import { FaqsContainer } from "./containers/faqs";
+import { JumbotronContainer } from "./Containers/Jumbotron";
+import { FaqsContainer } from "./Containers/Faqs";
 
 function Main({ SponsorData }) {
   return (

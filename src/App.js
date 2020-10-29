@@ -1,27 +1,27 @@
 import React from "react";
 import Main from "./Main.js";
 import { AuthProvider } from "./components/Firebase/AuthContext";
-import Login from "./components/login/Login";
-import SignUp from "./components/login/SignUp.js";
-import SponsorPage from "./components/sponsorpage/SponsorPage";
+import Login from "./components/Login/Login";
+import SignUp from "./components/Login/SignUp.js";
+import SponsorPage from "./components/SponsorPage/SponsorPage";
 import CharityPage from "./components/CharityPage";
-import Requests from "./components/charityview/Requests";
-import CharityAcceptedOffers from "./components/charityview/CharityAcceptedOffers";
-import FundRequest from "./components/fundrequest/FundRequest";
-import CharityProfilePage from "./components/profile/CharityProfilePage";
-import SponsorProfilePage from "./components/profile/SponsorProfilePage";
+import Requests from "./components/CharityView/Requests";
+import CharityAcceptedOffers from "./components/CharityView/CharityAcceptedOffers";
+import FundRequest from "./components/FundRequest/FundRequest";
+import CharityProfilePage from "./components/Profile/CharityProfilePage";
+import SponsorProfilePage from "./components/Profile/SponsorProfilePage";
 import PPNavbar from "./components/PPNavbar";
-import SponsorRequestDetails from "./components/sponsorrequestdetails/SponsorRequestDetails";
-import OfferDetailsAccepted from "./components/offerdetailsaccepted/OfferDetailsAccepted";
-import OfferDetailsPending from "./components/offerdetailspending/OfferDetailsPending";
-import SponsorPageAccepted from "./components/sponsorpageaccepted/SponsorPageAccepted";
-import SponsorPagePending from "./components/sponsorpagepending/SponsorPagePending";
-import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept";
-import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
-import FailRequestPage from "./components/fundrequest/FailRequestPage";
-import { FooterContainer } from "./containers/footer";
-import Campaigns from "./pages/Campaigns";
-import ContactUs from "./pages/ContactUs";
+import SponsorRequestDetails from "./components/SponsorRequestDetails/SponsorRequestDetails";
+import OfferDetailsAccepted from "./components/OfferDetailsAccepted/OfferDetailsAccepted";
+import OfferDetailsPending from "./components/OfferDetailsPending/OfferDetailsPending";
+import SponsorPageAccepted from "./components/SponsorPageAccepted/SponsorPageAccepted";
+import SponsorPagePending from "./components/SponsorPagePending/SponsorPagePending";
+import SponsorDetailsAccept from "./components/CharityView/SponsorDetailsAccept";
+import ConfirmationRequestPage from "./components/FundRequest/ConfirmationRequestPage";
+import FailRequestPage from "./components/FundRequest/FailRequestPage";
+import { FooterContainer } from "./Containers/Footer";
+import { CampaignsContainer } from "./Containers/Campaigns";
+import { ContactUsContainer } from "./Containers/ContactUs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -33,10 +33,10 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Main}></Route>
           <Route path="/Campaigns">
-            <Campaigns />
+            <CampaignsContainer />
           </Route>
           <Route path="/ContactUs">
-            <ContactUs />
+            <ContactUsContainer />
           </Route>
           <Route exact path="/Login">
             <Login />

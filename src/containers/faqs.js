@@ -1,6 +1,6 @@
 import React from "react";
 import { Accordion } from "../components";
-import faqsData from "../fixtures/faqs.json";
+import faqsData from "../Fixtures/faqs.json";
 
 export function FaqsContainer() {
   return (

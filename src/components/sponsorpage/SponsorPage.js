@@ -3,9 +3,9 @@ import Card from "react-bootstrap/Card";
 import "./SponsorPage.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import RequestDisplayCard from "../requestdisplaycard/RequestDisplayCard";
+import RequestDisplayCard from "../RequestDisplayCard/RequestDisplayCard";
 import { useEffect } from "react";
-import { getFormattedPlural } from "../requestformatter";
+import { getFormattedPlural } from "../RequestFormatter";
 import { useAuth } from "../Firebase/AuthContext";
 
 function SponsorPage() {

@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import Modal from "react-bootstrap/Modal";
-import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
+import { getFormattedAmount, getFormattedDuration } from "../RequestFormatter";
 import { useAuth } from "../Firebase/AuthContext";
 import "./SponsorRequestDetails.css";
 
