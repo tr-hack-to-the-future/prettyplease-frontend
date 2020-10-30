@@ -18,7 +18,7 @@ export default function DisplayCard({ sponsor }) {
             />
           </Col>
           <Col className="col p-4 d-flex flex-column position-static">
-            <a href="Sponsor1.html" class="stretched-link">
+            <a href="Sponsor1.html" className="stretched-link">
               <p className="card-text mb-auto">
                 {ch.sponsorName} has offered to sponsor for : <br />
                 {ch.eventDescription}

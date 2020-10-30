@@ -19,7 +19,6 @@ function ModalConfirmationRequest(props) {
         props.charitydetails
       )
       .then((response) => {
-        console.log(response);
         handleClose(); // Call the funtion onHide to close the Modal
         history.push("/ConfirmationRequestPage");
       })
