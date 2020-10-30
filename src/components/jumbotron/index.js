@@ -10,7 +10,7 @@ import {
   ButtonLink,
   Text,
   Section,
-  Pane
+  Pane,
 } from "./styles/jumbotron";
 
 export default function Jumbotron({ children, ...restProps }) {

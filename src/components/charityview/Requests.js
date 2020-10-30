@@ -1,20 +1,17 @@
 import React, { useEffect } from "react";
 import "./charityview.css";
 import Container from "react-bootstrap/Container";
-
 import { useAuth } from "../Firebase/AuthContext";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-
 import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
 
 export default function Requests() {
   let { charityReq, getCharityRequests } = useAuth();
 
   useEffect(() => {
-    getCharityRequests().then(console.log(charityReq));
+    getCharityRequests();
   }, []);
 
   return (
@@ -51,7 +48,10 @@ export default function Requests() {
                     </Col>
                     <Col>
                       <Card.Text>
-                        Duration: {getFormattedDuration(card.durationInYears)}
+                        Duration:{" "}
+                        {card.durationInYears
+                          ? getFormattedDuration(card.durationInYears)
+                          : "One-off Event"}
                       </Card.Text>
                     </Col>
                   </Row>

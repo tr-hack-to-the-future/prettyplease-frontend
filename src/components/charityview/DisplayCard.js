@@ -1,11 +1,8 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import SponsorDetailsAccept from "./SponsorDetailsAccept";
+import { BrowserRouter as  Link } from "react-router-dom";
 
 export default function DisplayCard({ sponsor }) {
   return sponsor.map((ch, index) => (
@@ -21,7 +18,7 @@ export default function DisplayCard({ sponsor }) {
             />
           </Col>
           <Col className="col p-4 d-flex flex-column position-static">
-            <a href="Sponsor1.html" class="stretched-link">
+            <a href="Sponsor1.html" className="stretched-link">
               <p className="card-text mb-auto">
                 {ch.sponsorName} has offered to sponsor for : <br />
                 {ch.eventDescription}

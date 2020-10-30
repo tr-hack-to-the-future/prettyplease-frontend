@@ -2,11 +2,8 @@ import React, { useEffect } from "react";
 import "./CharityPage.css";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-
 import { useAuth } from "./Firebase/AuthContext";
-
 import Row from "react-bootstrap/Row";
-
 import DisplayCard from "./charityview/DisplayCard";
 
 function CharityPage() {
@@ -15,7 +12,7 @@ function CharityPage() {
     (offers) => offers.requestStatus === "OPEN"
   );
   useEffect(() => {
-    getSponsorOffers().then(console.log(sponsorOffers));
+    getSponsorOffers();
   }, []);
 
   return (

@@ -9,18 +9,18 @@ import useDocumentScrollThrottled from "../helpers/useDocumentScrollThrottled";
 import { useAuth } from "./Firebase/AuthContext";
 import { HashRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import useDocumentScrollThrottled from "../helpers/useDocumentScrollThrottled";
+import { useAuth } from "./Firebase/AuthContext";
+import { HashRouter as Router } from "react-router-dom";
 
 function PPNavbar() {
   const [shouldHideHeader, setShouldHideHeader] = useState(false);
   const [shouldShowShadow, setShouldShowShadow] = useState(false);
   const MINIMUM_SCROLL = 80;
   const TIMEOUT_DELAY = 400;
-
   const { currentUser, userType, logout } = useAuth();
   const [error, setError] = useState("");
-  const history = useHistory();
-
-  useDocumentScrollThrottled(callbackData => {
+  useDocumentScrollThrottled((callbackData) => {
     const { previousScrollTop, currentScrollTop } = callbackData;
     const isScrolledDown = previousScrollTop < currentScrollTop;
     const isMinimumScrolled = currentScrollTop > MINIMUM_SCROLL;
@@ -40,6 +40,7 @@ function PPNavbar() {
       logout();
     } catch {
       setError("Failed to logout");
+      console.log(error);
     }
   }
 

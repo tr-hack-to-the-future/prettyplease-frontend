@@ -1,39 +1,33 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import { useAuth } from "../Firebase/AuthContext";
-import ProfileTextDescription from './ProfileTextDescription';
-
-import Container from 'react-bootstrap/Container';
+import ProfileTextDescription from "./ProfileTextDescription";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 function SponsorProfilePage() {
-
   const [detailsSponsor, setdetailsSponsor] = useState([]);
   const { currentUserID } = useAuth();
 
   useEffect(() => {
     axios
       .get(
-        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors/"+currentUserID
+        "https://ae9g7g3iyl.execute-api.eu-west-2.amazonaws.com/dev/sponsors/" +
+          currentUserID
       )
-      .then(response => {
+      .then((response) => {
         setdetailsSponsor(response.data);
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   }, []);
 
   const changeSponsorProfile = (name, description) => {
     const newProfile = {
       nameProfile: name,
-      descriptionProfile: description
+      descriptionProfile: description,
     };
-
-    console.log(newProfile.nameProfile);
-    console.log(newProfile.descriptionProfile);
     const updatedSponsorProfile = [...detailsSponsor, newProfile];
-
     setdetailsSponsor(updatedSponsorProfile);
   };
 
