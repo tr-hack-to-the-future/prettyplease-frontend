@@ -3,6 +3,12 @@ import "./Navbar.css";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
+
+import Emoji from "../helpers/emoji";
+import useDocumentScrollThrottled from "../helpers/useDocumentScrollThrottled";
+import { useAuth } from "./Firebase/AuthContext";
+import { HashRouter as Router } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import useDocumentScrollThrottled from "../helpers/useDocumentScrollThrottled";
 import { useAuth } from "./Firebase/AuthContext";
 import { HashRouter as Router } from "react-router-dom";
@@ -83,7 +89,7 @@ function PPNavbar() {
         <Navbar className="navbar" collapseOnSelect expand="lg">
           <Navbar.Brand className="logo" href="/prettyplease-frontend">
             <h1>
-              Pretty{" "}
+              Pretty
               <span className="icon" role="img" aria-label="Please">
                 🙏
               </span>
