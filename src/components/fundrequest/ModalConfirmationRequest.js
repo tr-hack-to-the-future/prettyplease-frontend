@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { getFormattedAmount, getFormattedDuration } from "../RequestFormatter";
+import { getFormattedAmount, getFormattedDuration } from "../requestformatter";
 import { useHistory } from "react-router-dom";
 
 function ModalConfirmationRequest(props) {

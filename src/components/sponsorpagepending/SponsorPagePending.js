@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import OfferPendingDisplayCard from "../OfferPendingDisplayCard/OfferPendingDisplayCard";
+import OfferPendingDisplayCard from "../offerpendingdisplaycard/OfferPendingDisplayCard";
 import { useAuth } from "../Firebase/AuthContext";
 import "./SponsorPagePending.css";
-import { getFormattedPlural } from "../RequestFormatter";
+import { getFormattedPlural } from "../requestformatter";
 
 function SponsorPagePending() {
   // fetch the sponsor offers

@@ -2,7 +2,7 @@ import React from "react";
 import { useAuth } from "../components/Firebase/AuthContext";
 import { useHistory } from "react-router-dom";
 import Jumbotron from "../components/jumbotron";
-import Emoji from "../Helpers/emoji";
+import Emoji from "../helpers/emoji";
 
 export function JumbotronContainer() {
   const { currentUser } = useAuth();

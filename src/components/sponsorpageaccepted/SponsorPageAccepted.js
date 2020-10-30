@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import OfferAcceptedDisplayCard from "../OfferAcceptedDisplayCard/OfferAcceptedDisplayCard";
+import OfferAcceptedDisplayCard from "../offeraccepteddisplaycard/OfferAcceptedDisplayCard";
 import { useAuth } from "../Firebase/AuthContext";
 import "./SponsorPageAccepted.css";
-import { getFormattedPlural } from "../RequestFormatter";
+import { getFormattedPlural } from "../requestformatter";
 
 function SponsorPageAccepted() {
 
