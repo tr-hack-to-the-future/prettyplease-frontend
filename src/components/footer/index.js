@@ -7,7 +7,7 @@ import {
   Title,
   Text,
   Break
-} from "./styles/Footer";
+} from "./styles/footer";
 
 export default function Footer({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;

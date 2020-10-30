@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { Modal } from "react-bootstrap";
-import "./CharityView.css";
+import "./charityview.css";
 import { useAuth } from "../Firebase/AuthContext";
 import axios from "axios";
 import Button from "react-bootstrap/Button";

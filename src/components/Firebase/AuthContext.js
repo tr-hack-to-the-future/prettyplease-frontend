@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth, database } from "./Firebase";
+import { auth, database } from "./firebase";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 

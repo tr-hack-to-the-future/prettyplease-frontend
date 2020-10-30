@@ -3,7 +3,7 @@ import "./Navbar.css";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
-import useDocumentScrollThrottled from "../Helpers/useDocumentScrollThrottled";
+import useDocumentScrollThrottled from "../helpers/useDocumentScrollThrottled";
 import { useAuth } from "./Firebase/AuthContext";
 import { HashRouter as Router } from "react-router-dom";
 

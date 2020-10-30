@@ -11,7 +11,7 @@ import {
   Text,
   Section,
   Pane,
-} from "./styles/Jumbotron";
+} from "./styles/jumbotron";
 
 export default function Jumbotron({ children, ...restProps }) {
   return (
