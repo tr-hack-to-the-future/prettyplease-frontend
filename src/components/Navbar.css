@@ -4,6 +4,17 @@
   font-family: "Helvetica", sans-serif;
 }
 
+.navbar-brand h1 {
+  font-family: "Sansita Swashed", cursive;
+  font-size: 4.5rem;
+}
+
+.icon {
+  font-size: 100px;
+  display: inline-block;
+  transform: scale(1.2);
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -42,14 +53,4 @@
     display: inline-block;
     transform: scale(0.8);
   }
-}
-
-.navbar-brand {
-  font-size: 2.5rem;
-  font-family: "Sansita Swashed", cursive;
-}
-
-.navbar-brand h1 {
-  display: inline-block;
-  font-size: 5rem;
 }

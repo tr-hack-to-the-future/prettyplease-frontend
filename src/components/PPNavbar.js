@@ -88,7 +88,10 @@ function PPNavbar() {
         <Navbar className="navbar" collapseOnSelect expand="lg">
           <Navbar.Brand className="logo" href="/prettyplease-frontend">
             <h1>
-              Pretty <Emoji label="please" symbol="🙏" />
+              Pretty
+              <span className="icon" role="img" aria-label="Please">
+                🙏
+              </span>
             </h1>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
