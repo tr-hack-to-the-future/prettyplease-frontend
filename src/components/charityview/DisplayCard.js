@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function DisplayCard({ sponsor }) {
   return sponsor.map((ch, index) => (
-    <Link to={`/ForCharities/${index + 1}`}>
+    <Link to={`/ForCharities/${index + 1}`}  key={index}>
       <Card>
         <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <Col className="col-auto flex-column">
@@ -18,7 +18,6 @@ export default function DisplayCard({ sponsor }) {
             />
           </Col>
           <Col className="col p-4 d-flex flex-column position-static">
-            <a href="Sponsor1.html" className="stretched-link">
               <p className="card-text mb-auto">
                 {ch.sponsorName} has offered to sponsor for : <br />
                 {ch.eventDescription}
@@ -27,7 +26,6 @@ export default function DisplayCard({ sponsor }) {
                 {ch.sponsorName}
               </strong>
               <p className="card-text mb-auto">{ch.sponsorDescription}</p>
-            </a>
           </Col>
         </Row>
       </Card>

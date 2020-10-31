@@ -16,8 +16,7 @@ function CharityPage() {
   }, []);
 
   return (
-    <Container>
-      <div className="ReviewAccept">
+    <Container className="ReviewAccept">
         <Row className="justify-content-md-center mt-4">
           <h3>
             {openOffers.length === 0
@@ -33,7 +32,6 @@ function CharityPage() {
             <DisplayCard sponsor={openOffers}></DisplayCard>
           </Card>
         </Row>
-      </div>
     </Container>
   );
 }

@@ -11,7 +11,7 @@ export default function CharityAcceptedOffers() {
   let { sponsorOffers, getSponsorOffers } = useAuth();
 
   useEffect(() => {
-    getSponsorOffers().then(console.log(sponsorOffers));
+    getSponsorOffers();
   }, []);
 
   return (
@@ -27,7 +27,7 @@ export default function CharityAcceptedOffers() {
               request.offerStatus === "ACCEPTED"
           )
           .map((card, index) => (
-            <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <Row key={index} className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <Col className="col-auto flex-column">
                 <img
                   src={card.sponsorImageUrl}

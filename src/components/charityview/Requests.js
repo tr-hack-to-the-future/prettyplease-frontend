@@ -27,7 +27,7 @@ export default function Requests() {
               self.findIndex((obj) => obj.requestId === offer.requestId)
           )
           .map((card, index) => (
-            <Row className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <Row key={index} className="no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <Col className="col-auto flex-column">
                 <img
                   src={card.charityImageUrl}
