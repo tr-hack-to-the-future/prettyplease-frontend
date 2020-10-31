@@ -4,7 +4,6 @@ const Emoji = (props) => (
   <span
     className="emoji"
     style={{
-      paddingRight: "5px"
       paddingRight: "5px",
       border: "1px bold black",
     }}

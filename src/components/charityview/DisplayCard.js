@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { BrowserRouter as  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function DisplayCard({ sponsor }) {
   return sponsor.map((ch, index) => (
