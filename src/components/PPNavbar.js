@@ -92,7 +92,7 @@ function PPNavbar() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#">About Us</Nav.Link>
+              <Nav.Link href="/prettyplease-frontend/#/AboutUs">About Us</Nav.Link>
               <Nav.Link href="/prettyplease-frontend/#/campaigns">
                 Campaigns
               </Nav.Link>

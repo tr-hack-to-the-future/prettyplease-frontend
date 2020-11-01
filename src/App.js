@@ -20,8 +20,8 @@ import SponsorDetailsAccept from "./components/charityview/SponsorDetailsAccept"
 import ConfirmationRequestPage from "./components/fundrequest/ConfirmationRequestPage";
 import FailRequestPage from "./components/fundrequest/FailRequestPage";
 import { FooterContainer } from "./containers/footer";
-// import { CampaignsContainer } from "./containers/Campaigns";
-// import { ContactUsContainer } from "./containers/ContactUs";
+import Campaigns from "./components/Campaigns";
+import AboutUs from "./components/AboutUs";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -32,14 +32,14 @@ export default function App() {
         <PPNavbar />
         <Switch>
           <Route exact path="/" component={Main}>
-            <Main/>
+            <Main />
           </Route>
-          {/* <Route path="/Campaigns">
-            <CampaignsContainer />
+          <Route path="/Campaigns">
+            <Campaigns />
           </Route>
-          <Route path="/ContactUs">
-            <ContactUsContainer />
-          </Route> */}
+          <Route path="/AboutUs">
+            <AboutUs />
+          </Route>
           <Route exact path="/Login">
             <Login />
           </Route>

@@ -1,0 +1,15 @@
+.container-AboutUs {
+    padding-top: 180px;
+    padding-bottom: 100px;
+
+  }
+
+  .body-AboutUs{
+    font-size: 1.1em;
+    margin: 25px;
+    line-height: 1.1;
+    font-style: bold;
+    text-align: justify;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
