@@ -5,15 +5,15 @@ import Jumbotron from "../components/jumbotron";
 import Emoji from "../helpers/emoji";
 
 export function JumbotronContainer() {
-  const { currentUser } = useAuth();
+  const { currentUser,userType } = useAuth();
   const history = useHistory();
 
   const handlerForSponsor = () => {
-    !currentUser ? history.push("/Login") : history.push("/ForSponsors");
+    !currentUser ? history.push("/Login") : (userType==='sponsor')?history.push("/ForSponsors"):history.push("/");
   };
 
   const handlerForCharities = () => {
-    !currentUser ? history.push("/Login") : history.push("/ForCharities");
+    !currentUser ? history.push("/Login") : (userType==='charity')?history.push("/ForCharities"):history.push("/");
   };
 
   const handlerNewRequest = () => {

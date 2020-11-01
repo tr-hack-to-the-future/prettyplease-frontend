@@ -31,7 +31,9 @@ export default function App() {
       <AuthProvider>
         <PPNavbar />
         <Switch>
-          <Route exact path="/" component={Main}></Route>
+          <Route exact path="/" component={Main}>
+            <Main/>
+          </Route>
           {/* <Route path="/Campaigns">
             <CampaignsContainer />
           </Route>

@@ -3,7 +3,7 @@ import Carousel from "./components/Carousel";
 import { JumbotronContainer } from "./containers/jumbotron";
 import { FaqsContainer } from "./containers/faqs";
 
-function Main({ SponsorData }) {
+function Main() {
   return (
     <>
       <JumbotronContainer />

@@ -81,10 +81,10 @@ function PPNavbar() {
     <Router>
       <div className={`header ${hiddenStyle} ${shadowStyle}`}>
         <Navbar className="navbar" collapseOnSelect expand="lg">
-          <Navbar.Brand className="logo" href="/prettyplease-frontend">
+          <Navbar.Brand className="logo" href="/prettyplease-frontend/#">
             <h1>
               Pretty
-              <span className="icon" role="img" aria-label="Please">
+              <span className="icon logo" role="img" aria-label="Please">
                 🙏
               </span>
             </h1>
