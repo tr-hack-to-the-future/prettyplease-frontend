@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/prettyplease-frontend/static/css/main.38a075b7.chunk.css",
-    "main.js": "/prettyplease-frontend/static/js/main.e1816aa2.chunk.js",
-    "main.js.map": "/prettyplease-frontend/static/js/main.e1816aa2.chunk.js.map",
+    "main.css": "/prettyplease-frontend/static/css/main.7bb570be.chunk.css",
+    "main.js": "/prettyplease-frontend/static/js/main.2665eb96.chunk.js",
+    "main.js.map": "/prettyplease-frontend/static/js/main.2665eb96.chunk.js.map",
     "runtime-main.js": "/prettyplease-frontend/static/js/runtime-main.7d629949.js",
     "runtime-main.js.map": "/prettyplease-frontend/static/js/runtime-main.7d629949.js.map",
     "static/css/2.ce2397d7.chunk.css": "/prettyplease-frontend/static/css/2.ce2397d7.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.f7772777.chunk.js.map": "/prettyplease-frontend/static/js/2.f7772777.chunk.js.map",
     "index.html": "/prettyplease-frontend/index.html",
     "static/css/2.ce2397d7.chunk.css.map": "/prettyplease-frontend/static/css/2.ce2397d7.chunk.css.map",
-    "static/css/main.38a075b7.chunk.css.map": "/prettyplease-frontend/static/css/main.38a075b7.chunk.css.map",
+    "static/css/main.7bb570be.chunk.css.map": "/prettyplease-frontend/static/css/main.7bb570be.chunk.css.map",
     "static/js/2.f7772777.chunk.js.LICENSE.txt": "/prettyplease-frontend/static/js/2.f7772777.chunk.js.LICENSE.txt",
     "static/media/999club.43fd94d0.jpg": "/prettyplease-frontend/static/media/999club.43fd94d0.jpg",
     "static/media/hackneyfoodbank.701e1608.jpg": "/prettyplease-frontend/static/media/hackneyfoodbank.701e1608.jpg",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.7d629949.js",
     "static/css/2.ce2397d7.chunk.css",
     "static/js/2.f7772777.chunk.js",
-    "static/css/main.38a075b7.chunk.css",
-    "static/js/main.e1816aa2.chunk.js"
+    "static/css/main.7bb570be.chunk.css",
+    "static/js/main.2665eb96.chunk.js"
   ]
 }
