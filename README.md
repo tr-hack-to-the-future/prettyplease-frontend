@@ -47,7 +47,7 @@ To start the application:
 
 The application will then be accessible at:
 
-[http://localhost:3000](http://localhost:3000)
+[http://localhost:3000/prettyplease-frontend/](http://localhost:3000/prettyplease-frontend/)
 
 
 
