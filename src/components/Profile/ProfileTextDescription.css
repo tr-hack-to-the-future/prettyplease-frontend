@@ -1,0 +1,10 @@
+.profile-text-description-container {
+  padding-top: 220px;
+  padding-bottom: 50px;
+}
+.profile-text-description {
+  padding-top: 30px;
+}
+.auto-size-textarea {
+  width: 100%;
+}

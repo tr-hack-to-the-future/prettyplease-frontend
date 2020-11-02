@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from "./components/Carousel";
+import StyledCarousel from "./components/StyledCarousel";
 import { JumbotronContainer } from "./containers/jumbotron";
 import { FaqsContainer } from "./containers/faqs";
 
@@ -7,7 +7,7 @@ function Main() {
   return (
     <>
       <JumbotronContainer />
-      <Carousel />
+      <StyledCarousel />
       <FaqsContainer />
     </>
   );

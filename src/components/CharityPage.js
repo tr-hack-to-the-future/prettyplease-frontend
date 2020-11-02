@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import { useAuth } from "./Firebase/AuthContext";
 import Row from "react-bootstrap/Row";
-import DisplayCard from "./charityview/DisplayCard";
+import DisplayCard from "./CharityView/DisplayCard";
 
 function CharityPage() {
   let { sponsorOffers, getSponsorOffers } = useAuth();
