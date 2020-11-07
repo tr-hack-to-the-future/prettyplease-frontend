@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/prettyplease-frontend/static/css/main.7bb570be.chunk.css",
-    "main.js": "/prettyplease-frontend/static/js/main.2665eb96.chunk.js",
-    "main.js.map": "/prettyplease-frontend/static/js/main.2665eb96.chunk.js.map",
+    "main.js": "/prettyplease-frontend/static/js/main.95dd0e4a.chunk.js",
+    "main.js.map": "/prettyplease-frontend/static/js/main.95dd0e4a.chunk.js.map",
     "runtime-main.js": "/prettyplease-frontend/static/js/runtime-main.7d629949.js",
     "runtime-main.js.map": "/prettyplease-frontend/static/js/runtime-main.7d629949.js.map",
     "static/css/2.ce2397d7.chunk.css": "/prettyplease-frontend/static/css/2.ce2397d7.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.ce2397d7.chunk.css",
     "static/js/2.f7772777.chunk.js",
     "static/css/main.7bb570be.chunk.css",
-    "static/js/main.2665eb96.chunk.js"
+    "static/js/main.95dd0e4a.chunk.js"
   ]
 }
