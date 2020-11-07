@@ -59,8 +59,7 @@ export function JumbotronContainer() {
           asking is not a taboo. We start from the principle that if you don't
           ask, you don't get. Let generosity be a constant. You are a charity:
           connect with the most ethical organisations globally. You are a
-          sponsor: wear your <Emoji label="heart" symbol="❤️"  />
-          sponsor: wear your <Emoji symbol="❤️" label="heart" />
+          sponsor: wear your <Emoji label="heart" symbol="❤️" /> 
           on your sleeve.
         </Jumbotron.Text>
         <Jumbotron.ButtonLink onClick={handlerNewRequest} alt="Fund Request">
